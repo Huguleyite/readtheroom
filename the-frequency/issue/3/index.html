@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Frequency — Issue #3 | Bills Signed. Ballots Set. A Building Left Behind.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body { font-family: 'DM Sans', Arial, sans-serif; font-weight: 300; color: #1a1a18; -webkit-font-smoothing: antialiased; background: #ede8df; }
+
+  .top-bar { height: 3px; background: #c8a96e; }
+  .site-nav { background: #1a1a18; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #252522; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-img { height: 38px; width: 38px; object-fit: cover; border: 1px solid #2e2e2c; }
+  .nav-brand-text { display: flex; flex-direction: column; gap: 3px; }
+  .nav-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; color: #faf9f5; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; }
+  .nav-brand-rule { height: 1px; background: #c8a96e; width: 100%; }
+  .nav-brand-tag { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; }
+  .nav-links { display: flex; align-items: center; }
+  .nav-sep { width: 1px; height: 14px; background: #2e2e2c; }
+  .nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; padding: 0 20px; transition: color 0.2s; }
+  .nav-link:hover, .nav-link.active { color: #c8a96e; }
+
+  .issue-wrap { max-width: 720px; margin: 0 auto; background: #faf9f5; padding: 0 0 60px; }
+  .masthead { border-top: 3px solid #1a1a18; padding: 36px 56px 0; background: #faf9f5; }
+  .mast-top-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .mast-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #888880; }
+  .mast-right { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; }
+  .mast-title { font-family: 'Playfair Display', Georgia, serif; font-size: 58px; font-weight: 900; line-height: 0.95; letter-spacing: -0.02em; color: #1a1a18; margin-bottom: 6px; }
+  .mast-title em { font-style: italic; font-weight: 400; }
+  .mast-sub { font-size: 12px; font-weight: 400; color: #666660; letter-spacing: 0.03em; margin-bottom: 16px; }
+  .wave-rule { display: flex; align-items: center; gap: 3px; height: 20px; }
+  .wave-bar { background: #1a1a18; border-radius: 2px; flex-shrink: 0; }
+  .wave-spacer { flex: 1; height: 0.5px; background: #d0cfc8; margin: 0 6px; }
+  .wave-issue { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #888880; white-space: nowrap; }
+  .meta-bar { display: flex; justify-content: space-between; font-size: 10px; font-weight: 500; color: #888880; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 56px; border-top: 0.5px solid #d0cfc8; border-bottom: 0.5px solid #d0cfc8; margin: 8px 0 0; }
+  .tf-topic-band { background: #c8a96e; padding: 10px 56px; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #1a1a18; font-weight: 500; text-align: center; }
+  .issue-body { padding: 36px 56px 0; }
+  .intro-block { border-left: 3px solid #1a1a18; padding: 12px 18px; background: #f0efe8; margin-bottom: 36px; font-size: 15px; font-style: italic; color: #555550; line-height: 1.7; font-weight: 400; }
+  .story { padding: 32px 0; border-top: 0.5px solid #d0cfc8; }
+  .story:last-of-type { border-bottom: 0.5px solid #d0cfc8; }
+  .story-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .story-num { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #aaa9a0; }
+  .tag { font-size: 9.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+  .tag-school   { background: #E6F1FB; color: #185FA5; }
+  .tag-election { background: #FAECE7; color: #993C1D; }
+  .tag-local    { background: #EEEDFE; color: #534AB7; }
+  .tag-state    { background: #F0EDE5; color: #5a5248; }
+  .local-badge { font-size: 9px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; background: #1a1a18; color: #faf9f5; }
+  .story-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 700; line-height: 1.2; color: #1a1a18; margin-bottom: 10px; }
+  .story-dek { font-size: 14px; font-weight: 400; font-style: italic; color: #666660; line-height: 1.6; margin-bottom: 16px; }
+  .story-body { font-size: 15.5px; font-weight: 300; color: #1a1a18; line-height: 1.82; }
+  .story-body p + p { margin-top: 14px; }
+  .gold-rule { height: 0.75px; background: #c8a96e; width: 200px; margin: 16px 0 0; }
+  .story-source { font-size: 10.5px; font-weight: 400; font-style: italic; color: #aaa9a0; margin-top: 12px; }
+
+  .issue-nav { background: #1a1a18; border-top: 3px solid #c8a96e; padding: 28px 40px; }
+  .issue-nav-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .issue-nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; transition: color 0.2s; display: flex; flex-direction: column; gap: 5px; }
+  .issue-nav-link:hover { color: #c8a96e; }
+  .issue-nav-link.disabled { color: #2e2e2c; pointer-events: none; }
+  .issue-nav-direction { font-size: 8px; letter-spacing: 0.2em; color: #444440; }
+  .issue-nav-sep { width: 1px; height: 32px; background: #252522; }
+
+  .subscribe-cta { background: #1a1a18; padding: 64px 40px; text-align: center; }
+  .subscribe-cta-inner { max-width: 480px; margin: 0 auto; }
+  .subscribe-cta-rule { width: 40px; height: 2px; background: #c8a96e; margin: 0 auto 20px; }
+  .subscribe-cta-eyebrow { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 12px; }
+  .subscribe-cta-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: #faf9f5; margin-bottom: 14px; }
+  .subscribe-cta-desc { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 16px; color: #888880; line-height: 1.7; margin-bottom: 30px; }
+  .subscribe-cta-btn { display: inline-block; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 32px; background: #c8a96e; color: #1a1a18; font-weight: 500; cursor: pointer; border: none; transition: opacity 0.15s; font-family: 'DM Sans', Arial, sans-serif; }
+  .subscribe-cta-btn:hover { opacity: 0.85; }
+
+  .site-footer { background: #111110; border-top: 1px solid #1a1a18; padding: 52px 40px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #1e1e1c; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-logo { height: 44px; width: 44px; object-fit: cover; border: 1px solid #2a2a28; }
+  .footer-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .footer-brand-rule { width: 28px; height: 1px; background: #c8a96e; margin-bottom: 4px; }
+  .footer-brand-tag { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; font-weight: 300; color: #3a3a38; }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col-head { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #444440; text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: #c8a96e; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 10px; letter-spacing: 0.06em; color: #2a2a28; }
+  .footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; color: #2a2a28; }
+
+  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(10,10,9,0.88); align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+  .modal-overlay.active { display: flex; }
+  .modal-box { background: #1a1a18; border: 1px solid #2e2e2c; outline: 1px solid rgba(200,169,110,0.25); outline-offset: 6px; padding: 48px 48px 40px; max-width: 480px; width: 90%; position: relative; }
+  .modal-close { position: absolute; top: 14px; right: 18px; font-size: 22px; color: #555550; background: none; border: none; cursor: pointer; line-height: 1; transition: color 0.15s; }
+  .modal-close:hover { color: #c8a96e; }
+  .modal-eyebrow { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 10px; }
+  .modal-rule { width: 40px; height: 2px; background: #c8a96e; margin-bottom: 16px; }
+  .modal-title { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 28px; }
+
+  @media (max-width: 768px) {
+    .masthead, .issue-body { padding-left: 24px; padding-right: 24px; }
+    .meta-bar { padding-left: 24px; padding-right: 24px; }
+    .mast-title { font-size: 40px; }
+    .nav-links { display: none; }
+    .footer-top { grid-template-columns: 1fr; }
+    .issue-nav-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <img src="/assets/img/logo.png" alt="Read the Room" class="nav-logo-img">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Read the Room</span>
+        <div class="nav-brand-rule"></div>
+        <span class="nav-brand-tag">Politics, explained without the spin.</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/read-the-room/">Read the Room</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link active" href="/the-frequency/">The Frequency</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/games/">Games</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/about/">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="issue-wrap">
+  <header class="masthead">
+    <div class="mast-top-row">
+      <span class="mast-eyebrow">Valley, Alabama &mdash; Weekly Edition</span>
+      <span class="mast-right">Tune in. Stay grounded.</span>
+    </div>
+    <h1 class="mast-title">The <em>Fre</em>quency</h1>
+    <p class="mast-sub">Independent signal for East Alabama &mdash; from Valley to Montgomery &amp; beyond</p>
+    <div class="wave-rule">
+      <div class="wave-bar" style="width:4px;height:5px;opacity:0.25;"></div>
+      <div class="wave-bar" style="width:4px;height:9px;opacity:0.35;"></div>
+      <div class="wave-bar" style="width:4px;height:15px;opacity:0.55;"></div>
+      <div class="wave-bar" style="width:4px;height:11px;opacity:0.45;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:0.75;"></div>
+      <div class="wave-bar" style="width:4px;height:8px;opacity:0.32;"></div>
+      <div class="wave-bar" style="width:4px;height:14px;opacity:0.52;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:1;"></div>
+      <div class="wave-bar" style="width:4px;height:14px;opacity:0.52;"></div>
+      <div class="wave-bar" style="width:4px;height:8px;opacity:0.32;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:0.75;"></div>
+      <div class="wave-bar" style="width:4px;height:11px;opacity:0.45;"></div>
+      <div class="wave-bar" style="width:4px;height:15px;opacity:0.55;"></div>
+      <div class="wave-bar" style="width:4px;height:9px;opacity:0.35;"></div>
+      <div class="wave-bar" style="width:4px;height:5px;opacity:0.25;"></div>
+      <div class="wave-spacer"></div>
+      <span class="wave-issue">Issue #3 &nbsp;&middot;&nbsp; Apr 30, 2026</span>
+    </div>
+  </header>
+
+  <div class="meta-bar">
+    <span>Vol. 1, No. 3</span>
+    <span>Chambers County &amp; Statewide</span>
+    <span>Free Weekly</span>
+  </div>
+
+  <div class="tf-topic-band">◆ &nbsp;&nbsp; Bills Signed. Ballots Set. A Building Left Behind. &nbsp;&nbsp; ◆</div>
+
+  <div class="issue-body">
+    <div class="intro-block">
+      Five Alabama stories the mainstream press isn&rsquo;t connecting for you &mdash; sourced from the Legislature, local government forums, state watchdogs, and your neighbors in Lanett, LaFayette, and Valley. The session ended. The primary is 19 days out. We cut the static so you don&rsquo;t have to.
+    </div>
+
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">01</span>
+        <span class="tag tag-school">Education</span>
+      </div>
+      <h2 class="story-hed">30 Days, $12 Billion, and One Door Slamming Shut</h2>
+      <p class="story-dek">The 2026 Alabama legislative session is over. Here&rsquo;s what it left behind, and what it took with it.</p>
+      <div class="story-body">
+        <p>Alabama&rsquo;s 2026 regular session gaveled to a close on April 9 after all 30 allotted workdays were spent. It was a productive session on paper. But one of its final acts became its most defining: the closed primary bill died in the Senate&rsquo;s final hours, a fight that consumed the session&rsquo;s closing day and left the Alabama Republican Party&rsquo;s top legislative priority in pieces.</p>
+        <p>On education, the session delivered. Legislators passed a $12 billion package for FY 2027, including $10.5 billion from the Education Trust Fund, $419 million in supplemental funds, and $1 billion from the Advancement and Technology Fund. They also passed SB168, which strengthens the Alabama Literacy Act by requiring Science of Reading instruction and banning the three-cueing method. The change reaches every K&ndash;12 classroom statewide by June 1.</p>
+        <p>For local families, the more immediate change may be HB78, the Healthy Early Development and Screen Time Act, which sets new guidelines for screen time in licensed childcare settings. HB580, which passed on the final day, gives governing boards sweeping authority over curriculum and faculty tenure at public colleges &mdash; a change that has drawn concern from faculty governance bodies across the state. On immigration, zero of five bills passed. On the closed primary: watch 2027.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Alabama Reflector &middot; A+ Education Partnership &middot; Alabama Daily News</p>
+    </article>
+
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">02</span>
+        <span class="tag tag-local">Local Government</span>
+        <span class="local-badge">Chambers Co.</span>
+      </div>
+      <h2 class="story-hed">Valley&rsquo;s Hospital Is One of Six. That Matters.</h2>
+      <p class="story-dek">EAMC-Lanier hit its $750K funding cap under a new state program. The money is already headed to equipment that serves Chambers County patients.</p>
+      <div class="story-body">
+        <p>EAMC-Lanier Rural Emergency Hospital in Valley has reached its funding cap under Alabama&rsquo;s Rural Hospital Investment Program. Not every hospital was so fortunate. Of 50 eligible rural hospitals across the state, only six managed to max out the $750,000 cap before contributions closed. EAMC-Lanier was one of them.</p>
+        <p>The Alabama Rural Hospital Investment Program, created in 2025, offers donors a state tax credit for qualifying contributions to eligible rural hospitals. The statewide limit for 2026 is $20 million, with a $750,000 ceiling per hospital. The program runs three years, 2026 through 2028, with caps increasing each year.</p>
+        <p>The $750,000 heading to EAMC-Lanier won&rsquo;t disappear into overhead. The hospital has designated the funds for concrete upgrades: additional ultrasound machines, new surgical equipment for eye surgeons, and updated dining room furniture for the nursing home unit on campus. For a rural emergency hospital serving Chambers County, this kind of equipment investment is the difference between keeping local care local and sending patients an hour down the road.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: WTVM &middot; WSFA &middot; The LaFayette Sun</p>
+    </article>
+
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">03</span>
+        <span class="tag tag-election">Elections &amp; Voting</span>
+        <span class="local-badge">Chambers Co.</span>
+      </div>
+      <h2 class="story-hed">Two Names on Your Ballot. Three Weeks to Decide.</h2>
+      <p class="story-dek">The May 19 Democratic primary for Alabama House District 38 is approaching fast. Here&rsquo;s who Chambers County voters will actually see when they show up.</p>
+      <div class="story-body">
+        <p>The May 19 primary is 19 days away, and voters in Alabama House District 38 &mdash; which covers portions of Chambers and Lee counties &mdash; will see two Democratic names on their ballot: Hazel Floyd of Valley and Christopher F. &ldquo;Apostle&rdquo; Davis of Lanett.</p>
+        <p>Floyd, 22, is a Valley native and 2025 University of Alabama graduate with a degree in Political Science and Philosophy, finishing summa cum laude. She ran in the February 3 special election against Republican Kristin Nelson, losing 83.65% to 16.26%. It&rsquo;s a steep number, but one that reflects the district&rsquo;s composition more than her campaign. She&rsquo;s running again on the same three pillars: public schools, rural communities, and small businesses.</p>
+        <p>Davis, a Lanett minister, is a less visible candidate. As of press time, he has no public campaign website, no documented interviews, and has not filed finance disclosures with the state. His appearance on the ballot is confirmed. His campaign platform is not. The winner of the May 19 primary faces incumbent Kristin Nelson in the November 3 general election. For Democratic voters in Chambers County, May 19 is the decision that matters.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Ballotpedia &middot; Alabama Reflector &middot; Bama Politics</p>
+    </article>
+
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">04</span>
+        <span class="tag tag-election">Elections &amp; Voting</span>
+      </div>
+      <h2 class="story-hed">Rogers Is Running. So Is Someone Else.</h2>
+      <p class="story-dek">The 3rd District congressman has Trump&rsquo;s endorsement and 23 years of incumbency. He also has two Republican challengers and a Democrat who&rsquo;s been asking a pointed question.</p>
+      <div class="story-body">
+        <p>Mike Rogers has represented Alabama&rsquo;s 3rd Congressional District since 2003. He&rsquo;s running for re-election in 2026. And for the first time in a while, he&rsquo;s not running alone in his own primary. Two Republicans have qualified to challenge Rogers in the May 19 GOP primary: Draic Coakley and Terri LaPoint. Neither has the name recognition or resources to be considered a serious threat in a race where Rogers is running with President Trump&rsquo;s full endorsement.</p>
+        <p>Lee McInnis, a native Alabamian, Auburn graduate, U.S. Army veteran, and career Defense Intelligence officer, is running as the Democratic challenger. McInnis entered the race in September 2025 and has been holding open town halls across the district, including one at Auburn University. His campaign has framed the race around a simple question: &ldquo;Where is Mike Rogers?&rdquo; It&rsquo;s a question about visibility, constituent access, and what an incumbent with 23 years in office has actually delivered for East Alabama.</p>
+        <p>The Cook Partisan Voter Index rates this district R+23, the 17th most Republican district in the country. McInnis runs without illusions about the math. But in a district that includes Chambers County, the question itself carries weight.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Ballotpedia &middot; WAKA &middot; Alabama Reflector &middot; The Auburn Plainsman</p>
+    </article>
+
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">05</span>
+        <span class="tag tag-state">State Government</span>
+      </div>
+      <h2 class="story-hed">They&rsquo;ve Been in a Temporary Building Since 1986</h2>
+      <p class="story-dek">Alabama&rsquo;s legislature just held its final session in a mold-riddled structure built as a placeholder. The $400 million replacement opens this fall.</p>
+      <div class="story-body">
+        <p>When Alabama lawmakers gaveled out of the 2026 session on April 9, they left a building that was never supposed to be permanent. The current Alabama Statehouse, first occupied in 1986, was built as a temporary facility while renovations were made to the historic State Capitol nearby. Those renovations ended. The temporary building stayed.</p>
+        <p>Forty years later, it has mold, hundreds of millions in deferred maintenance, and no remaining political will to salvage it. The April 9 session was, barring any special sessions, the last one held there.</p>
+        <p>The replacement is a $400 million development under construction in Montgomery &mdash; the first new state legislative building in the United States since 1977. It includes a new legislative building, a 400-plus-space parking deck, and a plan to demolish the current structure and replace it with public green space. State officials say lawmakers and staff will move in around September or October 2026, with the first full legislative session in the new building set for 2027. The project remains on schedule and under budget.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Alabama Reflector &middot; WTVM &middot; Yellowhammer News</p>
+    </article>
+  </div>
+</div>
+
+<div class="issue-nav">
+  <div class="issue-nav-inner">
+    <a href="/the-frequency/issue/2/" class="issue-nav-link">
+      <span class="issue-nav-direction">← Previous issue</span>
+      <span>Issue #2</span>
+    </a>
+    <div class="issue-nav-sep"></div>
+    <a href="/the-frequency/issue/4/" class="issue-nav-link">
+      <span class="issue-nav-direction">Next issue →</span>
+      <span>Issue #4</span>
+    </a>
+  </div>
+</div>
+
+<div class="subscribe-cta">
+  <div class="subscribe-cta-inner">
+    <div class="subscribe-cta-rule"></div>
+    <p class="subscribe-cta-eyebrow">Every Thursday</p>
+    <h2 class="subscribe-cta-hed">East Alabama, clearly.</h2>
+    <p class="subscribe-cta-desc">Five stories from Chambers County and the state that shapes it. The Frequency lands in your inbox every Thursday — free.</p>
+    <button class="subscribe-cta-btn" onclick="openModal('modal-tf')">Subscribe — It's Free</button>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/assets/img/logo.png" alt="Read the Room" class="footer-logo">
+        <div>
+          <div class="footer-brand-name">Read the Room</div>
+          <div class="footer-brand-rule"></div>
+          <div class="footer-brand-tag">Politics, explained without the spin.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <div class="footer-col-head">Newsletters</div>
+          <ul class="footer-links">
+            <li><a href="/read-the-room/">Read the Room</a></li>
+            <li><a href="/the-frequency/">The Frequency</a></li>
+            <li><a href="/the-frequency/signals/">Signals</a></li>
+            <li><a href="/the-frequency/waves/">Waves</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-head">Site</div>
+          <ul class="footer-links">
+            <li><a href="/games/">Games</a></li>
+            <li><a href="/about/">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Read the Room. All rights reserved.</span>
+      <span class="footer-tagline">Every Tuesday and Thursday. No static.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal-tf">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-tf')" aria-label="Close">&times;</button>
+    <p class="modal-eyebrow">East Alabama &nbsp;·&nbsp; Every Thursday</p>
+    <div class="modal-rule"></div>
+    <h3 class="modal-title">The Frequency</h3>
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="06c61880-f78a-444a-bb2a-2a28166e84cd"></script>
+  </div>
+</div>
+
+<script>
+  function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = ''; }
+  document.querySelectorAll('.modal-overlay').forEach(function(o) { o.addEventListener('click', function(e) { if (e.target === o) closeModal(o.id); }); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(function(m) { closeModal(m.id); }); });
+</script>
+
+</body>
+</html>

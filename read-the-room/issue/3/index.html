@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read the Room — Issue #3: DOGE's cuts are real — but so is the legal resistance.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body { font-family: 'DM Sans', Arial, sans-serif; font-weight: 300; color: #1a1a18; -webkit-font-smoothing: antialiased; background: #111110; }
+
+  .top-bar { height: 3px; background: #c8a96e; }
+
+  .site-nav { background: #1a1a18; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #252522; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-img { height: 38px; width: 38px; object-fit: cover; border: 1px solid #2e2e2c; }
+  .nav-brand-text { display: flex; flex-direction: column; gap: 3px; }
+  .nav-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; color: #faf9f5; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; }
+  .nav-brand-rule { height: 1px; background: #c8a96e; width: 100%; }
+  .nav-brand-tag { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; }
+  .nav-links { display: flex; align-items: center; }
+  .nav-sep { width: 1px; height: 14px; background: #2e2e2c; }
+  .nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; padding: 0 20px; transition: color 0.2s; }
+  .nav-link:hover, .nav-link.active { color: #c8a96e; }
+
+  .issue-header { background: #1a1a18; padding: 64px 40px 56px; text-align: center; position: relative; overflow: hidden; }
+  .issue-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200,169,110,0.04) 39px, rgba(200,169,110,0.04) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(200,169,110,0.04) 39px, rgba(200,169,110,0.04) 40px); pointer-events: none; }
+  .issue-header-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+  .issue-pub-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 20px; }
+  .issue-pub-label span { color: #3a3a38; margin: 0 12px; }
+  .issue-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 46px; font-weight: 900; color: #faf9f5; line-height: 1.1; letter-spacing: 0.01em; margin-bottom: 24px; -webkit-text-stroke: 1px rgba(200,169,110,0.35); }
+  .issue-dek { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-weight: 300; font-size: 19px; color: #888880; line-height: 1.6; max-width: 580px; margin: 0 auto; }
+
+  .topic-band { background: #c8a96e; padding: 10px 40px; text-align: center; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #1a1a18; font-weight: 500; }
+
+  .issue-content { background: #faf9f5; padding: 60px 40px; }
+  .issue-content-inner { max-width: 720px; margin: 0 auto; }
+
+  .issue-lede { font-family: 'Source Serif 4', Georgia, serif; font-size: 21px; font-weight: 300; line-height: 1.7; color: #1a1a18; border-left: 3px solid #c8a96e; padding-left: 24px; margin-bottom: 52px; }
+
+  .issue-section { margin-bottom: 44px; }
+  .issue-section-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 10px; }
+  .issue-section-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 25px; font-weight: 700; color: #1a1a18; line-height: 1.25; margin-bottom: 18px; }
+  .issue-body-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 400; line-height: 1.85; color: #2e2e2c; }
+  .issue-body-text + .issue-body-text { margin-top: 16px; }
+  .issue-divider { border: none; border-top: 1px solid #e2dfd6; margin: 44px 0; }
+
+  .perspectives-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 18px; }
+  .perspectives-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 44px; }
+  .perspective-card { background: #f4f2ec; border: 1px solid #e2dfd6; padding: 24px; }
+  .perspective-side { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; margin-bottom: 12px; }
+  .perspective-side.left { color: #4a6fa5; }
+  .perspective-side.right { color: #b55a4a; }
+  .perspective-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.75; color: #3a3a36; }
+
+  .watch-list { list-style: none; margin-bottom: 44px; }
+  .watch-item { display: flex; gap: 22px; margin-bottom: 30px; align-items: flex-start; }
+  .watch-num { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; color: #e2dfd6; line-height: 1; flex-shrink: 0; width: 32px; text-align: center; }
+  .watch-heading { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 600; color: #1a1a18; margin-bottom: 6px; }
+  .watch-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; line-height: 1.82; color: #3a3a36; }
+
+  .closing-block { background: #1a1a18; padding: 36px 40px; margin: 0 -40px 44px; }
+  .closing-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .closing-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 300; line-height: 1.85; color: #c8c8c0; font-style: italic; }
+
+  .book-block { background: #f4f2ec; border: 1px solid #e2dfd6; border-left: 3px solid #c8a96e; padding: 24px; }
+  .book-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 8px; }
+  .book-title { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #1a1a18; font-style: italic; margin-bottom: 10px; }
+  .book-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.75; color: #3a3a36; margin-bottom: 12px; }
+  .book-link { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #c8a96e; text-decoration: none; font-weight: 500; }
+  .book-note { font-size: 10px; color: #aaa9a0; font-style: italic; margin-top: 6px; }
+
+  .issue-nav { background: #1a1a18; border-top: 1px solid #252522; padding: 28px 40px; }
+  .issue-nav-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .issue-nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; transition: color 0.2s; display: flex; flex-direction: column; gap: 5px; }
+  .issue-nav-link:hover { color: #c8a96e; }
+  .issue-nav-link.disabled { color: #2e2e2c; pointer-events: none; }
+  .issue-nav-direction { font-size: 8px; letter-spacing: 0.2em; color: #444440; }
+  .issue-nav-sep { width: 1px; height: 32px; background: #252522; }
+
+  .subscribe-cta { background: #212120; padding: 64px 40px; text-align: center; border-top: 1px solid #1a1a18; }
+  .subscribe-cta-inner { max-width: 480px; margin: 0 auto; }
+  .subscribe-cta-rule { width: 40px; height: 2px; background: #c8a96e; margin: 0 auto 20px; }
+  .subscribe-cta-eyebrow { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 12px; }
+  .subscribe-cta-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: #faf9f5; margin-bottom: 14px; }
+  .subscribe-cta-desc { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 16px; color: #888880; line-height: 1.7; margin-bottom: 30px; }
+  .subscribe-cta-btn { display: inline-block; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 32px; background: #c8a96e; color: #1a1a18; font-weight: 500; cursor: pointer; border: none; transition: opacity 0.15s; font-family: 'DM Sans', Arial, sans-serif; }
+  .subscribe-cta-btn:hover { opacity: 0.85; }
+
+  .site-footer { background: #111110; border-top: 1px solid #1a1a18; padding: 52px 40px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #1e1e1c; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-logo { height: 44px; width: 44px; object-fit: cover; border: 1px solid #2a2a28; }
+  .footer-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .footer-brand-rule { width: 28px; height: 1px; background: #c8a96e; margin-bottom: 4px; }
+  .footer-brand-tag { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; font-weight: 300; color: #3a3a38; }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col-head { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #444440; text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: #c8a96e; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 10px; letter-spacing: 0.06em; color: #2a2a28; }
+  .footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; color: #2a2a28; }
+
+  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(10,10,9,0.88); align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+  .modal-overlay.active { display: flex; }
+  .modal-box { background: #1a1a18; border: 1px solid #2e2e2c; outline: 1px solid rgba(200,169,110,0.25); outline-offset: 6px; padding: 48px 48px 40px; max-width: 480px; width: 90%; position: relative; }
+  .modal-close { position: absolute; top: 14px; right: 18px; font-size: 22px; color: #555550; background: none; border: none; cursor: pointer; line-height: 1; transition: color 0.15s; }
+  .modal-close:hover { color: #c8a96e; }
+  .modal-eyebrow { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 10px; }
+  .modal-rule { width: 40px; height: 2px; background: #c8a96e; margin-bottom: 16px; }
+  .modal-title { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 28px; }
+
+  @media (max-width: 768px) {
+    .issue-hed { font-size: 30px; }
+    .closing-block { margin: 0 -20px 44px; padding: 28px 20px; }
+    .perspectives-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .footer-top { grid-template-columns: 1fr; }
+    .issue-nav-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <img src="/assets/img/logo.png" alt="Read the Room" class="nav-logo-img">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Read the Room</span>
+        <div class="nav-brand-rule"></div>
+        <span class="nav-brand-tag">Politics, explained without the spin.</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link active" href="/read-the-room/">Read the Room</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/the-frequency/">The Frequency</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/games/">Games</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/about/">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="issue-header">
+  <div class="issue-header-inner">
+    <p class="issue-pub-label">Read the Room <span>◆</span> Issue #3 <span>◆</span> April 21, 2026</p>
+    <h1 class="issue-hed">DOGE's cuts are real — but so is the legal resistance.</h1>
+    <p class="issue-dek">The federal government employs 3 million civilians and spends $6.7 trillion a year. An advisory body with no confirmed budget authority has attempted to reshape both — faster than Congress, the courts, or most Americans can track.</p>
+  </div>
+</div>
+
+<div class="topic-band">
+  ◆ &nbsp;&nbsp; This week: Federal spending cuts — what DOGE is actually doing and who feels it &nbsp;&nbsp; ◆
+</div>
+
+<div class="issue-content">
+  <div class="issue-content-inner">
+
+    <p class="issue-lede">
+      The federal government employs 3 million civilians and spends $6.7 trillion a year. In the past 15 months, an advisory body with no confirmed budget authority has attempted to reshape both — faster than Congress, the courts, or most Americans can track.
+    </p>
+
+    <div class="issue-section">
+      <div class="issue-section-label">What's happening</div>
+      <div class="issue-section-hed">DOGE's cuts are real — but so is the legal resistance.</div>
+      <p class="issue-body-text">The Department of Government Efficiency — an executive advisory body established by President Trump in early 2025, with Elon Musk as its most prominent figure — has initiated the most aggressive reduction in the federal civilian workforce in modern history. Through a combination of mass layoff notices, deferred resignation offers, and direct agency orders to terminate contracts and programs, DOGE has overseen the departure of an estimated 200,000 or more federal workers over the past year.</p>
+      <p class="issue-body-text">USAID was effectively dissolved. The Consumer Financial Protection Bureau was targeted for elimination. The Department of Education announced plans to transfer its functions to states. DOGE's public dashboard has claimed hundreds of billions in savings, though independent analysts at the Congressional Budget Office and Government Accountability Office have struggled to verify the figures — and the dashboard has been revised multiple times after errors were identified. More than 100 federal lawsuits have been filed challenging the legality of specific firings and program terminations. Federal judges in multiple circuits have issued injunctions, and the Supreme Court has already weighed in once, with more cases pending.</p>
+    </div>
+
+    <hr class="issue-divider">
+
+    <div class="issue-section">
+      <div class="issue-section-label">The deeper issue</div>
+      <div class="issue-section-hed">Why the federal budget is this hard to cut</div>
+      <p class="issue-body-text">The U.S. national debt now exceeds $36 trillion. Annual interest payments alone have surpassed $1 trillion — more than the entire defense budget. Mandatory spending (Social Security, Medicare, Medicaid, and other entitlements) accounts for roughly two-thirds of all federal outlays and is largely on autopilot, written into statute rather than subject to annual appropriations. The discretionary budget — which funds everything from the military to national parks to the FDA — makes up about one-third of spending.</p>
+      <p class="issue-body-text">Non-defense discretionary spending, the portion DOGE has largely targeted, represents only about 15% of the total federal budget. That means even dramatic cuts to agency staffing and domestic programs have a limited impact on the deficit trajectory without changes to entitlement spending or revenue. Career federal employees are also protected by civil service laws dating to 1883, enacted specifically to prevent politically motivated mass firings. Whether DOGE's methods are consistent with those laws is now the central question in federal courts.</p>
+    </div>
+
+    <hr class="issue-divider">
+
+    <div class="issue-section">
+      <div class="perspectives-label">Both sides</div>
+      <div class="perspectives-grid">
+        <div class="perspective-card">
+          <div class="perspective-side left">The left says</div>
+          <p class="perspective-text">These cuts are dismantling the institutions that make basic government functions possible — veterans' benefits processing, food safety inspection, air traffic control, Social Security administration. The savings figures have been invented or exaggerated. The real goal is eliminating the regulatory agencies that hold corporations accountable, not reducing the deficit. Civil service protections exist for a reason: a workforce hired and fired on political grounds is a patronage machine, not an efficient government.</p>
+        </div>
+        <div class="perspective-card">
+          <div class="perspective-side right">The right says</div>
+          <p class="perspective-text">The federal government has doubled in size over two decades with no measurable improvement in outcomes. The $36 trillion debt is a genuine national security threat, and the political will to address it has never been weaker — until now. Career bureaucrats have accumulated power that makes them nearly impossible to hold accountable. Cutting waste, redundancy, and programs with no verifiable outcomes is not cruelty. It is the basic stewardship of public resources that elected officials owe taxpayers.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="issue-divider">
+
+    <div class="issue-section">
+      <div class="issue-section-label">Three things to watch</div>
+      <ul class="watch-list">
+        <li class="watch-item">
+          <span class="watch-num">1</span>
+          <div>
+            <div class="watch-heading">The Supreme Court's removal power rulings</div>
+            <p class="watch-text">Courts have already blocked several DOGE-related firings on civil service grounds. The Supreme Court will need to settle the core question: how much latitude does a president have to remove career federal employees outside the normal termination process? The answer will define not just DOGE's legacy but the shape of the executive branch for decades.</p>
+          </div>
+        </li>
+        <li class="watch-item">
+          <span class="watch-num">2</span>
+          <div>
+            <div class="watch-heading">Service delivery breakdowns</div>
+            <p class="watch-text">Veterans' disability claims are backlogging. IRS return processing times have stretched into months. Social Security field offices in several states have reduced hours. Air traffic control staffing shortages have prompted flight delays at major hubs. These are the pressure points most likely to generate bipartisan political friction — because they affect people regardless of party.</p>
+          </div>
+        </li>
+        <li class="watch-item">
+          <span class="watch-num">3</span>
+          <div>
+            <div class="watch-heading">The savings audit</div>
+            <p class="watch-text">DOGE's dashboard has been revised multiple times after independent analysts identified inflated or fabricated line items. The GAO is conducting a formal review. The gap between claimed savings and verified savings will ultimately define whether this effort is remembered as historic reform or historic theater.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="closing-block">
+      <div class="closing-label">The bottom line</div>
+      <p class="closing-text">The debate over federal spending has always been, at its core, a debate about what government is for — and who it serves. DOGE compressed years of that debate into months of executive action. The real verdict won't come from a dashboard. It will come from whether the people who depend on federal services — veterans waiting on disability decisions, seniors calling Social Security, families boarding planes — find that those services still work. That answer is still forming.</p>
+    </div>
+
+    <div class="issue-section">
+      <div class="issue-section-label">Recommended read</div>
+      <div class="book-block">
+        <div class="book-label">If you want to go deeper</div>
+        <div class="book-title">The Fifth Risk — Michael Lewis</div>
+        <p class="book-text">Lewis spent time inside the USDA, Department of Energy, and NOAA — agencies most people couldn't name a function of — and built a portrait of what career federal employees actually do beneath the surface. It's the best existing answer to the question both sides of this debate keep talking past: what, specifically, is at stake when institutional knowledge walks out the door?</p>
+        <a href="https://www.amazon.com/dp/1984877968?tag=readtheroom-20" class="book-link">Find it on Amazon →</a>
+        <p class="book-note">As an Amazon Associate I earn from qualifying purchases.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="issue-nav">
+  <div class="issue-nav-inner">
+    <a href="/read-the-room/issue/2/" class="issue-nav-link">
+      <span class="issue-nav-direction">← Previous issue</span>
+      <span>Issue #2</span>
+    </a>
+    <div class="issue-nav-sep"></div>
+    <a href="/read-the-room/issue/4/" class="issue-nav-link">
+      <span class="issue-nav-direction">Next issue →</span>
+      <span>Issue #4</span>
+    </a>
+  </div>
+</div>
+
+<div class="subscribe-cta">
+  <div class="subscribe-cta-inner">
+    <div class="subscribe-cta-rule"></div>
+    <p class="subscribe-cta-eyebrow">Every Tuesday Morning</p>
+    <h2 class="subscribe-cta-hed">Enjoyed this issue?</h2>
+    <p class="subscribe-cta-desc">One topic. Both sides. No spin. Read the Room lands in your inbox every Tuesday — free.</p>
+    <button class="subscribe-cta-btn" onclick="openModal('modal-rtr')">Subscribe — It's Free</button>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/assets/img/logo.png" alt="Read the Room" class="footer-logo">
+        <div>
+          <div class="footer-brand-name">Read the Room</div>
+          <div class="footer-brand-rule"></div>
+          <div class="footer-brand-tag">Politics, explained without the spin.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <div class="footer-col-head">Newsletters</div>
+          <ul class="footer-links">
+            <li><a href="/read-the-room/">Read the Room</a></li>
+            <li><a href="/the-frequency/">The Frequency</a></li>
+            <li><a href="/the-frequency/signals/">Signals</a></li>
+            <li><a href="/the-frequency/waves/">Waves</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-head">Site</div>
+          <ul class="footer-links">
+            <li><a href="/games/">Games</a></li>
+            <li><a href="/about/">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Read the Room. All rights reserved.</span>
+      <span class="footer-tagline">Every Tuesday and Thursday. No static.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal-rtr">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-rtr')" aria-label="Close">&times;</button>
+    <p class="modal-eyebrow">National &nbsp;·&nbsp; Every Tuesday</p>
+    <div class="modal-rule"></div>
+    <h3 class="modal-title">Read the Room</h3>
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="90bbd6cf-790a-44b1-b314-90d4af45c18b"></script>
+  </div>
+</div>
+
+<script>
+  function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = ''; }
+  document.querySelectorAll('.modal-overlay').forEach(function(o) { o.addEventListener('click', function(e) { if (e.target === o) closeModal(o.id); }); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(function(m) { closeModal(m.id); }); });
+</script>
+
+</body>
+</html>

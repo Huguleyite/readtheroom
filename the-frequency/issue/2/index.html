@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Frequency — Issue #2 | Frozen Rates. Fired Professors. The Race for 38.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body { font-family: 'DM Sans', Arial, sans-serif; font-weight: 300; color: #1a1a18; -webkit-font-smoothing: antialiased; background: #ede8df; }
+
+  .top-bar { height: 3px; background: #c8a96e; }
+  .site-nav { background: #1a1a18; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #252522; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-img { height: 38px; width: 38px; object-fit: cover; border: 1px solid #2e2e2c; }
+  .nav-brand-text { display: flex; flex-direction: column; gap: 3px; }
+  .nav-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; color: #faf9f5; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; }
+  .nav-brand-rule { height: 1px; background: #c8a96e; width: 100%; }
+  .nav-brand-tag { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; }
+  .nav-links { display: flex; align-items: center; }
+  .nav-sep { width: 1px; height: 14px; background: #2e2e2c; }
+  .nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; padding: 0 20px; transition: color 0.2s; }
+  .nav-link:hover, .nav-link.active { color: #c8a96e; }
+
+  .issue-wrap { max-width: 720px; margin: 0 auto; background: #faf9f5; padding: 0 0 60px; }
+  .masthead { border-top: 3px solid #1a1a18; padding: 36px 56px 0; background: #faf9f5; }
+  .mast-top-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .mast-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #888880; }
+  .mast-right { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; }
+  .mast-title { font-family: 'Playfair Display', Georgia, serif; font-size: 58px; font-weight: 900; line-height: 0.95; letter-spacing: -0.02em; color: #1a1a18; margin-bottom: 6px; }
+  .mast-title em { font-style: italic; font-weight: 400; }
+  .mast-sub { font-size: 12px; font-weight: 400; color: #666660; letter-spacing: 0.03em; margin-bottom: 16px; }
+  .wave-rule { display: flex; align-items: center; gap: 3px; height: 20px; }
+  .wave-bar { background: #1a1a18; border-radius: 2px; flex-shrink: 0; }
+  .wave-spacer { flex: 1; height: 0.5px; background: #d0cfc8; margin: 0 6px; }
+  .wave-issue { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #888880; white-space: nowrap; }
+  .meta-bar { display: flex; justify-content: space-between; font-size: 10px; font-weight: 500; color: #888880; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 56px; border-top: 0.5px solid #d0cfc8; border-bottom: 0.5px solid #d0cfc8; margin: 8px 0 0; }
+  .tf-topic-band { background: #c8a96e; padding: 10px 56px; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #1a1a18; font-weight: 500; text-align: center; }
+  .issue-body { padding: 36px 56px 0; }
+  .intro-block { border-left: 3px solid #1a1a18; padding: 12px 18px; background: #f0efe8; margin-bottom: 36px; font-size: 15px; font-style: italic; color: #555550; line-height: 1.7; font-weight: 400; }
+  .story { padding: 32px 0; border-top: 0.5px solid #d0cfc8; }
+  .story:last-of-type { border-bottom: 0.5px solid #d0cfc8; }
+  .story-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .story-num { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #aaa9a0; }
+  .tag { font-size: 9.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+  .tag-energy   { background: #FAEEDA; color: #854F0B; }
+  .tag-school   { background: #E6F1FB; color: #185FA5; }
+  .tag-election { background: #FAECE7; color: #993C1D; }
+  .tag-local    { background: #EEEDFE; color: #534AB7; }
+  .tag-state    { background: #F0EDE5; color: #5a5248; }
+  .local-badge { font-size: 9px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; background: #1a1a18; color: #faf9f5; }
+  .story-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 700; line-height: 1.2; color: #1a1a18; margin-bottom: 10px; }
+  .story-dek { font-size: 14px; font-weight: 400; font-style: italic; color: #666660; line-height: 1.6; margin-bottom: 16px; }
+  .story-body { font-size: 15.5px; font-weight: 300; color: #1a1a18; line-height: 1.82; }
+  .story-body p + p { margin-top: 14px; }
+  .gold-rule { height: 0.75px; background: #c8a96e; width: 200px; margin: 16px 0 0; }
+  .story-source { font-size: 10.5px; font-weight: 400; font-style: italic; color: #aaa9a0; margin-top: 12px; }
+
+  .issue-nav { background: #1a1a18; border-top: 3px solid #c8a96e; padding: 28px 40px; }
+  .issue-nav-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .issue-nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; transition: color 0.2s; display: flex; flex-direction: column; gap: 5px; }
+  .issue-nav-link:hover { color: #c8a96e; }
+  .issue-nav-link.disabled { color: #2e2e2c; pointer-events: none; }
+  .issue-nav-direction { font-size: 8px; letter-spacing: 0.2em; color: #444440; }
+  .issue-nav-sep { width: 1px; height: 32px; background: #252522; }
+
+  .subscribe-cta { background: #1a1a18; padding: 64px 40px; text-align: center; }
+  .subscribe-cta-inner { max-width: 480px; margin: 0 auto; }
+  .subscribe-cta-rule { width: 40px; height: 2px; background: #c8a96e; margin: 0 auto 20px; }
+  .subscribe-cta-eyebrow { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 12px; }
+  .subscribe-cta-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: #faf9f5; margin-bottom: 14px; }
+  .subscribe-cta-desc { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 16px; color: #888880; line-height: 1.7; margin-bottom: 30px; }
+  .subscribe-cta-btn { display: inline-block; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 32px; background: #c8a96e; color: #1a1a18; font-weight: 500; cursor: pointer; border: none; transition: opacity 0.15s; font-family: 'DM Sans', Arial, sans-serif; }
+  .subscribe-cta-btn:hover { opacity: 0.85; }
+
+  .site-footer { background: #111110; border-top: 1px solid #1a1a18; padding: 52px 40px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #1e1e1c; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-logo { height: 44px; width: 44px; object-fit: cover; border: 1px solid #2a2a28; }
+  .footer-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .footer-brand-rule { width: 28px; height: 1px; background: #c8a96e; margin-bottom: 4px; }
+  .footer-brand-tag { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; font-weight: 300; color: #3a3a38; }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col-head { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #444440; text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: #c8a96e; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 10px; letter-spacing: 0.06em; color: #2a2a28; }
+  .footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; color: #2a2a28; }
+
+  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(10,10,9,0.88); align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+  .modal-overlay.active { display: flex; }
+  .modal-box { background: #1a1a18; border: 1px solid #2e2e2c; outline: 1px solid rgba(200,169,110,0.25); outline-offset: 6px; padding: 48px 48px 40px; max-width: 480px; width: 90%; position: relative; }
+  .modal-close { position: absolute; top: 14px; right: 18px; font-size: 22px; color: #555550; background: none; border: none; cursor: pointer; line-height: 1; transition: color 0.15s; }
+  .modal-close:hover { color: #c8a96e; }
+  .modal-eyebrow { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 10px; }
+  .modal-rule { width: 40px; height: 2px; background: #c8a96e; margin-bottom: 16px; }
+  .modal-title { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 28px; }
+
+  @media (max-width: 768px) {
+    .masthead, .issue-body { padding-left: 24px; padding-right: 24px; }
+    .meta-bar { padding-left: 24px; padding-right: 24px; }
+    .mast-title { font-size: 40px; }
+    .nav-links { display: none; }
+    .footer-top { grid-template-columns: 1fr; }
+    .issue-nav-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <img src="/assets/img/logo.png" alt="Read the Room" class="nav-logo-img">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Read the Room</span>
+        <div class="nav-brand-rule"></div>
+        <span class="nav-brand-tag">Politics, explained without the spin.</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/read-the-room/">Read the Room</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link active" href="/the-frequency/">The Frequency</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/games/">Games</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/about/">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="issue-wrap">
+  <header class="masthead">
+    <div class="mast-top-row">
+      <span class="mast-eyebrow">Valley, Alabama &mdash; Weekly Edition</span>
+      <span class="mast-right">Tune in. Stay grounded.</span>
+    </div>
+    <h1 class="mast-title">The <em>Fre</em>quency</h1>
+    <p class="mast-sub">Independent signal for East Alabama &mdash; from Valley to Montgomery &amp; beyond</p>
+    <div class="wave-rule">
+      <div class="wave-bar" style="width:4px;height:5px;opacity:0.25;"></div>
+      <div class="wave-bar" style="width:4px;height:9px;opacity:0.35;"></div>
+      <div class="wave-bar" style="width:4px;height:15px;opacity:0.55;"></div>
+      <div class="wave-bar" style="width:4px;height:11px;opacity:0.45;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:0.75;"></div>
+      <div class="wave-bar" style="width:4px;height:8px;opacity:0.32;"></div>
+      <div class="wave-bar" style="width:4px;height:14px;opacity:0.52;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:1;"></div>
+      <div class="wave-bar" style="width:4px;height:14px;opacity:0.52;"></div>
+      <div class="wave-bar" style="width:4px;height:8px;opacity:0.32;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:0.75;"></div>
+      <div class="wave-bar" style="width:4px;height:11px;opacity:0.45;"></div>
+      <div class="wave-bar" style="width:4px;height:15px;opacity:0.55;"></div>
+      <div class="wave-bar" style="width:4px;height:9px;opacity:0.35;"></div>
+      <div class="wave-bar" style="width:4px;height:5px;opacity:0.25;"></div>
+      <div class="wave-spacer"></div>
+      <span class="wave-issue">Issue #2 &nbsp;&middot;&nbsp; Apr 23, 2026</span>
+    </div>
+  </header>
+
+  <div class="meta-bar">
+    <span>Vol. 1, No. 2</span>
+    <span>Chambers County &amp; Statewide</span>
+    <span>Free Weekly</span>
+  </div>
+
+  <div class="tf-topic-band">◆ &nbsp;&nbsp; Frozen Rates. Fired Professors. The Race for 38. &nbsp;&nbsp; ◆</div>
+
+  <div class="issue-body">
+    <div class="intro-block">
+      Five Alabama stories the mainstream press isn&rsquo;t connecting for you &mdash; sourced from the Legislature, local government forums, state watchdogs, and your neighbors in Lanett, LaFayette, and Valley. We cut the static so you don&rsquo;t have to.
+    </div>
+
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">01</span>
+        <span class="tag tag-energy">Energy &amp; Utilities</span>
+      </div>
+      <h2 class="story-hed">&ldquo;The People&rsquo;s Act&rdquo; Is Now Law. Ratepayers Are Still Waiting.</h2>
+      <p class="story-dek">Gov. Ivey signed the Power to the People Act on April 2. It freezes rates and restructures the PSC &mdash; but the provision that would have put Alabama Power&rsquo;s profits under oath was quietly removed before passage.</p>
+      <div class="story-body">
+        <p>The Power to the People Act passed in the final days of the 2026 legislative session and was signed into law April 2. The headline provisions: electric rates frozen through 2029, and the PSC expanded from three members to seven. For Chambers County customers already paying among the highest electric bills in the South, that rate freeze sounds like relief.</p>
+        <p>But the original bill was something else entirely. As introduced, it would have required mandatory, regular rate cases &mdash; putting Alabama Power&rsquo;s profit structure under sworn, public testimony for the first time since 1982. That provision was stripped before the bill reached Ivey&rsquo;s desk. What replaced it: a new Secretary of Energy, appointed by the governor, who now controls what the PSC puts on its own agenda. Critics who led the push for real reform are calling the final product &ldquo;a wolf in sheep&rsquo;s clothing.&rdquo;</p>
+        <p>The next real test arrives July 15, when Ivey must appoint four of the seven new PSC members. Advocates say those appointments will signal whether the People&rsquo;s Act delivers for the people &mdash; or for Alabama Power.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Inside Climate News / WBHM &middot; Alabama Reflector &middot; Cullman Tribune &middot; WBRC</p>
+    </article>
+
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">02</span>
+        <span class="tag tag-election">Elections &amp; Voting</span>
+        <span class="local-badge">Chambers Co.</span>
+      </div>
+      <h2 class="story-hed">Twenty-Seven Days: The District 38 Primary Is the Race to Watch</h2>
+      <p class="story-dek">Hazel Floyd and Christopher Davis face off May 19 in the Democratic primary for House District 38. Kristin Nelson runs unopposed on the Republican side. Whoever wins here represents Chambers County in Montgomery.</p>
+      <div class="story-body">
+        <p>The May 19 primary is no longer a warmup &mdash; it&rsquo;s the main event for Chambers County Democrats. Hazel Floyd, the 22-year-old Valley native who held Kristin Nelson to 83.65%&ndash;16.26% in the February 3 special election despite running in a district that hadn&rsquo;t seen serious Democratic investment in years, is back. She faces Christopher Davis, a Lanett minister and community presence who previously ran for House District 80 in 2018.</p>
+        <p>On the Republican side, Nelson now runs unopposed after her primary challenger withdrew. That means the Democratic primary winner goes straight to a one-on-one race against Nelson in November. Floyd&rsquo;s campaign rests on three pillars: public schools, rural communities, and small businesses. Davis has maintained a lower public profile this cycle. Voters in Chambers County make the call May 19.</p>
+        <p>If you haven&rsquo;t confirmed your voter registration, do it now. The deadline for the May primary is approaching &mdash; check your status at the Alabama Secretary of State&rsquo;s website.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Ballotpedia &middot; Alabama Secretary of State &middot; Alabama Reflector &middot; Opelika Observer</p>
+    </article>
+
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">03</span>
+        <span class="tag tag-school">Education</span>
+      </div>
+      <h2 class="story-hed">Alabama Just Gave University Boards the Power to Fire Tenured Professors</h2>
+      <p class="story-dek">HB580 passed on the final day of the 2026 session. Faculty senates are now advisory only. Governing boards have ultimate authority over what gets taught &mdash; and who stays.</p>
+      <div class="story-body">
+        <p>Academic tenure has long been the mechanism protecting professors who study unpopular subjects, publish inconvenient findings, or teach ideas that unsettle lawmakers. Alabama just restructured it. HB580, passed April 9, gives governing boards of public four-year universities ultimate authority over courses and curriculum, and requires those institutions to establish tenure policies that allow for review and dismissal of tenured faculty under specific conditions.</p>
+        <p>Faculty senates &mdash; once primary governance bodies for university faculty &mdash; are now limited to an advisory role. The bill follows similar legislation in Florida and Texas, part of a coordinated national shift in how Republican-led legislatures govern public higher education. The argument in favor: accountability and outcome-based governance. The argument against: that academic independence, once diminished, is difficult to restore.</p>
+        <p>For students and families at Alabama&rsquo;s public universities, the practical stakes are still taking shape. But the structural change is real: the people who run Alabama&rsquo;s campuses now answer, more directly than before, to politically appointed governing boards.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Alabama Reflector &middot; Alabama Daily News &middot; BillTrack50</p>
+    </article>
+
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">04</span>
+        <span class="tag tag-local">Local Government</span>
+        <span class="local-badge">Valley, AL</span>
+      </div>
+      <h2 class="story-hed">Valley, Redrawn and Cleaned Up</h2>
+      <p class="story-dek">SB355 quietly redrew Valley&rsquo;s city limits this session &mdash; unanimously. Meanwhile, Chambers County showed up for itself: Junior Ambassadors, a Sheriff&rsquo;s litter detail, and 20 bags off County Road 289.</p>
+      <div class="story-body">
+        <p>SB355, sponsored by Sen. Randy Price, R-Opelika, rearranged the corporate limits of the City of Valley and passed the Alabama Senate 30&ndash;0. That kind of unanimous margin rarely moves through Montgomery without broad local consensus. The changes to Valley&rsquo;s boundaries are worth monitoring as they take effect &mdash; especially for residents near the city&rsquo;s edges, where zoning and service jurisdiction follow city lines.</p>
+        <p>The bigger story this month may simply be community energy. Saturday, April 18 was Clean-Up Valley Day. The Greater Valley Area Chamber of Commerce&rsquo;s Junior Ambassadors picked up 20 large bags of litter along County Road 289 between Lanett and Fredonia. The Chambers County Sheriff&rsquo;s Department ran its own litter details. Alabama PALS&rsquo; &ldquo;Don&rsquo;t Drop It on Alabama&rdquo; campaign arrived here &mdash; and this community answered it.</p>
+        <p>In a county where local government accountability is becoming a louder conversation, neighbors cleaning their own roads is its own kind of statement.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Valley Times-News &middot; Greater Valley Area Chamber &middot; LaFayette Sun &middot; Alabama Legislature / SB355</p>
+    </article>
+
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">05</span>
+        <span class="tag tag-election">Elections &amp; Voting</span>
+      </div>
+      <h2 class="story-hed">Tuberville Is Leaving the Senate. That Changes Everything.</h2>
+      <p class="story-dek">Tommy Tuberville is running for governor, handing Alabama its first open U.S. Senate seat since Doug Jones won in 2017. That race is already underway &mdash; and it lands on the same May 19 ballot as District 38.</p>
+      <div class="story-body">
+        <p>In 2017, Alabama&rsquo;s open Senate seat became one of the most-watched races in the country. Doug Jones beat Roy Moore in a special election that stunned the nation. The seat flipped back to Republican Tommy Tuberville in 2020. Now Tuberville is leaving Washington to run for governor, and the seat is open again for the first time in nearly a decade &mdash; with no appointed incumbent and a crowded field already forming.</p>
+        <p>The implications run statewide. Thirteen executive offices are on Alabama&rsquo;s November ballot, including Governor, Lieutenant Governor, and two PSC seats &mdash; the same commission at the center of this issue&rsquo;s utility rate story. With Tuberville in the governor&rsquo;s race, the Republican primary is competitive in ways it rarely is in Alabama.</p>
+        <p>For Chambers County voters, all of it arrives on a single May 19 ballot: the District 38 Democratic primary, the governor&rsquo;s primary, the Senate primary, and down-ballot races that shape local life for years to come. The frequency of elections in 2026 is high. Tune in accordingly.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Ballotpedia &middot; Wikipedia &ndash; 2026 Alabama Elections &middot; Alabama Secretary of State</p>
+    </article>
+  </div>
+</div>
+
+<div class="issue-nav">
+  <div class="issue-nav-inner">
+    <a href="/the-frequency/issue/1/" class="issue-nav-link">
+      <span class="issue-nav-direction">← Previous issue</span>
+      <span>Issue #1</span>
+    </a>
+    <div class="issue-nav-sep"></div>
+    <a href="/the-frequency/issue/3/" class="issue-nav-link">
+      <span class="issue-nav-direction">Next issue →</span>
+      <span>Issue #3</span>
+    </a>
+  </div>
+</div>
+
+<div class="subscribe-cta">
+  <div class="subscribe-cta-inner">
+    <div class="subscribe-cta-rule"></div>
+    <p class="subscribe-cta-eyebrow">Every Thursday</p>
+    <h2 class="subscribe-cta-hed">East Alabama, clearly.</h2>
+    <p class="subscribe-cta-desc">Five stories from Chambers County and the state that shapes it. The Frequency lands in your inbox every Thursday — free.</p>
+    <button class="subscribe-cta-btn" onclick="openModal('modal-tf')">Subscribe — It's Free</button>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/assets/img/logo.png" alt="Read the Room" class="footer-logo">
+        <div>
+          <div class="footer-brand-name">Read the Room</div>
+          <div class="footer-brand-rule"></div>
+          <div class="footer-brand-tag">Politics, explained without the spin.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <div class="footer-col-head">Newsletters</div>
+          <ul class="footer-links">
+            <li><a href="/read-the-room/">Read the Room</a></li>
+            <li><a href="/the-frequency/">The Frequency</a></li>
+            <li><a href="/the-frequency/signals/">Signals</a></li>
+            <li><a href="/the-frequency/waves/">Waves</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-head">Site</div>
+          <ul class="footer-links">
+            <li><a href="/games/">Games</a></li>
+            <li><a href="/about/">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Read the Room. All rights reserved.</span>
+      <span class="footer-tagline">Every Tuesday and Thursday. No static.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal-tf">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-tf')" aria-label="Close">&times;</button>
+    <p class="modal-eyebrow">East Alabama &nbsp;·&nbsp; Every Thursday</p>
+    <div class="modal-rule"></div>
+    <h3 class="modal-title">The Frequency</h3>
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="06c61880-f78a-444a-bb2a-2a28166e84cd"></script>
+  </div>
+</div>
+
+<script>
+  function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = ''; }
+  document.querySelectorAll('.modal-overlay').forEach(function(o) { o.addEventListener('click', function(e) { if (e.target === o) closeModal(o.id); }); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(function(m) { closeModal(m.id); }); });
+</script>
+
+</body>
+</html>

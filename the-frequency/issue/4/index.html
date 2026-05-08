@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Frequency — Issue #4 | Maps. Ballots. 14 Days.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body { font-family: 'DM Sans', Arial, sans-serif; font-weight: 300; color: #1a1a18; -webkit-font-smoothing: antialiased; background: #ede8df; }
+
+  /* ── Top bar ── */
+  .top-bar { height: 3px; background: #c8a96e; }
+
+  /* ── Navigation ── */
+  .site-nav { background: #1a1a18; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #252522; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-img { height: 38px; width: 38px; object-fit: cover; border: 1px solid #2e2e2c; }
+  .nav-brand-text { display: flex; flex-direction: column; gap: 3px; }
+  .nav-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; color: #faf9f5; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; }
+  .nav-brand-rule { height: 1px; background: #c8a96e; width: 100%; }
+  .nav-brand-tag { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; }
+  .nav-links { display: flex; align-items: center; }
+  .nav-sep { width: 1px; height: 14px; background: #2e2e2c; }
+  .nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; padding: 0 20px; transition: color 0.2s; }
+  .nav-link:hover, .nav-link.active { color: #c8a96e; }
+
+  /* ── Issue wrapper ── */
+  .issue-wrap { max-width: 720px; margin: 0 auto; background: #faf9f5; padding: 0 0 60px; }
+
+  /* ── Masthead ── */
+  .masthead {
+    border-top: 3px solid #1a1a18;
+    padding: 36px 56px 0;
+    background: #faf9f5;
+  }
+  .mast-top-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .mast-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #888880; }
+  .mast-right { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; }
+  .mast-title { font-family: 'Playfair Display', Georgia, serif; font-size: 58px; font-weight: 900; line-height: 0.95; letter-spacing: -0.02em; color: #1a1a18; margin-bottom: 6px; }
+  .mast-title em { font-style: italic; font-weight: 400; }
+  .mast-sub { font-size: 12px; font-weight: 400; color: #666660; letter-spacing: 0.03em; margin-bottom: 16px; }
+
+  /* Waveform rule */
+  .wave-rule { display: flex; align-items: center; gap: 3px; height: 20px; }
+  .wave-bar { background: #1a1a18; border-radius: 2px; flex-shrink: 0; }
+  .wave-spacer { flex: 1; height: 0.5px; background: #d0cfc8; margin: 0 6px; }
+  .wave-issue { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #888880; white-space: nowrap; }
+
+  /* Meta bar */
+  .meta-bar { display: flex; justify-content: space-between; font-size: 10px; font-weight: 500; color: #888880; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 56px; border-top: 0.5px solid #d0cfc8; border-bottom: 0.5px solid #d0cfc8; margin: 8px 0 0; }
+
+  /* ── Gold topic band ── */
+  .tf-topic-band { background: #c8a96e; padding: 10px 56px; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #1a1a18; font-weight: 500; text-align: center; margin-bottom: 0; }
+
+  /* ── Content ── */
+  .issue-body { padding: 36px 56px 0; }
+
+  /* Intro block */
+  .intro-block { border-left: 3px solid #1a1a18; padding: 12px 18px; background: #f0efe8; margin-bottom: 36px; font-size: 15px; font-style: italic; color: #555550; line-height: 1.7; font-weight: 400; }
+
+  /* Stories */
+  .story { padding: 32px 0; border-top: 0.5px solid #d0cfc8; }
+  .story:last-of-type { border-bottom: 0.5px solid #d0cfc8; }
+  .story-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .story-num { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #aaa9a0; }
+
+  .tag { font-size: 9.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+  .tag-energy   { background: #FAEEDA; color: #854F0B; }
+  .tag-school   { background: #E6F1FB; color: #185FA5; }
+  .tag-election { background: #FAECE7; color: #993C1D; }
+  .tag-animal   { background: #E1F5EE; color: #0F6E56; }
+  .tag-local    { background: #EEEDFE; color: #534AB7; }
+  .tag-state    { background: #F0EDE5; color: #5a5248; }
+  .local-badge { font-size: 9px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; background: #1a1a18; color: #faf9f5; }
+
+  .story-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 700; line-height: 1.2; color: #1a1a18; margin-bottom: 10px; }
+  .story-dek { font-size: 14px; font-weight: 400; font-style: italic; color: #666660; line-height: 1.6; margin-bottom: 16px; }
+  .story-body { font-size: 15.5px; font-weight: 300; color: #1a1a18; line-height: 1.82; }
+  .story-body p + p { margin-top: 14px; }
+  .gold-rule { height: 0.75px; background: #c8a96e; width: 200px; margin: 16px 0 0; }
+  .story-source { font-size: 10.5px; font-weight: 400; font-style: italic; color: #aaa9a0; margin-top: 12px; }
+
+  /* ── Prev/Next ── */
+  .issue-nav { background: #1a1a18; border-top: 3px solid #c8a96e; padding: 28px 40px; }
+  .issue-nav-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .issue-nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; transition: color 0.2s; display: flex; flex-direction: column; gap: 5px; }
+  .issue-nav-link:hover { color: #c8a96e; }
+  .issue-nav-link.disabled { color: #2e2e2c; pointer-events: none; }
+  .issue-nav-direction { font-size: 8px; letter-spacing: 0.2em; color: #444440; }
+  .issue-nav-sep { width: 1px; height: 32px; background: #252522; }
+
+  /* ── Subscribe CTA ── */
+  .subscribe-cta { background: #1a1a18; padding: 64px 40px; text-align: center; }
+  .subscribe-cta-inner { max-width: 480px; margin: 0 auto; }
+  .subscribe-cta-rule { width: 40px; height: 2px; background: #c8a96e; margin: 0 auto 20px; }
+  .subscribe-cta-eyebrow { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 12px; }
+  .subscribe-cta-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: #faf9f5; margin-bottom: 14px; }
+  .subscribe-cta-desc { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 16px; color: #888880; line-height: 1.7; margin-bottom: 30px; }
+  .subscribe-cta-btn { display: inline-block; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 32px; background: #c8a96e; color: #1a1a18; font-weight: 500; cursor: pointer; border: none; transition: opacity 0.15s; font-family: 'DM Sans', Arial, sans-serif; }
+  .subscribe-cta-btn:hover { opacity: 0.85; }
+
+  /* ── Footer ── */
+  .site-footer { background: #111110; border-top: 1px solid #1a1a18; padding: 52px 40px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #1e1e1c; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-logo { height: 44px; width: 44px; object-fit: cover; border: 1px solid #2a2a28; }
+  .footer-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .footer-brand-rule { width: 28px; height: 1px; background: #c8a96e; margin-bottom: 4px; }
+  .footer-brand-tag { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; font-weight: 300; color: #3a3a38; }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col-head { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #444440; text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: #c8a96e; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 10px; letter-spacing: 0.06em; color: #2a2a28; }
+  .footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; color: #2a2a28; }
+
+  /* ── Modals ── */
+  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(10,10,9,0.88); align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+  .modal-overlay.active { display: flex; }
+  .modal-box { background: #1a1a18; border: 1px solid #2e2e2c; outline: 1px solid rgba(200,169,110,0.25); outline-offset: 6px; padding: 48px 48px 40px; max-width: 480px; width: 90%; position: relative; }
+  .modal-close { position: absolute; top: 14px; right: 18px; font-size: 22px; color: #555550; background: none; border: none; cursor: pointer; line-height: 1; transition: color 0.15s; }
+  .modal-close:hover { color: #c8a96e; }
+  .modal-eyebrow { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 10px; }
+  .modal-rule { width: 40px; height: 2px; background: #c8a96e; margin-bottom: 16px; }
+  .modal-title { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 28px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .masthead { padding: 28px 24px 0; }
+    .issue-body { padding: 28px 24px 0; }
+    .meta-bar { padding: 8px 24px; flex-direction: column; gap: 4px; }
+    .tf-topic-band { padding: 10px 24px; }
+    .mast-title { font-size: 40px; }
+    .story-hed { font-size: 20px; }
+    .nav-links { display: none; }
+    .footer-top { grid-template-columns: 1fr; }
+    .issue-nav-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <img src="/assets/img/logo.png" alt="Read the Room" class="nav-logo-img">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Read the Room</span>
+        <div class="nav-brand-rule"></div>
+        <span class="nav-brand-tag">Politics, explained without the spin.</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/read-the-room/">Read the Room</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link active" href="/the-frequency/">The Frequency</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/games/">Games</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/about/">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ ISSUE WRAPPER ══════════════ -->
+<div class="issue-wrap">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="mast-top-row">
+      <span class="mast-eyebrow">Valley, Alabama &mdash; Weekly Edition</span>
+      <span class="mast-right">Tune in. Stay grounded.</span>
+    </div>
+    <h1 class="mast-title">The <em>Fre</em>quency</h1>
+    <p class="mast-sub">Independent signal for East Alabama &mdash; from Valley to Montgomery &amp; beyond</p>
+    <div class="wave-rule">
+      <div class="wave-bar" style="width:4px;height:5px;opacity:0.25;"></div>
+      <div class="wave-bar" style="width:4px;height:9px;opacity:0.35;"></div>
+      <div class="wave-bar" style="width:4px;height:15px;opacity:0.55;"></div>
+      <div class="wave-bar" style="width:4px;height:11px;opacity:0.45;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:0.75;"></div>
+      <div class="wave-bar" style="width:4px;height:8px;opacity:0.32;"></div>
+      <div class="wave-bar" style="width:4px;height:14px;opacity:0.52;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:1;"></div>
+      <div class="wave-bar" style="width:4px;height:14px;opacity:0.52;"></div>
+      <div class="wave-bar" style="width:4px;height:8px;opacity:0.32;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:0.75;"></div>
+      <div class="wave-bar" style="width:4px;height:11px;opacity:0.45;"></div>
+      <div class="wave-bar" style="width:4px;height:15px;opacity:0.55;"></div>
+      <div class="wave-bar" style="width:4px;height:9px;opacity:0.35;"></div>
+      <div class="wave-bar" style="width:4px;height:5px;opacity:0.25;"></div>
+      <div class="wave-spacer"></div>
+      <span class="wave-issue">Issue #4 &nbsp;&middot;&nbsp; May 7, 2026</span>
+    </div>
+  </header>
+
+  <!-- META BAR -->
+  <div class="meta-bar">
+    <span>Vol. 1, No. 4</span>
+    <span>Chambers County &amp; Statewide</span>
+    <span>Free Weekly</span>
+  </div>
+
+  <!-- TOPIC BAND -->
+  <div class="tf-topic-band">◆ &nbsp;&nbsp; Maps. Ballots. 14 Days. &nbsp;&nbsp; ◆</div>
+
+  <!-- BODY -->
+  <div class="issue-body">
+
+    <!-- INTRO -->
+    <div class="intro-block" style="margin-top:28px;">
+      Alabama&rsquo;s legislature is in special session redrawing its own maps while voters prepare to cast ballots 14 days from now. Five stories connecting the dots between Montgomery and Chambers County &mdash; sourced from the Legislature, the courtroom, and your neighbors. We cut the static so you don&rsquo;t have to.
+    </div>
+
+    <!-- STORY 01 -->
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">01</span>
+        <span class="tag tag-election">Elections &amp; Voting</span>
+      </div>
+      <h2 class="story-hed">The Voting Rights Act Just Got Gutted. Alabama Was Ready.</h2>
+      <p class="story-dek">The Supreme Court&rsquo;s April 28 ruling in <em>Louisiana v. Callais</em> weakened the law that forced Alabama to draw a second Black-majority congressional district. The state called a special session four days later.</p>
+      <div class="story-body">
+        <p>On April 28, the U.S. Supreme Court ruled in <em>Louisiana v. Callais</em> that Louisiana&rsquo;s second majority-Black congressional district &mdash; drawn under court order to comply with Section 2 of the Voting Rights Act &mdash; violated the Equal Protection Clause. The ruling significantly curtailed race as a permissible factor in drawing district lines, striking at the core of Section 2 as strengthened by the 1982 amendments &mdash; the provision advocates have used for decades to challenge maps that dilute Black voting power.</p>
+        <p>Alabama moved within days. Gov. Kay Ivey called a special legislative session on May 1; the legislature gaveled in on May 4. The goal: replace the court-ordered map Alabama has used since 2023 &mdash; the one that gave the state two majority-Black congressional districts for the first time in its history. Republican leadership wants to revert to maps the legislature drew in 2023, maps a three-judge federal panel had previously ruled discriminated against Black voters. Under <em>Callais</em>, that earlier ruling may no longer hold.</p>
+        <p>The stakes are tangible. Shomari Figures, elected in 2024 to represent Alabama&rsquo;s redrawn 2nd Congressional District, could see his seat effectively dismantled before his first term ends &mdash; returning Alabama to a single Black member of Congress, Rep. Terri Sewell in the 7th, after briefly sending two. Voting rights advocates rallied in Montgomery and Birmingham on May 5. Courts have not yet lifted the injunction blocking the old maps, and the legislature is working in anticipation of that clearance.</p>
+        <p>The 3rd Congressional District, which includes Chambers County, is not directly redrawn under the current proposal. But the outcome of this session will define what voting rights look like in Alabama for the next decade.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Alabama Reflector &middot; NPR &middot; CNN &middot; WSFA &middot; Alabama Attorney General&rsquo;s Office</p>
+    </article>
+
+    <!-- STORY 02 -->
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">02</span>
+        <span class="tag tag-election">Elections &amp; Voting</span>
+        <span class="local-badge">Chambers Co.</span>
+      </div>
+      <h2 class="story-hed">14 Days, Two Names, One Primary</h2>
+      <p class="story-dek">The District 38 Democratic primary is two weeks out. Here&rsquo;s where things stand for Floyd and Davis heading into the final stretch.</p>
+      <div class="story-body">
+        <p>Voters in Alabama House District 38 &mdash; covering portions of Chambers and Lee counties &mdash; head to the polls on May 19. Two Democrats are on the ballot: Hazel Floyd of Valley and Christopher F. &ldquo;Apostle&rdquo; Davis of Lanett. The winner faces Republican incumbent Kristin Nelson in November.</p>
+        <p>Floyd heads into the final stretch with meaningful institutional backing. She attended the Alabama Democratic Conference annual convention in late April, and the ADC &mdash; one of Alabama&rsquo;s most established Black Democratic organizations &mdash; has since endorsed her, a significant signal with two weeks remaining. Her campaign still runs on the same three pillars it has since the February special election: public schools, rural communities, and small businesses. She lost that race to Nelson by a margin that reflects the district&rsquo;s composition more than her campaign. She is running again regardless.</p>
+        <p>Davis presents a different picture. He has no public campaign website, no documented media appearances, and has not filed campaign finance disclosures with the state. That last point carries real weight. Alabama law requires candidates to report contributions and expenditures on a set schedule. Failure to file can result in civil fines, and a complaint from any registered voter or opposing campaign can trigger a formal review. More practically, a candidate who has not disclosed his finances gives voters no way to evaluate who is funding his campaign or how that money is being used. Fourteen days out, that remains an open question with no public answer.</p>
+        <p>May 19 is the decision that shapes November. If you are a Democratic voter in Chambers County, this primary is yours to determine.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Ballotpedia &middot; Valley Times-News &middot; Alabama Reflector</p>
+    </article>
+
+    <!-- STORY 03 -->
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">03</span>
+        <span class="tag tag-election">Elections &amp; Voting</span>
+      </div>
+      <h2 class="story-hed">Six Republicans. One Senate Seat. Trump Already Picked.</h2>
+      <p class="story-dek">Alabama&rsquo;s first open U.S. Senate seat since 2017 goes to a primary on May 19. The field is crowded. The presidential endorsement went to a sitting congressman. A runoff on June 16 is almost certain.</p>
+      <div class="story-body">
+        <p>When Tommy Tuberville announced he was leaving the Senate to run for governor, he opened the first competitive U.S. Senate race in Alabama in nearly a decade. Six Republicans are on the May 19 primary ballot, and the dynamics of that field will almost certainly extend the race to a June 16 runoff &mdash; no candidate is expected to clear the 50% threshold needed to avoid one.</p>
+        <p>The frontrunners are Attorney General Steve Marshall, 1st District Congressman Barry Moore, and businessman Jared Hudson. President Trump endorsed Moore in January 2026, a significant structural advantage in a Republican primary where the president&rsquo;s backing moves numbers. Marshall entered the race with strong name recognition from his years as the state&rsquo;s top prosecutor and has built a broad donor network. Hudson is self-funding and positioning himself as an outsider.</p>
+        <p>On the Democratic side, four candidates are running: Dakarai Larriett, Kyle Sweetser, Everett Wess, and Mark Wheeler II. Cook Political Report rates the seat as solidly Republican, meaning the Democratic primary is largely about building presence, making an argument, and laying groundwork for future cycles.</p>
+        <p>For Chambers County voters, this is the largest statewide race on the May 19 ballot. The seat Tuberville vacated matters, and the Republican primary will determine who fills it.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Ballotpedia &middot; Alabama Daily News &middot; Cook Political Report &middot; Axios Huntsville</p>
+    </article>
+
+    <!-- STORY 04 -->
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">04</span>
+        <span class="tag tag-election">Elections &amp; Voting</span>
+      </div>
+      <h2 class="story-hed">The Coach Is Running for Governor. Someone&rsquo;s Checking His Address.</h2>
+      <p class="story-dek">Tommy Tuberville faces two fellow Republicans in the May 19 gubernatorial primary &mdash; and a formal challenge alleging he doesn&rsquo;t actually live in Alabama.</p>
+      <div class="story-body">
+        <p>Tommy Tuberville announced last May that he would not seek re-election to the U.S. Senate and would instead run for governor of Alabama. He filed paperwork in January 2026. Three Republicans are on the ballot for governor on May 19: Tuberville, Ken McFeeters, and Will Santivasci.</p>
+        <p>The race took an unexpected turn when McFeeters filed a formal residency challenge against Tuberville after the filing deadline, alleging that Tuberville&rsquo;s primary residence is a multimillion-dollar home in Walton County, Florida &mdash; not Alabama. Alabama law requires gubernatorial candidates to have been residents of the state for at least seven years. Tuberville has dismissed the challenge, saying residency is &ldquo;not an issue,&rdquo; and as of press time the challenge has not succeeded in removing him from the ballot.</p>
+        <p>Tuberville has framed his campaign around economic development and job creation. Education, infrastructure, and fraud reduction round out his stated priorities. His coaching legacy and Senate tenure give him a meaningful polling advantage over his Republican opponents.</p>
+        <p>The Democratic primary for governor is also on the May 19 ballot. The field includes former U.S. Senator Doug Jones alongside Will Boyd, 2022 gubernatorial nominee Yolanda Flowers, pastor Ja&rsquo;Mel Brown, and former state representative Nathan Mathis. Cook Political Report rates the governorship as solidly Republican, but the Democratic primary determines who makes the November argument.</p>
+        <p>The governor&rsquo;s race is one of the highest-profile contests on the May 19 ballot, and whoever wins the Republican primary &mdash; likely headed to a June 16 runoff &mdash; will be the heavy favorite in November.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: WSFA &middot; WBHM &middot; Ballotpedia &middot; Alabama Daily News</p>
+    </article>
+
+    <!-- STORY 05 -->
+    <article class="story">
+      <div class="story-header">
+        <span class="story-num">05</span>
+        <span class="tag tag-local">Local Government</span>
+        <span class="local-badge">Chambers Co.</span>
+      </div>
+      <h2 class="story-hed">Valley Haven Has Been Here 50 Years. It&rsquo;s Not Stopping Now.</h2>
+      <p class="story-dek">The school and day program for people with intellectual disabilities in Valley just wrapped its 50th annual Hike/Bike/Run fundraiser &mdash; and the Chambers County Commission took a moment to say thank you.</p>
+      <div class="story-body">
+        <p>Valley Haven School has served people with intellectual disabilities in the Valley area since its founding in the 1970s. What began as a community-funded program has grown into a cornerstone institution for Chambers County &mdash; one that has outlasted administrations, recessions, and the difficulty of sustaining long-term care for a population that rarely makes headlines.</p>
+        <p>The 50th annual Hike/Bike/Run fundraiser wrapped up this past weekend with a full slate of events: an auction on April 24, the inaugural Cooper H/B/R Relay Walk-a-Thon at Valley Community Center on May 1, and the signature car show and motorcycle ride on May 2. The ride departed from Langley GMC in Lanett; the car show ran at 6345 Fairfax Bypass with children&rsquo;s activities alongside. The auction alone raised $11,000.</p>
+        <p>The Chambers County Commission honored Valley Haven at a recent meeting, recognizing the organization&rsquo;s five decades of service alongside updates on Clean-Up Valley Day and other community business. It was a brief agenda item in a full meeting &mdash; the kind that often goes unnoticed outside the room.</p>
+        <p>It shouldn&rsquo;t go unnoticed. Valley Haven has been doing this work for fifty years. The 50th Hike/Bike/Run is not a milestone to scroll past.</p>
+      </div>
+      <div class="gold-rule"></div>
+      <p class="story-source">Sources: Valley Times-News &middot; Chambers County Commission</p>
+    </article>
+
+  </div><!-- /issue-body -->
+</div><!-- /issue-wrap -->
+
+<!-- ══════════════ PREV / NEXT ══════════════ -->
+<div class="issue-nav">
+  <div class="issue-nav-inner">
+    <a href="/the-frequency/issue/3/" class="issue-nav-link">
+      <span class="issue-nav-direction">← Previous issue</span>
+      <span>Issue #3</span>
+    </a>
+    <div class="issue-nav-sep"></div>
+    <span class="issue-nav-link disabled">
+      <span class="issue-nav-direction">Next issue →</span>
+      <span>Coming Thursday</span>
+    </span>
+  </div>
+</div>
+
+<!-- ══════════════ SUBSCRIBE CTA ══════════════ -->
+<div class="subscribe-cta">
+  <div class="subscribe-cta-inner">
+    <div class="subscribe-cta-rule"></div>
+    <p class="subscribe-cta-eyebrow">East Alabama &nbsp;·&nbsp; Every Thursday</p>
+    <h2 class="subscribe-cta-hed">Stay on the frequency.</h2>
+    <p class="subscribe-cta-desc">Five local stories, every Thursday. No static. No spin. Just the signal that matters to Chambers County.</p>
+    <button class="subscribe-cta-btn" onclick="openModal('modal-tf')">Subscribe — It's Free</button>
+  </div>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/assets/img/logo.png" alt="Read the Room" class="footer-logo">
+        <div>
+          <div class="footer-brand-name">Read the Room</div>
+          <div class="footer-brand-rule"></div>
+          <div class="footer-brand-tag">Politics, explained without the spin.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <div class="footer-col-head">Newsletters</div>
+          <ul class="footer-links">
+            <li><a href="/read-the-room/">Read the Room</a></li>
+            <li><a href="/the-frequency/">The Frequency</a></li>
+            <li><a href="/the-frequency/signals/">Signals</a></li>
+            <li><a href="/the-frequency/waves/">Waves</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-head">Site</div>
+          <ul class="footer-links">
+            <li><a href="/games/">Games</a></li>
+            <li><a href="/about/read-the-room/">About RTR</a></li>
+            <li><a href="/about/the-frequency/">About The Frequency</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Read the Room. All rights reserved.</span>
+      <span class="footer-tagline">Every Tuesday and Thursday. No static.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════ SUBSCRIBE MODAL ══════════════ -->
+<div class="modal-overlay" id="modal-tf">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-tf')" aria-label="Close">&times;</button>
+    <p class="modal-eyebrow">East Alabama &nbsp;·&nbsp; Every Thursday</p>
+    <div class="modal-rule"></div>
+    <h3 class="modal-title">The Frequency</h3>
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="06c61880-f78a-444a-bb2a-2a28166e84cd"></script>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.modal-overlay').forEach(function(o) {
+    o.addEventListener('click', function(e) { if (e.target === o) closeModal(o.id); });
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(function(m) { closeModal(m.id); });
+  });
+</script>
+
+</body>
+</html>

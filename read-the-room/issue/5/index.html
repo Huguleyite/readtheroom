@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read the Room — Issue #5: The Supreme Court struck down Louisiana's map.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body { font-family: 'DM Sans', Arial, sans-serif; font-weight: 300; color: #1a1a18; -webkit-font-smoothing: antialiased; background: #111110; }
+
+  /* ── Top bar ── */
+  .top-bar { height: 3px; background: #c8a96e; }
+
+  /* ── Navigation ── */
+  .site-nav { background: #1a1a18; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #252522; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-img { height: 38px; width: 38px; object-fit: cover; border: 1px solid #2e2e2c; }
+  .nav-brand-text { display: flex; flex-direction: column; gap: 3px; }
+  .nav-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; color: #faf9f5; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; }
+  .nav-brand-rule { height: 1px; background: #c8a96e; width: 100%; }
+  .nav-brand-tag { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; }
+  .nav-links { display: flex; align-items: center; }
+  .nav-sep { width: 1px; height: 14px; background: #2e2e2c; }
+  .nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; padding: 0 20px; transition: color 0.2s; }
+  .nav-link:hover, .nav-link.active { color: #c8a96e; }
+
+  /* ── Issue Header ── */
+  .issue-header {
+    background: #1a1a18;
+    padding: 64px 40px 56px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .issue-header::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200,169,110,0.04) 39px, rgba(200,169,110,0.04) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(200,169,110,0.04) 39px, rgba(200,169,110,0.04) 40px);
+    pointer-events: none;
+  }
+  .issue-header-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+  .issue-pub-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 20px; }
+  .issue-pub-label span { color: #3a3a38; margin: 0 12px; }
+  .issue-hed {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px; font-weight: 900; color: #faf9f5;
+    line-height: 1.1; letter-spacing: 0.01em; margin-bottom: 24px;
+    -webkit-text-stroke: 1px rgba(200,169,110,0.35);
+  }
+  .issue-dek {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic; font-weight: 300;
+    font-size: 19px; color: #888880; line-height: 1.6;
+    max-width: 580px; margin: 0 auto;
+  }
+
+  /* ── Topic Band ── */
+  .topic-band { background: #c8a96e; padding: 10px 40px; text-align: center; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #1a1a18; font-weight: 500; }
+
+  /* ── Content ── */
+  .issue-content { background: #faf9f5; padding: 60px 40px; }
+  .issue-content-inner { max-width: 720px; margin: 0 auto; }
+
+  .issue-lede {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 21px; font-weight: 300; line-height: 1.7;
+    color: #1a1a18; border-left: 3px solid #c8a96e;
+    padding-left: 24px; margin-bottom: 52px;
+  }
+
+  .issue-section { margin-bottom: 44px; }
+  .issue-section-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 10px; }
+  .issue-section-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 25px; font-weight: 700; color: #1a1a18; line-height: 1.25; margin-bottom: 18px; }
+  .issue-body-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 400; line-height: 1.85; color: #2e2e2c; }
+  .issue-body-text + .issue-body-text { margin-top: 16px; }
+  .issue-divider { border: none; border-top: 1px solid #e2dfd6; margin: 44px 0; }
+
+  /* Perspectives */
+  .perspectives-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 18px; }
+  .perspectives-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 44px; }
+  .perspective-card { background: #f4f2ec; border: 1px solid #e2dfd6; padding: 24px; }
+  .perspective-side { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; margin-bottom: 12px; }
+  .perspective-side.left { color: #4a6fa5; }
+  .perspective-side.right { color: #b55a4a; }
+  .perspective-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.75; color: #3a3a36; }
+
+  /* Watch list */
+  .watch-list { list-style: none; margin-bottom: 44px; }
+  .watch-item { display: flex; gap: 22px; margin-bottom: 30px; align-items: flex-start; }
+  .watch-num { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; color: #e2dfd6; line-height: 1; flex-shrink: 0; width: 32px; text-align: center; }
+  .watch-heading { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 600; color: #1a1a18; margin-bottom: 6px; }
+  .watch-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; line-height: 1.82; color: #3a3a36; }
+
+  /* Closing */
+  .closing-block { background: #1a1a18; padding: 36px 40px; margin: 0 -40px 44px; }
+  .closing-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .closing-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 300; line-height: 1.85; color: #c8c8c0; font-style: italic; }
+
+  /* Book rec */
+  .book-block { background: #f4f2ec; border: 1px solid #e2dfd6; border-left: 3px solid #c8a96e; padding: 24px; }
+  .book-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 8px; }
+  .book-title { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 700; color: #1a1a18; font-style: italic; margin-bottom: 10px; }
+  .book-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.75; color: #3a3a36; margin-bottom: 12px; }
+  .book-link { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #c8a96e; text-decoration: none; font-weight: 500; }
+  .book-note { font-size: 10px; color: #aaa9a0; font-style: italic; margin-top: 6px; }
+
+  /* ── Prev/Next ── */
+  .issue-nav { background: #1a1a18; border-top: 1px solid #252522; padding: 28px 40px; }
+  .issue-nav-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .issue-nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; transition: color 0.2s; display: flex; flex-direction: column; gap: 5px; }
+  .issue-nav-link:hover { color: #c8a96e; }
+  .issue-nav-link.disabled { color: #2e2e2c; pointer-events: none; }
+  .issue-nav-direction { font-size: 8px; letter-spacing: 0.2em; color: #444440; }
+  .issue-nav-sep { width: 1px; height: 32px; background: #252522; }
+
+  /* ── Subscribe CTA ── */
+  .subscribe-cta { background: #212120; padding: 64px 40px; text-align: center; border-top: 1px solid #1a1a18; }
+  .subscribe-cta-inner { max-width: 480px; margin: 0 auto; }
+  .subscribe-cta-rule { width: 40px; height: 2px; background: #c8a96e; margin: 0 auto 20px; }
+  .subscribe-cta-eyebrow { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 12px; }
+  .subscribe-cta-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: #faf9f5; margin-bottom: 14px; }
+  .subscribe-cta-desc { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 16px; color: #888880; line-height: 1.7; margin-bottom: 30px; }
+  .subscribe-cta-btn { display: inline-block; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 32px; background: #c8a96e; color: #1a1a18; font-weight: 500; cursor: pointer; border: none; transition: opacity 0.15s; font-family: 'DM Sans', Arial, sans-serif; }
+  .subscribe-cta-btn:hover { opacity: 0.85; }
+
+  /* ── Footer ── */
+  .site-footer { background: #111110; border-top: 1px solid #1a1a18; padding: 52px 40px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #1e1e1c; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-logo { height: 44px; width: 44px; object-fit: cover; border: 1px solid #2a2a28; }
+  .footer-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .footer-brand-rule { width: 28px; height: 1px; background: #c8a96e; margin-bottom: 4px; }
+  .footer-brand-tag { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; font-weight: 300; color: #3a3a38; }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col-head { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #444440; text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: #c8a96e; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 10px; letter-spacing: 0.06em; color: #2a2a28; }
+  .footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; color: #2a2a28; }
+
+  /* ── Modals ── */
+  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(10,10,9,0.88); align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+  .modal-overlay.active { display: flex; }
+  .modal-box { background: #1a1a18; border: 1px solid #2e2e2c; outline: 1px solid rgba(200,169,110,0.25); outline-offset: 6px; padding: 48px 48px 40px; max-width: 480px; width: 90%; position: relative; }
+  .modal-close { position: absolute; top: 14px; right: 18px; font-size: 22px; color: #555550; background: none; border: none; cursor: pointer; line-height: 1; transition: color 0.15s; }
+  .modal-close:hover { color: #c8a96e; }
+  .modal-eyebrow { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 10px; }
+  .modal-rule { width: 40px; height: 2px; background: #c8a96e; margin-bottom: 16px; }
+  .modal-title { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 28px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .issue-hed { font-size: 30px; }
+    .closing-block { margin: 0 -20px 44px; padding: 28px 20px; }
+    .perspectives-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .footer-top { grid-template-columns: 1fr; }
+    .issue-nav-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <img src="/assets/img/logo.png" alt="Read the Room" class="nav-logo-img">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Read the Room</span>
+        <div class="nav-brand-rule"></div>
+        <span class="nav-brand-tag">Politics, explained without the spin.</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link active" href="/read-the-room/">Read the Room</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/the-frequency/">The Frequency</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/games/">Games</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/about/">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ ISSUE HEADER ══════════════ -->
+<div class="issue-header">
+  <div class="issue-header-inner">
+    <p class="issue-pub-label">Read the Room <span>◆</span> Issue #5 <span>◆</span> May 5, 2026</p>
+    <h1 class="issue-hed">The Supreme Court struck down Louisiana's congressional map — and gutted a 60-year-old voting rights protection in the process.</h1>
+    <p class="issue-dek">Maps don't just show where you live. They determine how much your vote weighs.</p>
+  </div>
+</div>
+
+<!-- ══════════════ TOPIC BAND ══════════════ -->
+<div class="topic-band">
+  ◆ &nbsp;&nbsp; This week: The Supreme Court just redrew the rules of redistricting — and the map of political power along with it &nbsp;&nbsp; ◆
+</div>
+
+<!-- ══════════════ CONTENT ══════════════ -->
+<div class="issue-content">
+  <div class="issue-content-inner">
+
+    <p class="issue-lede">
+      Maps don't just show where you live. They determine how much your vote weighs. Last week, the Supreme Court handed down a ruling that quietly — but profoundly — changed who gets to draw them, and by what rules.
+    </p>
+
+    <!-- WHAT'S HAPPENING -->
+    <div class="issue-section">
+      <div class="issue-section-label">What's happening</div>
+      <div class="issue-section-hed">The Supreme Court struck down Louisiana's congressional map — and gutted a 60-year-old voting rights protection in the process.</div>
+      <p class="issue-body-text">On April 29, 2026, the Supreme Court decided <em>Louisiana v. Callais</em>, 6–3 along ideological lines. The case centered on Louisiana's congressional map, known as SB 8, which had been drawn after the 2020 census to include two majority-Black districts — giving Black voters, who make up roughly a third of Louisiana's population, meaningful representation in two of its six seats in the U.S. House.</p>
+      <p class="issue-body-text">The Court, in a majority opinion written by Justice Samuel Alito and joined by Chief Justice Roberts and Justices Thomas, Gorsuch, Kavanaugh, and Barrett, struck down that map as an unconstitutional racial gerrymander under the Fifteenth Amendment. The core of the ruling: because the Voting Rights Act of 1965 did not require Louisiana to create a second majority-Black district, race could not serve as a justification for drawing district lines that way. Any use of race in mapmaking, the majority held, must be anchored to a compelling governmental interest — and preserving minority representation for its own sake does not clear that bar.</p>
+      <p class="issue-body-text">But the ruling went further than Louisiana's map. The majority significantly narrowed Section 2 of the Voting Rights Act, the provision that has long allowed minority voters to challenge redistricting plans that dilute their political power. Under the old standard, plaintiffs could win a Section 2 case by demonstrating discriminatory <em>effect</em> — that a map, whatever the intent behind it, left minority voters with less influence than they should have. Under the new standard established in <em>Callais</em>, plaintiffs must prove discriminatory <em>intent</em> — that lawmakers deliberately drew lines to suppress minority voting power.</p>
+      <p class="issue-body-text">That is a distinction with enormous practical consequences. Intent is what lives inside the minds of legislators. It rarely appears in committee transcripts or public statements. Courts have historically found it nearly impossible to prove in redistricting cases, which is precisely why Congress wrote the effects standard into the VRA in 1982 after earlier Supreme Court rulings made intent-based claims too difficult to bring. <em>Callais</em> effectively reverses that legislative correction.</p>
+      <p class="issue-body-text">Justice Elena Kagan, writing for the three dissenters, was unsparing: "Today's decision renders Section 2 all but a dead letter." She argued that the majority had not just narrowed the VRA but effectively buried it, dismantling the most consequential tool minority voters have had to challenge maps drawn against them.</p>
+    </div>
+
+    <hr class="issue-divider">
+
+    <!-- DEEPER ISSUE -->
+    <div class="issue-section">
+      <div class="issue-section-label">The deeper issue</div>
+      <div class="issue-section-hed">The VRA was built to survive what courts cannot see. The Court just removed that survival mechanism.</div>
+      <p class="issue-body-text">The Voting Rights Act of 1965 was signed into law eleven days after Bloody Sunday — the day Alabama state troopers beat civil rights marchers on the Edmund Pettus Bridge in Selma. It was drafted by people who understood that discriminatory intent is almost always deniable. Legislators rarely announce that they are drawing maps to suppress the Black vote. They offer neutral-sounding explanations: compactness, community preservation, incumbency protection. The effects standard was Congress's answer to that problem: stop asking what they meant, and look at what the map does.</p>
+      <p class="issue-body-text"><em>Callais</em> is the latest in a series of rulings that have progressively dismantled that framework. In <em>Shelby County v. Holder</em> (2013), the Court gutted the VRA's preclearance requirement, which had forced states with a history of discrimination to get federal approval before changing voting laws. In <em>Brnovich v. Democratic National Committee</em> (2021), the Court narrowed Section 2's application to voting laws beyond redistricting. Now, <em>Callais</em> completes the circuit: the provision that survived Shelby and Brnovich has been hollowed out from the inside.</p>
+      <p class="issue-body-text">The timing sharpens the stakes considerably. The 2026 midterm elections are months away. Louisiana has already announced it will delay its May 16 congressional primaries to allow the state legislature to redraw its map. Governors in Alabama and Tennessee called their legislatures into special session within days of the ruling. A CBS News analysis estimates that if Republican-controlled legislatures in the South move aggressively, they could add between one and nine GOP-friendly House seats for 2026 — with a potential ceiling of twelve additional seats based on longer-term redistricting across the region. Republicans currently hold a slim House majority.</p>
+    </div>
+
+    <hr class="issue-divider">
+
+    <!-- BOTH SIDES -->
+    <div class="issue-section">
+      <div class="perspectives-label">Both sides</div>
+      <div class="perspectives-grid">
+        <div class="perspective-card">
+          <div class="perspective-side left">The left says</div>
+          <p class="perspective-text">The Voting Rights Act existed because ordinary political processes failed minority voters for a century. <em>Callais</em> finishes what <em>Shelby County</em> started: the systematic removal of every tool that made the VRA enforceable. You cannot prove intent in a legislative chamber. Requiring it is the same as requiring nothing. The Court is telling Black voters in Louisiana — and eventually across the South — that their representation is a courtesy, not a right, and courts will no longer protect it.</p>
+        </div>
+        <div class="perspective-card">
+          <div class="perspective-side right">The right says</div>
+          <p class="perspective-text">The Constitution prohibits government from sorting citizens by race — full stop. A racial gerrymander drawn to benefit a racial group is still a racial gerrymander. The majority opinion is not anti-minority; it is anti-classification. If the effects standard allowed legislatures to use race as a dominant factor in drawing maps, then the effects standard was itself unconstitutional. Equal protection means race-neutral government, and that principle does not have a partisan exception.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="issue-divider">
+
+    <!-- THREE THINGS TO WATCH -->
+    <div class="issue-section">
+      <div class="issue-section-label">Three things to watch</div>
+      <ul class="watch-list">
+        <li class="watch-item">
+          <span class="watch-num">1</span>
+          <div>
+            <div class="watch-heading">What Louisiana's new map looks like</div>
+            <p class="watch-text">The state legislature must now draw a replacement congressional map without using race as a primary factor. Watch whether the new map preserves anything close to meaningful Black representation, or whether it effectively collapses two competitive districts into one safe Republican seat. The map that emerges will be the first stress-test of what the post-<em>Callais</em> redistricting landscape actually allows.</p>
+          </div>
+        </li>
+        <li class="watch-item">
+          <span class="watch-num">2</span>
+          <div>
+            <div class="watch-heading">The redistricting domino effect across the South</div>
+            <p class="watch-text">Alabama and Tennessee have already called special legislative sessions. Georgia, Mississippi, and Texas are being watched for similar moves. Each state presents a different legal and political landscape, and not all redistricting attempts will survive lower-court challenges — but <em>Callais</em> has given Republican-controlled legislatures a significant opening. The pace of those dominoes matters enormously for which maps are actually in place before November.</p>
+          </div>
+        </li>
+        <li class="watch-item">
+          <span class="watch-num">3</span>
+          <div>
+            <div class="watch-heading">The future of the Voting Rights Act itself</div>
+            <p class="watch-text">Justice Kagan's dissent argues that <em>Callais</em> has rendered Section 2 effectively unenforceable. Whether Congress can — or will — respond by rewriting the statute to restore the effects standard is the longer-term question. In the current political environment, that is extraordinarily unlikely. Which means the VRA, for practical purposes, now does much less than its name suggests.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CLOSING THOUGHT -->
+    <div class="closing-block">
+      <div class="closing-label">The bottom line</div>
+      <p class="closing-text">The Voting Rights Act was built on a hard-learned truth: that protecting minority voting power requires looking at outcomes, not just motives. The Court has now required the opposite. Whether you read <em>Callais</em> as a constitutional correction or a civil rights catastrophe depends on which value you weight more: color-blind government, or equal political voice. What isn't ambiguous is the practical arithmetic. Maps will be redrawn. Seats will shift. And the protections that millions of voters relied on to ensure their representation — protections written in the shadow of Selma — will not be there to stop it.</p>
+    </div>
+
+    <!-- BOOK REC -->
+    <div class="issue-section">
+      <div class="issue-section-label">Recommended read</div>
+      <div class="book-block">
+        <div class="book-label">If you want to go deeper</div>
+        <div class="book-title">One Person, One Vote: A Surprising History of Gerrymandering in America — Nick Seabrook</div>
+        <p class="book-text">Published in 2022, Seabrook's book traces the full arc of gerrymandering in America — from its origins in Elbridge Gerry's salamander-shaped Massachusetts district in 1812, through the civil rights era and the birth of the VRA, to the algorithmically precise map-drawing of the modern age. It is the rare political history that explains the legal mechanics without losing the human stakes. After <em>Callais</em>, the chapter on how the VRA reshaped redistricting reads like a eulogy.</p>
+        <a href="INSERT_AFFILIATE_LINK_HERE" class="book-link">Find it on Amazon →</a>
+        <p class="book-note">As an Amazon Associate I earn from qualifying purchases.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════ PREV / NEXT ══════════════ -->
+<div class="issue-nav">
+  <div class="issue-nav-inner">
+    <a href="/read-the-room/issue/4/" class="issue-nav-link">
+      <span class="issue-nav-direction">← Previous issue</span>
+      <span>Issue #4</span>
+    </a>
+    <div class="issue-nav-sep"></div>
+    <span class="issue-nav-link disabled">
+      <span class="issue-nav-direction">Next issue →</span>
+      <span>Coming Tuesday</span>
+    </span>
+  </div>
+</div>
+
+<!-- ══════════════ SUBSCRIBE CTA ══════════════ -->
+<div class="subscribe-cta">
+  <div class="subscribe-cta-inner">
+    <div class="subscribe-cta-rule"></div>
+    <p class="subscribe-cta-eyebrow">Every Tuesday Morning</p>
+    <h2 class="subscribe-cta-hed">Enjoyed this issue?</h2>
+    <p class="subscribe-cta-desc">One topic. Both sides. No spin. Read the Room lands in your inbox every Tuesday — free.</p>
+    <button class="subscribe-cta-btn" onclick="openModal('modal-rtr')">Subscribe — It's Free</button>
+  </div>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/assets/img/logo.png" alt="Read the Room" class="footer-logo">
+        <div>
+          <div class="footer-brand-name">Read the Room</div>
+          <div class="footer-brand-rule"></div>
+          <div class="footer-brand-tag">Politics, explained without the spin.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <div class="footer-col-head">Newsletters</div>
+          <ul class="footer-links">
+            <li><a href="/read-the-room/">Read the Room</a></li>
+            <li><a href="/the-frequency/">The Frequency</a></li>
+            <li><a href="/the-frequency/signals/">Signals</a></li>
+            <li><a href="/the-frequency/waves/">Waves</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-head">Site</div>
+          <ul class="footer-links">
+            <li><a href="/games/">Games</a></li>
+            <li><a href="/about/read-the-room/">About RTR</a></li>
+            <li><a href="/about/the-frequency/">About The Frequency</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Read the Room. All rights reserved.</span>
+      <span class="footer-tagline">Every Tuesday and Thursday. No static.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════ SUBSCRIBE MODAL ══════════════ -->
+<div class="modal-overlay" id="modal-rtr">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-rtr')" aria-label="Close">&times;</button>
+    <p class="modal-eyebrow">National &nbsp;·&nbsp; Every Tuesday</p>
+    <div class="modal-rule"></div>
+    <h3 class="modal-title">Read the Room</h3>
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="90bbd6cf-790a-44b1-b314-90d4af45c18b"></script>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.modal-overlay').forEach(function(o) {
+    o.addEventListener('click', function(e) { if (e.target === o) closeModal(o.id); });
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(function(m) { closeModal(m.id); });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read the Room — All Issues</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body { font-family: 'DM Sans', Arial, sans-serif; font-weight: 300; color: #1a1a18; -webkit-font-smoothing: antialiased; background: #111110; }
+
+  .top-bar { height: 3px; background: #c8a96e; }
+
+  .site-nav { background: #1a1a18; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #252522; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-img { height: 38px; width: 38px; object-fit: cover; border: 1px solid #2e2e2c; }
+  .nav-brand-text { display: flex; flex-direction: column; gap: 3px; }
+  .nav-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; color: #faf9f5; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; }
+  .nav-brand-rule { height: 1px; background: #c8a96e; width: 100%; }
+  .nav-brand-tag { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; }
+  .nav-links { display: flex; align-items: center; }
+  .nav-sep { width: 1px; height: 14px; background: #2e2e2c; }
+  .nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; padding: 0 20px; transition: color 0.2s; }
+  .nav-link:hover, .nav-link.active { color: #c8a96e; }
+
+  /* Archive header */
+  .archive-header {
+    background: #1a1a18; padding: 64px 40px 56px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .archive-header::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200,169,110,0.04) 39px, rgba(200,169,110,0.04) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(200,169,110,0.04) 39px, rgba(200,169,110,0.04) 40px);
+    pointer-events: none;
+  }
+  .archive-header-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+  .archive-eyebrow { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 16px; }
+  .archive-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 52px; font-weight: 900; color: #faf9f5;
+    letter-spacing: 0.04em; text-transform: uppercase; line-height: 0.95;
+    margin-bottom: 18px;
+    -webkit-text-stroke: 1.5px rgba(200,169,110,0.7);
+    text-shadow: 0 0 48px rgba(200,169,110,0.18);
+  }
+  .archive-desc { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 18px; color: #888880; line-height: 1.6; }
+
+  /* Gold band */
+  .gold-band { background: #c8a96e; padding: 10px 40px; text-align: center; font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #1a1a18; font-weight: 500; }
+
+  /* Issue list */
+  .archive-body { background: #faf9f5; padding: 60px 40px; }
+  .archive-inner { max-width: 760px; margin: 0 auto; }
+
+  .issue-card {
+    display: grid; grid-template-columns: 72px 1fr;
+    gap: 0 32px; padding: 32px 0; border-bottom: 1px solid #e2dfd6;
+    text-decoration: none; transition: background 0.15s;
+  }
+  .issue-card:first-child { border-top: 1px solid #e2dfd6; }
+  .issue-card.linked:hover { background: #f4f2ec; margin: 0 -24px; padding: 32px 24px; }
+  .issue-card.dimmed { opacity: 0.45; pointer-events: none; }
+
+  .issue-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 40px; font-weight: 900; color: #e2dfd6;
+    line-height: 1; padding-top: 4px;
+  }
+  .issue-meta { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 8px; }
+  .issue-topic { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #888880; font-weight: 400; margin-bottom: 10px; }
+  .issue-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 700; color: #1a1a18; line-height: 1.25; margin-bottom: 8px; }
+  .issue-card.linked .issue-hed { color: #1a1a18; }
+  .issue-card.linked:hover .issue-hed { color: #c8a96e; }
+  .issue-read { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-top: 10px; }
+  .issue-coming { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #aaa9a0; font-weight: 400; margin-top: 10px; }
+
+  /* Subscribe CTA */
+  .subscribe-cta { background: #212120; padding: 64px 40px; text-align: center; }
+  .subscribe-cta-inner { max-width: 480px; margin: 0 auto; }
+  .subscribe-cta-rule { width: 40px; height: 2px; background: #c8a96e; margin: 0 auto 20px; }
+  .subscribe-cta-eyebrow { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 12px; }
+  .subscribe-cta-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: #faf9f5; margin-bottom: 14px; }
+  .subscribe-cta-desc { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 16px; color: #888880; line-height: 1.7; margin-bottom: 30px; }
+  .subscribe-cta-btn { display: inline-block; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 32px; background: #c8a96e; color: #1a1a18; font-weight: 500; cursor: pointer; border: none; transition: opacity 0.15s; font-family: 'DM Sans', Arial, sans-serif; }
+  .subscribe-cta-btn:hover { opacity: 0.85; }
+
+  /* Footer */
+  .site-footer { background: #111110; border-top: 1px solid #1a1a18; padding: 52px 40px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #1e1e1c; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-logo { height: 44px; width: 44px; object-fit: cover; border: 1px solid #2a2a28; }
+  .footer-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .footer-brand-rule { width: 28px; height: 1px; background: #c8a96e; margin-bottom: 4px; }
+  .footer-brand-tag { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; font-weight: 300; color: #3a3a38; }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col-head { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #444440; text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: #c8a96e; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 10px; letter-spacing: 0.06em; color: #2a2a28; }
+  .footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; color: #2a2a28; }
+
+  /* Modal */
+  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(10,10,9,0.88); align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+  .modal-overlay.active { display: flex; }
+  .modal-box { background: #1a1a18; border: 1px solid #2e2e2c; outline: 1px solid rgba(200,169,110,0.25); outline-offset: 6px; padding: 48px 48px 40px; max-width: 480px; width: 90%; position: relative; }
+  .modal-close { position: absolute; top: 14px; right: 18px; font-size: 22px; color: #555550; background: none; border: none; cursor: pointer; line-height: 1; transition: color 0.15s; }
+  .modal-close:hover { color: #c8a96e; }
+  .modal-eyebrow { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 10px; }
+  .modal-rule { width: 40px; height: 2px; background: #c8a96e; margin-bottom: 16px; }
+  .modal-title { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 28px; }
+
+  @media (max-width: 768px) {
+    .archive-title { font-size: 36px; }
+    .nav-links { display: none; }
+    .footer-top { grid-template-columns: 1fr; }
+    .issue-card { grid-template-columns: 48px 1fr; gap: 0 20px; }
+    .issue-num { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <img src="/assets/img/logo.png" alt="Read the Room" class="nav-logo-img">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Read the Room</span>
+        <div class="nav-brand-rule"></div>
+        <span class="nav-brand-tag">Politics, explained without the spin.</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link active" href="/read-the-room/">Read the Room</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/the-frequency/">The Frequency</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/games/">Games</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/about/">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="archive-header">
+  <div class="archive-header-inner">
+    <p class="archive-eyebrow">◆ &nbsp; All Issues</p>
+    <h1 class="archive-title">Read the Room</h1>
+    <p class="archive-desc">One topic. Both sides. No spin. Every Tuesday.</p>
+  </div>
+</div>
+
+<div class="gold-band">◆ &nbsp;&nbsp; 5 Issues Published &nbsp;&nbsp; ◆</div>
+
+<div class="archive-body">
+  <div class="archive-inner">
+
+    <a href="/read-the-room/issue/5/" class="issue-card linked">
+      <div class="issue-num">05</div>
+      <div>
+        <p class="issue-meta">May 5, 2026</p>
+        <p class="issue-topic">This week: Redistricting &amp; the Voting Rights Act</p>
+        <h2 class="issue-hed">The Supreme Court struck down Louisiana's congressional map — and gutted a 60-year-old voting rights protection in the process.</h2>
+        <p class="issue-read">Read the full issue →</p>
+      </div>
+    </a>
+
+    <div class="issue-card dimmed">
+      <div class="issue-num">04</div>
+      <div>
+        <p class="issue-meta">April 28, 2026</p>
+        <p class="issue-topic">This week: The courts vs. the White House</p>
+        <h2 class="issue-hed">The federal judiciary has become the most consistent check on executive power — and it's being tested like never before.</h2>
+        <p class="issue-coming">Full page coming soon</p>
+      </div>
+    </div>
+
+    <div class="issue-card dimmed">
+      <div class="issue-num">03</div>
+      <div>
+        <p class="issue-meta">April 21, 2026</p>
+        <p class="issue-topic">This week: Federal spending cuts &amp; DOGE</p>
+        <h2 class="issue-hed">DOGE's cuts are real — but so is the legal resistance.</h2>
+        <p class="issue-coming">Full page coming soon</p>
+      </div>
+    </div>
+
+    <div class="issue-card dimmed">
+      <div class="issue-num">02</div>
+      <div>
+        <p class="issue-meta">April 14, 2026</p>
+        <p class="issue-topic">This week: Medicaid cuts</p>
+        <h2 class="issue-hed">The biggest Medicaid overhaul in decades is underway.</h2>
+        <p class="issue-coming">Full page coming soon</p>
+      </div>
+    </div>
+
+    <div class="issue-card dimmed">
+      <div class="issue-num">01</div>
+      <div>
+        <p class="issue-meta">April 7, 2026</p>
+        <p class="issue-topic">The first issue</p>
+        <h2 class="issue-hed">Read the Room — Issue #1</h2>
+        <p class="issue-coming">Full page coming soon</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="subscribe-cta">
+  <div class="subscribe-cta-inner">
+    <div class="subscribe-cta-rule"></div>
+    <p class="subscribe-cta-eyebrow">Every Tuesday Morning</p>
+    <h2 class="subscribe-cta-hed">Never miss an issue.</h2>
+    <p class="subscribe-cta-desc">One topic. Both sides. No spin. Free every Tuesday.</p>
+    <button class="subscribe-cta-btn" onclick="openModal('modal-rtr')">Subscribe — It's Free</button>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/assets/img/logo.png" alt="Read the Room" class="footer-logo">
+        <div>
+          <div class="footer-brand-name">Read the Room</div>
+          <div class="footer-brand-rule"></div>
+          <div class="footer-brand-tag">Politics, explained without the spin.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <div class="footer-col-head">Newsletters</div>
+          <ul class="footer-links">
+            <li><a href="/read-the-room/">Read the Room</a></li>
+            <li><a href="/the-frequency/">The Frequency</a></li>
+            <li><a href="/the-frequency/signals/">Signals</a></li>
+            <li><a href="/the-frequency/waves/">Waves</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-head">Site</div>
+          <ul class="footer-links">
+            <li><a href="/games/">Games</a></li>
+            <li><a href="/about/">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Read the Room. All rights reserved.</span>
+      <span class="footer-tagline">Every Tuesday and Thursday. No static.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal-rtr">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-rtr')" aria-label="Close">&times;</button>
+    <p class="modal-eyebrow">National &nbsp;·&nbsp; Every Tuesday</p>
+    <div class="modal-rule"></div>
+    <h3 class="modal-title">Read the Room</h3>
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="90bbd6cf-790a-44b1-b314-90d4af45c18b"></script>
+  </div>
+</div>
+
+<script>
+  function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = ''; }
+  document.querySelectorAll('.modal-overlay').forEach(function(o) { o.addEventListener('click', function(e) { if (e.target === o) closeModal(o.id); }); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(function(m) { closeModal(m.id); }); });
+</script>
+</body>
+</html>

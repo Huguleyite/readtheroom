@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Games — Read the Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', Arial, sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; background: #111110; color: #faf9f5; min-height: 100vh; display: flex; flex-direction: column; }
+
+  .top-bar { height: 3px; background: #c8a96e; }
+
+  .site-nav { background: #1a1a18; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #252522; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-img { height: 38px; width: 38px; object-fit: cover; border: 1px solid #2e2e2c; }
+  .nav-brand-text { display: flex; flex-direction: column; gap: 3px; }
+  .nav-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; color: #faf9f5; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; }
+  .nav-brand-rule { height: 1px; background: #c8a96e; width: 100%; }
+  .nav-brand-tag { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; }
+  .nav-links { display: flex; align-items: center; }
+  .nav-sep { width: 1px; height: 14px; background: #2e2e2c; }
+  .nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; padding: 0 20px; transition: color 0.2s; }
+  .nav-link:hover, .nav-link.active { color: #c8a96e; }
+
+  .page-center { flex: 1; display: flex; align-items: center; justify-content: center; padding: 80px 40px; }
+  .coming-inner { text-align: center; max-width: 480px; }
+
+  .game-board {
+    width: 200px; height: 200px; border: 1px solid #2e2e2c;
+    outline: 1px solid rgba(200,169,110,0.2); outline-offset: 8px;
+    background: #111110; display: grid;
+    grid-template-columns: repeat(6,1fr); grid-template-rows: repeat(6,1fr);
+    gap: 3px; padding: 12px; transform: rotate(-3deg);
+    margin: 0 auto 48px;
+  }
+  .gc { background: #1e1e1c; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', Georgia, serif; font-size: 10px; font-weight: 700; color: #faf9f5; }
+  .gc.g { background: #c8a96e; color: #1a1a18; }
+  .gc.d { background: #111110; }
+  .gc.m { background: #252522; color: #555550; }
+
+  .coming-eyebrow { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 16px; }
+  .coming-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 700; color: #faf9f5; margin-bottom: 14px; line-height: 1.15; }
+  .coming-desc { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 17px; color: #888880; line-height: 1.7; margin-bottom: 32px; }
+  .coming-rule { width: 40px; height: 1px; background: #c8a96e; margin: 0 auto 32px; }
+  .coming-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #444440; }
+
+  .site-footer { background: #0e0e0d; border-top: 1px solid #1a1a18; padding: 32px 40px; }
+  .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 10px; letter-spacing: 0.06em; color: #2a2a28; }
+  .footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; color: #2a2a28; }
+
+  @media (max-width: 768px) { .nav-links { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <img src="/assets/img/logo.png" alt="Read the Room" class="nav-logo-img">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Read the Room</span>
+        <div class="nav-brand-rule"></div>
+        <span class="nav-brand-tag">Politics, explained without the spin.</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/read-the-room/">Read the Room</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/the-frequency/">The Frequency</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link active" href="/games/">Games</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/about/">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-center">
+  <div class="coming-inner">
+    <div class="game-board">
+      <div class="gc g">R</div><div class="gc d"></div><div class="gc m">V</div><div class="gc m">O</div><div class="gc m">T</div><div class="gc m">E</div>
+      <div class="gc m">E</div><div class="gc d"></div><div class="gc d"></div><div class="gc d"></div><div class="gc g">H</div><div class="gc d"></div>
+      <div class="gc g">A</div><div class="gc d"></div><div class="gc m">L</div><div class="gc d"></div><div class="gc g">E</div><div class="gc d"></div>
+      <div class="gc m">D</div><div class="gc d"></div><div class="gc m">A</div><div class="gc d"></div><div class="gc g">R</div><div class="gc d"></div>
+      <div class="gc d"></div><div class="gc m">P</div><div class="gc m">W</div><div class="gc d"></div><div class="gc g">E</div><div class="gc d"></div>
+      <div class="gc d"></div><div class="gc d"></div><div class="gc d"></div><div class="gc d"></div><div class="gc g">?</div><div class="gc d"></div>
+    </div>
+    <p class="coming-eyebrow">◆ &nbsp; Games Hub</p>
+    <h1 class="coming-hed">Something sharper is coming.</h1>
+    <p class="coming-desc">Original games built for the curious reader — designed from the ground up for the Read the Room brand. Not trivia for trivia's sake.</p>
+    <div class="coming-rule"></div>
+    <p class="coming-label">Coming Soon</p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Read the Room. All rights reserved.</span>
+    <span class="footer-tagline">Every Tuesday and Thursday. No static.</span>
+  </div>
+</footer>
+
+</body>
+</html>

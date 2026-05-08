@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Read the Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body { font-family: 'DM Sans', Arial, sans-serif; font-weight: 300; color: #1a1a18; -webkit-font-smoothing: antialiased; background: #111110; }
+
+  .top-bar { height: 3px; background: #c8a96e; }
+
+  .site-nav { background: #1a1a18; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #252522; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-img { height: 38px; width: 38px; object-fit: cover; border: 1px solid #2e2e2c; }
+  .nav-brand-text { display: flex; flex-direction: column; gap: 3px; }
+  .nav-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; color: #faf9f5; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; }
+  .nav-brand-rule { height: 1px; background: #c8a96e; width: 100%; }
+  .nav-brand-tag { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; }
+  .nav-links { display: flex; align-items: center; }
+  .nav-sep { width: 1px; height: 14px; background: #2e2e2c; }
+  .nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; padding: 0 20px; transition: color 0.2s; }
+  .nav-link:hover, .nav-link.active { color: #c8a96e; }
+
+  /* Page header */
+  .page-header { background: #1a1a18; padding: 64px 40px 56px; text-align: center; position: relative; overflow: hidden; }
+  .page-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200,169,110,0.04) 39px, rgba(200,169,110,0.04) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(200,169,110,0.04) 39px, rgba(200,169,110,0.04) 40px); pointer-events: none; }
+  .page-header-inner { position: relative; z-index: 1; }
+  .page-eyebrow { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .page-title { font-family: 'Playfair Display', Georgia, serif; font-size: 48px; font-weight: 900; color: #faf9f5; letter-spacing: 0.02em; -webkit-text-stroke: 1px rgba(200,169,110,0.4); }
+
+  /* Content */
+  .about-body { background: #faf9f5; padding: 64px 40px; }
+  .about-inner { max-width: 760px; margin: 0 auto; }
+
+  .about-section { margin-bottom: 56px; }
+  .about-eyebrow { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 10px; }
+  .about-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #1a1a18; line-height: 1.2; margin-bottom: 18px; }
+  .about-rule { width: 40px; height: 2px; background: #c8a96e; margin-bottom: 20px; }
+  .about-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; font-weight: 400; line-height: 1.85; color: #2e2e2c; }
+  .about-text + .about-text { margin-top: 16px; }
+  .about-divider { border: none; border-top: 1px solid #e2dfd6; margin: 56px 0; }
+
+  /* Two-up newsletter cards */
+  .newsletter-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+  .nl-card { padding: 28px; border: 1px solid #e2dfd6; }
+  .nl-card-rtr { border-left: 3px solid #c8a96e; background: #1a1a18; }
+  .nl-card-tf { border-left: 3px solid #c8a96e; background: #f4f2ec; }
+  .nl-card-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; margin-bottom: 8px; }
+  .nl-card-label-rtr { color: #c8a96e; }
+  .nl-card-label-tf { color: #888880; }
+  .nl-card-name { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .nl-card-name-rtr { color: #faf9f5; }
+  .nl-card-name-tf { color: #1a1a18; }
+  .nl-card-desc { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
+  .nl-card-desc-rtr { color: #888880; }
+  .nl-card-desc-tf { color: #555550; }
+  .nl-card-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #c8a96e; text-decoration: none; font-weight: 500; }
+
+  /* Footer */
+  .site-footer { background: #111110; border-top: 1px solid #1a1a18; padding: 52px 40px 32px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #1e1e1c; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-logo { height: 44px; width: 44px; object-fit: cover; border: 1px solid #2a2a28; }
+  .footer-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: #faf9f5; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .footer-brand-rule { width: 28px; height: 1px; background: #c8a96e; margin-bottom: 4px; }
+  .footer-brand-tag { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; font-weight: 300; color: #3a3a38; }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col-head { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #444440; text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: #c8a96e; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 10px; letter-spacing: 0.06em; color: #2a2a28; }
+  .footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; color: #2a2a28; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .newsletter-cards { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .page-title { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <img src="/assets/img/logo.png" alt="Read the Room" class="nav-logo-img">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Read the Room</span>
+        <div class="nav-brand-rule"></div>
+        <span class="nav-brand-tag">Politics, explained without the spin.</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/read-the-room/">Read the Room</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/the-frequency/">The Frequency</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/games/">Games</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link active" href="/about/">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="page-eyebrow">◆ &nbsp; About</p>
+    <h1 class="page-title">Read the Room</h1>
+  </div>
+</div>
+
+<div class="about-body">
+  <div class="about-inner">
+
+    <div class="about-section">
+      <p class="about-eyebrow">The mission</p>
+      <h2 class="about-hed">Politics, explained without the spin.</h2>
+      <div class="about-rule"></div>
+      <p class="about-text">Read the Room is an independent political newsletter network built on a single premise: that most people are not ideologues — they're busy. They want to understand what's happening in American politics without being told what to think about it. They want the context that cable news skips and the local stories that the national press ignores.</p>
+      <p class="about-text">We publish two newsletters. One covers federal politics from both sides of the aisle. The other covers East Alabama — specifically Chambers County and the state that shapes it. Both are free. Neither has a partisan agenda.</p>
+    </div>
+
+    <hr class="about-divider">
+
+    <div class="about-section">
+      <p class="about-eyebrow">The publications</p>
+      <h2 class="about-hed">Two newsletters. One standard.</h2>
+      <div class="about-rule"></div>
+      <div class="newsletter-cards">
+        <div class="nl-card nl-card-rtr">
+          <p class="nl-card-label nl-card-label-rtr">National &nbsp;·&nbsp; Every Tuesday</p>
+          <h3 class="nl-card-name nl-card-name-rtr">Read the Room</h3>
+          <p class="nl-card-desc nl-card-desc-rtr">One topic per issue. Both sides, fairly presented. The context behind the headline, without the heat. Free every Tuesday morning.</p>
+          <a href="/read-the-room/" class="nl-card-link">Browse all issues →</a>
+        </div>
+        <div class="nl-card nl-card-tf">
+          <p class="nl-card-label nl-card-label-tf">East Alabama &nbsp;·&nbsp; Every Thursday</p>
+          <h3 class="nl-card-name nl-card-name-tf">The Frequency</h3>
+          <p class="nl-card-desc nl-card-desc-tf">Five stories per issue from Chambers County, Alabama, and the state government that affects both. The signal your neighbors deserve. Free every Thursday.</p>
+          <a href="/the-frequency/" class="nl-card-link">Browse all issues →</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="about-divider">
+
+    <div class="about-section">
+      <p class="about-eyebrow">Contact</p>
+      <h2 class="about-hed">Get in touch.</h2>
+      <div class="about-rule"></div>
+      <p class="about-text">For questions, tips, corrections, or to reach the editor, email <a href="mailto:simfloydjr@gmail.com" style="color:#c8a96e;text-decoration:none;">simfloydjr@gmail.com</a>. We read everything.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/assets/img/logo.png" alt="Read the Room" class="footer-logo">
+        <div>
+          <div class="footer-brand-name">Read the Room</div>
+          <div class="footer-brand-rule"></div>
+          <div class="footer-brand-tag">Politics, explained without the spin.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <div class="footer-col-head">Newsletters</div>
+          <ul class="footer-links">
+            <li><a href="/read-the-room/">Read the Room</a></li>
+            <li><a href="/the-frequency/">The Frequency</a></li>
+            <li><a href="/the-frequency/signals/">Signals</a></li>
+            <li><a href="/the-frequency/waves/">Waves</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-head">Site</div>
+          <ul class="footer-links">
+            <li><a href="/games/">Games</a></li>
+            <li><a href="/about/">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Read the Room. All rights reserved.</span>
+      <span class="footer-tagline">Every Tuesday and Thursday. No static.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

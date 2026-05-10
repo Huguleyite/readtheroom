@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What You Actually Need to Know About the Hantavirus Outbreak | Read the Room</title>
+<meta name="description" content="A cruise ship. A rare virus. Three deaths. And a question worth asking before the panic sets in. Read the Room covers the 2026 Andes virus outbreak honestly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; }
+  body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 300;
+    background: #f0ede6;
+    color: #1a1a18;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #faf9f5;
+    padding: 0 56px 72px;
+  }
+
+  /* ── Site bar ── */
+  .site-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 0.5px solid #d0cfc8;
+    margin-bottom: 40px;
+  }
+
+  .site-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a18;
+    text-decoration: none;
+  }
+
+  .content-type {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888880;
+  }
+
+  /* ── Signal badge ── */
+  .signal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1a1a18;
+    color: #c8a96e;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  .signal-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #c8a96e;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ── Article header ── */
+  .article-hed {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #1a1a18;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .article-dek {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    color: #555550;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .article-meta {
+    font-size: 11px;
+    font-weight: 400;
+    color: #888880;
+    letter-spacing: 0.06em;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid #d0cfc8;
+    margin-bottom: 32px;
+  }
+
+  /* ── Body ── */
+  .article-body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.82;
+    color: #1a1a18;
+  }
+
+  .article-body p + p {
+    margin-top: 20px;
+  }
+
+  .article-body h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a18;
+    margin: 36px 0 12px;
+    padding-top: 28px;
+    border-top: 0.5px solid #d0cfc8;
+  }
+
+  /* ── Key facts box ── */
+  .facts-box {
+    background: #f0efe8;
+    border-left: 3px solid #c8a96e;
+    padding: 16px 20px;
+    margin: 28px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .facts-box-label {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 10px;
+  }
+
+  .facts-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .facts-box li {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #1a1a18;
+    line-height: 1.6;
+    padding: 5px 0;
+    border-bottom: 0.5px solid #d0cfc8;
+  }
+
+  .facts-box li:last-child { border-bottom: none; }
+
+  .facts-box li strong {
+    font-weight: 500;
+  }
+
+  /* ── Sources ── */
+  .article-sources {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 2px solid #1a1a18;
+  }
+
+  .sources-label {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888880;
+    margin-bottom: 10px;
+  }
+
+  .sources-list {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: #888880;
+    line-height: 1.9;
+  }
+
+  .sources-list a {
+    color: #888880;
+    text-decoration: none;
+    border-bottom: 0.5px solid #d0cfc8;
+  }
+
+  .sources-list a:hover {
+    color: #1a1a18;
+    border-bottom-color: #1a1a18;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .page { padding: 0 24px 48px; }
+    .article-hed { font-size: 26px; }
+    .article-dek { font-size: 15px; }
+    .article-body { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Site bar -->
+  <div class="site-bar">
+    <a href="../index.html" class="site-name">Read the Room</a>
+    <span class="content-type">Signal &mdash; Analysis</span>
+  </div>
+
+  <!-- Signal badge -->
+  <div class="signal-badge">
+    <div class="signal-dot"></div>
+    Signal
+  </div>
+
+  <!-- Article header -->
+  <h1 class="article-hed">What You Actually Need to Know About the Hantavirus Outbreak</h1>
+  <p class="article-dek">A cruise ship. A rare virus. Three deaths. And a question worth asking before the panic sets in.</p>
+  <p class="article-meta">May 9, 2026 &nbsp;&middot;&nbsp; Read the Room</p>
+
+  <!-- Key facts box -->
+  <div class="facts-box">
+    <div class="facts-box-label">By the Numbers</div>
+    <ul>
+      <li><strong>Vessel:</strong> MV Hondius &mdash; Dutch-flagged expedition cruise ship</li>
+      <li><strong>Departure:</strong> April 1, 2026, from Ushuaia, Argentina</li>
+      <li><strong>Cases:</strong> 8 total (6 confirmed, 2 suspected) as of May 8</li>
+      <li><strong>Deaths:</strong> 3</li>
+      <li><strong>Virus:</strong> Andes virus &mdash; confirmed by WHO on May 6</li>
+      <li><strong>U.S. monitoring:</strong> 7 people in 5 states &mdash; none symptomatic</li>
+      <li><strong>WHO risk assessment:</strong> Low</li>
+    </ul>
+  </div>
+
+  <!-- Body -->
+  <div class="article-body">
+
+    <p>On April 1, 2026, the MV Hondius &mdash; a Dutch-flagged expedition vessel &mdash; departed Ushuaia, Argentina, at the southern tip of South America. Ten days later, a passenger died on board. By the time the ship reached Saint Helena in late April, the man&rsquo;s wife had disembarked. She died shortly after in a Johannesburg hospital.</p>
+
+    <p>As of May 8, eight cases have been confirmed or suspected. Three people are dead. Patients are currently hospitalized in six countries: South Africa, the Netherlands, Germany, Saint Helena, Spain, and Switzerland. The ship, with 147 individuals still on board, is en route to Tenerife in Spain&rsquo;s Canary Islands.</p>
+
+    <p>On May 6, the World Health Organization confirmed the specific pathogen: Andes virus.</p>
+
+    <h2>Why Andes Virus Is Different</h2>
+
+    <p>Most hantaviruses spread one way &mdash; rodent to human, through contact with infected urine, droppings, or saliva. They do not pass between people. Andes virus is the exception. It is the only known hantavirus capable of human-to-human transmission. That distinction is why this outbreak is being watched as carefully as it is.</p>
+
+    <p>The index case &mdash; the Dutch citizen identified as the source &mdash; spent four months traveling through Chile, Uruguay, and Argentina before boarding the Hondius on April 1. The Argentine health ministry published a detailed account of his movements. He likely contracted the virus during that trip, through rodent exposure in rural South America, and was already incubating it when he boarded.</p>
+
+    <h2>What the Risk Actually Is</h2>
+
+    <p>Seven people in five U.S. states &mdash; Arizona, California, Georgia, Texas, and Virginia &mdash; are being monitored after disembarking from the Hondius. As of this writing, none is showing symptoms.</p>
+
+    <p>The WHO has assessed the overall public health risk as low. That assessment reflects what epidemiologists know about Andes virus: it is serious, it can spread between people, but it has not demonstrated the kind of sustained community transmission that produces a pandemic. Hantavirus pulmonary syndrome &mdash; the severe respiratory illness the virus causes &mdash; has a high fatality rate in individual cases but a poor track record as an epidemic pathogen. It lacks the transmission efficiency of respiratory viruses like influenza or SARS-CoV-2.</p>
+
+    <p>NPR&rsquo;s reporting this week was direct: this is likely not the next COVID. Prediction markets tracked by CNBC show little probability of a global outbreak.</p>
+
+    <h2>What Warrants Watching</h2>
+
+    <p>The outbreak is small. The virus is rare outside South America. The cruise ship setting is inherently contained &mdash; passengers are a known, traceable population, which is why contact tracing has moved as quickly as it has.</p>
+
+    <p>What earns continued attention is the human-to-human transmission question. In previous Andes virus outbreaks in Argentina and Chile, person-to-person spread was documented but limited. Whether the Hondius cluster represents an expansion of that pattern &mdash; or simply the predictable result of close quarters on a ship &mdash; is what researchers are working to determine.</p>
+
+    <p>The CDC has issued a Health Alert Network notice directing clinicians to be alert for suspected cases in patients with recent travel to southern South America.</p>
+
+    <h2>The Bottom Line</h2>
+
+    <p>Three people are dead from a serious and rare disease. That warrants clear, accurate reporting &mdash; not alarm and not dismissal. The public health infrastructure tracking this outbreak is functioning. The risk to people who were not on the Hondius, or in close contact with someone who was, is extremely low.</p>
+
+    <p>Watch this one. Panic about it? Not yet.</p>
+
+  </div>
+
+  <!-- Sources -->
+  <div class="article-sources">
+    <div class="sources-label">Sources</div>
+    <div class="sources-list">
+      WHO Disease Outbreak News &middot; CDC Health Alert Network (HAN 00528) &middot; NPR &middot; CNN &middot; CNBC &middot; WSFA &middot; University of South Florida Health
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>

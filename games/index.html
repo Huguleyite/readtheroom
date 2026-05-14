@@ -26,34 +26,64 @@
   .nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; padding: 0 20px; transition: color 0.2s; }
   .nav-link:hover, .nav-link.active { color: #c8a96e; }
 
-  .page-center { flex: 1; display: flex; align-items: center; justify-content: center; padding: 80px 40px; }
-  .coming-inner { text-align: center; max-width: 480px; }
+  /* PAGE */
+  .page-main { flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; padding: 64px 40px 100px; }
 
-  .game-board {
-    width: 200px; height: 200px; border: 1px solid #2e2e2c;
-    outline: 1px solid rgba(200,169,110,0.2); outline-offset: 8px;
-    background: #111110; display: grid;
-    grid-template-columns: repeat(6,1fr); grid-template-rows: repeat(6,1fr);
-    gap: 3px; padding: 12px; transform: rotate(-3deg);
-    margin: 0 auto 48px;
-  }
-  .gc { background: #1e1e1c; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', Georgia, serif; font-size: 10px; font-weight: 700; color: #faf9f5; }
-  .gc.g { background: #c8a96e; color: #1a1a18; }
-  .gc.d { background: #111110; }
-  .gc.m { background: #252522; color: #555550; }
+  .page-header { margin-bottom: 56px; }
+  .page-eyebrow { font-size: 9px; letter-spacing: 0.26em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .page-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #faf9f5; line-height: 1.05; margin-bottom: 14px; }
+  .page-desc { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 17px; color: #888880; max-width: 520px; line-height: 1.7; }
+  .page-rule { width: 40px; height: 1px; background: #c8a96e; margin-top: 28px; }
 
-  .coming-eyebrow { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 16px; }
-  .coming-hed { font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 700; color: #faf9f5; margin-bottom: 14px; line-height: 1.15; }
-  .coming-desc { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 17px; color: #888880; line-height: 1.7; margin-bottom: 32px; }
-  .coming-rule { width: 40px; height: 1px; background: #c8a96e; margin: 0 auto 32px; }
-  .coming-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #444440; }
+  /* GAMES GRID */
+  .games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 
+  /* GAME CARD */
+  .game-card { background: #1a1a18; border: 1px solid #252522; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; }
+  .game-card:hover { border-color: #c8a96e; transform: translateY(-3px); }
+  .game-card.coming { opacity: 0.5; pointer-events: none; }
+
+  .card-visual { height: 160px; background: #111110; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #252522; position: relative; overflow: hidden; }
+
+  /* Approval Machine visual — animated approval bars */
+  .am-visual { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 24px 28px; }
+  .am-bar-row { display: flex; align-items: center; gap: 10px; }
+  .am-bar-label { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #555550; width: 64px; flex-shrink: 0; }
+  .am-bar-track { flex: 1; height: 4px; background: #252522; border-radius: 2px; overflow: hidden; }
+  .am-bar-fill { height: 100%; border-radius: 2px; }
+  .am-bar-fill.gold  { background: #c8a96e; }
+  .am-bar-fill.red   { background: #c0392b; }
+  .am-bar-fill.green { background: #2a7a4b; }
+  .am-bar-val { font-size: 9px; font-weight: 700; color: #888880; width: 28px; text-align: right; flex-shrink: 0; }
+
+  /* Pundit visual — state silhouette placeholder */
+  .pundit-visual { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+  .pundit-state { font-family: 'Playfair Display', Georgia, serif; font-size: 48px; font-weight: 900; color: #252522; letter-spacing: -2px; }
+  .pundit-q { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #333330; }
+
+  .card-badge { position: absolute; top: 12px; right: 12px; font-size: 8px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 10px; }
+  .badge-live { background: #2a7a4b; color: #faf9f5; }
+  .badge-soon { background: #252522; color: #555550; }
+
+  .card-body { padding: 24px 24px 28px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .card-title { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: #faf9f5; line-height: 1.2; }
+  .card-desc { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 14px; color: #888880; line-height: 1.65; flex: 1; margin-top: 4px; }
+  .card-meta { display: flex; gap: 16px; margin-top: 12px; }
+  .card-meta-item { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #444440; }
+  .card-cta { margin-top: 18px; display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #c8a96e; border-bottom: 1px solid rgba(200,169,110,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
+  .game-card:hover .card-cta { border-color: #c8a96e; }
+
+  /* FOOTER */
   .site-footer { background: #0e0e0d; border-top: 1px solid #1a1a18; padding: 32px 40px; }
   .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
   .footer-copy { font-size: 10px; letter-spacing: 0.06em; color: #2a2a28; }
   .footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; color: #2a2a28; }
 
-  @media (max-width: 768px) { .nav-links { display: none; } }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .page-main { padding: 48px 24px 80px; }
+    .games-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -82,23 +112,88 @@
   </div>
 </nav>
 
-<div class="page-center">
-  <div class="coming-inner">
-    <div class="game-board">
-      <div class="gc g">R</div><div class="gc d"></div><div class="gc m">V</div><div class="gc m">O</div><div class="gc m">T</div><div class="gc m">E</div>
-      <div class="gc m">E</div><div class="gc d"></div><div class="gc d"></div><div class="gc d"></div><div class="gc g">H</div><div class="gc d"></div>
-      <div class="gc g">A</div><div class="gc d"></div><div class="gc m">L</div><div class="gc d"></div><div class="gc g">E</div><div class="gc d"></div>
-      <div class="gc m">D</div><div class="gc d"></div><div class="gc m">A</div><div class="gc d"></div><div class="gc g">R</div><div class="gc d"></div>
-      <div class="gc d"></div><div class="gc m">P</div><div class="gc m">W</div><div class="gc d"></div><div class="gc g">E</div><div class="gc d"></div>
-      <div class="gc d"></div><div class="gc d"></div><div class="gc d"></div><div class="gc d"></div><div class="gc g">?</div><div class="gc d"></div>
-    </div>
-    <p class="coming-eyebrow">◆ &nbsp; Games Hub</p>
-    <h1 class="coming-hed">Something sharper is coming.</h1>
-    <p class="coming-desc">Original games built for the curious reader — designed from the ground up for the Read the Room brand. Not trivia for trivia's sake.</p>
-    <div class="coming-rule"></div>
-    <p class="coming-label">Coming Soon</p>
+<main class="page-main">
+
+  <div class="page-header">
+    <p class="page-eyebrow">◆ &nbsp; Read the Room</p>
+    <h1 class="page-title">Games</h1>
+    <p class="page-desc">Original games built for the politically curious — no trivia for trivia's sake. Think, decide, compare notes.</p>
+    <div class="page-rule"></div>
   </div>
-</div>
+
+  <div class="games-grid">
+
+    <!-- THE APPROVAL MACHINE — LIVE -->
+    <a class="game-card" href="/games/approval-machine/">
+      <div class="card-visual">
+        <div class="am-visual">
+          <div class="am-bar-row">
+            <span class="am-bar-label">Suburban</span>
+            <div class="am-bar-track"><div class="am-bar-fill gold" style="width:62%"></div></div>
+            <span class="am-bar-val">62%</span>
+          </div>
+          <div class="am-bar-row">
+            <span class="am-bar-label">Rural</span>
+            <div class="am-bar-track"><div class="am-bar-fill red" style="width:34%"></div></div>
+            <span class="am-bar-val">34%</span>
+          </div>
+          <div class="am-bar-row">
+            <span class="am-bar-label">Young</span>
+            <div class="am-bar-track"><div class="am-bar-fill green" style="width:71%"></div></div>
+            <span class="am-bar-val">71%</span>
+          </div>
+          <div class="am-bar-row">
+            <span class="am-bar-label">Seniors</span>
+            <div class="am-bar-track"><div class="am-bar-fill gold" style="width:52%"></div></div>
+            <span class="am-bar-val">52%</span>
+          </div>
+          <div class="am-bar-row">
+            <span class="am-bar-label">Independents</span>
+            <div class="am-bar-track"><div class="am-bar-fill gold" style="width:58%"></div></div>
+            <span class="am-bar-val">58%</span>
+          </div>
+          <div class="am-bar-row">
+            <span class="am-bar-label">Party Base</span>
+            <div class="am-bar-track"><div class="am-bar-fill green" style="width:74%"></div></div>
+            <span class="am-bar-val">74%</span>
+          </div>
+        </div>
+        <span class="card-badge badge-live">Live</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The Approval Machine</div>
+        <p class="card-desc">You're the president. Twelve decisions. Four years. Every choice will please someone and cost you someone else — watch your approval shift in real time.</p>
+        <div class="card-meta">
+          <span class="card-meta-item">12 Decisions</span>
+          <span class="card-meta-item">6 Demographics</span>
+          <span class="card-meta-item">One term</span>
+        </div>
+        <span class="card-cta">Play Now →</span>
+      </div>
+    </a>
+
+    <!-- PUNDIT — COMING SOON -->
+    <div class="game-card coming">
+      <div class="card-visual">
+        <div class="pundit-visual">
+          <div class="pundit-state">PA</div>
+          <div class="pundit-q">Which way did it go?</div>
+        </div>
+        <span class="card-badge badge-soon">Coming Soon</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Pundit</div>
+        <p class="card-desc">A state's snapshot. A historical election year. Your job: predict which way it went. Ten rounds, one pundit rating, no lecturing.</p>
+        <div class="card-meta">
+          <span class="card-meta-item">10 Rounds</span>
+          <span class="card-meta-item">Historical Elections</span>
+          <span class="card-meta-item">Pattern recognition</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
 
 <footer class="site-footer">
   <div class="footer-bottom">

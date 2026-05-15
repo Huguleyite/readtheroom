@@ -56,10 +56,11 @@
   .am-bar-fill.green { background: #2a7a4b; }
   .am-bar-val { font-size: 9px; font-weight: 700; color: #888880; width: 28px; text-align: right; flex-shrink: 0; }
 
-  /* Pundit visual — state silhouette placeholder */
+  /* Pundit visual — archetype result preview */
   .pundit-visual { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
-  .pundit-state { font-family: 'Playfair Display', Georgia, serif; font-size: 48px; font-weight: 900; color: #252522; letter-spacing: -2px; }
-  .pundit-q { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #333330; }
+  .pundit-live-dot { width: 7px; height: 7px; border-radius: 50%; background: #c0392b; opacity: 0.6; }
+  .pundit-archetype { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 900; color: #333330; letter-spacing: -0.5px; }
+  .pundit-q { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #2a2a28; font-style: italic; }
 
   .card-badge { position: absolute; top: 12px; right: 12px; font-size: 8px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 10px; }
   .badge-live { background: #2a7a4b; color: #faf9f5; }
@@ -172,25 +173,27 @@
       </div>
     </a>
 
-    <!-- PUNDIT — COMING SOON -->
-    <div class="game-card coming">
+    <!-- PUNDIT — LIVE -->
+    <a class="game-card" href="/games/pundit/">
       <div class="card-visual">
         <div class="pundit-visual">
-          <div class="pundit-state">PA</div>
-          <div class="pundit-q">Which way did it go?</div>
+          <div class="pundit-live-dot"></div>
+          <div class="pundit-archetype">The Analyst</div>
+          <div class="pundit-q">You see both sides.</div>
         </div>
-        <span class="card-badge badge-soon">Coming Soon</span>
+        <span class="card-badge badge-live">Live</span>
       </div>
       <div class="card-body">
         <div class="card-title">Pundit</div>
-        <p class="card-desc">A state's snapshot. A historical election year. Your job: predict which way it went. Ten rounds, one pundit rating, no lecturing.</p>
+        <p class="card-desc">Ten questions. No right answers. Find out what kind of cable news personality you actually are — and get a one-liner you'll want to share.</p>
         <div class="card-meta">
-          <span class="card-meta-item">10 Rounds</span>
-          <span class="card-meta-item">Historical Elections</span>
-          <span class="card-meta-item">Pattern recognition</span>
+          <span class="card-meta-item">10 Questions</span>
+          <span class="card-meta-item">9 Archetypes</span>
+          <span class="card-meta-item">Randomized replay</span>
         </div>
+        <span class="card-cta">Play Now →</span>
       </div>
-    </div>
+    </a>
 
   </div>
 </main>

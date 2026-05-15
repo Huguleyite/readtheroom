@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pundit — Read the Room</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#faf8f4;--dark:#1a1a18;--gold:#c8a96e;
+  --red:#c0392b;--blue:#2c5f8a;--green:#2a7a4b;
+  --border:#e0ddd6;--mid:#888;
+}
+body{background:var(--cream);color:var(--dark);font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+
+/* HEADER */
+.site-header{width:100%;padding:14px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-weight:900;font-size:18px;color:var(--dark);text-decoration:none}
+.logo span{color:var(--gold)}
+.back-link{font-size:13px;color:var(--mid);text-decoration:none}
+.back-link:hover{color:var(--dark)}
+
+/* SCREENS */
+.screen{display:none;width:100%;max-width:720px;padding:40px 24px;flex:1}
+.screen.active{display:flex;flex-direction:column}
+
+/* INTRO */
+#intro{align-items:center;text-align:center;justify-content:center;gap:24px;min-height:72vh}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+.intro-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(56px,12vw,96px);line-height:1.0}
+.intro-sub{font-size:17px;color:#555;max-width:440px;line-height:1.65}
+.intro-meta{display:flex;gap:28px;justify-content:center;font-size:13px;color:var(--mid);flex-wrap:wrap}
+.btn-primary{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;font-weight:700;font-size:16px;padding:14px 44px;border:none;cursor:pointer;letter-spacing:.5px;transition:background .2s;margin-top:8px}
+.btn-primary:hover{background:#333}
+
+/* GAME */
+#game{gap:28px}
+.game-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.live-indicator{display:flex;align-items:center;gap:8px}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.live-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red)}
+.live-count{font-size:12px;color:var(--mid);margin-left:2px}
+.dots{display:flex;gap:5px}
+.dot{width:7px;height:7px;border-radius:50%;background:#e0ddd6;transition:background .3s}
+.dot.done{background:var(--dark)}
+.dot.current{background:var(--gold)}
+
+.scenario-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.scenario-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(22px,3.5vw,30px);line-height:1.2;margin-bottom:10px}
+.scenario-context{font-size:15px;color:#555;line-height:1.65;margin-bottom:28px}
+
+.choices{display:flex;flex-direction:column;gap:10px}
+.choice-btn{background:#fff;border:1.5px solid var(--border);padding:16px 20px;text-align:left;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.6;color:var(--dark);transition:border-color .15s,transform .1s,background .15s;font-style:italic}
+.choice-btn:hover:not(:disabled){border-color:var(--dark);transform:translateX(3px)}
+.choice-btn:disabled{cursor:default}
+.choice-btn.sel-left{border-color:var(--red);background:#fdf5f5}
+.choice-btn.sel-center{border-color:var(--gold);background:#fdfaf3}
+.choice-btn.sel-right{border-color:var(--blue);background:#f4f7fb}
+
+/* RESULTS */
+#results{max-width:600px;margin:0 auto;align-items:center;text-align:center;gap:32px}
+.archetype-eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+.archetype-name{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(44px,10vw,72px);line-height:1.0}
+.archetype-hook{font-size:17px;color:#555;max-width:480px;line-height:1.7;font-style:italic}
+.divider{width:44px;height:3px;background:var(--gold)}
+.lean-tags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.lean-tag{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border:1.5px solid var(--border);color:var(--dark)}
+.share-box{width:100%;background:#fff;border:1.5px solid var(--border);padding:20px;text-align:left}
+.share-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid);margin-bottom:10px}
+.share-text{font-size:14px;line-height:1.65;color:var(--dark);margin-bottom:14px;font-style:italic}
+.btn-copy{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;padding:10px 24px;border:none;cursor:pointer;transition:background .2s}
+.btn-copy:hover{background:#333}
+.btn-copy.copied{background:var(--green)}
+.btn-again{background:transparent;color:var(--dark);font-family:'DM Sans',sans-serif;font-weight:500;font-size:14px;padding:10px 24px;border:1.5px solid var(--border);cursor:pointer;transition:border-color .2s}
+.btn-again:hover{border-color:var(--dark)}
+
+/* ANIM */
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .35s ease forwards}
+
+@media(max-width:560px){
+  .game-top{flex-direction:column;align-items:flex-start;gap:12px}
+  .archetype-name{font-size:clamp(40px,12vw,72px)}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="logo">Read the <span>Room</span></a>
+  <a href="/games/" class="back-link">← All Games</a>
+</header>
+
+<!-- INTRO -->
+<div id="intro" class="screen active">
+  <p class="eyebrow">Read the Room · Games</p>
+  <h1 class="intro-title">Pundit</h1>
+  <p class="intro-sub">Ten questions. No right answers. Find out what kind of cable news personality you actually are.</p>
+  <div class="intro-meta">
+    <span>10 Questions</span>
+    <span>9 Archetypes</span>
+    <span>Two invisible axes</span>
+  </div>
+  <button class="btn-primary" onclick="startGame()">Take the Mic</button>
+</div>
+
+<!-- GAME -->
+<div id="game" class="screen">
+  <div class="game-top">
+    <div class="live-indicator">
+      <div class="live-dot"></div>
+      <span class="live-label">Live</span>
+      <span class="live-count" id="liveCount">· Question 1 of 10</span>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+  <div id="scenarioArea">
+    <div class="scenario-tag" id="sTag"></div>
+    <h2 class="scenario-title" id="sTitle"></h2>
+    <p class="scenario-context" id="sContext"></p>
+    <div class="choices" id="choices"></div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div id="results" class="screen">
+  <p class="archetype-eyebrow">Your Archetype</p>
+  <div class="archetype-name" id="archetypeName"></div>
+  <div class="archetype-hook" id="archetypeHook"></div>
+  <div class="divider"></div>
+  <div class="lean-tags" id="leanTags"></div>
+  <div class="share-box">
+    <div class="share-label">Share Your Results</div>
+    <div class="share-text" id="shareText"></div>
+    <button class="btn-copy" id="copyBtn" onclick="copyShare()">Copy to Clipboard</button>
+  </div>
+  <button class="btn-again" onclick="startGame()">Play Again</button>
+</div>
+
+<script>
+const ARCHETYPES = {
+  left:{
+    calm:     {name:'The Wonk',          hook:'You have a 47-slide deck on this. Nobody asked for it. You\'re sharing it anyway.'},
+    moderate: {name:'The Advocate',      hook:'You believe in the cause. You also believe in a reasonable bedtime.'},
+    combative:{name:'The Firebrand',     hook:'You came to talk. You also came to fight. It\'s fine — same thing.'}
+  },
+  center:{
+    calm:     {name:'The Explainer',     hook:'You have been asked to please take a side. You have politely declined.'},
+    moderate: {name:'The Analyst',       hook:'You see both sides. Your Thanksgiving table does not thank you.'},
+    combative:{name:'The Referee',       hook:'You\'re not partisan. You\'re just loud about everyone being wrong.'}
+  },
+  right:{
+    calm:     {name:'The Traditionalist',hook:'You prefer things the way they were. You\'re not sure exactly when that was, but it was better.'},
+    moderate: {name:'The Commentator',   hook:'You have opinions. They\'re measured. Your producer wishes they weren\'t.'},
+    combative:{name:'The Instigator',    hook:'You are not here to make friends. You are here to make a point. And a scene. Mostly a scene.'}
+  }
+};
+
+const LR_LABEL = {left:'Progressive',center:'Independent',right:'Conservative'};
+const CC_LABEL = {calm:'Measured',moderate:'Balanced',combative:'Outspoken'};
+
+const QUESTION_BANK = [
+  {tag:'Judicial',title:'Supreme Court Ruling',
+   context:'The Court issues a 5–4 decision striking down a federal environmental regulation. You\'re live in 30 seconds. What\'s your lead?',
+   choices:[
+     {text:'"Today\'s ruling raises real questions about how far regulatory agencies can go without Congress. That\'s the conversation now."',lr:1,cc:-1},
+     {text:'"The Court just handed polluters a blank check and called it constitutional law. This is what a captured court does."',lr:-1,cc:1},
+     {text:'"Five to four. That margin should tell you everything about where we are right now."',lr:0,cc:0}
+   ]},
+  {tag:'Tech & Power',title:'Tech CEO Testimony',
+   context:'A major tech CEO spends six hours before Congress answering questions about data privacy. Your take?',
+   choices:[
+     {text:'"Six hours of grandstanding by legislators who can\'t explain what an algorithm does. Nobody won in that room."',lr:0,cc:1},
+     {text:'"Big Tech has been collecting your data, shaping your feed, and writing its own rules. Today was overdue."',lr:-1,cc:0},
+     {text:'"This is what happens when Washington decides competition is a threat. More hearings, less innovation."',lr:1,cc:-1}
+   ]},
+  {tag:'Free Speech',title:'Social Media Ban',
+   context:'A major platform permanently bans a sitting senator for repeated policy violations. How do you frame it?',
+   choices:[
+     {text:'"A private company enforcing its own terms of service. This is not censorship — it\'s a contract."',lr:-1,cc:-1},
+     {text:'"Whether you agree with the senator or not, a corporation deciding who gets a political voice should make everyone pause."',lr:0,cc:0},
+     {text:'"Big Tech just decided which senator gets to speak. That\'s not a company decision — that\'s a power grab."',lr:1,cc:1}
+   ]},
+  {tag:'Party Politics',title:'Party Switch',
+   context:'A three-term House member from a purple district switches parties eight weeks before an election. Your take?',
+   choices:[
+     {text:'"This is a political calculation dressed up as a conviction. The district will remember."',lr:0,cc:1},
+     {text:'"Parties change. People change. The voters in that district are the only opinion that matters here."',lr:1,cc:-1},
+     {text:'"When your party stops serving your constituents, you have a choice to make. This lawmaker made one."',lr:-1,cc:0}
+   ]},
+  {tag:'National Security',title:'Whistleblower Leak',
+   context:'A federal employee leaks documents showing the government surveilled domestic protesters without warrants. What do you tell your audience?',
+   choices:[
+     {text:'"This is exactly why whistleblower protections exist. The public had a right to know."',lr:-1,cc:-1},
+     {text:'"Leaking classified documents is a crime, regardless of what\'s in them. You don\'t get to choose which laws apply to you."',lr:1,cc:0},
+     {text:'"The story isn\'t the leak. The story is what the government was doing while nobody was watching."',lr:0,cc:1}
+   ]},
+  {tag:'Culture',title:'Celebrity Endorsement',
+   context:'An A-list actor endorses a presidential candidate at a sold-out arena event. Two days of wall-to-wall coverage follow. What do you say?',
+   choices:[
+     {text:'"Celebrities are citizens. They have every right to endorse candidates. The outrage is the real story."',lr:-1,cc:-1},
+     {text:'"When a campaign spends two days on a celebrity instead of policy, that tells you something about the campaign."',lr:0,cc:0},
+     {text:'"Hollywood telling working Americans who to vote for. This is exactly the elite disconnect that keeps losing elections."',lr:1,cc:1}
+   ]},
+  {tag:'Media',title:'Debate Moderator Bias',
+   context:'After a presidential debate, one campaign formally accuses the moderators of bias — citing 23 specific interruptions. Your read?',
+   choices:[
+     {text:'"Moderating a presidential debate is one of the hardest jobs in media. One campaign complaining after a loss isn\'t evidence."',lr:-1,cc:0},
+     {text:'"Twenty-three is a specific number. Someone sat down and counted. That\'s not spin — that\'s documentation."',lr:1,cc:1},
+     {text:'"The format has been broken for decades. The networks profit. The voters don\'t. This is a symptom."',lr:0,cc:-1}
+   ]},
+  {tag:'Foreign Policy',title:'Foreign Government Criticism',
+   context:'A major allied country\'s prime minister publicly criticizes U.S. domestic policy at a press conference. How do you respond?',
+   choices:[
+     {text:'"When allies feel compelled to go public rather than private, it\'s worth asking why."',lr:-1,cc:-1},
+     {text:'"Foreign leaders don\'t get a vote in American elections. Their opinion on our domestic policy ends at their border."',lr:1,cc:1},
+     {text:'"There\'s always something worth hearing in an outside perspective, even when you disagree with the conclusion."',lr:0,cc:0}
+   ]},
+  {tag:'Civil Unrest',title:'Protest Standoff',
+   context:'A protest outside a federal building becomes a 16-hour standoff. No injuries. Forty arrests. How do you lead?',
+   choices:[
+     {text:'"Forty arrests. That\'s the number. Everything else is context."',lr:0,cc:-1},
+     {text:'"The right to protest does not include the right to occupy a federal building. There\'s a line, and it was crossed."',lr:1,cc:0},
+     {text:'"Sixteen hours of people demanding to be heard, and the headline is forty arrests. That framing is a choice."',lr:-1,cc:1}
+   ]},
+  {tag:'Federalism',title:'Mayor Defies State Law',
+   context:'A major city\'s mayor announces the city will not enforce a new state law restricting public demonstrations. Your take?',
+   choices:[
+     {text:'"Sanctuary cities, sanctuary protests — at some point, the rule of law is either the rule or it isn\'t."',lr:1,cc:1},
+     {text:'"A mayor who believes a law is unconstitutional has a duty to say so. The courts will settle it."',lr:-1,cc:0},
+     {text:'"This is what federalism looks like under pressure. It\'s messy. It\'s supposed to be."',lr:0,cc:-1}
+   ]},
+  {tag:'Executive Power',title:'Presidential Pardon',
+   context:'The president issues a full pardon to a former cabinet official convicted of obstruction. How do you frame it?',
+   choices:[
+     {text:'"The pardon power exists. This president used it. Whether it was wise is a question for the voters."',lr:0,cc:0},
+     {text:'"Pardoning someone convicted of obstructing your own administration. The optics alone should be disqualifying."',lr:-1,cc:1},
+     {text:'"The case was politically motivated from the start. The president saw through it and acted. That\'s leadership."',lr:1,cc:1}
+   ]},
+  {tag:'Oversight',title:'Senator Refuses to Testify',
+   context:'A sitting senator invokes executive privilege and refuses to appear before a Senate investigative committee. Your take?',
+   choices:[
+     {text:'"Executive privilege has limits. A senator answering to a Senate committee shouldn\'t be one of them."',lr:-1,cc:0},
+     {text:'"This is stonewalling dressed in legal language. The committee exists for a reason."',lr:0,cc:1},
+     {text:'"The precedent matters more than this particular hearing. Let the courts define the boundary."',lr:1,cc:-1}
+   ]},
+  {tag:'Congress',title:'Government Shutdown',
+   context:'The federal government shuts down at midnight after Congress fails to pass a funding bill. Day one. What\'s your lead?',
+   choices:[
+     {text:'"Workers aren\'t getting paid. Parks are closed. This is the cost of governing by crisis, and someone needs to say so."',lr:-1,cc:1},
+     {text:'"A shutdown is a negotiation tool. Painful, yes. But sometimes the only leverage one side has left."',lr:1,cc:0},
+     {text:'"Both parties had months to avoid this. That\'s the story — not the shutdown, but the months before it."',lr:0,cc:-1}
+   ]},
+  {tag:'Executive Power',title:'National Emergency Declaration',
+   context:'The president declares a national emergency to redirect military funding toward border infrastructure. Your response?',
+   choices:[
+     {text:'"Declaring a national emergency to bypass Congress is the kind of precedent that doesn\'t go back in the bottle."',lr:-1,cc:-1},
+     {text:'"If Congress won\'t act, the executive will. The president made a call. That\'s the job."',lr:1,cc:0},
+     {text:'"Every president who expands executive power makes the next one more dangerous. That\'s the real conversation."',lr:0,cc:1}
+   ]},
+  {tag:'Scandal',title:'Corruption Indictment',
+   context:'A sitting congressman is indicted on federal bribery charges. He announces he will not resign. Your take?',
+   choices:[
+     {text:'"An indictment is not a conviction. He has the right to fight. The voters will ultimately decide."',lr:1,cc:-1},
+     {text:'"Staying in office while under federal indictment is exactly why people hate politics."',lr:-1,cc:1},
+     {text:'"Indicted and defiant. At least we\'re past the part where anyone pretends to be surprised."',lr:0,cc:1}
+   ]},
+  {tag:'Elections',title:'Ballot Measure',
+   context:'A state ballot measure banning corporate political donations passes 51–49. How do you cover it?',
+   choices:[
+     {text:'"A slim majority is still a majority. The voters spoke. Now watch how fast the courts respond."',lr:1,cc:-1},
+     {text:'"Fifty-one to forty-nine isn\'t a mandate. It\'s a coin flip with legal consequences."',lr:0,cc:0},
+     {text:'"Money in politics is the root of most of what\'s broken. If this holds up in court, it\'s a start."',lr:-1,cc:0}
+   ]},
+  {tag:'Congress',title:'Tie-Breaking Vote',
+   context:'The vice president casts a tie-breaking vote passing a major spending bill after three days of Senate deadlock. Your response?',
+   choices:[
+     {text:'"The system worked exactly as designed. A tie-breaking vote is a constitutional function, not a scandal."',lr:-1,cc:-1},
+     {text:'"One vote. One person. One agenda. This is why elections matter — and why this result is already being challenged."',lr:1,cc:1},
+     {text:'"Three days of deadlock settled by one unelected vote. Whatever side you\'re on, that\'s a fragile way to govern."',lr:0,cc:0}
+   ]},
+  {tag:'Judicial',title:'Supreme Court Retirement',
+   context:'A Supreme Court justice announces retirement, handing the current president a nomination. Your lead?',
+   choices:[
+     {text:'"The president will nominate. The Senate will advise and consent. That\'s how this works — and it\'s about to get loud."',lr:0,cc:-1},
+     {text:'"The balance of the Court is shifting. Everything downstream — rights, regulations, elections — is on the table."',lr:-1,cc:1},
+     {text:'"Elections have consequences. This is one of them. The president earned this nomination."',lr:1,cc:0}
+   ]},
+  {tag:'Foreign Policy',title:'Foreign Aid Package',
+   context:'Congress passes a $14 billion foreign aid package over significant domestic infrastructure objections. How do you frame it?',
+   choices:[
+     {text:'"America\'s global commitments are investments in stability. The alternative is a more dangerous world that costs more."',lr:-1,cc:0},
+     {text:'"Fourteen billion abroad while bridges are failing at home. Somebody explain that math."',lr:1,cc:1},
+     {text:'"Foreign policy has always been expensive. The question is whether we\'re getting what we paid for."',lr:0,cc:-1}
+   ]},
+  {tag:'Elections',title:'Refusal to Concede',
+   context:'A gubernatorial candidate loses by 1.8 points and refuses to concede, citing unspecified irregularities. Your take?',
+   choices:[
+     {text:'"One point eight is a loss. Calling it a conspiracy without evidence is how you poison an election."',lr:-1,cc:1},
+     {text:'"Every candidate has the right to request a recount. The process exists. Let it run."',lr:1,cc:-1},
+     {text:'"We\'ve been here before. We know how it ends. The question is how much damage gets done on the way."',lr:0,cc:0}
+   ]},
+  {tag:'Public Safety',title:'Police Budget Reallocation',
+   context:'A major city council votes to redirect 15 percent of its police budget toward mental health and housing programs. Your response?',
+   choices:[
+     {text:'"Fifteen percent is a policy choice, not abolition. The question is whether the alternatives are ready to deliver."',lr:-1,cc:-1},
+     {text:'"You don\'t solve a public safety crisis by defunding the people responsible for public safety."',lr:1,cc:1},
+     {text:'"The data on this is mixed. The data should lead — not the politics."',lr:0,cc:-1}
+   ]},
+  {tag:'Party Politics',title:'Former President\'s Endorsement',
+   context:'A former president endorses a primary challenger against a sitting member of his own party. Your take?',
+   choices:[
+     {text:'"Primaries are how parties shape themselves. A former president can weigh in. The voters decide."',lr:1,cc:-1},
+     {text:'"Endorsing against your own party\'s incumbent is either a principled stand or a personal vendetta. The motive matters."',lr:0,cc:0},
+     {text:'"He just told you exactly what he thinks about the direction of the party. That\'s news."',lr:-1,cc:1}
+   ]},
+  {tag:'Elections',title:'Independent Presidential Candidate',
+   context:'A well-known independent enters the race polling at 12 percent nationally. How do you cover it?',
+   choices:[
+     {text:'"Twelve percent of voters saying neither party speaks to them. That\'s not a spoiler story — that\'s a crisis story."',lr:-1,cc:0},
+     {text:'"Every four years the third-party moment arrives. Every four years the math doesn\'t change. Watch October."',lr:0,cc:-1},
+     {text:'"A spoiler at 12 percent could hand this election to the wrong side. That\'s not a protest vote — that\'s a consequence."',lr:1,cc:1}
+   ]},
+  {tag:'Congress',title:'Last-Minute Vote Switch',
+   context:'A senator switches their vote in the final hour, killing a major climate bill. No public explanation given. Your lead?',
+   choices:[
+     {text:'"No explanation. No statement. A bill dies and a senator walks. The voters in that state deserve an answer."',lr:0,cc:1},
+     {text:'"The bill couldn\'t hold its own coalition. If a senator couldn\'t support it at the end, maybe it wasn\'t ready."',lr:1,cc:-1},
+     {text:'"Someone got to them in the last 24 hours. That\'s the story. Everything else is procedural."',lr:-1,cc:1}
+   ]},
+  {tag:'Civil Unrest',title:'Rally Confrontation',
+   context:'A political rally ends in a confrontation between attendees and counter-protesters. Minor injuries on both sides. How do you lead?',
+   choices:[
+     {text:'"Minor injuries, major symbolism. The temperature in this country doesn\'t go down on its own."',lr:-1,cc:0},
+     {text:'"Both groups came looking for a fight and found one. That\'s not news — that\'s a pattern."',lr:0,cc:0},
+     {text:'"The right to rally and the right to counter-protest are both protected. What happened after that is the story."',lr:1,cc:-1}
+   ]}
+];
+
+let sessionQs=[], current=0, lrTotal=0, ccTotal=0, locked=false;
+
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+function getLRZone(v){return v<=-3?'left':v>=3?'right':'center';}
+function getCCZone(v){return v<=-3?'calm':v>=3?'combative':'moderate';}
+
+function startGame(){
+  sessionQs=shuffle(QUESTION_BANK).slice(0,10);
+  current=0; lrTotal=0; ccTotal=0; locked=false;
+  show('game');
+  buildDots();
+  loadQuestion(0);
+}
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function buildDots(){
+  document.getElementById('dots').innerHTML=
+    sessionQs.map((_,i)=>`<div class="dot" id="dot-${i}"></div>`).join('');
+}
+
+function loadQuestion(i){
+  const q=sessionQs[i];
+  document.getElementById('liveCount').textContent=`· Question ${i+1} of 10`;
+  sessionQs.forEach((_,j)=>{
+    const d=document.getElementById(`dot-${j}`);
+    d.className='dot'+(j<i?' done':j===i?' current':'');
+  });
+  const area=document.getElementById('scenarioArea');
+  area.classList.remove('fade-up'); void area.offsetWidth; area.classList.add('fade-up');
+  document.getElementById('sTag').textContent=q.tag;
+  document.getElementById('sTitle').textContent=q.title;
+  document.getElementById('sContext').textContent=q.context;
+  document.getElementById('choices').innerHTML=q.choices.map((c,ci)=>
+    `<button class="choice-btn" onclick="pick(${ci})">${c.text}</button>`).join('');
+}
+
+function pick(ci){
+  if(locked)return; locked=true;
+  const choice=sessionQs[current].choices[ci];
+  lrTotal+=choice.lr;
+  ccTotal+=choice.cc;
+  const btns=document.querySelectorAll('.choice-btn');
+  btns.forEach(b=>b.disabled=true);
+  btns[ci].classList.add(choice.lr===-1?'sel-left':choice.lr===1?'sel-right':'sel-center');
+  setTimeout(()=>{
+    current++;
+    if(current>=10){showResults();}
+    else{locked=false; loadQuestion(current);}
+  },800);
+}
+
+function showResults(){
+  const lrZone=getLRZone(lrTotal);
+  const ccZone=getCCZone(ccTotal);
+  const a=ARCHETYPES[lrZone][ccZone];
+  document.getElementById('archetypeName').textContent=a.name;
+  document.getElementById('archetypeHook').textContent=a.hook;
+  document.getElementById('leanTags').innerHTML=
+    `<div class="lean-tag">${LR_LABEL[lrZone]}</div>
+     <div class="lean-tag">${CC_LABEL[ccZone]}</div>`;
+  document.getElementById('shareText').textContent=
+    `I took the Pundit quiz and apparently I'm ${a.name}. "${a.hook}" Find out what kind of pundit you are: readtheroom.news/games/pundit/`;
+  show('results');
+}
+
+function copyShare(){
+  navigator.clipboard.writeText(document.getElementById('shareText').textContent).then(()=>{
+    const b=document.getElementById('copyBtn');
+    b.textContent='Copied!'; b.classList.add('copied');
+    setTimeout(()=>{b.textContent='Copy to Clipboard';b.classList.remove('copied');},2000);
+  });
+}
+</script>
+</body>
+</html>

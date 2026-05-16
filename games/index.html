@@ -74,6 +74,15 @@
   .card-cta { margin-top: 18px; display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #c8a96e; border-bottom: 1px solid rgba(200,169,110,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
   .game-card:hover .card-cta { border-color: #c8a96e; }
 
+  /* Wire visual — headline ticker */
+  .wire-visual { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 11px; padding: 22px 28px; }
+  .wire-item { display: flex; align-items: flex-start; gap: 10px; }
+  .wire-tag { font-size: 7px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 3px 8px; flex-shrink: 0; margin-top: 1px; }
+  .wire-tag.real { background: rgba(42,122,75,.2); color: #2a7a4b; }
+  .wire-tag.fake { background: rgba(192,57,43,.18); color: #8a3020; }
+  .wire-tag.unknown { background: #1e1e1c; color: #333330; border: 1px solid #2a2a28; }
+  .wire-hl { font-size: 10.5px; color: #2e2e2c; line-height: 1.45; letter-spacing: 0.01em; }
+
   /* FOOTER */
   .site-footer { background: #0e0e0d; border-top: 1px solid #1a1a18; padding: 32px 40px; }
   .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
@@ -192,6 +201,38 @@
           <span class="card-meta-item">Randomized replay</span>
         </div>
         <span class="card-cta">Play Now →</span>
+      </div>
+    </a>
+
+
+    <!-- THE WIRE — LIVE -->
+    <a class="game-card" href="/games/the-wire/">
+      <div class="card-visual">
+        <div class="wire-visual">
+          <div class="wire-item">
+            <span class="wire-tag real">Real</span>
+            <span class="wire-hl">Trump Convicted on 34 Felony Counts in Hush Money Trial</span>
+          </div>
+          <div class="wire-item">
+            <span class="wire-tag unknown">?</span>
+            <span class="wire-hl">Pentagon Audit Fails Sixth Year; Pentagon Calls Results 'Broadly Encouraging'</span>
+          </div>
+          <div class="wire-item">
+            <span class="wire-tag fake">Fake</span>
+            <span class="wire-hl">Senate Subcommittee on Efficiency Cancels Meeting Due to Scheduling Inefficiency</span>
+          </div>
+        </div>
+        <span class="card-badge badge-live">Live</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">The Wire</div>
+        <p class="card-desc">Five political headlines. Some real. Some fabricated. Can you tell the difference? A new set every day — score tracked, streak recorded.</p>
+        <div class="card-meta">
+          <span class="card-meta-item">5 Headlines</span>
+          <span class="card-meta-item">Daily Puzzle</span>
+          <span class="card-meta-item">Streak tracked</span>
+        </div>
+        <span class="card-cta">Play Today →</span>
       </div>
     </a>
 

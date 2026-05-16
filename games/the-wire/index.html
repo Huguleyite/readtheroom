@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wire — Read the Room</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f0f0e;--card-bg:#1a1a18;--card-border:#2e2e2c;
+  --text:#f0ede6;--text-muted:#888884;--gold:#c8a96e;
+  --green:#4a9e6b;--red:#b84040;
+  --green-dim:rgba(74,158,107,.15);--red-dim:rgba(184,64,64,.15);
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+
+/* HEADER */
+.site-header{width:100%;padding:14px 24px;border-bottom:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.logo{font-family:'Playfair Display',serif;font-weight:900;font-size:18px;color:var(--text);text-decoration:none}
+.logo span{color:var(--gold)}
+.back-link{font-size:13px;color:var(--text-muted);text-decoration:none}
+.back-link:hover{color:var(--text)}
+
+/* SCREENS */
+.screen{display:none;width:100%;max-width:680px;padding:40px 24px;flex-direction:column}
+.screen.active{display:flex}
+
+/* SHARED */
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+
+/* INTRO */
+#intro{align-items:center;text-align:center;justify-content:center;gap:24px;min-height:calc(100vh - 53px)}
+.intro-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(64px,13vw,104px);line-height:.95;letter-spacing:-2px}
+.intro-sub{font-size:17px;color:var(--text-muted);max-width:400px;line-height:1.65}
+.intro-meta{display:flex;gap:20px;justify-content:center;font-size:12px;color:var(--text-muted);flex-wrap:wrap}
+.intro-meta span{padding:4px 10px;border:1px solid var(--card-border)}
+.intro-state{font-size:14px;color:var(--text-muted);min-height:20px}
+.intro-state .today-score{color:var(--gold);font-weight:700}
+.btn-primary{background:var(--gold);color:var(--bg);font-family:'DM Sans',sans-serif;font-weight:700;font-size:16px;padding:14px 44px;border:none;cursor:pointer;letter-spacing:.5px;transition:background .2s;margin-top:4px}
+.btn-primary:hover{background:#d4b57e}
+.btn-secondary{background:transparent;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:500;font-size:14px;padding:10px 24px;border:1.5px solid var(--card-border);cursor:pointer;transition:border-color .2s,color .2s}
+.btn-secondary:hover{border-color:var(--text-muted);color:var(--text)}
+
+/* GAME */
+#game{min-height:calc(100vh - 53px);gap:0}
+.game-top{padding-bottom:24px;border-bottom:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.progress-label{font-size:12px;color:var(--text-muted);letter-spacing:.5px}
+.progress-dots{display:flex;gap:7px}
+.progress-dot{width:8px;height:8px;border-radius:50%;background:var(--card-border);transition:background .3s}
+.progress-dot.done{background:var(--text-muted)}
+.progress-dot.current{background:var(--gold)}
+.headline-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;text-align:center;padding:40px 0}
+.headline-text{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(20px,3vw,26px);line-height:1.4;max-width:580px}
+.answer-btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:380px}
+.btn-real,.btn-fake{padding:16px 12px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:2px solid;transition:background .15s,opacity .15s}
+.btn-real{background:transparent;color:var(--green);border-color:var(--green)}
+.btn-real:hover:not(:disabled){background:var(--green-dim)}
+.btn-fake{background:transparent;color:var(--red);border-color:var(--red)}
+.btn-fake:hover:not(:disabled){background:var(--red-dim)}
+.btn-real:disabled,.btn-fake:disabled{cursor:default}
+.btn-real.selected{background:var(--green-dim)}
+.btn-fake.selected{background:var(--red-dim)}
+
+/* REVEAL */
+#reveal{gap:10px;padding-bottom:60px}
+.reveal-top{padding-bottom:20px;border-bottom:1px solid var(--card-border);margin-bottom:8px;display:flex;justify-content:space-between;align-items:flex-end}
+.reveal-top-right{font-size:12px;color:var(--text-muted)}
+.reveal-cards{display:flex;flex-direction:column;gap:10px}
+.reveal-card{background:var(--card-bg);border:1.5px solid var(--card-border);border-left-width:4px;padding:18px 20px;opacity:0;transform:translateY(14px);transition:opacity .35s ease,transform .35s ease}
+.reveal-card.correct{border-left-color:var(--green)}
+.reveal-card.wrong{border-left-color:var(--red)}
+.reveal-card.shown{opacity:1;transform:translateY(0)}
+.card-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-verdict{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 8px}
+.verdict-real{background:rgba(74,158,107,.2);color:var(--green)}
+.verdict-fake{background:rgba(184,64,64,.2);color:var(--red)}
+.card-result{font-size:11px;font-weight:700;letter-spacing:.5px;margin-left:auto}
+.result-right{color:var(--green)}
+.result-wrong{color:var(--red)}
+.card-headline{font-family:'Playfair Display',serif;font-size:15px;line-height:1.5;margin-bottom:8px;color:var(--text)}
+.card-source{font-size:12px;color:var(--text-muted);font-style:italic;line-height:1.4}
+
+/* SCORE SECTION */
+.score-section{margin-top:36px;padding-top:36px;border-top:1px solid var(--card-border);display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;opacity:0;transition:opacity .6s ease}
+.score-section.shown{opacity:1}
+.score-num{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(56px,14vw,80px);color:var(--gold);line-height:1}
+.score-phrase{font-size:19px;color:var(--text);line-height:1.45;max-width:400px;font-style:italic;font-family:'Playfair Display',serif}
+.streak-row{font-size:13px;color:var(--text-muted)}
+.streak-count{color:var(--gold);font-weight:700}
+.share-box{width:100%;background:var(--card-bg);border:1.5px solid var(--card-border);padding:20px;text-align:left}
+.share-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.share-text{font-size:13px;line-height:1.7;color:var(--text-muted);margin-bottom:14px;white-space:pre-line}
+.btn-copy{background:var(--gold);color:var(--bg);font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;padding:10px 24px;border:none;cursor:pointer;transition:background .2s}
+.btn-copy:hover{background:#d4b57e}
+.btn-copy.copied{background:var(--green);color:#fff}
+.tomorrow-note{font-size:13px;color:var(--text-muted)}
+
+/* SUBSCRIBE MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:100;padding:24px}
+.modal-box{background:var(--card-bg);border:1.5px solid var(--card-border);padding:32px;max-width:440px;width:100%;display:flex;flex-direction:column;gap:16px}
+.modal-eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.modal-title{font-family:'Playfair Display',serif;font-weight:900;font-size:24px;line-height:1.2}
+.modal-desc{font-size:14px;color:var(--text-muted);line-height:1.65}
+.modal-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;align-items:center}
+.btn-subscribe{background:var(--gold);color:var(--bg);font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;padding:12px 28px;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s}
+.btn-subscribe:hover{background:#d4b57e}
+.btn-later{background:transparent;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:500;font-size:13px;padding:12px 16px;border:none;cursor:pointer}
+.btn-later:hover{color:var(--text)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .3s ease forwards}
+
+/* MOBILE */
+@media(max-width:480px){
+  .answer-btns{max-width:100%}
+  .btn-real,.btn-fake{padding:14px 8px;font-size:13px}
+  .modal-actions{flex-direction:column}
+  .btn-subscribe{width:100%;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="logo">Read the <span>Room</span></a>
+  <a href="/games/" class="back-link">← All Games</a>
+</header>
+
+<!-- INTRO -->
+<div id="intro" class="screen active">
+  <p class="eyebrow">Read the Room · Game 3</p>
+  <h1 class="intro-title">The Wire</h1>
+  <p class="intro-sub">Five political headlines. Some are real. Some are fabricated. Can you tell the difference?</p>
+  <div class="intro-meta">
+    <span>5 Headlines</span>
+    <span>Daily Puzzle</span>
+    <span>Streak Tracked</span>
+  </div>
+  <div class="intro-state" id="introState"></div>
+  <button class="btn-primary" id="startBtn" onclick="startGame()">Read the Wire</button>
+</div>
+
+<!-- GAME -->
+<div id="game" class="screen">
+  <div class="game-top">
+    <span class="progress-label" id="progressLabel">Headline 1 of 5</span>
+    <div class="progress-dots" id="progressDots"></div>
+  </div>
+  <div class="headline-area">
+    <p class="eyebrow">Real or Fabricated?</p>
+    <p class="headline-text" id="headlineText"></p>
+    <div class="answer-btns">
+      <button class="btn-real" id="btnReal" onclick="pickAnswer(true)">Real</button>
+      <button class="btn-fake" id="btnFake" onclick="pickAnswer(false)">Fake</button>
+    </div>
+  </div>
+</div>
+
+<!-- REVEAL -->
+<div id="reveal" class="screen">
+  <div class="reveal-top">
+    <p class="eyebrow">The Verdict</p>
+    <span class="reveal-top-right" id="revealDate"></span>
+  </div>
+  <div class="reveal-cards" id="revealCards"></div>
+  <div class="score-section" id="scoreSection">
+    <div class="score-num" id="scoreNum"></div>
+    <p class="score-phrase" id="scorePhrase"></p>
+    <p class="streak-row" id="streakRow"></p>
+    <div class="share-box">
+      <div class="share-label">Share Your Score</div>
+      <div class="share-text" id="shareText"></div>
+      <button class="btn-copy" id="copyBtn" onclick="copyShare()">Copy to Clipboard</button>
+    </div>
+    <p class="tomorrow-note" id="tomorrowNote">Come back tomorrow for a new set of headlines.</p>
+    <button class="btn-secondary" onclick="showIntro()" style="margin-top:4px">← Back to Start</button>
+  </div>
+</div>
+
+<!-- SUBSCRIBE MODAL -->
+<div id="subscribeModal" class="modal-overlay" style="display:none">
+  <div class="modal-box">
+    <p class="modal-eyebrow">Stay in the Room</p>
+    <h2 class="modal-title">Read the Room Newsletter</h2>
+    <p class="modal-desc">National politics, one topic, both sides — every Tuesday. Free to subscribe.</p>
+    <div class="modal-actions">
+      <a class="btn-subscribe" href="https://readtheroom.beehiiv.com/subscribe" target="_blank" onclick="markSubscribed()">Subscribe Free</a>
+      <button class="btn-later" onclick="dismissModal()">Maybe later</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const SCORE_PHRASES = {
+  5: "You read the room.",
+  4: "One got in under the wire.",
+  3: "You caught the signal. Some static got through.",
+  2: "Close. Different room.",
+  1: "You found the building.",
+  0: "The room changed the locks."
+};
+
+const WIRE_PUZZLES = [
+
+// DAY 1 — 3R/2F
+{ headlines: [
+  { text: "House Passes Resolution Urging Members to Stop Googling 'How a Bill Becomes a Law' During Floor Votes", real: false, source: "", note: "Fabricated — though the search history would be illuminating." },
+  { text: "George Santos Expelled from House of Representatives in Historic Vote", real: true, source: "AP · Dec 2023", note: "" },
+  { text: "Senator Introduces Bill to Rename Washington D.C. — Forgets to Check If He Has Authority Over D.C.", real: false, source: "", note: "Fabricated — jurisdiction was an afterthought." },
+  { text: "Senate Confirms Ketanji Brown Jackson as First Black Woman on Supreme Court", real: true, source: "Reuters · Apr 2022", note: "" },
+  { text: "McCarthy Fails to Win Speaker Vote 14 Times Before Finally Prevailing on 15th Ballot", real: true, source: "Politico · Jan 2023", note: "" }
+]},
+
+// DAY 2 — 2R/3F
+{ headlines: [
+  { text: "Supreme Court Rules Presidents Have Broad Immunity for Official Acts", real: true, source: "NPR · Jul 2024", note: "" },
+  { text: "White House Issues Statement Clarifying That the President Said 'Billion,' Not 'Trillion,' Then Issues Second Statement Clarifying the First", real: false, source: "", note: "Fabricated — the clarification-of-a-clarification is a real genre." },
+  { text: "Liz Cheney Loses Wyoming Primary by 37 Points", real: true, source: "The Hill · Aug 2022", note: "" },
+  { text: "Senator Files Ethics Complaint Against Colleague for Eating Audibly During Subcommittee Hearing", real: false, source: "", note: "Fabricated — but if you've seen the hearing room, you understand." },
+  { text: "Pentagon Audit Fails for Sixth Consecutive Year; Pentagon Calls Results 'Broadly Encouraging'", real: false, source: "", note: "Fabricated — though the Pentagon has failed every audit since 2018. That part is real." }
+]},
+
+// DAY 3 — 3R/2F
+{ headlines: [
+  { text: "Kevin McCarthy Removed as House Speaker in Historic Vote", real: true, source: "CNN · Oct 2023", note: "" },
+  { text: "Congressman Introduces Legislation to Require All Government Reports to Be Summarized in Three Bullet Points or Fewer", real: false, source: "", note: "Fabricated — someone should, though." },
+  { text: "Kyrsten Sinema Switches Registration to Independent, Keeping Both Parties Equally Annoyed", real: true, source: "Politico · Dec 2022", note: "" },
+  { text: "Supreme Court Justice Recuses Self From Case After Accidentally Liking Opponent's Social Media Post", real: false, source: "", note: "Fabricated — the bar for recusal is considerably higher." },
+  { text: "Senate Passes $95 Billion Foreign Aid Package After Six Months of Delays", real: true, source: "Reuters · Apr 2024", note: "" }
+]},
+
+// DAY 4 — 4R/1F
+{ headlines: [
+  { text: "January 6 Committee Refers Trump to DOJ on Four Criminal Counts", real: true, source: "Washington Post · Dec 2022", note: "" },
+  { text: "Senate Acquits Trump in Second Impeachment Trial, 57-43", real: true, source: "ABC News · Feb 2021", note: "" },
+  { text: "Congressional Budget Office Releases 847-Page Report; Releases 2-Page Summary of Why Nobody Read the Report", real: false, source: "", note: "Fabricated — the 847 pages are extremely on-brand." },
+  { text: "Supreme Court Overturns Roe v. Wade, Ending 49 Years of Federal Abortion Rights", real: true, source: "AP · Jun 2022", note: "" },
+  { text: "Biden Signs $1.9 Trillion COVID Relief Bill Into Law", real: true, source: "Reuters · Mar 2021", note: "" }
+]},
+
+// DAY 5 — 2R/3F
+{ headlines: [
+  { text: "House Subcommittee Holds Hearing on Social Media Misinformation; Three Members Tweet Misinformation During the Hearing", real: false, source: "", note: "Fabricated — though the optics of that room were genuinely something." },
+  { text: "Trump Indicted on 37 Federal Charges in Classified Documents Case", real: true, source: "NPR · Jun 2023", note: "" },
+  { text: "Senator Proposes Raising Congressional Salaries, Frames It as Fiscal Responsibility", real: false, source: "", note: "Fabricated — the framing, specifically." },
+  { text: "John Fetterman Defeats Dr. Oz in Pennsylvania Senate Race", real: true, source: "AP · Nov 2022", note: "" },
+  { text: "Gubernatorial Candidate Runs on 'Anti-Establishment' Platform, Lists Four Former Governors as Character References", real: false, source: "", note: "Fabricated — the self-awareness, specifically." }
+]},
+
+// DAY 6 — 3R/2F
+{ headlines: [
+  { text: "Bob Menendez Indicted on Federal Bribery Charges, Including 13 Gold Bars Found at His Home", real: true, source: "AP · Sep 2023", note: "" },
+  { text: "Senate Subcommittee on Efficiency Cancels Meeting Due to Scheduling Inefficiency", real: false, source: "", note: "Fabricated — the irony was unavoidable." },
+  { text: "Supreme Court Strikes Down Affirmative Action at Harvard and UNC", real: true, source: "Reuters · Jun 2023", note: "" },
+  { text: "Congressman Introduces Bill Renaming Several Things After Himself, Lists Himself as Sponsor", real: false, source: "", note: "Fabricated — naming rights are a bipartisan tradition." },
+  { text: "Bipartisan Safer Communities Act Passes Senate, First Major Gun Legislation in 30 Years", real: true, source: "NPR · Jun 2022", note: "" }
+]},
+
+// DAY 7 — 2R/3F
+{ headlines: [
+  { text: "House Passes Resolution Declaring This the 'Best Congress in Recent Memory'; Resolution Passes 218-217", real: false, source: "", note: "Fabricated — the margin is accurate to most things this Congress passed." },
+  { text: "Supreme Court Blocks Biden Student Debt Relief Plan", real: true, source: "AP · Jun 2023", note: "" },
+  { text: "Senator Misses Key Vote to Appear on Morning Talk Show, Votes via Phone While Still in Makeup Chair", real: false, source: "", note: "Fabricated — the logistics, specifically." },
+  { text: "Both Parties Accuse Each Other of Obstruction During Bipartisan Press Conference About Reducing Obstruction", real: false, source: "", note: "Fabricated — though the genre is familiar." },
+  { text: "Colorado Supreme Court Rules Trump Ineligible for 2024 Primary Ballot", real: true, source: "Reuters · Dec 2023", note: "" }
+]},
+
+// DAY 8 — 3R/2F
+{ headlines: [
+  { text: "Congressional Staffer Accidentally Sends 'Reply All' to Every Government Email Address, Achieves More Reach Than Most Legislation", real: false, source: "", note: "Fabricated — the reach is speculation. The reply-all exists." },
+  { text: "U.S. Supreme Court Unanimously Reinstates Trump on Colorado Ballot", real: true, source: "AP · Mar 2024", note: "" },
+  { text: "Clarence Thomas Failed to Disclose 13 Trips Paid for by GOP Megadonor Harlan Crow", real: true, source: "ProPublica · Apr 2023", note: "" },
+  { text: "Think Tank Releases 400-Page Study Recommending Washington Read More Think Tank Studies", real: false, source: "", note: "Fabricated — the 400 pages checked out." },
+  { text: "Mike Johnson Elected House Speaker After Republican Conference Exhausts All Other Options", real: true, source: "Politico · Oct 2023", note: "" }
+]},
+
+// DAY 9 — 2R/3F
+{ headlines: [
+  { text: "Senate Rejects Bipartisan Border Security Deal Hours After Trump Urges Republicans to Kill It", real: true, source: "AP · Feb 2024", note: "" },
+  { text: "Candidate Promises to 'Drain the Swamp,' Hires Swamp Drainer Who Was Previously Fired From the Swamp", real: false, source: "", note: "Fabricated — the swamp has contractors." },
+  { text: "Agency Issues 900-Page Regulation Requiring All Future Regulations to Be Shorter", real: false, source: "", note: "Fabricated — Washington contains multitudes." },
+  { text: "Mitch McConnell Announces He Will Step Down as Senate Republican Leader in November 2024", real: true, source: "AP · Feb 2024", note: "" },
+  { text: "Senator's Town Hall Goes Off Script When Constituent Asks Prepared Question Senator Did Not Prepare For", real: false, source: "", note: "Fabricated — the unprepared preparation is a genre." }
+]},
+
+// DAY 10 — 4R/1F
+{ headlines: [
+  { text: "Trump Convicted on 34 Felony Counts in Hush Money Trial", real: true, source: "Reuters · May 2024", note: "" },
+  { text: "Biden Withdraws From 2024 Presidential Race, Endorses Kamala Harris", real: true, source: "AP · Jul 2024", note: "" },
+  { text: "Both Campaigns Announce They've Won the Debate, Release Near-Identical Statements With Names Swapped", real: false, source: "", note: "Fabricated — the statements are usually this close." },
+  { text: "Attempted Assassination of Trump at Pennsylvania Rally; Former President Survives", real: true, source: "AP · Jul 2024", note: "" },
+  { text: "Kamala Harris Formally Becomes Democratic Presidential Nominee", real: true, source: "AP · Aug 2024", note: "" }
+]},
+
+// DAY 11 — 3R/2F
+{ headlines: [
+  { text: "Senator Announces He's Running for President to 'Restore Honor,' Currently Under Ethics Investigation", real: false, source: "", note: "Fabricated — the timing is a classic." },
+  { text: "Donald Trump Wins 2024 Presidential Election, Defeating Kamala Harris", real: true, source: "AP · Nov 2024", note: "" },
+  { text: "Political Operative Resigns to 'Spend More Time With Family,' Spotted at Campaign HQ Next Morning", real: false, source: "", note: "Fabricated — the family is very understanding." },
+  { text: "Nikki Haley Suspends Presidential Campaign After Super Tuesday Losses", real: true, source: "Reuters · Mar 2024", note: "" },
+  { text: "Ron DeSantis Drops Out of Presidential Race, Endorses Trump", real: true, source: "AP · Jan 2024", note: "" }
+]},
+
+// DAY 12 — 2R/3F
+{ headlines: [
+  { text: "Poll Finds 74% of Voters Want New Leadership; Same Poll Finds 71% Plan to Vote for the Same People", real: false, source: "", note: "Fabricated — the polling is extremely accurate." },
+  { text: "Congressman Explains Vote Against Climate Bill by Noting His District Has 'Great Weather'", real: false, source: "", note: "Fabricated — the logic was airtight in the room." },
+  { text: "Senate Votes to Confirm Federal Reserve Chair Jerome Powell for Second Term", real: true, source: "Reuters · May 2022", note: "" },
+  { text: "Candidate's Campaign Ad Features Stock Photo Family Who Have Appeared in 14 Other Candidates' Ads", real: false, source: "", note: "Fabricated — the stock family is bipartisan." },
+  { text: "House Impeaches Homeland Security Secretary Alejandro Mayorkas", real: true, source: "AP · Feb 2024", note: "" }
+]},
+
+// DAY 13 — 3R/2F
+{ headlines: [
+  { text: "Senate Rejects Mayorkas Impeachment Articles Without Holding Trial", real: true, source: "AP · Apr 2024", note: "" },
+  { text: "Candidate Introduces 'Common Sense' Plan; Plan Spans 340 Pages, Requires Law Degree to Parse", real: false, source: "", note: "Fabricated — the common sense was in there somewhere." },
+  { text: "Supreme Court Overturns Chevron Doctrine in Landmark Administrative Law Ruling", real: true, source: "Reuters · Jun 2024", note: "" },
+  { text: "Montana Becomes First State to Ban TikTok Statewide", real: true, source: "AP · May 2023", note: "" },
+  { text: "Congressman Calls for Investigation Into Government Waste; Investigation Costs $4 Million", real: false, source: "", note: "Fabricated — the math is standard government math." }
+]},
+
+// DAY 14 — 1R/4F
+{ headlines: [
+  { text: "Senator Accuses Opponent of 'Career Washington Insider' Status; Senator Has Been in Washington 22 Years", real: false, source: "", note: "Fabricated — 22 years is practically a warm-up." },
+  { text: "House Passes Bill by One Vote; Winning Side Celebrates; Losing Side Calls It 'Illegitimate'", real: false, source: "", note: "Fabricated — this is just most Tuesdays." },
+  { text: "Alabama Supreme Court Rules Frozen Embryos Are Children Under State Law", real: true, source: "AP · Feb 2024", note: "" },
+  { text: "Committee Holds Emergency Hearing on Crisis; Members Spend First 40 Minutes Introducing Themselves", real: false, source: "", note: "Fabricated — the self-introduction is constitutionally protected." },
+  { text: "Campaign Releases Ad Saying Opponent 'Takes Money From Special Interests'; Ad Paid for by Special Interests", real: false, source: "", note: "Fabricated — the disclosure was on the last frame." }
+]},
+
+// DAY 15 — 3R/2F
+{ headlines: [
+  { text: "TikTok Ban Bill Passes House With Bipartisan Support", real: true, source: "AP · Mar 2024", note: "" },
+  { text: "Lawmaker Introduces Bill to Limit Social Media Use by Teenagers, Announces This on Social Media", real: false, source: "", note: "Fabricated — the platform choice was a statement." },
+  { text: "State Legislature Passes Budget at 3 A.M., Members Photographed Asleep at Desks", real: false, source: "", note: "Fabricated — the 3 a.m. budget is a cherished tradition." },
+  { text: "McConnell Endorses Trump After Previously Blaming Him for January 6", real: true, source: "Reuters · Mar 2024", note: "" },
+  { text: "House Censures Rep. Rashida Tlaib Over Israel-Hamas Comments", real: true, source: "AP · Nov 2023", note: "" }
+]},
+
+// DAY 16 — 2R/3F
+{ headlines: [
+  { text: "Bipartisan Commission Releases Recommendations; Neither Party Claims to Have Read Them", real: false, source: "", note: "Fabricated — the recommendations are in a drawer somewhere." },
+  { text: "George Santos Pleads Guilty to Wire Fraud and Identity Theft Charges", real: true, source: "Reuters · Aug 2024", note: "" },
+  { text: "Senator Calls for 'Unity' in Speech That Refers to Opponents as 'Radical Extremists' Seven Times", real: false, source: "", note: "Fabricated — unity was the theme." },
+  { text: "Supreme Court Issues Ruling on Trump's Presidential Immunity, Sending Case Back to Lower Courts", real: true, source: "AP · Jul 2024", note: "" },
+  { text: "Government Shutdown Averted at Final Hour; Both Sides Claim Victory, Neither Explains How", real: false, source: "", note: "Fabricated — the explanation is always in progress." }
+]},
+
+// DAY 17 — 3R/2F
+{ headlines: [
+  { text: "Bob Menendez Convicted on All Counts in Federal Corruption Trial", real: true, source: "AP · Jul 2024", note: "" },
+  { text: "Supreme Court Rules Against EPA's Authority to Regulate Carbon Emissions", real: true, source: "Reuters · Jun 2022", note: "" },
+  { text: "Politician Vows to 'Listen to Constituents,' Schedules Zero Town Halls in Election Year", real: false, source: "", note: "Fabricated — the listening takes many forms." },
+  { text: "Debate Commission Announces New Format: Candidates Must Answer Questions. Both Campaigns Reject Format.", real: false, source: "", note: "Fabricated — the question-answering requirement was extreme." },
+  { text: "Trump Sentenced to Unconditional Discharge in Hush Money Case", real: true, source: "AP · Nov 2024", note: "" }
+]},
+
+// DAY 18 — 2R/3F
+{ headlines: [
+  { text: "Senate Passes Bill Requiring Congress to Balance Budget; Senate Has Not Passed a Budget in 11 Years", real: false, source: "", note: "Fabricated — the requirement is aspirational." },
+  { text: "Inflation Reduction Act Passes Senate 51-50 With VP Harris Casting Tiebreaking Vote", real: true, source: "Reuters · Aug 2022", note: "" },
+  { text: "Both Candidates Promise to Reduce National Debt; Both Plans Increase National Debt", real: false, source: "", note: "Fabricated — the math was reviewed by their own economists." },
+  { text: "CHIPS and Science Act Passes, Investing $52 Billion in Domestic Semiconductor Manufacturing", real: true, source: "AP · Aug 2022", note: "" },
+  { text: "Agency Tasked With Reducing Red Tape Requires 14 Forms to Apply for Red Tape Reduction", real: false, source: "", note: "Fabricated — Form 7C explains Form 7B." }
+]},
+
+// DAY 19 — 3R/2F
+{ headlines: [
+  { text: "Bipartisan Infrastructure Law Passes Senate 69-30 in Rare Show of Cooperation", real: true, source: "AP · Aug 2021", note: "" },
+  { text: "Politician's 'Spontaneous' Town Hall Uses Teleprompter, Includes Scripted 'Spontaneous' Crowd Reactions", real: false, source: "", note: "Fabricated — the spontaneity was well-rehearsed." },
+  { text: "Samuel Alito Flew Flags Associated With Stop the Steal Movement Outside His Homes", real: true, source: "ProPublica · May 2024", note: "" },
+  { text: "Watchdog Report Finds Government Agency Spent $3 Million Studying How to Reduce Government Spending", real: false, source: "", note: "Fabricated — the findings were inconclusive." },
+  { text: "House Passes Bipartisan FISA Reauthorization Despite Privacy Concerns", real: true, source: "Reuters · Apr 2024", note: "" }
+]},
+
+// DAY 20 — 4R/1F
+{ headlines: [
+  { text: "Tim Scott Endorses Trump After Suspending His Own Presidential Campaign", real: true, source: "AP · Jan 2024", note: "" },
+  { text: "Senator Introduces 'Transparency Act'; Bill Contains 47 Redacted Pages", real: false, source: "", note: "Fabricated — the redactions were transparent." },
+  { text: "Vivek Ramaswamy Drops Out of 2024 Presidential Race After Iowa Caucuses", real: true, source: "AP · Jan 2024", note: "" },
+  { text: "Chris Christie Suspends Presidential Campaign Before New Hampshire Primary", real: true, source: "AP · Jan 2024", note: "" },
+  { text: "Mike Pence Declines to Endorse Trump in 2024 Race", real: true, source: "AP · Oct 2023", note: "" }
+]},
+
+// DAY 21 — 2R/3F
+{ headlines: [
+  { text: "Poll: 68% of Americans Distrust Politicians; Poll Commissioned by Political Action Committee", real: false, source: "", note: "Fabricated — the irony was a feature, not a bug." },
+  { text: "Governor Signs Bill Into Law He Publicly Opposed Three Times, Says He Has 'Evolved'", real: false, source: "", note: "Fabricated — the evolution was expedient." },
+  { text: "Supreme Court Rules 9-0 That States Cannot Remove Trump From 2024 Ballot", real: true, source: "AP · Mar 2024", note: "" },
+  { text: "Pew Research: Only 4% of Americans Trust Congress 'A Great Deal'", real: true, source: "Pew Research · 2023", note: "" },
+  { text: "Congressional Budget Office Warns Debt Will Reach $50 Trillion by 2033; Congress Moves On", real: false, source: "", note: "Fabricated — the warning was noted." }
+]},
+
+// DAY 22 — 3R/2F
+{ headlines: [
+  { text: "Congressman Gives Impassioned Speech About Border Security From District That Doesn't Border Anything", real: false, source: "", note: "Fabricated — the passion was real." },
+  { text: "Rep. Paul Gosar Censured by House for Posting Animated Video Depicting Violence Against Colleagues", real: true, source: "AP · Nov 2021", note: "" },
+  { text: "Hunter Biden Convicted on All Three Counts in Federal Gun Trial", real: true, source: "Reuters · Jun 2024", note: "" },
+  { text: "Candidate's 'Grassroots Campaign' Backed by $40 Million From Three Donors", real: false, source: "", note: "Fabricated — the roots were well-funded." },
+  { text: "Elon Musk Completes $44 Billion Acquisition of Twitter", real: true, source: "Reuters · Oct 2022", note: "" }
+]},
+
+// DAY 23 — 2R/3F
+{ headlines: [
+  { text: "Nancy Pelosi Steps Down From House Democratic Leadership After 20 Years", real: true, source: "AP · Nov 2022", note: "" },
+  { text: "City Council Votes to Study Whether to Study the Problem", real: false, source: "", note: "Fabricated — the study's findings will inform future studies." },
+  { text: "Senator's Office Releases 10-Point Plan to Fix Washington; Points 3 Through 8 Are the Problem", real: false, source: "", note: "Fabricated — the self-awareness was not audited." },
+  { text: "Hakeem Jeffries Elected House Democratic Leader, First Black Lawmaker to Lead a Congressional Party", real: true, source: "AP · Nov 2022", note: "" },
+  { text: "Bipartisan Group of Senators Introduces Bill; Bipartisanship Ends When Asked to Define the Bill", real: false, source: "", note: "Fabricated — the definition was still being finalized." }
+]},
+
+// DAY 24 — 3R/2F
+{ headlines: [
+  { text: "Republicans Win House Majority in 2022 Midterms; Democrats Hold Senate", real: true, source: "AP · Nov 2022", note: "" },
+  { text: "Classified Documents Found at Biden's Delaware Home and Penn Biden Center", real: true, source: "AP · Jan 2023", note: "" },
+  { text: "Independent Candidate Promises to 'Unite the Country,' Immediately Blamed for Dividing the Country", real: false, source: "", note: "Fabricated — the unity was divisive." },
+  { text: "George Santos Indicted on 13 Federal Charges Including Wire Fraud and Money Laundering", real: true, source: "AP · May 2023", note: "" },
+  { text: "Town Hall Question About Housing Costs Answered Entirely in Historical Anecdotes About Housing Costs", real: false, source: "", note: "Fabricated — the anecdotes were very historical." }
+]},
+
+// DAY 25 — 1R/4F
+{ headlines: [
+  { text: "Senator Introduces Anti-Corruption Bill, Co-Sponsored by Four of the Most-Investigated Members of Congress", real: false, source: "", note: "Fabricated — the co-sponsorship added credibility." },
+  { text: "Both Candidates Promise More Debates; Neither Candidate Actually Wants More Debates", real: false, source: "", note: "Fabricated — the enthusiasm was mutual." },
+  { text: "Supreme Court Rules Bump Stocks Are Illegal Under Federal Law", real: true, source: "Reuters · Jun 2024", note: "" },
+  { text: "State Governor Declares Emergency Over Issue He Previously Said Was Not an Emergency", real: false, source: "", note: "Fabricated — the timeline clarifies itself." },
+  { text: "Campaign Releases 90-Second Ad Containing 18 Claims, 6 Disputed, 3 of Which Are the Candidate's Name", real: false, source: "", note: "Fabricated — the name part checked out." }
+]},
+
+// DAY 26 — 3R/2F
+{ headlines: [
+  { text: "Senate Subcommittee Announces Investigation Into Why Previous Investigations Produced No Results", real: false, source: "", note: "Fabricated — the investigation will take 18 months." },
+  { text: "FBI Searches Trump's Mar-a-Lago Home, Retrieving Classified Documents", real: true, source: "AP · Aug 2022", note: "" },
+  { text: "Rudy Giuliani Ordered to Pay $148 Million to Two Georgia Election Workers He Defamed", real: true, source: "Reuters · Dec 2023", note: "" },
+  { text: "Lawmaker Introduces Amendment to Limit Government Surveillance; Amendment Recorded Without His Knowledge", real: false, source: "", note: "Fabricated — the irony was noted in a memo." },
+  { text: "J.D. Vance Selected as Donald Trump's Running Mate", real: true, source: "AP · Jul 2024", note: "" }
+]},
+
+// DAY 27 — 2R/3F
+{ headlines: [
+  { text: "Fitch Downgrades U.S. Credit Rating From AAA to AA+", real: true, source: "Reuters · Aug 2023", note: "" },
+  { text: "Senator Warns of 'Unprecedented Crisis' in Floor Speech; Gives Same Speech for Third Consecutive Year", real: false, source: "", note: "Fabricated — the crisis is reliably unprecedented." },
+  { text: "State Department Issues Travel Advisory for Country Whose Leader Just Criticized U.S. Travel Advisories", real: false, source: "", note: "Fabricated — the timing was a coincidence." },
+  { text: "Dianne Feinstein, Longest-Serving Woman in Senate History, Dies at Age 90", real: true, source: "AP · Sep 2023", note: "" },
+  { text: "Congressman's Staff Sends Apology for Congressman's Tweet; Congressman Tweets Apology for Staff's Apology", real: false, source: "", note: "Fabricated — the cycle resolved by Thursday." }
+]},
+
+// DAY 28 — 3R/2F
+{ headlines: [
+  { text: "Jack Smith Indicts Trump on Four Federal Counts Over 2020 Election Interference", real: true, source: "AP · Aug 2023", note: "" },
+  { text: "Presidential Candidate Releases Tax Returns; Returns Immediately Used by Both Sides as Proof of Everything", real: false, source: "", note: "Fabricated — the interpretation was bipartisan." },
+  { text: "Georgia Grand Jury Indicts Trump and 18 Co-Defendants Over 2020 Election", real: true, source: "Reuters · Aug 2023", note: "" },
+  { text: "Campaign Hires 'Digital Strategist' Who Increases Candidate's Follower Count, Then Decreases It, Then Increases It Again", real: false, source: "", note: "Fabricated — the strategy was evolving." },
+  { text: "Silicon Valley Bank Collapses in Largest U.S. Bank Failure Since 2008", real: true, source: "AP · Mar 2023", note: "" }
+]},
+
+// DAY 29 — 2R/3F
+{ headlines: [
+  { text: "Congressman Demands Transparency From Agency That Oversees Congressman's Investments", real: false, source: "", note: "Fabricated — the conflict of interest was noted on page 47." },
+  { text: "Tuberville Ends Hold on Military Promotions After 10-Month Standoff", real: true, source: "AP · Dec 2023", note: "" },
+  { text: "State Passes Law Banning Misinformation; Law Contains Three Factual Errors", real: false, source: "", note: "Fabricated — the errors were discovered post-passage." },
+  { text: "Town Hall Ends When Moderator Accidentally Asks Follow-Up Question", real: false, source: "", note: "Fabricated — the follow-up was not in the format agreement." },
+  { text: "Senate Passes Debt Ceiling Deal, Averting U.S. Default", real: true, source: "Reuters · Jun 2023", note: "" }
+]},
+
+// DAY 30 — 4R/1F
+{ headlines: [
+  { text: "Sam Bankman-Fried Convicted on All Seven Counts of Fraud and Conspiracy", real: true, source: "AP · Nov 2023", note: "" },
+  { text: "Rudy Giuliani Disbarred by New York Appellate Court", real: true, source: "Reuters · 2024", note: "" },
+  { text: "Supreme Court Allows Emergency Abortions in Idaho, Sidesteps Broader Ruling", real: true, source: "AP · Jun 2024", note: "" },
+  { text: "Both Parties Hold Press Conferences Simultaneously Blaming Each Other for Not Holding Press Conferences", real: false, source: "", note: "Fabricated — the scheduling was intentional." },
+  { text: "House Republicans Open Formal Impeachment Inquiry Into President Biden", real: true, source: "AP · Sep 2023", note: "" }
+]},
+
+// DAY 31 — 3R/2F
+{ headlines: [
+  { text: "Senator's Campaign Raises $12 Million in One Quarter, None of Which Was Spent on Answering Constituents' Emails", real: false, source: "", note: "Fabricated — the inbox remains at capacity." },
+  { text: "McConnell Suffers Apparent Freeze Episode During Press Conference, Stops Mid-Sentence for 30 Seconds", real: true, source: "AP · Aug 2023", note: "" },
+  { text: "House Passes Resolution Honoring Something Everyone Agrees On, Breaking Three-Week Streak of Agreement on Nothing", real: false, source: "", note: "Fabricated — the streak resumed shortly after." },
+  { text: "Columbia University Protesters Occupy Hamilton Hall; NYPD Clears Encampment", real: true, source: "AP · Apr 2024", note: "" },
+  { text: "Israel-Hamas War Triggers Pro-Palestinian Campus Protests Across Hundreds of U.S. Universities", real: true, source: "Reuters · Apr 2024", note: "" }
+]},
+
+// DAY 32 — 2R/3F
+{ headlines: [
+  { text: "Senator Calls Constituent Town Hall an 'Open Forum,' Provides List of Approved Questions in Advance", real: false, source: "", note: "Fabricated — the forum was very open." },
+  { text: "Political Ad Claims Opponent Once Voted for Bill That Didn't Exist Yet; Ad Still Running", real: false, source: "", note: "Fabricated — the fact-checkers' correction ran once." },
+  { text: "Supreme Court Allows Texas to Enforce SB 4, Letting State Arrest Migrants Crossing Illegally", real: true, source: "AP · Mar 2024", note: "" },
+  { text: "Politician's Memoir Reveals He Disagrees With Everything He Did in Office, But Now He Has a Book Deal", real: false, source: "", note: "Fabricated — the book sold well." },
+  { text: "UPenn President Liz Magill Resigns Following Congressional Testimony on Antisemitism", real: true, source: "AP · Dec 2023", note: "" }
+]},
+
+// DAY 33 — 3R/2F
+{ headlines: [
+  { text: "Harvard President Claudine Gay Resigns Amid Plagiarism Allegations and Antisemitism Controversy", real: true, source: "AP · Jan 2024", note: "" },
+  { text: "Trump Raises $53 Million in One Day After Conviction, Breaking Campaign Finance Records", real: true, source: "AP · Jun 2024", note: "" },
+  { text: "Congressional Ethics Office Releases Annual Report Containing Section on Why Nobody Reads Annual Reports", real: false, source: "", note: "Fabricated — the meta-analysis was thorough." },
+  { text: "Supreme Court Rules Homeless Encampment Bans Are Constitutional", real: true, source: "AP · Jun 2024", note: "" },
+  { text: "Candidate's Debate Coach Releases Statement Saying Candidate Did Not Listen to Debate Coach", real: false, source: "", note: "Fabricated — the coaching relationship was one-directional." }
+]},
+
+// DAY 34 — 2R/3F
+{ headlines: [
+  { text: "House Votes to Cut Agency Budget for Not Meeting Goals Set by Cuts to That Agency's Budget", real: false, source: "", note: "Fabricated — the cycle was considered efficient." },
+  { text: "Trump Becomes First Former U.S. President to Be Arrested and Have Mugshot Taken", real: true, source: "AP · Aug 2023", note: "" },
+  { text: "Senate Passes $886 Billion National Defense Authorization Act", real: true, source: "AP · Dec 2023", note: "" },
+  { text: "Politician Calls Himself 'Washington Outsider' at Event Attended Exclusively by Washington Insiders", real: false, source: "", note: "Fabricated — the outsider credentials were impeccable." },
+  { text: "Governor Signs 47 Bills on Last Day of Session; Admits He Read 3 of Them", real: false, source: "", note: "Fabricated — the 3 were very good bills." }
+]},
+
+// DAY 35 — 3R/2F
+{ headlines: [
+  { text: "Biden Signs Executive Order on Artificial Intelligence Safety and Security", real: true, source: "AP · Oct 2023", note: "" },
+  { text: "Senate Creates AI Oversight Committee; Committee Members Ask What AI Stands For", real: false, source: "", note: "Fabricated — the acronym was clarified by staff." },
+  { text: "Trump Social Media Company Goes Public, Valued at $8 Billion Despite Losing $58 Million Last Year", real: true, source: "Reuters · Mar 2024", note: "" },
+  { text: "FTC Sues Amazon for Illegally Monopolizing Online Marketplace", real: true, source: "AP · Sep 2023", note: "" },
+  { text: "Candidate Promises to Cut Spending on Everything Except the 14 Things He Wants to Keep Spending On", real: false, source: "", note: "Fabricated — the carve-outs numbered 14." }
+]},
+
+// DAY 36 — 1R/4F
+{ headlines: [
+  { text: "Both Parties Agree National Debt Is a Problem; Both Plans Make It Worse", real: false, source: "", note: "Fabricated — the math was done by their own economists." },
+  { text: "Senator's Bill Dies in Committee He Chairs", real: false, source: "", note: "Fabricated — the committee calendar had other priorities." },
+  { text: "Senate Confirms Laphonza Butler to Feinstein's Seat, First Openly LGBTQ+ Black Senator", real: true, source: "AP · Oct 2023", note: "" },
+  { text: "Political Consultant Hired to Improve Candidate's Likability; Candidate Now 3 Points Less Likable", real: false, source: "", note: "Fabricated — the trajectory was improving before the consultant." },
+  { text: "City Receives Grant to Study Traffic. Study Concludes There Is Traffic.", real: false, source: "", note: "Fabricated — the study was peer-reviewed." }
+]},
+
+// DAY 37 — 3R/2F
+{ headlines: [
+  { text: "Congress Passes Short-Term Spending Bill to Avoid Shutdown, Kicking Deadline to Next Month", real: true, source: "AP · 2023", note: "" },
+  { text: "Congressman Introduces Term Limits Bill, Notes It Would Not Apply to Him Due to Grandfather Clause", real: false, source: "", note: "Fabricated — the clause was one paragraph." },
+  { text: "Both Campaigns Release Identical Statement About the Importance of Election Security", real: false, source: "", note: "Fabricated — the word-for-word similarity was not addressed." },
+  { text: "Vivek Ramaswamy Endorses Trump, Calls Him 'Greatest President of the 21st Century'", real: true, source: "AP · Jan 2024", note: "" },
+  { text: "Republicans Nominate Trump at RNC Convention in Milwaukee", real: true, source: "AP · Jul 2024", note: "" }
+]},
+
+// DAY 38 — 2R/3F
+{ headlines: [
+  { text: "State Legislature Proposes Cutting Education Budget to Fund Study on Improving Education Outcomes", real: false, source: "", note: "Fabricated — the outcomes study was well-funded." },
+  { text: "Democrats Nominate Kamala Harris at DNC Convention in Chicago", real: true, source: "AP · Aug 2024", note: "" },
+  { text: "Senator's Filibuster Ends After 11 Hours When He Runs Out of Things to Say. Has New Things to Say Tomorrow.", real: false, source: "", note: "Fabricated — the list refreshed overnight." },
+  { text: "Trump and Harris Face Off in Presidential Debate", real: true, source: "AP · Sep 2024", note: "" },
+  { text: "Candidate Denies Flip-Flopping, Maintains He Has Consistently Changed His Position on Every Issue", real: false, source: "", note: "Fabricated — the consistency was remarkable." }
+]},
+
+// DAY 39 — 3R/2F
+{ headlines: [
+  { text: "Matt Gaetz Files Motion to Vacate Against McCarthy, Kicking Off Historic Speaker Removal", real: true, source: "AP · Oct 2023", note: "" },
+  { text: "Biden Announces He Will Forgive Additional $9 Billion in Student Loan Debt", real: true, source: "AP · 2024", note: "" },
+  { text: "Political Party Releases New Platform, Endorses Positions It Opposed in Previous Platform Without Mentioning Previous Platform", real: false, source: "", note: "Fabricated — the previous platform is no longer on the website." },
+  { text: "Senator Introduced 200 Bills Last Session; 198 Were Named After Post Offices", real: false, source: "", note: "Fabricated — the post offices are excellently named." },
+  { text: "Supreme Court Rejects Bid to Reinstate Nationwide Abortion Pill Restrictions", real: true, source: "AP · Jun 2024", note: "" }
+]},
+
+// DAY 40 — 4R/1F
+{ headlines: [
+  { text: "New York Judge Fines Trump $364 Million in Civil Fraud Case", real: true, source: "Reuters · Feb 2024", note: "" },
+  { text: "E. Jean Carroll Wins $83.3 Million in Defamation Suit Against Trump", real: true, source: "AP · Jan 2024", note: "" },
+  { text: "State Attorney General Announces Investigation Into Previous Attorney General's Investigation", real: false, source: "", note: "Fabricated — the investigative chain was novel." },
+  { text: "Matt Gaetz Withdraws as Trump's Attorney General Nominee Amid Ethics Probe", real: true, source: "AP · Nov 2024", note: "" },
+  { text: "Jack Smith Drops Federal Cases Against Trump After Election Win", real: true, source: "AP · Nov 2024", note: "" }
+]},
+
+// DAY 41 — 2R/3F
+{ headlines: [
+  { text: "Poll Finds Voters Want Less Political Advertising; Poll Released Inside Political Ad", real: false, source: "", note: "Fabricated — the irony was in the fine print." },
+  { text: "Trump Issues Pardons for Over 1,500 January 6 Defendants on First Day in Office", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Congressman Holds Press Conference to Deny Rumors, Accidentally Confirms Most of the Rumors", real: false, source: "", note: "Fabricated — the clarification was clarifying." },
+  { text: "Senate Confirms Marco Rubio as Secretary of State", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Both Parties Release Competing 'Bipartisan Solutions' Documents That Agree on Nothing; Word 'Bipartisan' Appears 14 Times in Each", real: false, source: "", note: "Fabricated — the word did all the work." }
+]},
+
+// DAY 42 — 3R/2F
+{ headlines: [
+  { text: "Candidate's Policy Plan Praised by Economists Who Didn't Read It, Criticized by Economists Who Did", real: false, source: "", note: "Fabricated — the reading was selective." },
+  { text: "Trump Signs Executive Order Withdrawing U.S. From Paris Climate Agreement Again", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Kash Patel Confirmed as FBI Director", real: true, source: "AP · Feb 2025", note: "" },
+  { text: "Governor's Office Sends Correction, Then Correction to the Correction; Original Statement Was Right", real: false, source: "", note: "Fabricated — the original statement was not right." },
+  { text: "Trump Administration Moves to Eliminate the Department of Education", real: true, source: "AP · 2025", note: "" }
+]},
+
+// DAY 43 — 2R/3F
+{ headlines: [
+  { text: "Elon Musk's DOGE Begins Mass Layoffs of Federal Workers Across Multiple Agencies", real: true, source: "AP · Feb 2025", note: "" },
+  { text: "Newly Elected Senator Vows to Change Washington; Washington Unchanged", real: false, source: "", note: "Fabricated — the vow was sincere." },
+  { text: "Federal Agency Publishes Report on Its Own Waste; Report Costs $2.3 Million to Produce", real: false, source: "", note: "Fabricated — the findings were not economical." },
+  { text: "Trump Pardons January 6 Rioters on First Day in Office", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Political Party Launches 'Listening Tour,' Records No Responses", real: false, source: "", note: "Fabricated — the listening was mostly talking." }
+]},
+
+// DAY 44 — 3R/2F
+{ headlines: [
+  { text: "California Governor Newsom Calls Special Session to Protect State From Federal Policies", real: true, source: "AP · Dec 2024", note: "" },
+  { text: "State Passes Law Against 'Out-of-State Influence,' Immediately Challenged by Out-of-State Law Firm", real: false, source: "", note: "Fabricated — the irony was noted in the filing." },
+  { text: "Trump Administration Withdraws U.S. From World Health Organization", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Senator Claims Bill Is 'Deficit Neutral'; Deficit Immediately Responds", real: false, source: "", note: "Fabricated — the response came in quarterly." },
+  { text: "House Passes Budget Resolution Along Party Lines, Unlocking Reconciliation Process", real: true, source: "AP · Apr 2025", note: "" }
+]},
+
+// DAY 45 — 1R/4F
+{ headlines: [
+  { text: "Candidate Announces He's 'Not a Career Politician' in 19th Year of Political Career", real: false, source: "", note: "Fabricated — the career started late." },
+  { text: "Robert F. Kennedy Jr. Confirmed as Secretary of Health and Human Services", real: true, source: "AP · Feb 2025", note: "" },
+  { text: "Both Parties Agree the Other Party Is the Reason They Can't Agree on Anything", real: false, source: "", note: "Fabricated — this was the bipartisan finding." },
+  { text: "Congressman's Town Hall Q&A Session Opens With 45-Minute Prepared Remarks, Runs Out of Time for Questions", real: false, source: "", note: "Fabricated — the remarks were the town hall." },
+  { text: "State Introduces Bill to Reduce Partisanship; Bill Passes on Strict Party-Line Vote", real: false, source: "", note: "Fabricated — the irony was procedural." }
+]},
+
+// DAY 46 — 3R/2F
+{ headlines: [
+  { text: "Campaign Manager Fired for Honesty; Campaign Releases Statement Praising His 'Valuable Perspective'", real: false, source: "", note: "Fabricated — the perspective is no longer with the campaign." },
+  { text: "Tulsi Gabbard Confirmed as Director of National Intelligence", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Federal Judges Block Trump Administration's Effort to Freeze Federal Grants", real: true, source: "AP · Feb 2025", note: "" },
+  { text: "Senator Pledges to 'Fight for Working Families' at $5,000 Per Plate Fundraising Dinner", real: false, source: "", note: "Fabricated — the working families were in spirit." },
+  { text: "Trump Administration Imposes Sweeping Tariffs on Imports From Dozens of Countries", real: true, source: "AP · Apr 2025", note: "" }
+]},
+
+// DAY 47 — 2R/3F
+{ headlines: [
+  { text: "Markets Plunge After Trump Announces Sweeping Tariffs; Dow Drops Over 1,500 Points", real: true, source: "Reuters · Apr 2025", note: "" },
+  { text: "Former Politician Writes Memoir Critical of Party; Immediately Invited Back Onto Party's Fundraising Circuit", real: false, source: "", note: "Fabricated — the memoir was very marketable." },
+  { text: "Canada Retaliates Against U.S. Tariffs With Matching Tariffs on American Goods", real: true, source: "Reuters · 2025", note: "" },
+  { text: "Senator's Infrastructure Bill Passes After He Agrees to Name a Bridge After the Vote's Deciding Senator", real: false, source: "", note: "Fabricated — the bridge is very well located." },
+  { text: "Both Parties Release 'Plans to Fix the Economy'; Neither Plan Mentions the Economists Who Said It Won't Work", real: false, source: "", note: "Fabricated — the economists were consulted but not quoted." }
+]},
+
+// DAY 48 — 3R/2F
+{ headlines: [
+  { text: "Politician Claims Credit for Infrastructure Project He Voted Against Funding", real: false, source: "", note: "Fabricated — the ribbon-cutting was bipartisan." },
+  { text: "Trump Threatens to Pull U.S. Out of NATO if Members Don't Increase Defense Spending", real: true, source: "AP · 2025", note: "" },
+  { text: "State Audit Finds Government Program Cost 400% More Than Projected; Officials Promise Next Program Will Only Cost 300% More", real: false, source: "", note: "Fabricated — the projection methodology was revised." },
+  { text: "China Retaliates Against U.S. Tariffs, Raising Duties on American Goods to 125%", real: true, source: "Reuters · Apr 2025", note: "" },
+  { text: "Federal Court Blocks Trump's Attempt to Fire Independent Agency Heads", real: true, source: "AP · 2025", note: "" }
+]},
+
+// DAY 49 — 2R/3F
+{ headlines: [
+  { text: "Candidate's 'Small Dollar Donation' Ad Produced by Firm That Only Takes Large Dollar Donations", real: false, source: "", note: "Fabricated — the irony was in the credits." },
+  { text: "House Passes Bill With Bipartisan Support; Three Members Each Claim to Be the Only Bipartisan One", real: false, source: "", note: "Fabricated — there were three press releases." },
+  { text: "Trump Signs Executive Order Declaring National Energy Emergency on First Day", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Greenland's Prime Minister Rejects Trump's Repeated Offers to Purchase the Island", real: true, source: "Reuters · Jan 2025", note: "" },
+  { text: "Senator Introduces Bill Making It Illegal to Introduce Too Many Bills; Bill Dies in Committee With 4,000 Other Bills", real: false, source: "", note: "Fabricated — the irony survived committee." }
+]},
+
+// DAY 50 — 4R/1F
+{ headlines: [
+  { text: "Trump Signs Order Ending Birthright Citizenship by Executive Order, Immediately Blocked by Courts", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Pete Hegseth Confirmed as Defense Secretary After VP Vance Casts Tiebreaking Vote", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Defense Secretary's First Act: Commission Study on Whether Department Needs More Commissions", real: false, source: "", note: "Fabricated — the commission studied it and said yes." },
+  { text: "USAID Largely Shut Down Under DOGE-Led Restructuring", real: true, source: "AP · Feb 2025", note: "" },
+  { text: "Hundreds of Career Diplomats Laid Off as State Department Downsizes", real: true, source: "AP · 2025", note: "" }
+]},
+
+// DAY 51 — 3R/2F
+{ headlines: [
+  { text: "Trump Administration Revokes Harvard's Federal Funding, Citing Antisemitism and DEI Policies", real: true, source: "AP · Apr 2025", note: "" },
+  { text: "University Issues Statement Saying Campus Debate Has Never Been Freer; Debate Immediately Erupts Over Statement", real: false, source: "", note: "Fabricated — the clarification required a follow-up." },
+  { text: "Harvard Sues Federal Government Over Funding Freeze", real: true, source: "AP · Apr 2025", note: "" },
+  { text: "Immigration Arrests Surge in First Months of Trump Administration", real: true, source: "Reuters · 2025", note: "" },
+  { text: "Immigration Policy Described as 'Tough but Fair' by People Who Will Not Be Affected by Immigration Policy", real: false, source: "", note: "Fabricated — the policy was both things for different people." }
+]},
+
+// DAY 52 — 2R/3F
+{ headlines: [
+  { text: "Congressman Votes to Increase Defense Budget, Immediately Calls for Audit of Defense Budget", real: false, source: "", note: "Fabricated — both positions were sincere." },
+  { text: "Mass Deportation Flights Begin, Drawing Legal Challenges Across Multiple Courts", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Both Parties Vow to 'Work Together' After Election; Neither Party Defines What That Means", real: false, source: "", note: "Fabricated — the definition is still being workshopped." },
+  { text: "Senator Demands Federal Agency Respond Faster; Agency Has No Staff Left to Respond Faster", real: false, source: "", note: "Fabricated — the staffing situation is being studied." },
+  { text: "Federal Workers Offered 'Fork in the Road' Buyout; Thousands Accept", real: true, source: "AP · Feb 2025", note: "" }
+]},
+
+// DAY 53 — 3R/2F
+{ headlines: [
+  { text: "Governor Signs 'Compromise' Bill Neither Side Asked For; Both Sides Equally Unhappy", real: false, source: "", note: "Fabricated — the governor called it a win." },
+  { text: "Veterans Affairs Department Freezes Hiring Amid DOGE Cuts, Raising Concerns About Care Access", real: true, source: "AP · 2025", note: "" },
+  { text: "Trump Administration Ends Temporary Protected Status for Hundreds of Thousands of Migrants", real: true, source: "AP · 2025", note: "" },
+  { text: "Both Parties Release Plans to Fix Healthcare; Plans Share Zero Common Elements Except the Word 'Healthcare'", real: false, source: "", note: "Fabricated — the word did its best." },
+  { text: "Stock Market Enters Correction as Tariff Uncertainty Spooks Investors", real: true, source: "Reuters · Apr 2025", note: "" }
+]},
+
+// DAY 54 — 1R/4F
+{ headlines: [
+  { text: "Politician Introduces 'Commonsense' Legislation; Eleven People Agree on What 'Commonsense' Means", real: false, source: "", note: "Fabricated — the eleven were very certain." },
+  { text: "Senator Calls for Independent Investigation, Names His Chief of Staff to Lead It", real: false, source: "", note: "Fabricated — the independence was structural." },
+  { text: "Campaign's 'Unprecedented' Ground Game Used in Same Precinct in 2016, 2018, 2020, and 2022", real: false, source: "", note: "Fabricated — the precedent was elsewhere." },
+  { text: "National Institutes of Health Pauses Grants, Freezes Research Funding Across Universities", real: true, source: "AP · 2025", note: "" },
+  { text: "State Bill Requires Balanced Reporting; Bill Written Entirely by One Party", real: false, source: "", note: "Fabricated — the balance was in the title." }
+]},
+
+// DAY 55 — 3R/2F
+{ headlines: [
+  { text: "Trump Fires Military Chiefs on First Day, Replaces Them With His Own Picks", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Boeing Whistleblower John Barnett Found Dead Amid Legal Battle Against Company", real: true, source: "AP · Mar 2024", note: "" },
+  { text: "Congressional Hearing on AI Opens With Congressman Asking If Google Can See His Texts", real: false, source: "", note: "Fabricated — the answer was more complicated than expected." },
+  { text: "Jack Smith Drops Federal Cases Against Trump After His Election Win", real: true, source: "AP · Nov 2024", note: "" },
+  { text: "Senator Calls Special Session on Productivity; Special Session Runs Three Days Over Schedule", real: false, source: "", note: "Fabricated — the schedule was aspirational." }
+]},
+
+// DAY 56 — 2R/3F
+{ headlines: [
+  { text: "Both Candidates Claim They Won the Debate, Release Competing 47-Second Clips as Proof", real: false, source: "", note: "Fabricated — the clips were carefully selected." },
+  { text: "Trump Issues Pardons for Over 1,500 January 6 Defendants, Describes Them as 'Hostages'", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "State Passes Legislation to Reduce Political Division; Vote Is 51-49 Along Party Lines", real: false, source: "", note: "Fabricated — the irony was tabled." },
+  { text: "Federal Reserve Holds Interest Rates Steady Despite Pressure From Trump to Cut", real: true, source: "AP · 2025", note: "" },
+  { text: "Politician's 'Plain English' Press Release Requires Three Aides to Explain", real: false, source: "", note: "Fabricated — the plain English was aspirational." }
+]},
+
+// DAY 57 — 3R/2F
+{ headlines: [
+  { text: "Trump Administration Moves to Dismantle Consumer Financial Protection Bureau", real: true, source: "AP · Feb 2025", note: "" },
+  { text: "Congress Passes Resolution Honoring 'The Troops'; Vote Attended by No Veterans", real: false, source: "", note: "Fabricated — the honor was extended in their absence." },
+  { text: "Panama Canal Authority Rejects Trump Administration's Claims of U.S. Ownership Rights", real: true, source: "Reuters · Jan 2025", note: "" },
+  { text: "Bipartisan Commission Produces 600-Page Report; Executive Summary Is 150 Pages", real: false, source: "", note: "Fabricated — the summary summarized efficiently." },
+  { text: "Mexico Rejects Trump's Offer to Send U.S. Troops Into Mexico to Fight Cartels", real: true, source: "AP · 2025", note: "" }
+]},
+
+// DAY 58 — 2R/3F
+{ headlines: [
+  { text: "New Senator Arrives in Washington Promising to Shake Things Up; Is Immediately Told How Things Work", real: false, source: "", note: "Fabricated — the shake-up begins in Q2." },
+  { text: "Town Hall Moderator Praised for Keeping Event Civil; Two People Arrested in Parking Lot", real: false, source: "", note: "Fabricated — the event itself was lovely." },
+  { text: "Zelensky and Trump Have Tense Oval Office Meeting, No New Aid Agreement Reached", real: true, source: "Reuters · Feb 2025", note: "" },
+  { text: "Trump Administration Suspends Most Foreign Aid, Including to Ukraine", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Candidate Promises 'Fresh Perspective'; Perspective Last Seen Fresh in 1998", real: false, source: "", note: "Fabricated — the freshness date is disputed." }
+]},
+
+// DAY 59 — 3R/2F
+{ headlines: [
+  { text: "Trump Proposes Eliminating the Department of Education by Executive Order", real: true, source: "AP · Feb 2025", note: "" },
+  { text: "Education Secretary Announces Department's Greatest Achievement on Day Before Department Is Eliminated", real: false, source: "", note: "Fabricated — the timing honored the achievement." },
+  { text: "Lawmaker Introduces Term Limits Bill, Schedules Vote for After He Retires Voluntarily in 14 Years", real: false, source: "", note: "Fabricated — the timing was coincidental." },
+  { text: "Trump Administration Ends Remote Work for All Federal Employees, Orders Return to Office", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "National Security Advisor Accidentally Adds Atlantic Editor to Signal War Planning Chat", real: true, source: "AP · Mar 2025", note: "" }
+]},
+
+// DAY 60 — 4R/1F
+{ headlines: [
+  { text: "Over 75,000 Federal Workers Take Buyout or Are Fired Under DOGE-Led Downsizing", real: true, source: "AP · 2025", note: "" },
+  { text: "Senator Announces He's Serious About Deficit Reduction in Speech Surrounded by Constituents Demanding More Spending", real: false, source: "", note: "Fabricated — the math was discussed afterward." },
+  { text: "European Leaders Meet Without U.S. to Discuss Ukraine Peace Negotiations", real: true, source: "Reuters · Feb 2025", note: "" },
+  { text: "Trump Announces U.S. Will No Longer Fund UN Human Rights Council", real: true, source: "AP · 2025", note: "" },
+  { text: "Canada Retaliates With $30 Billion in Tariffs on U.S. Goods", real: true, source: "Reuters · Mar 2025", note: "" }
+]},
+
+// DAY 61 — 2R/3F
+{ headlines: [
+  { text: "State House Passes Education Reform Bill Written by Legislators Who All Attended Private Schools", real: false, source: "", note: "Fabricated — the reform was principled." },
+  { text: "Trump Threatens 50% Tariff on European Union Goods", real: true, source: "Reuters · May 2025", note: "" },
+  { text: "Senator's 'Listening Tour' Covers 12 States; Senator Speaks at All 12 Events", real: false, source: "", note: "Fabricated — the listening was scheduled for the next tour." },
+  { text: "Elon Musk Announces Stepping Back From DOGE Role to Focus on Tesla", real: true, source: "Reuters · Apr 2025", note: "" },
+  { text: "Both Parties Agree Foreign Policy Is 'Complicated'; Neither Has Further Comment", real: false, source: "", note: "Fabricated — the comment was very complicated." }
+]},
+
+// DAY 62 — 3R/2F
+{ headlines: [
+  { text: "UK Prime Minister Keir Starmer Visits Trump at White House, Secures Tentative Trade Framework", real: true, source: "Reuters · Feb 2025", note: "" },
+  { text: "NATO Secretary-General Urges Members to Raise Defense Spending to 5% of GDP After Trump Demand", real: true, source: "AP · 2025", note: "" },
+  { text: "Foreign Government Releases Statement Praising Everything About America Except Its Current Policies", real: false, source: "", note: "Fabricated — the word 'carefully' appeared twice." },
+  { text: "Congressman Returns From Fact-Finding Trip to Resort Town, Finds Several Facts", real: false, source: "", note: "Fabricated — the resort had excellent wifi." },
+  { text: "Trump Administration Revokes Legal Status of Hundreds of Thousands of Cuban, Haitian, Venezuelan Immigrants", real: true, source: "AP · 2025", note: "" }
+]},
+
+// DAY 63 — 1R/4F
+{ headlines: [
+  { text: "Senator Introduces 'Accountability Act'; Act Contains No Enforcement Mechanism", real: false, source: "", note: "Fabricated — the accountability was self-directed." },
+  { text: "Candidate Calls Opponent 'Extreme'; Opponent Calls Candidate 'Extreme'; Moderator Runs Out of Time Before Either Explains", real: false, source: "", note: "Fabricated — the explanations were emailed later." },
+  { text: "Trump Signs Order Renaming Gulf of Mexico to 'Gulf of America' on Federal Maps", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Government Task Force Releases Plan for Addressing Government Task Force Overload; Plan Creates One New Task Force", real: false, source: "", note: "Fabricated — the reduction was aspirational." },
+  { text: "Party Releases New Youth Outreach Strategy; Strategy Written by Committee With Average Age of 71", real: false, source: "", note: "Fabricated — the youth were consulted via their parents." }
+]},
+
+// DAY 64 — 3R/2F
+{ headlines: [
+  { text: "Governor's Approval Rating Drops 12 Points; Governor Attributes Drop to 'Media Bias' and Not the 12 Things He Did", real: false, source: "", note: "Fabricated — the media covered all 12 things." },
+  { text: "Federal Courts Issue Over 200 Injunctions Against Trump Administration in First 100 Days", real: true, source: "AP · Apr 2025", note: "" },
+  { text: "Trump Signs Executive Orders Reversing Biden-Era Climate and Emissions Rules", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Senator Claims to Have Read 400-Page Bill in Full; Bill Released 6 Hours Before Vote", real: false, source: "", note: "Fabricated — the reading was 'thorough in spirit.'" },
+  { text: "U.S. Economy Shrinks in First Quarter, First Contraction Since 2022", real: true, source: "AP · Apr 2025", note: "" }
+]},
+
+// DAY 65 — 2R/3F
+{ headlines: [
+  { text: "Trump Pauses Most Tariffs for 90 Days After Market Turmoil, Keeps China Tariffs at 145%", real: true, source: "AP · Apr 2025", note: "" },
+  { text: "Both Parties Claim the Economy Is Doing Exactly As They Predicted, Citing Different Economies", real: false, source: "", note: "Fabricated — the predictions were archived for this purpose." },
+  { text: "State Passes 'Anti-Woke' Curriculum Bill; Curriculum Board Asks for Definition of Woke", real: false, source: "", note: "Fabricated — the definition is still in committee." },
+  { text: "Federal Reserve Chair Powell Warns Tariffs Could Cause Simultaneous Inflation and Unemployment", real: true, source: "AP · 2025", note: "" },
+  { text: "Politician Denounces Pork Barrel Spending From District That Has Received $400 Million in Pork Barrel Spending", real: false, source: "", note: "Fabricated — the denouncing was statewide." }
+]},
+
+// DAY 66 — 3R/2F
+{ headlines: [
+  { text: "Congress Forms Committee to Study Partisan Gridlock; Committee Immediately Deadlocks Along Partisan Lines", real: false, source: "", note: "Fabricated — the irony is in the record." },
+  { text: "Trump Administration Imposes 145% Tariffs on All Chinese Goods", real: true, source: "Reuters · Apr 2025", note: "" },
+  { text: "China Bans Exports of Rare Earth Materials to U.S. in Tariff Retaliation", real: true, source: "Reuters · Apr 2025", note: "" },
+  { text: "Senator's Floor Speech Calls for 'Real Solutions' Without Specifying Any Solutions", real: false, source: "", note: "Fabricated — the realness was uncontested." },
+  { text: "Apple, Nike, and Other Companies Warn Tariffs Will Significantly Raise Consumer Prices", real: true, source: "AP · Apr 2025", note: "" }
+]},
+
+// DAY 67 — 2R/3F
+{ headlines: [
+  { text: "Federal Reserve Chair Powell Warns Tariffs Could Cause Stagflation Not Seen Since the 1970s", real: true, source: "AP · 2025", note: "" },
+  { text: "Politician Explains Why His Economic Plan Is Different This Time; His Last Four Plans Were Also Different", real: false, source: "", note: "Fabricated — the fifth plan addresses the previous four." },
+  { text: "Trump Says Fed Chair Powell's 'Termination Cannot Come Fast Enough' After Rate Decision", real: true, source: "Reuters · Apr 2025", note: "" },
+  { text: "Treasury Secretary Reassures Markets That Everything Is Fine; Markets Drop 400 Points in Response", real: false, source: "", note: "Fabricated — the reassurance was thorough." },
+  { text: "Both Parties Agree Inflation Is a Problem; Disagree on Whether Prices Have Actually Gone Up", real: false, source: "", note: "Fabricated — the disagreement was empirical." }
+]},
+
+// DAY 68 — 3R/2F
+{ headlines: [
+  { text: "State Passes Religious Freedom Bill; Immediately Challenged by Three Religious Groups on Constitutional Grounds", real: false, source: "", note: "Fabricated — the freedom was narrowly defined." },
+  { text: "DOGE Claims $150 Billion in Savings; Inspector General Says Figure Includes Many Double-Counted Items", real: true, source: "AP · 2025", note: "" },
+  { text: "Candidate Promises 'Day One' Fixes for 12 Issues; None Fixed by Day One; Says He Meant Day One of Year Two", real: false, source: "", note: "Fabricated — the calendar was recalibrated." },
+  { text: "Supreme Court Allows Trump to Fire NLRB Members, Expanding Presidential Removal Power", real: true, source: "AP · 2025", note: "" },
+  { text: "U.S. and China Begin Tariff Negotiations in Geneva; Both Sides Claim Leverage", real: true, source: "Reuters · May 2025", note: "" }
+]},
+
+// DAY 69 — 1R/4F
+{ headlines: [
+  { text: "Senator Pledges to 'Bridge the Divide' Then Votes Straight Party Line for 14th Consecutive Year", real: false, source: "", note: "Fabricated — the bridge is under construction." },
+  { text: "Candidate's Ad Attacks Opponent for Positions Opponent Changed 12 Years Ago; Candidate Holds Same Positions From 12 Years Ago", real: false, source: "", note: "Fabricated — the ad did not mention the 12 years." },
+  { text: "U.S. and UK Reach Trade Framework Agreement, First Major Deal Since Brexit", real: true, source: "Reuters · May 2025", note: "" },
+  { text: "New Poll Shows Most Americans Have Strong Opinions on Issue Most Americans Know Nothing About", real: false, source: "", note: "Fabricated — the margin of error was 3 points." },
+  { text: "Senator Who Voted Against Infrastructure Bill Attends Ribbon Cutting for Project the Bill Funded", real: false, source: "", note: "Fabricated — the ribbon was bipartisan." }
+]},
+
+// DAY 70 — 4R/1F
+{ headlines: [
+  { text: "Trump Administration Announces Plan to Open National Parks to Increased Drilling and Mining", real: true, source: "AP · 2025", note: "" },
+  { text: "Interior Department Holds 'Listening Session' on Conservation; Room Contains No Conservationists", real: false, source: "", note: "Fabricated — the room had excellent acoustics." },
+  { text: "California and 23 Other States Sue Trump Administration Over Tariff Authority", real: true, source: "AP · 2025", note: "" },
+  { text: "White House Threatens Harvard's Tax-Exempt Status After University Defies Federal Demands", real: true, source: "AP · Apr 2025", note: "" },
+  { text: "Trump Budget Proposes Cuts to Medicaid and Food Stamps in Reconciliation Package", real: true, source: "AP · 2025", note: "" }
+]},
+
+// DAY 71 — 2R/3F
+{ headlines: [
+  { text: "Lawmaker Calls for 'Return to Civility' in Speech That Uses 'Enemy,' 'Radical,' and 'Destroy' Seven Times Each", real: false, source: "", note: "Fabricated — civility was the theme." },
+  { text: "Supreme Court Allows Deportations Under Alien Enemies Act to Proceed Temporarily", real: true, source: "AP · 2025", note: "" },
+  { text: "Both Parties Claim Victory After Budget Deal Neither Party Wanted Passes With No Party's Support", real: false, source: "", note: "Fabricated — the victory was conditional." },
+  { text: "El Salvador's President Bukele and Trump Sign Agreement to House U.S. Deportees", real: true, source: "AP · Mar 2025", note: "" },
+  { text: "Politician Calls 5% Budget Cut 'Draconian' While Calling 5% Tax Cut 'Common Sense'", real: false, source: "", note: "Fabricated — the math was consistent from his perspective." }
+]},
+
+// DAY 72 — 3R/2F
+{ headlines: [
+  { text: "EPA Moves to Reverse Biden-Era Climate Rules, Reopens Permits for Coal Plants", real: true, source: "AP · 2025", note: "" },
+  { text: "White House Defends Sending Migrants to El Salvador Prison, Calls Facility 'State of the Art'", real: true, source: "AP · Mar 2025", note: "" },
+  { text: "Climate Scientist Invited to Testify Before Congress on Climate; Asked Exclusively About Whether It's Cold Outside", real: false, source: "", note: "Fabricated — the outside was acknowledged to be cold." },
+  { text: "State Energy Regulator Says 'All Energy Sources Are Equal,' Lists Them in Obvious Preference Order", real: false, source: "", note: "Fabricated — the order was alphabetical, starting with Coal." },
+  { text: "Federal Judge Rules Trump Administration Violated Court Order in Deportation Flights", real: true, source: "AP · Mar 2025", note: "" }
+]},
+
+// DAY 73 — 2R/3F
+{ headlines: [
+  { text: "Campaign Launches 'Truth Tour'; Tour Makes No Factually Verifiable Claims", real: false, source: "", note: "Fabricated — the verifiability was intentional." },
+  { text: "Senator's Infrastructure Proposal Would 'Pay for Itself'; CBO Declines to Confirm This", real: false, source: "", note: "Fabricated — the CBO was politely ignored." },
+  { text: "Trump Administration Eliminates DEI Programs Across All Federal Agencies", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "USDA Pauses $1 Billion in Food Bank Funding, Raising Alarm Among Anti-Hunger Groups", real: true, source: "AP · Feb 2025", note: "" },
+  { text: "Newly Elected Governor Inherits Crisis He Promised to Prevent; Promises to Prevent Next One", real: false, source: "", note: "Fabricated — the prevention timeline was updated." }
+]},
+
+// DAY 74 — 3R/2F
+{ headlines: [
+  { text: "Trump Administration Orders All Federal Employees to Log Weekly Accomplishments or Risk Firing", real: true, source: "AP · Feb 2025", note: "" },
+  { text: "Congressional Committee Releases Report on Why Previous Congressional Committee Reports Weren't Read", real: false, source: "", note: "Fabricated — the report was not read." },
+  { text: "House Passes Reconciliation Bill Including Medicaid Work Requirements and SNAP Cuts", real: true, source: "AP · 2025", note: "" },
+  { text: "State Bill Allows Citizens to Sue the Government; Government Immediately Sues to Block the Bill", real: false, source: "", note: "Fabricated — the standing was in question." },
+  { text: "Judge Rules Trump Administration Wrongly Deported Maryland Man to El Salvador Prison", real: true, source: "AP · Apr 2025", note: "" }
+]},
+
+// DAY 75 — 1R/4F
+{ headlines: [
+  { text: "Official Blames 'Previous Administration' for Problem That Began Three Administrations Ago", real: false, source: "", note: "Fabricated — the timeline was simplified for clarity." },
+  { text: "Canada's Liberal Party, Led by Mark Carney, Wins Federal Election on Anti-Trump Platform", real: true, source: "Reuters · Apr 2025", note: "" },
+  { text: "Both Parties Issue Statements Calling for 'Respect and Dignity'; Statements Sent Same Hour as New Attack Ads", real: false, source: "", note: "Fabricated — the dignity was in the statement." },
+  { text: "Lame Duck Congressman Uses Final Week to Pass Bills He Blocked for Three Years", real: false, source: "", note: "Fabricated — the ducks were very productive." },
+  { text: "State Passes Law Requiring Government to Be More Transparent; Law's Implementation Plan Is Classified", real: false, source: "", note: "Fabricated — the classification level is public knowledge." }
+]},
+
+// DAY 76 — 3R/2F
+{ headlines: [
+  { text: "Candidate Introduces 'Innovation Agenda' Listing Technologies Invented Before She Was Born", real: false, source: "", note: "Fabricated — the innovations were thoroughly proven." },
+  { text: "Australia's Prime Minister Albanese Wins Reelection, Cites Opposition to Trump's Trade Policies", real: true, source: "Reuters · May 2025", note: "" },
+  { text: "Federal Reserve Warns Tariff Uncertainty Is Biggest Risk to U.S. Economic Outlook", real: true, source: "AP · 2025", note: "" },
+  { text: "U.S. and China Agree to 90-Day Tariff Pause; Markets Rally", real: true, source: "Reuters · May 2025", note: "" },
+  { text: "Politician Claims His District Is 'Just Like Main Street America,' Speaking From Office With $4,000 Desk", real: false, source: "", note: "Fabricated — the desk was a gift." }
+]},
+
+// DAY 77 — 2R/3F
+{ headlines: [
+  { text: "National Debt Surpasses $36 Trillion for First Time", real: true, source: "AP · 2025", note: "" },
+  { text: "Congress Unveils Deficit Reduction Plan That Adds $2 Trillion to Deficit; Both Parties Call It 'A Start'", real: false, source: "", note: "Fabricated — the start was an investment." },
+  { text: "State's New Anti-Crime Bill Criminalizes Seven Previously Legal Activities; Crime Rate Technically Drops", real: false, source: "", note: "Fabricated — the metrics were carefully chosen." },
+  { text: "EPA Chief Says Agency Will No Longer Consider Climate Change in Environmental Reviews", real: true, source: "AP · 2025", note: "" },
+  { text: "Newly Sworn-In Official's First Act Is to Announce Investigation Into His Predecessor's First Act", real: false, source: "", note: "Fabricated — the symmetry was noted." }
+]},
+
+// DAY 78 — 3R/2F
+{ headlines: [
+  { text: "Senator Gives Passionate Speech About Issues Facing 'Regular Americans'; Has Never Visited His District", real: false, source: "", note: "Fabricated — the speech was very accurate about Americans." },
+  { text: "FBI Director Kash Patel Orders Review of Cases Involving Trump Allies and Critics", real: true, source: "AP · 2025", note: "" },
+  { text: "Pentagon Fails Its Seventh Consecutive Audit Since Audits Were Mandated in 2018", real: true, source: "AP · 2025", note: "" },
+  { text: "Foreign Leader Visits Washington, Issues Statement Calling Meetings 'Productive and Substantive'; Meetings Were 40 Minutes", real: false, source: "", note: "Fabricated — the substance was in the handshakes." },
+  { text: "Trump Administration Moves to Relocate Several Federal Agencies Out of Washington D.C.", real: true, source: "AP · 2025", note: "" }
+]},
+
+// DAY 79 — 2R/3F
+{ headlines: [
+  { text: "House Votes to Investigate Senate; Senate Votes to Investigate House; Both Find Each Other Guilty", real: false, source: "", note: "Fabricated — the findings were simultaneously released." },
+  { text: "Social Security Administration Cuts Staff by 7,000, Raising Wait Time Concerns for Beneficiaries", real: true, source: "AP · 2025", note: "" },
+  { text: "Political Ad Uses 'Real People' Who Turn Out to Be Actors; Campaign Insists Their Feelings Are Real", real: false, source: "", note: "Fabricated — the feelings have been independently verified." },
+  { text: "Governor Holds Press Conference to Say Everything Is Under Control; Second Press Conference Redefines 'Control'", real: false, source: "", note: "Fabricated — the second conference clarified the first." },
+  { text: "Department of Government Efficiency Reports Eliminating Tens of Thousands of Federal Positions", real: true, source: "AP · 2025", note: "" }
+]},
+
+// DAY 80 — 4R/1F
+{ headlines: [
+  { text: "National Security Advisor Mike Waltz Removed, Nominated to Be UN Ambassador After Signal Controversy", real: true, source: "AP · May 2025", note: "" },
+  { text: "House Ethics Committee Releases Report on Matt Gaetz, Alleging Drug Use and Sexual Misconduct With Minors", real: true, source: "AP · Nov 2024", note: "" },
+  { text: "Trump's First 100 Days See Record Number of Executive Orders, More Than Any President in Modern History", real: true, source: "Reuters · Apr 2025", note: "" },
+  { text: "Senator Introduces Bill to Limit Executive Orders; Bill Introduced via Emergency Executive Request", real: false, source: "", note: "Fabricated — the process honored the irony." },
+  { text: "CDC Reports Measles Outbreak Spreading Across 25 States Amid Rising Vaccine Hesitancy", real: true, source: "AP · 2025", note: "" }
+]},
+
+// DAY 81 — 3R/2F
+{ headlines: [
+  { text: "State Department Issues Memo Encouraging Diplomacy; Memo Is 400 Pages", real: false, source: "", note: "Fabricated — the encouragement was thorough." },
+  { text: "RFK Jr. Announces He's Removing Fluoride Recommendations From Federal Public Water Guidelines", real: true, source: "AP · 2025", note: "" },
+  { text: "Candidate Calls Himself a 'Uniter' in Speech That Referenced 'Them' and 'Us' Forty-One Times", real: false, source: "", note: "Fabricated — the us/them ratio was in the notes." },
+  { text: "Measles Hospitalizations Reach 30-Year High as Vaccination Rates Drop", real: true, source: "AP · 2025", note: "" },
+  { text: "FDA Under RFK Jr.'s Oversight Moves to Remove Artificial Food Dyes From Certified Products", real: true, source: "AP · 2025", note: "" }
+]},
+
+// DAY 82 — 2R/3F
+{ headlines: [
+  { text: "Trump Administration Escalates Birthright Citizenship Fight as Supreme Court Showdown Looms", real: true, source: "AP · 2025", note: "" },
+  { text: "State's Anti-Regulation Governor Signs 12 New Regulations on First Day of Office", real: false, source: "", note: "Fabricated — the regulations regulated previous regulations." },
+  { text: "U.S. Tariffs on Chinese Electric Vehicles Hit 100%", real: true, source: "AP · 2025", note: "" },
+  { text: "Senator Says He Has 'Full Confidence' in Official; Official Resigns Next Morning", real: false, source: "", note: "Fabricated — the confidence was reevaluated overnight." },
+  { text: "Both Parties Release Statements on National Unity Day; Statements Disagree on What Unity Is", real: false, source: "", note: "Fabricated — the date, at least, was agreed upon." }
+]},
+
+// DAY 83 — 3R/2F
+{ headlines: [
+  { text: "Government Launches Public Awareness Campaign Nobody Is Aware Of", real: false, source: "", note: "Fabricated — the campaign had a modest reach." },
+  { text: "Trump Administration Withdraws U.S. From UN Human Rights Council", real: true, source: "AP · 2025", note: "" },
+  { text: "Federal Workers' Union Sues DOGE Over Illegal Access to Personnel and Payment Records", real: true, source: "AP · 2025", note: "" },
+  { text: "New Poll Shows Americans Overwhelmingly Want Change; Majority Plan to Vote for Incumbents", real: false, source: "", note: "Fabricated — the poll and ballot box were having different conversations." },
+  { text: "Trump Budget Proposes Cutting National Science Foundation Funding by 55%", real: true, source: "AP · 2025", note: "" }
+]},
+
+// DAY 84 — 1R/4F
+{ headlines: [
+  { text: "Senator Calls New Bill 'The Most Important Legislation in a Generation'; Said the Same About Last Week's Bill", real: false, source: "", note: "Fabricated — the generation was very productive." },
+  { text: "Campaign Issues Correction, Then Correction to the Correction; Turns Out Original Typo Was Accurate", real: false, source: "", note: "Fabricated — the accuracy was unintentional." },
+  { text: "State Passes Bill to Make Government More Like a Business; Government Now Charges Admission", real: false, source: "", note: "Fabricated — the admission fee covers lobbying." },
+  { text: "U.S. Drug Overdose Deaths Drop for First Time in Five Years, CDC Reports", real: true, source: "AP · 2024", note: "" },
+  { text: "Senator Introduces Bill to Fix Problem His Vote Created; Names Bill After the Problem He Created", real: false, source: "", note: "Fabricated — the naming rights were negotiated." }
+]},
+
+// DAY 85 — 3R/2F
+{ headlines: [
+  { text: "TikTok Goes Dark in U.S. Before Trump Delays Enforcement of App Ban", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Congressman Introduces Social Media Regulation Bill, Announces It on Social Media Before Reading It", real: false, source: "", note: "Fabricated — the reading is scheduled." },
+  { text: "Trump Signs Order Delaying TikTok Ban, Says He'll Find an American Buyer", real: true, source: "AP · Jan 2025", note: "" },
+  { text: "Trump Administration Extends TikTok Deadline Again While Sale Negotiations Continue", real: true, source: "AP · 2025", note: "" },
+  { text: "Tech CEO Testifies He Doesn't Know How His Own Algorithm Works; This Is Not Technically a Lie", real: false, source: "", note: "Fabricated — the algorithm knows." }
+]},
+
+// DAY 86 — 2R/3F
+{ headlines: [
+  { text: "State Bans Book About Banning Books; Banning the Banning Book Is Also Under Consideration", real: false, source: "", note: "Fabricated — the meta-banning is in committee." },
+  { text: "Trump Administration Guts National Weather Service, Cutting Hundreds of Forecasters", real: true, source: "AP · 2025", note: "" },
+  { text: "Governor Announces Tax Cut for Corporations, Calls It 'Relief for Working Families'", real: false, source: "", note: "Fabricated — the families were trickled down to." },
+  { text: "Trump Budget Proposes Cutting National Science Foundation and Research Programs by More Than Half", real: true, source: "AP · 2025", note: "" },
+  { text: "Both Parties Issue Statements Mourning Loss of Civil Discourse, Using Language That Lacks Civil Discourse", real: false, source: "", note: "Fabricated — the irony was noted at high volume." }
+]},
+
+// DAY 87 — 3R/2F
+{ headlines: [
+  { text: "Elon Musk Leaves DOGE Advisory Role, Returns Full-Time to Tesla and SpaceX", real: true, source: "Reuters · May 2025", note: "" },
+  { text: "Democratic Party Elects Ken Martin as New DNC Chair, Vows to Rebuild After 2024 Losses", real: true, source: "AP · Feb 2025", note: "" },
+  { text: "New DNC Chair Announces 'Fresh Direction'; Direction Unclear After Press Conference", real: false, source: "", note: "Fabricated — the freshness was directional." },
+  { text: "Republican Party Releases 'New Vision' Document Quoting Ronald Reagan 14 Times", real: false, source: "", note: "Fabricated — the vision was vintage." },
+  { text: "Senate Republicans Pass Budget Resolution Unlocking Path to $5 Trillion in Tax and Spending Changes", real: true, source: "AP · Apr 2025", note: "" }
+]},
+
+// DAY 88 — 2R/3F
+{ headlines: [
+  { text: "Bipartisan Bill Passes Unanimously; Both Parties Claim the Other Side Had Nothing to Do With It", real: false, source: "", note: "Fabricated — the unanimous vote spoke for itself." },
+  { text: "Senator Promises Constituent He Will 'Look Into' Issue Constituent Has Raised for Four Consecutive Years", real: false, source: "", note: "Fabricated — the looking has been very thorough." },
+  { text: "Supreme Court Rules 6-3 That Trump Can Fire FTC and NLRB Commissioners, Expanding Executive Power", real: true, source: "AP · 2025", note: "" },
+  { text: "House Narrowly Passes Budget Reconciliation Bill Along Party Lines, Sending to Senate", real: true, source: "AP · May 2025", note: "" },
+  { text: "President Signs 400th Executive Order; Order 399 Was to Review Previous Orders", real: false, source: "", note: "Fabricated — the review is in progress." }
+]},
+
+// DAY 89 — 3R/2F
+{ headlines: [
+  { text: "State Passes 'Anti-Bureaucracy' Bill Requiring Six New Agencies to Oversee Anti-Bureaucracy Compliance", real: false, source: "", note: "Fabricated — the compliance was streamlined." },
+  { text: "U.S. and China Reach Partial Tariff Truce, Cutting Rates From 145% to 30% for 90 Days", real: true, source: "Reuters · May 2025", note: "" },
+  { text: "Candidate's 90-Day Policy Plan Released on Day 91", real: false, source: "", note: "Fabricated — the plan addressed the delay in the plan." },
+  { text: "Congressional Budget Office Warns Budget Reconciliation Bill Adds $3.8 Trillion to Deficit", real: true, source: "AP · May 2025", note: "" },
+  { text: "Federal Reserve Holds Rates, Warns Tariff Uncertainty Makes Economic Forecasting 'Extraordinarily Difficult'", real: true, source: "AP · May 2025", note: "" }
+]},
+
+// DAY 90 — 4R/1F
+{ headlines: [
+  { text: "U.S. Job Market Adds 177,000 Jobs in April Despite Tariff Uncertainty, Beating Expectations", real: true, source: "AP · May 2025", note: "" },
+  { text: "Supreme Court Agrees to Hear Challenge to Trump's Birthright Citizenship Executive Order", real: true, source: "AP · 2025", note: "" },
+  { text: "Both Parties Claim Economy's Current State Is Entirely Their Doing — Unless It's Bad, Then It's the Other's", real: false, source: "", note: "Fabricated — this position is bipartisan." },
+  { text: "Measles Cases in U.S. Top 1,000 for First Time Since Disease Was Declared Eliminated in 2000", real: true, source: "AP · May 2025", note: "" },
+  { text: "U.S. and Saudi Arabia Sign $600 Billion Trade and Investment Deal During Trump Visit", real: true, source: "Reuters · May 2025", note: "" }
+]}
+
+]; // end WIRE_PUZZLES
+
+// ── STATE ───────────────────────────────────────────────────
+let puzzle, answers = [], currentIdx = 0, locked = false;
+
+// ── HELPERS ─────────────────────────────────────────────────
+function getTodayStr() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function getYesterdayStr() {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function formatDateDisplay(str) {
+  const [y, m, d] = str.split('-').map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+
+function getDayIndex() {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const start = new Date('2026-05-16'); start.setHours(0,0,0,0);
+  const diff = Math.floor((today - start) / 86400000);
+  return ((diff % 90) + 90) % 90;
+}
+
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ── INTRO ───────────────────────────────────────────────────
+function checkIntroState() {
+  const today = getTodayStr();
+  const lastDate = localStorage.getItem('wire_lastPlayDate');
+  const state = document.getElementById('introState');
+  const btn = document.getElementById('startBtn');
+  const streak = parseInt(localStorage.getItem('wire_streak') || '0');
+
+  if (lastDate === today) {
+    const score = localStorage.getItem('wire_lastScore') || '?';
+    state.innerHTML = `Today's score: <span class="today-score">${score}/5</span> &nbsp;·&nbsp; ${streak > 1 ? `<span class="today-score">${streak}-day streak</span>` : 'Come back tomorrow'}`;
+    btn.textContent = 'See Today\'s Results';
+  } else {
+    state.textContent = streak > 1 ? `Current streak: ${streak} days` : '';
+    btn.textContent = 'Read the Wire';
+  }
+}
+
+function showIntro() {
+  checkIntroState();
+  show('intro');
+}
+
+// ── START ────────────────────────────────────────────────────
+function startGame() {
+  const today = getTodayStr();
+  const lastDate = localStorage.getItem('wire_lastPlayDate');
+
+  puzzle = WIRE_PUZZLES[getDayIndex()];
+
+  if (lastDate === today) {
+    // Already played — show results immediately
+    answers = JSON.parse(localStorage.getItem('wire_answers') || '[]');
+    buildRevealCards();
+    document.getElementById('revealDate').textContent = formatDateDisplay(today);
+    show('reveal');
+    // Reveal all cards at once
+    document.querySelectorAll('.reveal-card').forEach(c => c.classList.add('shown'));
+    const score = parseInt(localStorage.getItem('wire_lastScore') || '0');
+    const streak = parseInt(localStorage.getItem('wire_streak') || '1');
+    displayScore(score, streak);
+    document.getElementById('scoreSection').classList.add('shown');
+    return;
+  }
+
+  // Fresh game
+  answers = [];
+  currentIdx = 0;
+  locked = false;
+  buildProgressDots();
+  show('game');
+  loadHeadline(0);
+}
+
+// ── GAME LOOP ────────────────────────────────────────────────
+function buildProgressDots() {
+  const c = document.getElementById('progressDots');
+  c.innerHTML = '';
+  for (let i = 0; i < 5; i++) {
+    const d = document.createElement('div');
+    d.className = 'progress-dot';
+    d.id = `dot-${i}`;
+    c.appendChild(d);
+  }
+}
+
+function loadHeadline(i) {
+  document.getElementById('progressLabel').textContent = `Headline ${i+1} of 5`;
+  for (let j = 0; j < 5; j++) {
+    const d = document.getElementById(`dot-${j}`);
+    d.className = 'progress-dot' + (j < i ? ' done' : j === i ? ' current' : '');
+  }
+  const el = document.getElementById('headlineText');
+  el.classList.remove('fade-up');
+  void el.offsetWidth;
+  el.classList.add('fade-up');
+  el.textContent = puzzle.headlines[i].text;
+  const btnR = document.getElementById('btnReal');
+  const btnF = document.getElementById('btnFake');
+  btnR.disabled = false; btnF.disabled = false;
+  btnR.classList.remove('selected'); btnF.classList.remove('selected');
+  locked = false;
+}
+
+function pickAnswer(isReal) {
+  if (locked) return;
+  locked = true;
+  answers.push(isReal);
+  const btnR = document.getElementById('btnReal');
+  const btnF = document.getElementById('btnFake');
+  btnR.disabled = true; btnF.disabled = true;
+  (isReal ? btnR : btnF).classList.add('selected');
+  setTimeout(() => {
+    currentIdx++;
+    if (currentIdx >= 5) { finishGame(); }
+    else { loadHeadline(currentIdx); }
+  }, 550);
+}
+
+// ── FINISH & REVEAL ──────────────────────────────────────────
+function finishGame() {
+  const today = getTodayStr();
+  const yesterday = getYesterdayStr();
+  const lastDate = localStorage.getItem('wire_lastPlayDate');
+  const streak = parseInt(localStorage.getItem('wire_streak') || '0');
+  const plays = parseInt(localStorage.getItem('wire_playCount') || '0');
+  const score = answers.filter((a, i) => a === puzzle.headlines[i].real).length;
+
+  // Update streak
+  let newStreak = (lastDate === yesterday) ? streak + 1 : 1;
+
+  localStorage.setItem('wire_lastPlayDate', today);
+  localStorage.setItem('wire_answers', JSON.stringify(answers));
+  localStorage.setItem('wire_lastScore', score.toString());
+  localStorage.setItem('wire_streak', newStreak.toString());
+  localStorage.setItem('wire_playCount', (plays + 1).toString());
+
+  buildRevealCards();
+  document.getElementById('revealDate').textContent = formatDateDisplay(today);
+  show('reveal');
+
+  // Stagger card reveals — 400ms apart
+  const cards = document.querySelectorAll('.reveal-card');
+  cards.forEach((card, i) => {
+    setTimeout(() => card.classList.add('shown'), i * 400);
+  });
+
+  // Show score section after all cards + buffer
+  setTimeout(() => {
+    displayScore(score, newStreak);
+    document.getElementById('scoreSection').classList.add('shown');
+    // Subscribe modal after 3 plays
+    if ((plays + 1) >= 3 && !localStorage.getItem('wire_subscribed') && !localStorage.getItem('wire_dismissed_subscribe')) {
+      setTimeout(() => {
+        document.getElementById('subscribeModal').style.display = 'flex';
+      }, 1200);
+    }
+  }, 5 * 400 + 500);
+}
+
+// ── BUILD REVEAL CARDS ───────────────────────────────────────
+function buildRevealCards() {
+  const container = document.getElementById('revealCards');
+  container.innerHTML = '';
+  puzzle.headlines.forEach((h, i) => {
+    const playerAnswer = answers[i];
+    const correct = (playerAnswer === h.real);
+    const card = document.createElement('div');
+    card.className = `reveal-card ${correct ? 'correct' : 'wrong'}`;
+    const verdictCls = h.real ? 'verdict-real' : 'verdict-fake';
+    const verdictTxt = h.real ? 'Real' : 'Fabricated';
+    const resultCls = correct ? 'result-right' : 'result-wrong';
+    const resultTxt = correct ? '✓ Got it' : '✗ Missed';
+    const info = h.real ? h.source : h.note;
+    card.innerHTML = `
+      <div class="card-top">
+        <span class="card-verdict ${verdictCls}">${verdictTxt}</span>
+        <span class="card-result ${resultCls}">${resultTxt}</span>
+      </div>
+      <p class="card-headline">${h.text}</p>
+      ${info ? `<p class="card-source">${info}</p>` : ''}
+    `;
+    container.appendChild(card);
+  });
+}
+
+// ── SCORE DISPLAY ────────────────────────────────────────────
+function displayScore(score, streak) {
+  document.getElementById('scoreNum').textContent = `${score}/5`;
+  document.getElementById('scorePhrase').textContent = SCORE_PHRASES[score];
+
+  const streakEl = document.getElementById('streakRow');
+  if (streak > 1) {
+    streakEl.innerHTML = `<span class="streak-count">${streak}-day streak.</span> You keep coming back.`;
+  } else {
+    streakEl.textContent = 'Come back tomorrow to start your streak.';
+  }
+
+  // Share text with emoji grid
+  const today = getTodayStr();
+  const emojiRow = answers.map((a, i) => (a === puzzle.headlines[i].real) ? '🟢' : '🔴').join('');
+  const shareStr = `The Wire · ${formatDateDisplay(today)}\n${score}/5 — ${SCORE_PHRASES[score]}\n${emojiRow}\nreadtheroom.news/games/the-wire/`;
+  document.getElementById('shareText').textContent = shareStr;
+}
+
+// ── SHARE ────────────────────────────────────────────────────
+function copyShare() {
+  const text = document.getElementById('shareText').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy to Clipboard'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// ── MODAL ────────────────────────────────────────────────────
+function markSubscribed() {
+  localStorage.setItem('wire_subscribed', 'true');
+  document.getElementById('subscribeModal').style.display = 'none';
+}
+
+function dismissModal() {
+  localStorage.setItem('wire_dismissed_subscribe', 'true');
+  document.getElementById('subscribeModal').style.display = 'none';
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', checkIntroState);
+</script>
+</body>
+</html>

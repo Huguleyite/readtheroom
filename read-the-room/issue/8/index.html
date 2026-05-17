@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read the Room — Issue #8 | The Medicaid Argument</title>
+<meta name="description" content="The One Big Beautiful Bill cut $1.02 trillion from Medicaid — or it didn't, depending on what you think 'cut' means. The CBO projects 10.5 million lose coverage. Read the Room covers both sides.">
+<meta property="og:title" content="The Medicaid Argument — Read the Room Issue #8">
+<meta property="og:description" content="$1.02 trillion. 10.5 million people. No cuts. Congress heads into an election year. Read the Room covers both sides of the debate.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0ede6; font-family: 'DM Sans', Arial, sans-serif; padding: 32px 16px; }
+  .rtr-wrap { max-width: 640px; margin: 0 auto; background: #faf9f5; border: 1px solid #d6d3c8; }
+  .rtr-header { background: #1a1a18; padding: 40px 48px 32px; text-align: center; }
+  .rtr-header-rule { width: 48px; height: 2px; background: #c8a96e; margin: 0 auto 20px; }
+  .rtr-masthead { font-family: 'Playfair Display', Georgia, serif; font-size: 40px; font-weight: 700; color: #faf9f5; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1; margin-bottom: 10px; }
+  .rtr-tagline { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-weight: 300; font-size: 14px; color: #c8a96e; letter-spacing: 0.12em; margin-bottom: 24px; }
+  .rtr-meta-row { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; }
+  .rtr-meta-dot { color: #c8a96e; margin: 0 10px; }
+  .rtr-band { background: #c8a96e; padding: 10px 48px; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #1a1a18; font-weight: 500; text-align: center; }
+  .rtr-body { padding: 44px 48px; }
+  .rtr-lede { font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 300; line-height: 1.6; color: #1a1a18; border-left: 3px solid #c8a96e; padding-left: 20px; margin-bottom: 40px; }
+  .rtr-section { margin-bottom: 36px; }
+  .rtr-section-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 8px; }
+  .rtr-section-heading { font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 700; color: #1a1a18; line-height: 1.25; margin-bottom: 12px; }
+  .rtr-body-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 15.5px; font-weight: 400; line-height: 1.8; color: #3a3a36; }
+  .rtr-divider { border: none; border-top: 1px solid #e2dfd6; margin: 36px 0; }
+  .rtr-perspectives-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+  .rtr-perspectives-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+  .rtr-perspective-card { background: #f4f2ec; border: 1px solid #e2dfd6; padding: 20px; }
+  .rtr-perspective-side { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; margin-bottom: 10px; }
+  .rtr-perspective-side.left { color: #4a6fa5; }
+  .rtr-perspective-side.right { color: #b55a4a; }
+  .rtr-perspective-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 13.5px; line-height: 1.7; color: #3a3a36; }
+  .rtr-watch-list { list-style: none; margin-bottom: 36px; }
+  .rtr-watch-item { display: flex; gap: 18px; margin-bottom: 24px; align-items: flex-start; }
+  .rtr-watch-num { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #e2dfd6; line-height: 1; flex-shrink: 0; width: 28px; text-align: center; }
+  .rtr-watch-heading { font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; font-weight: 600; color: #1a1a18; margin-bottom: 5px; }
+  .rtr-watch-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.75; color: #3a3a36; }
+  .rtr-closing { background: #1a1a18; margin: 0 -48px; padding: 32px 48px; margin-bottom: 36px; }
+  .rtr-closing-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 12px; }
+  .rtr-closing-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 15.5px; font-weight: 300; line-height: 1.8; color: #c8c8c0; font-style: italic; }
+  .rtr-book { background: #f4f2ec; border: 1px solid #e2dfd6; border-left: 3px solid #c8a96e; padding: 20px; margin-bottom: 36px; }
+  .rtr-book-label { font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 6px; }
+  .rtr-book-title { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700; color: #1a1a18; margin-bottom: 6px; font-style: italic; }
+  .rtr-book-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 13.5px; line-height: 1.7; color: #3a3a36; margin-bottom: 10px; }
+  .rtr-book-link { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #c8a96e; text-decoration: none; font-weight: 500; }
+  .rtr-amazon-note { font-size: 10px; color: #aaa9a0; font-style: italic; margin-top: 4px; }
+  .rtr-footer { background: #1a1a18; padding: 28px 48px; text-align: center; }
+  .rtr-footer-rule { width: 32px; height: 1px; background: #c8a96e; margin: 0 auto 16px; }
+  .rtr-footer-text { font-size: 11px; letter-spacing: 0.1em; color: #888880; line-height: 1.8; }
+  .rtr-footer-text a { color: #c8a96e; text-decoration: none; }
+  .rtr-footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 12px; font-style: italic; color: #555550; margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="rtr-wrap">
+
+  <div class="rtr-header">
+    <div class="rtr-header-rule"></div>
+    <div class="rtr-masthead">Read the Room</div>
+    <div class="rtr-tagline">Politics, explained without the spin.</div>
+    <div class="rtr-meta-row">Issue #8 <span class="rtr-meta-dot">◆</span> May 26, 2026 <span class="rtr-meta-dot">◆</span> Weekly</div>
+  </div>
+
+  <div class="rtr-band">&#9670;&nbsp;&nbsp;This week: The government says it cut $1.02 trillion from Medicaid. The administration says there were no cuts. The CBO projects 10.5 million people lose coverage. Both sides make their case.&nbsp;&nbsp;&#9670;</div>
+
+  <div class="rtr-body">
+
+    <p class="rtr-lede">The One Big Beautiful Bill cut $1.02 trillion from Medicaid over ten years. Or it didn't — depending on who you ask, and what you think the word "cut" means.</p>
+
+    <div class="rtr-section">
+      <div class="rtr-section-label">What's happening</div>
+      <div class="rtr-section-heading">The biggest change to Medicaid in a decade is law. The argument about what it actually does is just beginning.</div>
+      <p class="rtr-body-text">The One Big Beautiful Bill Act was signed into law on July 4, 2025. Among its provisions, it restructured Medicaid — the federal health insurance program covering tens of millions of low-income Americans — in ways that the Congressional Budget Office projects will reduce federal spending on Medicaid and the Children's Health Insurance Program by $1.02 trillion over the next decade. The CBO estimates that at least 10.5 million people will lose coverage by 2034 as a result.</p>
+      <br>
+      <p class="rtr-body-text">The core mechanism is not a direct benefit reduction. The bill does not change what Medicaid pays for. Instead, it imposes new administrative requirements and eligibility conditions — including work requirements for able-bodied adults — that the CBO projects will push millions off the rolls. Whether that constitutes a "cut" has become one of the more consequential semantic disputes in recent American politics.</p>
+      <br>
+      <p class="rtr-body-text">Health and Human Services Secretary Robert F. Kennedy Jr. stated publicly that "there are no cuts to Medicaid" under the OBBBA. His basis: federal Medicaid spending is still projected to increase by 47 percent over the next ten years. FactCheck.org and multiple independent health policy analysts have disputed this characterization. The 47 percent figure describes nominal spending growth — but measured against what the program would have spent without the law, the reduction is $1.02 trillion. The distinction between "spending still grows" and "spending grows less than it would have" is the center of the argument.</p>
+      <br>
+      <p class="rtr-body-text">The political consequences are already arriving. Rep. David Valadao (R-CA) represents California's 22nd District, where 59 percent of residents are enrolled in Medicaid — among the highest concentrations in the country. He voted for the bill. He is now considered one of the most endangered Republican incumbents ahead of November.</p>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <div class="rtr-section">
+      <div class="rtr-section-label">The deeper issue</div>
+      <div class="rtr-section-heading">What does it mean to lose Medicaid — and who loses it first?</div>
+      <p class="rtr-body-text">Medicaid is not a uniform program. It covers nursing home care for the elderly poor, long-term disability services, children's coverage under CHIP, and acute care for working adults below the income threshold. When coverage disappears, the impact depends on who loses it and what they lose access to.</p>
+      <br>
+      <p class="rtr-body-text">The Urban Institute projects that three in ten young adults currently on Medicaid are at risk of losing coverage under the OBBBA's new requirements. The mechanism is primarily administrative: work requirements, more frequent eligibility redeterminations, and stricter verification standards. Research on previous state-level work requirement experiments — most significantly in Arkansas, where a federal court struck down the state's requirements in 2019 — found that the majority of people who lost coverage were working, caregiving, or in school, but could not navigate the paperwork. They did not stop qualifying. They stopped being able to prove it.</p>
+      <br>
+      <p class="rtr-body-text">The counterargument is that Medicaid's enrollment grew from approximately 34 million in 2000 to more than 93 million at its 2023 pandemic-era peak — a nearly threefold increase driven substantially by pandemic-era continuous enrollment rules. When those provisions expired in 2023, eligibility reviews found significant numbers of people who no longer qualified. Supporters of the OBBBA argue that its new requirements extend that process systematically: ensuring the program reaches the people it was designed to serve, rather than sustaining enrollment beyond what the eligibility criteria support.</p>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <div class="rtr-section">
+      <div class="rtr-perspectives-label">Both sides</div>
+      <div class="rtr-perspectives-grid">
+        <div class="rtr-perspective-card">
+          <div class="rtr-perspective-side left">The left says</div>
+          <p class="rtr-perspective-text">The CBO is not a partisan body. Its projection — $1.02 trillion in reduced spending, 10.5 million people losing coverage — is the official, nonpartisan estimate. Work requirements, in practice, function as paperwork traps. The Arkansas experience showed that people who genuinely qualified lost coverage because they could not document their status to the government's satisfaction. Calling that outcome "reform" while projecting the loss of 10.5 million covered Americans is a choice about what the program is for. The people most likely to lose coverage are not the people who shouldn't have had it. They are the people least equipped to fight a bureaucracy to keep it.</p>
+        </div>
+        <div class="rtr-perspective-card">
+          <div class="rtr-perspective-side right">The right says</div>
+          <p class="rtr-perspective-text">Medicaid enrollment grew from approximately 34 million in 2000 to more than 93 million at its pandemic-era peak — driven substantially by emergency continuous enrollment rules, not eligibility expansion. Work requirements are already a feature of SNAP and TANF. Expecting able-bodied adults without dependents to document engagement with work, school, or caregiving is a standard other means-tested programs have applied for decades. The 47 percent baseline increase in projected spending confirms the program is not being dismantled. The question is whether a program designed as a safety net should grow without limit — or be periodically reviewed for sustainability.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <div class="rtr-section">
+      <div class="rtr-section-label">Three things to watch</div>
+      <ul class="rtr-watch-list">
+        <li class="rtr-watch-item">
+          <span class="rtr-watch-num">1</span>
+          <div class="rtr-watch-content">
+            <div class="rtr-watch-heading">The Valadao race as an early electoral verdict</div>
+            <p class="rtr-watch-text">California's 22nd District is the clearest test of whether a vote for the OBBBA's Medicaid provisions translates into November damage in a high-enrollment district. If Valadao is forced to spend heavily on defense in a seat he should be able to hold, the pressure on other Republican incumbents in similar districts will intensify quickly.</p>
+          </div>
+        </li>
+        <li class="rtr-watch-item">
+          <span class="rtr-watch-num">2</span>
+          <div class="rtr-watch-content">
+            <div class="rtr-watch-heading">State-level implementation variance</div>
+            <p class="rtr-watch-text">The OBBBA gives states tools, not uniform mandates. Watch which states implement work requirements aggressively and which slow-walk or legally challenge them. The gap will create a natural comparison — and preview the November argument in each of those markets.</p>
+          </div>
+        </li>
+        <li class="rtr-watch-item">
+          <span class="rtr-watch-num">3</span>
+          <div class="rtr-watch-content">
+            <div class="rtr-watch-heading">Whether enrollment data tracks the CBO projection</div>
+            <p class="rtr-watch-text">The 10.5 million coverage loss is a model, not a count. As implementation begins, actual enrollment figures will tell a more specific story. If losses run ahead of projection, political pressure on the bill's supporters intensifies. If they run behind, supporters will use the gap to dispute the original estimate.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="rtr-closing">
+      <div class="rtr-closing-label">The bottom line</div>
+      <p class="rtr-closing-text">The argument about whether the OBBBA "cut" Medicaid will not be resolved before November. But the people who lose coverage between now and Election Day — and the districts where that happens — will shape how both parties approach health care for the next decade. The semantic fight over "cuts" versus "reform" is a Washington argument. The CBO's projection of 10.5 million is not. What happens when those numbers become people, in specific districts, with close races attached, is the story both parties are watching — and counting on in opposite directions.</p>
+    </div>
+
+    <div class="rtr-section">
+      <div class="rtr-section-label">Recommended read</div>
+      <div class="rtr-book">
+        <div>
+          <div class="rtr-book-label">If you want to go deeper</div>
+          <div class="rtr-book-title">The Healing of America: A Global Quest for Better, Cheaper, and Fairer Health Care — T.R. Reid</div>
+          <p class="rtr-book-text">Before the argument about who gets Medicaid, there is the argument about why American health care works the way it does — and what other wealthy countries chose differently. T.R. Reid traveled to countries with functioning universal health systems and asked a simple question: what did they get right? The book does not advocate for a single model. It makes clear that the choices embedded in American health policy are choices, not inevitabilities. Understanding what the alternatives actually look like is necessary context for any serious debate about Medicaid's role. This is where to start.</p>
+          <a href="https://amzn.to/42BcjbV" class="rtr-book-link">Find it on Amazon →</a>
+          <p class="rtr-amazon-note">As an Amazon Associate I earn from qualifying purchases.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="rtr-footer">
+    <div class="rtr-footer-rule"></div>
+    <p class="rtr-footer-text">
+      You're receiving this because you subscribed to Read the Room.<br>
+      <a href="https://readtheroom.beehiiv.com/unsubscribe">Unsubscribe</a> &nbsp;·&nbsp;
+      <a href="https://readtheroom.news/read-the-room/issue/8/">View in browser</a> &nbsp;·&nbsp;
+      <a href="https://readtheroom.news">readtheroom.news</a>
+    </p>
+    <p class="rtr-footer-tagline">Every Tuesday morning. One topic. Both sides. No bull.</p>
+  </div>
+
+</div>
+</body>
+</html>

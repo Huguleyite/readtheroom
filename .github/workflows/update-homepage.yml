@@ -1,0 +1,88 @@
+name: Homepage — Scheduled Issue Updates
+
+# ── Publish schedule ──────────────────────────────────────────────────────────
+# Both jobs run at 8:00 AM Eastern (12:00 UTC) on their respective Tuesdays.
+# GitHub Actions cron runs in UTC; Eastern Daylight Time (EDT) = UTC-4 in May.
+
+on:
+  schedule:
+    # Issue #7 — Tuesday May 19, 2026 at 8:00 AM EDT
+    - cron: "0 12 19 5 *"
+    # Issue #8 — Tuesday May 26, 2026 at 8:00 AM EDT
+    - cron: "0 12 26 5 *"
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: "Issue number to promote (7 or 8)"
+        required: true
+        default: "7"
+
+# ── Permissions ───────────────────────────────────────────────────────────────
+permissions:
+  contents: write
+
+jobs:
+
+  # ── Issue #7 — May 19, 2026 ─────────────────────────────────────────────────
+  promote-issue-7:
+    name: "Promote RTR Issue #7"
+    # Only run on the May 19 schedule OR on manual trigger with issue=7
+    if: |
+      (github.event_name == 'schedule' && github.event.schedule == '0 12 19 5 *') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.issue == '7')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run homepage update script
+        run: python scripts/update-homepage.py --issue 7
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "chore: RTR Issue #7 goes live (May 19, 2026)"
+          git push
+
+  # ── Issue #8 — May 26, 2026 ─────────────────────────────────────────────────
+  promote-issue-8:
+    name: "Promote RTR Issue #8"
+    # Only run on the May 26 schedule OR on manual trigger with issue=8
+    if: |
+      (github.event_name == 'schedule' && github.event.schedule == '0 12 26 5 *') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.issue == '8')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run homepage update script
+        run: python scripts/update-homepage.py --issue 8
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "chore: RTR Issue #8 goes live (May 26, 2026)"
+          git push

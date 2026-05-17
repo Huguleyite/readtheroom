@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read the Room — Issue #7 | The Warrant Question</title>
+<meta name="description" content="The government can search your emails without a warrant. It has done it hundreds of thousands of times. Congress can't decide whether to stop it. Read the Room covers both sides.">
+<meta property="og:title" content="The Warrant Question — Read the Room Issue #7">
+<meta property="og:description" content="The government can search your emails without a warrant. It has done it hundreds of thousands of times. Congress can't decide whether to stop it.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ede6;
+    font-family: 'DM Sans', Arial, sans-serif;
+    padding: 32px 16px;
+  }
+  .rtr-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #faf9f5;
+    border: 1px solid #d6d3c8;
+  }
+  .rtr-header {
+    background: #1a1a18;
+    padding: 40px 48px 32px;
+    text-align: center;
+  }
+  .rtr-header-rule { width: 48px; height: 2px; background: #c8a96e; margin: 0 auto 20px; }
+  .rtr-masthead {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 40px; font-weight: 700; color: #faf9f5;
+    letter-spacing: 0.04em; text-transform: uppercase; line-height: 1; margin-bottom: 10px;
+  }
+  .rtr-tagline {
+    font-family: 'Source Serif 4', Georgia, serif; font-style: italic;
+    font-weight: 300; font-size: 14px; color: #c8a96e; letter-spacing: 0.12em; margin-bottom: 24px;
+  }
+  .rtr-meta-row { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; }
+  .rtr-meta-dot { color: #c8a96e; margin: 0 10px; }
+  .rtr-band {
+    background: #c8a96e; padding: 10px 48px;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #1a1a18; font-weight: 500; text-align: center;
+  }
+  .rtr-body { padding: 44px 48px; }
+  .rtr-lede {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 300;
+    line-height: 1.6; color: #1a1a18; border-left: 3px solid #c8a96e;
+    padding-left: 20px; margin-bottom: 40px;
+  }
+  .rtr-section { margin-bottom: 36px; }
+  .rtr-section-label {
+    font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #c8a96e; font-weight: 500; margin-bottom: 8px;
+  }
+  .rtr-section-heading {
+    font-family: 'Playfair Display', Georgia, serif; font-size: 21px;
+    font-weight: 700; color: #1a1a18; line-height: 1.25; margin-bottom: 12px;
+  }
+  .rtr-body-text {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 15.5px;
+    font-weight: 400; line-height: 1.8; color: #3a3a36;
+  }
+  .rtr-divider { border: none; border-top: 1px solid #e2dfd6; margin: 36px 0; }
+  .rtr-perspectives-label {
+    font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #c8a96e; font-weight: 500; margin-bottom: 14px;
+  }
+  .rtr-perspectives-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+  .rtr-perspective-card { background: #f4f2ec; border: 1px solid #e2dfd6; padding: 20px; }
+  .rtr-perspective-side {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; margin-bottom: 10px;
+  }
+  .rtr-perspective-side.left { color: #4a6fa5; }
+  .rtr-perspective-side.right { color: #b55a4a; }
+  .rtr-perspective-text {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 13.5px; line-height: 1.7; color: #3a3a36;
+  }
+  .rtr-watch-list { list-style: none; margin-bottom: 36px; }
+  .rtr-watch-item { display: flex; gap: 18px; margin-bottom: 24px; align-items: flex-start; }
+  .rtr-watch-num {
+    font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700;
+    color: #e2dfd6; line-height: 1; flex-shrink: 0; width: 28px; text-align: center;
+  }
+  .rtr-watch-heading {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; font-weight: 600;
+    color: #1a1a18; margin-bottom: 5px;
+  }
+  .rtr-watch-text {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.75; color: #3a3a36;
+  }
+  .rtr-closing { background: #1a1a18; margin: 0 -48px; padding: 32px 48px; margin-bottom: 36px; }
+  .rtr-closing-label {
+    font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #c8a96e; font-weight: 500; margin-bottom: 12px;
+  }
+  .rtr-closing-text {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 15.5px;
+    font-weight: 300; line-height: 1.8; color: #c8c8c0; font-style: italic;
+  }
+  .rtr-book {
+    background: #f4f2ec; border: 1px solid #e2dfd6; border-left: 3px solid #c8a96e;
+    padding: 20px; margin-bottom: 36px;
+  }
+  .rtr-book-label {
+    font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #c8a96e; font-weight: 500; margin-bottom: 6px;
+  }
+  .rtr-book-title {
+    font-family: 'Playfair Display', Georgia, serif; font-size: 16px;
+    font-weight: 700; color: #1a1a18; margin-bottom: 6px; font-style: italic;
+  }
+  .rtr-book-text {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 13.5px;
+    line-height: 1.7; color: #3a3a36; margin-bottom: 10px;
+  }
+  .rtr-book-link {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #c8a96e; text-decoration: none; font-weight: 500;
+  }
+  .rtr-amazon-note { font-size: 10px; color: #aaa9a0; font-style: italic; margin-top: 4px; }
+  .rtr-footer { background: #1a1a18; padding: 28px 48px; text-align: center; }
+  .rtr-footer-rule { width: 32px; height: 1px; background: #c8a96e; margin: 0 auto 16px; }
+  .rtr-footer-text { font-size: 11px; letter-spacing: 0.1em; color: #888880; line-height: 1.8; }
+  .rtr-footer-text a { color: #c8a96e; text-decoration: none; }
+  .rtr-footer-tagline {
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 12px;
+    font-style: italic; color: #555550; margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="rtr-wrap">
+
+  <div class="rtr-header">
+    <div class="rtr-header-rule"></div>
+    <div class="rtr-masthead">Read the Room</div>
+    <div class="rtr-tagline">Politics, explained without the spin.</div>
+    <div class="rtr-meta-row">
+      Issue #7
+      <span class="rtr-meta-dot">◆</span>
+      May 19, 2026
+      <span class="rtr-meta-dot">◆</span>
+      Weekly
+    </div>
+  </div>
+
+  <div class="rtr-band">
+    &#9670;&nbsp;&nbsp;This week: The government can search your emails without a warrant. It has done it hundreds of thousands of times. Congress can't decide whether to stop it.&nbsp;&nbsp;&#9670;
+  </div>
+
+  <div class="rtr-body">
+
+    <p class="rtr-lede">
+      The government is collecting your phone calls and emails. Legally. Under a law designed for foreign terrorists. Whether that's a necessary tradeoff or a constitutional failure is the argument Congress cannot resolve.
+    </p>
+
+    <div class="rtr-section">
+      <div class="rtr-section-label">What's happening</div>
+      <div class="rtr-section-heading">The government's most powerful domestic surveillance tool has been patched twice in a month. The next deadline is June 12 — and the debate underneath it is nearly two decades old.</div>
+      <p class="rtr-body-text">Section 702 of the Foreign Intelligence Surveillance Act is, on paper, a foreign intelligence tool. It authorizes the NSA, CIA, and FBI to collect the electronic communications of foreign nationals located outside the United States — no individual court orders, no warrant, no requirement that the target be suspected of any crime. The government certifies the collection serves a foreign intelligence purpose and proceeds.</p>
+      <br>
+      <p class="rtr-body-text">The problem is that Americans communicate with people overseas. When the NSA collects a foreign national's email, it collects every American's message to that person. Those communications flow into a shared database that the FBI can then search — without a warrant — for American citizens' data. The scale of that practice is no longer in dispute.</p>
+      <br>
+      <p class="rtr-body-text">According to government compliance reports, Bureau personnel conducted more than 278,000 searches of that database between 2020 and early 2022 that did not meet legal standards. The targets were not foreign suspects. They were Black Lives Matter protesters. January 6 participants. Nineteen thousand donors to a political campaign. Sitting members of Congress. A congressional chief of staff. A state court judge. Journalists. Crime victims. The Foreign Intelligence Surveillance Court described the pattern as "persistent and widespread violations," per FISC records. Reforms under RISAA in 2024 were intended to restrict the backdoor searches. In the most recently reported year — after those reforms — the FBI was still conducting more than ten noncompliant searches every day, according to oversight reports.</p>
+      <br>
+      <p class="rtr-body-text">Congress has now punted reauthorization twice in a month, extending the program 45 days to a new deadline of June 12. A bipartisan reform coalition — Sen. Ron Wyden (D-OR), Sen. Mike Lee (R-UT), Rep. Warren Davidson (R-OH), and Rep. Zoe Lofgren (D-CA) — is pushing for a warrant requirement before the FBI can query Americans' data. President Trump wants a clean extension without reforms, calling the program vital to national security.</p>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <div class="rtr-section">
+      <div class="rtr-section-label">The deeper issue</div>
+      <div class="rtr-section-heading">You have never been told your communications were searched. You may never be.</div>
+      <p class="rtr-body-text">There is no notification requirement in Section 702. If the FBI searched your emails last year — legally, through a foreign intelligence database — you were not informed. There is no straightforward legal mechanism to find out. The search happened, or it didn't. Either way, you were not part of the conversation about it.</p>
+      <br>
+      <p class="rtr-body-text">That is what the privacy argument is about. Not only the constitutional principle, though that argument is real. The concrete concern is simpler: 278,000 searches in two years, each one touching an American's private communications, and the Americans whose data was searched had no idea. The judge who was queried was reporting civil rights violations by local police. The 19,000 donors shared one characteristic — they gave money to the same campaign. The crime victims were already on the wrong end of someone else's illegal act. None were suspected of anything. None were told.</p>
+      <br>
+      <p class="rtr-body-text">The national security argument holds that this is the necessary cost of collecting intelligence on genuine foreign threats in real time — that requiring a warrant before querying the database would create delays that cost lives. Intelligence officials have argued a warrant requirement would function as a de facto ban: not because courts would refuse every application, but because filing for thousands of queries per year would make the program operationally unworkable. The Trump administration has been explicit that it will not accept reforms.</p>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <div class="rtr-section">
+      <div class="rtr-perspectives-label">Both sides</div>
+      <div class="rtr-perspectives-grid">
+        <div class="rtr-perspective-card">
+          <div class="rtr-perspective-side left">The left says</div>
+          <p class="rtr-perspective-text">The Fourth Amendment does not have a foreign-origin exception. It does not exempt databases assembled for a different purpose. If the government wants to read an American's private communications, it should be required to convince a judge — with evidence, on the record — that there is a lawful reason to do so. That standard has stood for two centuries. The documented record of what happens without it includes political donors, journalists, a sitting judge, and members of Congress searched without their knowledge and without suspicion of any wrongdoing. That is not a hypothetical risk. That is the record.</p>
+        </div>
+        <div class="rtr-perspective-card">
+          <div class="rtr-perspective-side right">The right says</div>
+          <p class="rtr-perspective-text">A warrant requirement sounds reasonable in a courtroom and is unworkable in an intelligence operation. Analysts monitoring foreign threats are not building criminal cases — they are scanning a live data environment for indicators that move fast. Requiring judicial approval before each query turns a surveillance tool into a bureaucratic process, and bureaucratic processes do not outpace terrorist networks. The program has disrupted real plots against American targets. Oversight, auditing requirements, and supervisory approval standards can all be strengthened without a warrant requirement that the intelligence community has been explicit it cannot absorb.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <div class="rtr-section">
+      <div class="rtr-section-label">Three things to watch</div>
+      <ul class="rtr-watch-list">
+        <li class="rtr-watch-item">
+          <span class="rtr-watch-num">1</span>
+          <div class="rtr-watch-content">
+            <div class="rtr-watch-heading">The June 12 deadline</div>
+            <p class="rtr-watch-text">Congress has twice failed to pass a long-term reauthorization — once because of an unrelated digital currency provision. Whether a deal comes together before June 12 will determine whether Section 702 lapses for the first time in its history, and what that means for active intelligence collection.</p>
+          </div>
+        </li>
+        <li class="rtr-watch-item">
+          <span class="rtr-watch-num">2</span>
+          <div class="rtr-watch-content">
+            <div class="rtr-watch-heading">Whether the reform coalition holds under White House pressure</div>
+            <p class="rtr-watch-text">Wyden and Lee do not agree on much. Their coalition — a progressive Democrat, a libertarian Republican, a conservative Republican, and a centrist Democrat — is the most serious reform effort this program has ever faced. Trump is applying direct pressure on Republicans to support a clean extension. If the coalition fractures along party lines, the status quo wins without a vote on the merits.</p>
+          </div>
+        </li>
+        <li class="rtr-watch-item">
+          <span class="rtr-watch-num">3</span>
+          <div class="rtr-watch-content">
+            <div class="rtr-watch-heading">The compliance record after the next audit</div>
+            <p class="rtr-watch-text">Even after RISAA's 2024 reforms, the FBI was conducting more than ten improper queries per day. How Congress responds to the next compliance audit will signal whether the reform process has teeth — or whether it is documentation without consequence.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="rtr-closing">
+      <div class="rtr-closing-label">The bottom line</div>
+      <p class="rtr-closing-text">
+        The reform advocates have a documented case. The intelligence community has a national security one. Neither side is arguing in bad faith, and that is precisely what makes this debate difficult to resolve and easy to defer. Deferral has a cost too — paid by the 19,000 donors, the judge, the journalists, and the crime victims who had their private communications searched without their knowledge, without a warrant, and without any suspicion of wrongdoing. Congress has had nearly two decades to decide what the Fourth Amendment means in the age of a database this large. It has until June 12 to try again.
+      </p>
+    </div>
+
+    <div class="rtr-section">
+      <div class="rtr-section-label">Recommended read</div>
+      <div class="rtr-book">
+        <div>
+          <div class="rtr-book-label">If you want to go deeper</div>
+          <div class="rtr-book-title">Dark Mirror: Edward Snowden and the American Surveillance State — Barton Gellman</div>
+          <p class="rtr-book-text">Pulitzer Prize-winning journalist Barton Gellman was one of three reporters Edward Snowden contacted with his full archive of NSA documents in 2013. <em>Dark Mirror</em> is his account of what that material revealed — the legal architecture of the surveillance state, the justifications built to sustain it, and what it actually means to live inside a system with this much reach. Section 702 is one piece of the apparatus Snowden exposed. This is the most detailed account of how that apparatus works, and who decides when it gets used.</p>
+          <a href="https://amzn.to/3Pv2tFx" class="rtr-book-link">Find it on Amazon →</a>
+          <p class="rtr-amazon-note">As an Amazon Associate I earn from qualifying purchases.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="rtr-footer">
+    <div class="rtr-footer-rule"></div>
+    <p class="rtr-footer-text">
+      You're receiving this because you subscribed to Read the Room.<br>
+      <a href="https://readtheroom.beehiiv.com/unsubscribe">Unsubscribe</a> &nbsp;·&nbsp;
+      <a href="https://readtheroom.news/read-the-room/issue/7/">View in browser</a> &nbsp;·&nbsp;
+      <a href="https://readtheroom.news">readtheroom.news</a>
+    </p>
+    <p class="rtr-footer-tagline">Every Tuesday morning. One topic. Both sides. No bull.</p>
+  </div>
+
+</div>
+</body>
+</html>

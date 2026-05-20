@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Frequency — Issue #6 | The Polls Are Closed.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  /* ── Reset ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Base ── */
+  html { font-size: 16px; }
+  body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 300;
+    background: #f5f4f0;
+    color: #1a1a18;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Page wrapper ── */
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #faf9f5;
+    padding: 0 40px 60px;
+  }
+
+  /* ── Masthead ── */
+  .masthead {
+    border-top: 3px solid #1a1a18;
+    padding: 28px 0 0;
+  }
+
+  .mast-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+
+  .mast-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888880;
+  }
+
+  .mast-right {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #888880;
+  }
+
+  .mast-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: #1a1a18;
+    margin-bottom: 6px;
+  }
+
+  .mast-title em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .mast-sub {
+    font-size: 12px;
+    font-weight: 400;
+    color: #666660;
+    letter-spacing: 0.03em;
+    margin-bottom: 14px;
+  }
+
+  /* Waveform rule */
+  .wave-rule {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 20px;
+    margin-bottom: 0;
+  }
+
+  .wave-bar {
+    background: #1a1a18;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .wave-spacer {
+    flex: 1;
+    height: 0.5px;
+    background: #d0cfc8;
+    margin: 0 6px;
+  }
+
+  .wave-issue {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888880;
+    white-space: nowrap;
+  }
+
+  /* Meta bar */
+  .meta-bar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 500;
+    color: #888880;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 0;
+    border-top: 0.5px solid #d0cfc8;
+    border-bottom: 0.5px solid #d0cfc8;
+    margin: 8px 0 24px;
+  }
+
+  /* ── Intro block ── */
+  .intro-block {
+    border-left: 3px solid #1a1a18;
+    padding: 10px 16px;
+    background: #f0efe8;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 36px;
+    font-size: 14px;
+    font-style: italic;
+    color: #555550;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  /* ── Stories ── */
+  .story {
+    padding: 28px 0;
+    border-top: 0.5px solid #d0cfc8;
+  }
+
+  .story:last-of-type {
+    border-bottom: 0.5px solid #d0cfc8;
+  }
+
+  .story-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .story-num {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #aaa9a0;
+  }
+
+  .tag {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  .tag-energy   { background: #FAEEDA; color: #854F0B; }
+  .tag-school   { background: #E6F1FB; color: #185FA5; }
+  .tag-election { background: #FAECE7; color: #993C1D; }
+  .tag-animal   { background: #E1F5EE; color: #0F6E56; }
+  .tag-local    { background: #EEEDFE; color: #534AB7; }
+  .tag-state    { background: #F0EDE5; color: #5a5248; }
+
+  .local-badge {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background: #1a1a18;
+    color: #faf9f5;
+  }
+
+  .story-hed {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a18;
+    margin-bottom: 8px;
+  }
+
+  .story-dek {
+    font-size: 13.5px;
+    font-weight: 400;
+    font-style: italic;
+    color: #666660;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .story-body {
+    font-size: 15px;
+    font-weight: 300;
+    color: #1a1a18;
+    line-height: 1.78;
+  }
+
+  .story-body p + p {
+    margin-top: 12px;
+  }
+
+  .story-subhed {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666660;
+    margin: 20px 0 8px;
+  }
+
+  .story-subhed:first-child {
+    margin-top: 0;
+  }
+
+  .runoff-item {
+    padding: 10px 14px;
+    background: #f0efe8;
+    border-left: 2px solid #c8a96e;
+    border-radius: 0 3px 3px 0;
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .runoff-label {
+    font-weight: 500;
+    font-style: italic;
+    color: #666660;
+  }
+
+  .story-source {
+    font-size: 10.5px;
+    font-weight: 400;
+    font-style: italic;
+    color: #aaa9a0;
+    margin-top: 14px;
+  }
+
+  /* ── Footer ── */
+  .nl-footer {
+    border-top: 2px solid #1a1a18;
+    padding-top: 18px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a18;
+    margin-bottom: 2px;
+  }
+
+  .footer-sub {
+    font-size: 10.5px;
+    font-weight: 400;
+    color: #888880;
+    letter-spacing: 0.03em;
+  }
+
+  .footer-right {
+    font-size: 10.5px;
+    font-weight: 400;
+    color: #888880;
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  /* ── Gold accent rule ── */
+  .gold-rule {
+    height: 0.75px;
+    background: #c8a96e;
+    width: 240px;
+    margin: 18px 0 0;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .page { padding: 0 20px 40px; }
+    .mast-title { font-size: 42px; }
+    .story-hed { font-size: 19px; }
+    .meta-bar { flex-direction: column; gap: 4px; }
+    .nl-footer { flex-direction: column; gap: 12px; }
+    .footer-right { text-align: left; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ════════════════════════════
+       MASTHEAD
+  ════════════════════════════ -->
+  <header class="masthead">
+
+    <div class="mast-top-row">
+      <span class="mast-eyebrow">Valley, Alabama &mdash; Weekly Edition</span>
+      <span class="mast-right">📡 Tune in. Stay grounded.</span>
+    </div>
+
+    <h1 class="mast-title">The <em>Fre</em>quency</h1>
+    <p class="mast-sub">Independent signal for East Alabama &mdash; from Valley to Montgomery &amp; beyond</p>
+
+    <!-- Waveform rule -->
+    <div class="wave-rule">
+      <div class="wave-bar" style="width:4px;height:5px;opacity:0.25;"></div>
+      <div class="wave-bar" style="width:4px;height:9px;opacity:0.35;"></div>
+      <div class="wave-bar" style="width:4px;height:15px;opacity:0.55;"></div>
+      <div class="wave-bar" style="width:4px;height:11px;opacity:0.45;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:0.75;"></div>
+      <div class="wave-bar" style="width:4px;height:8px;opacity:0.32;"></div>
+      <div class="wave-bar" style="width:4px;height:14px;opacity:0.52;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:1;"></div>
+      <div class="wave-bar" style="width:4px;height:14px;opacity:0.52;"></div>
+      <div class="wave-bar" style="width:4px;height:8px;opacity:0.32;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:0.75;"></div>
+      <div class="wave-bar" style="width:4px;height:11px;opacity:0.45;"></div>
+      <div class="wave-bar" style="width:4px;height:15px;opacity:0.55;"></div>
+      <div class="wave-bar" style="width:4px;height:9px;opacity:0.35;"></div>
+      <div class="wave-bar" style="width:4px;height:5px;opacity:0.25;"></div>
+      <div class="wave-spacer"></div>
+      <span class="wave-issue">Issue #6 &nbsp;&middot;&nbsp; May 21, 2026</span>
+    </div>
+
+  </header>
+
+  <!-- Meta bar -->
+  <div class="meta-bar">
+    <span>Vol. 1, No. 6</span>
+    <span>Chambers County &amp; Statewide</span>
+    <span>Free Weekly</span>
+  </div>
+
+  <!-- ════════════════════════════
+       MISSION BRIEF
+  ════════════════════════════ -->
+  <div class="intro-block">
+    The polls closed Tuesday. District 38 has its Democratic nominee. The District 5 Commissioner seat is decided. Alabama&rsquo;s governor&rsquo;s race is settled; its Senate race heads to June 16. And the Supreme Court has cleared the path for Alabama to redraw its congressional maps. Five stories, sourced and grounded. We cut the static so you don&rsquo;t have to.
+  </div>
+
+  <!-- ════════════════════════════
+       STORY 01
+  ════════════════════════════ -->
+  <article class="story">
+    <div class="story-header">
+      <span class="story-num">01</span>
+      <span class="tag tag-election">Elections &amp; Voting</span>
+      <span class="local-badge">Chambers Co.</span>
+    </div>
+    <h2 class="story-hed">District 38 Has Its Democratic Nominee.</h2>
+    <p class="story-dek">Hazel Floyd won Tuesday&rsquo;s primary. She faces Kristin Nelson in November.</p>
+    <div class="story-body">
+      <p>Hazel Floyd won the Democratic nomination for Alabama House District 38 on Tuesday, defeating Christopher &ldquo;Apostle&rdquo; Davis 73.85% to 26.15%. The margin was decisive.</p>
+      <p>The Frequency has followed this race since February. Floyd, who lost the special election for the same seat to Kristin Nelson earlier this year, ran on public schools, rural communities, and small businesses. Christopher &ldquo;Apostle&rdquo; Davis entered the race saying he had a calling to serve; he had no public campaign website and had not filed campaign finance disclosures with the state as of the May 7 reporting deadline.</p>
+      <p>Tuesday&rsquo;s result determines who makes the November case against Nelson, who won the February special election and ran uncontested in Tuesday&rsquo;s Republican primary. District 38 has historically favored Republicans. Floyd will need to outperform the party&rsquo;s margin to flip the seat.</p>
+      <p>District 38 covers portions of Chambers and Lee counties.</p>
+    </div>
+    <div class="gold-rule"></div>
+    <p class="story-source">Sources: Alabama Secretary of State &middot; Valley Times-News &middot; Alabama Reflector</p>
+  </article>
+
+  <!-- ════════════════════════════
+       STORY 02
+  ════════════════════════════ -->
+  <article class="story">
+    <div class="story-header">
+      <span class="story-num">02</span>
+      <span class="tag tag-local">Local Government</span>
+      <span class="tag tag-election">Elections &amp; Voting</span>
+      <span class="local-badge">Chambers Co.</span>
+    </div>
+    <h2 class="story-hed">Chambers County Weighed In.</h2>
+    <p class="story-dek">The District 5 Commissioner race had its answer Tuesday night.</p>
+    <div class="story-body">
+      <p class="story-subhed">District 5 Commissioner</p>
+      <p>Sara Crutchfield won the Chambers County District 5 Commissioner Republican primary Tuesday, defeating James &ldquo;Toby&rdquo; Boyd 68.95% to 31.05%. The margin exceeded two to one.</p>
+      <p>The seat is being vacated by David Eastridge, who is retiring from the county commission. Crutchfield, director of The Valley Local and Eastridge&rsquo;s granddaughter-in-law, ran on road maintenance, responsible growth, and support for the sheriff&rsquo;s department and first responders. Her platform mirrors the district&rsquo;s priorities. She inherits a seat shaped by a man she knows well.</p>
+      <p>Crutchfield advances to the November general election.</p>
+    </div>
+    <div class="gold-rule"></div>
+    <p class="story-source">Sources: Alabama Secretary of State &middot; Valley Times-News &middot; Chambers County Probate Office</p>
+  </article>
+
+  <!-- ════════════════════════════
+       STORY 03
+  ════════════════════════════ -->
+  <article class="story">
+    <div class="story-header">
+      <span class="story-num">03</span>
+      <span class="tag tag-election">Elections &amp; Voting</span>
+    </div>
+    <h2 class="story-hed">The Governor&rsquo;s Race Is Settled. The Senate Race Isn&rsquo;t.</h2>
+    <p class="story-dek">Tuberville wins the Republican primary outright. The open Senate seat heads to June 16.</p>
+    <div class="story-body">
+      <p class="story-subhed">The Governor&rsquo;s Race</p>
+      <p>Tommy Tuberville won the Republican gubernatorial primary outright Tuesday, clearing Alabama&rsquo;s 50% threshold without a runoff.</p>
+      <p>On the Democratic side, Doug Jones won the nomination. Jones, who won Alabama&rsquo;s 2017 Senate special election and served until 2021, was the most recognizable name in a field that also included Will Boyd and Yolanda Flowers. Cook Political Report rates the governorship as solidly Republican.</p>
+      <p class="story-subhed">The Senate Race</p>
+      <p>The U.S. Senate seat Tuberville left to run for governor isn&rsquo;t settled. Six Republicans were on the ballot; none cleared the 50% threshold Alabama requires. Barry Moore led with approximately 40.4% of the vote; Steve Marshall and Jared Hudson were separated by a narrow margin for the second runoff spot as final precincts reported.</p>
+      <p>Moore carried a presidential endorsement from Donald Trump, a structural advantage that moved numbers throughout the primary. Marshall, Alabama&rsquo;s Attorney General, brought statewide name recognition and a broad donor network. Hudson self-funded and ran as an outsider.</p>
+      <p>The June 16 runoff is the real Senate primary. For Chambers County voters, it is the largest federal race on the November ballot.</p>
+    </div>
+    <div class="gold-rule"></div>
+    <p class="story-source">Sources: WSFA &middot; Ballotpedia &middot; Alabama Daily News &middot; Cook Political Report</p>
+  </article>
+
+  <!-- ════════════════════════════
+       STORY 04
+  ════════════════════════════ -->
+  <article class="story">
+    <div class="story-header">
+      <span class="story-num">04</span>
+      <span class="tag tag-election">Elections &amp; Voting</span>
+    </div>
+    <h2 class="story-hed">The Court Moved. Alabama Already Had a Plan.</h2>
+    <p class="story-dek">The Supreme Court cleared the way for Alabama to ditch its court-ordered congressional map. A special primary is now set for August 11.</p>
+    <div class="story-body">
+      <p>The U.S. Supreme Court cleared the path for Alabama to discard its court-ordered congressional map. That map created a second majority-Black congressional district for the first time in the state&rsquo;s history. The ruling vacated a lower court order that had blocked Alabama&rsquo;s 2023 map, which three federal judges had previously struck down as a violation of the Voting Rights Act.</p>
+      <p>The court&rsquo;s conservative majority acted in the wake of its earlier ruling in <em>Louisiana v. Callais</em>, which weakened Section 2 of the VRA as a tool for challenging racially drawn maps. Alabama had been ready. Gov. Kay Ivey called a special session; the legislature passed bills scheduling a special primary for August 11 in four congressional districts: the 1st, 2nd, 6th, and 7th. State senate districts 25 and 26 are included as well.</p>
+      <p>The practical impact is direct. Shomari Figures was elected in 2024 to represent Alabama&rsquo;s redrawn 2nd Congressional District, giving the state two Black members of Congress for the first time in its history. He could see his seat effectively eliminated before his first term is complete. The map Alabama wants to revert to returns the state to a single majority-Black district, represented by Rep. Terri Sewell in the 7th.</p>
+      <p>The 3rd Congressional District, which includes Chambers County, is not redrawn under the proposal. But what happens to representation in the 2nd defines what Black political power looks like in Alabama for the next decade. The special primary is August 11. Mark it.</p>
+    </div>
+    <div class="gold-rule"></div>
+    <p class="story-source">Sources: NPR &middot; PBS NewsHour &middot; Democracy Docket &middot; CNN &middot; ABC 33/40</p>
+  </article>
+
+  <!-- ════════════════════════════
+       STORY 05
+  ════════════════════════════ -->
+  <article class="story">
+    <div class="story-header">
+      <span class="story-num">05</span>
+      <span class="tag tag-election">Elections &amp; Voting</span>
+    </div>
+    <h2 class="story-hed">Tuesday Wasn&rsquo;t the End. Here&rsquo;s What&rsquo;s Still on the Table.</h2>
+    <p class="story-dek">June 16 is Alabama&rsquo;s primary runoff date. Here&rsquo;s what Chambers County voters need to watch.</p>
+    <div class="story-body">
+      <p>Alabama requires candidates to win an outright majority, more than 50% of the vote, to avoid a runoff. In a crowded field, that threshold is rarely cleared on the first ballot. Several Tuesday primaries fell well short of it.</p>
+      <p class="story-subhed">June 16 Runoff &mdash; What to Watch</p>
+      <div class="runoff-item">
+        <span class="runoff-label">U.S. Senate (Republican):</span> Barry Moore advances as the frontrunner with approximately 40.4%. The second runoff spot, Steve Marshall or Jared Hudson, was still being tallied as final precincts reported. Both face Moore on June 16.
+      </div>
+      <p class="story-subhed">What This Means for Chambers County</p>
+      <p>The Senate race remains open. It will affect legislation, appointments, and federal policy that reaches this county directly. The seat Tuberville vacated will shape Alabama&rsquo;s federal priorities for six years.</p>
+      <p>Runoff eligibility works the same as the primary: vote in the same party&rsquo;s runoff as the primary you participated in Tuesday. If you voted Republican, you vote in the Republican runoff June 16. Same polls, same ID requirements, same hours: 7 a.m. to 7 p.m.</p>
+      <p class="story-subhed">One More Date</p>
+      <p>The August 11 special primary, covering the four redrawn congressional districts, is a separate ballot event entirely. More on that in coming issues.</p>
+      <p><em>Tune in. Stay grounded.</em></p>
+    </div>
+    <div class="gold-rule"></div>
+    <p class="story-source">Sources: Alabama Secretary of State &middot; Ballotpedia &middot; Alabama Reflector</p>
+  </article>
+
+  <!-- ════════════════════════════
+       FOOTER
+  ════════════════════════════ -->
+  <footer class="nl-footer">
+    <div>
+      <div class="footer-title">The Frequency</div>
+      <div class="footer-sub">Weekly &middot; Valley, Lanett &amp; Chambers County, AL</div>
+    </div>
+    <div class="footer-right">
+      Tuned in to East Alabama<br>every week &mdash; no static.
+    </div>
+  </footer>
+
+</div><!-- /page -->
+
+</body>
+</html>

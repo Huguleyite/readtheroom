@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Frequency — Issue #7 | After Tuesday.</title>
+
+<!-- ── SEO ── -->
+<meta name="description" content="Alabama's Senate race goes to a June 16 runoff. The PSC clock is running. Hazel Floyd faces November. And $250 million in career tech money has to reach Chambers County classrooms. Issue #7 of The Frequency.">
+
+<!-- ── Open Graph ── -->
+<meta property="og:title" content="After Tuesday.">
+<meta property="og:description" content="Five stories on what the May 19 primary set in motion — sourced, grounded, tuned in to Chambers County.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://readtheroom.news/the-frequency/issue/7/">
+<meta property="og:image" content="https://readtheroom.news/the-frequency/issue/7/og-image.jpg">
+<meta property="og:site_name" content="The Frequency — readtheroom.news">
+
+<!-- ── Twitter Card ── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="After Tuesday. — The Frequency Issue #7">
+<meta name="twitter:description" content="Alabama's Senate race goes to a June 16 runoff. The PSC clock is running. Hazel Floyd faces November. Issue #7 of The Frequency.">
+<meta name="twitter:image" content="https://readtheroom.news/the-frequency/issue/7/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  /* ── Reset ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Base ── */
+  html { font-size: 16px; }
+  body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 300;
+    background: #f5f4f0;
+    color: #1a1a18;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Page wrapper ── */
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #faf9f5;
+    padding: 0 40px 60px;
+  }
+
+  /* ── Masthead ── */
+  .masthead {
+    border-top: 3px solid #1a1a18;
+    padding: 28px 0 0;
+  }
+
+  .mast-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+
+  .mast-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888880;
+  }
+
+  .mast-right {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #888880;
+  }
+
+  .mast-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: #1a1a18;
+    margin-bottom: 6px;
+  }
+
+  .mast-title em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .mast-sub {
+    font-size: 12px;
+    font-weight: 400;
+    color: #666660;
+    letter-spacing: 0.03em;
+    margin-bottom: 14px;
+  }
+
+  /* Waveform rule */
+  .wave-rule {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 20px;
+    margin-bottom: 0;
+  }
+
+  .wave-bar {
+    background: #1a1a18;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .wave-spacer {
+    flex: 1;
+    height: 0.5px;
+    background: #d0cfc8;
+    margin: 0 6px;
+  }
+
+  .wave-issue {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888880;
+    white-space: nowrap;
+  }
+
+  /* Meta bar */
+  .meta-bar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 500;
+    color: #888880;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 0;
+    border-top: 0.5px solid #d0cfc8;
+    border-bottom: 0.5px solid #d0cfc8;
+    margin: 8px 0 24px;
+  }
+
+  /* ── Intro block ── */
+  .intro-block {
+    border-left: 3px solid #1a1a18;
+    padding: 10px 16px;
+    background: #f0efe8;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 36px;
+    font-size: 14px;
+    font-style: italic;
+    color: #555550;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  /* ── Stories ── */
+  .story {
+    padding: 28px 0;
+    border-top: 0.5px solid #d0cfc8;
+  }
+
+  .story:last-of-type {
+    border-bottom: 0.5px solid #d0cfc8;
+  }
+
+  .story-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .story-num {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #aaa9a0;
+  }
+
+  .tag {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  .tag-energy   { background: #FAEEDA; color: #854F0B; }
+  .tag-school   { background: #E6F1FB; color: #185FA5; }
+  .tag-election { background: #FAECE7; color: #993C1D; }
+  .tag-animal   { background: #E1F5EE; color: #0F6E56; }
+  .tag-local    { background: #EEEDFE; color: #534AB7; }
+  .tag-state    { background: #F0EDE5; color: #5a5248; }
+
+  .local-badge {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background: #1a1a18;
+    color: #faf9f5;
+  }
+
+  .story-hed {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a18;
+    margin-bottom: 8px;
+  }
+
+  .story-dek {
+    font-size: 13.5px;
+    font-weight: 400;
+    font-style: italic;
+    color: #666660;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .story-body {
+    font-size: 15px;
+    font-weight: 300;
+    color: #1a1a18;
+    line-height: 1.78;
+  }
+
+  .story-body p + p {
+    margin-top: 12px;
+  }
+
+  .story-subhed {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888880;
+    margin: 18px 0 8px;
+  }
+
+  .runoff-item {
+    background: #f0efe8;
+    border-left: 3px solid #c8a96e;
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1.65;
+    margin: 12px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .runoff-label {
+    font-weight: 500;
+    color: #444440;
+  }
+
+  .story-source {
+    font-size: 10.5px;
+    font-weight: 400;
+    font-style: italic;
+    color: #aaa9a0;
+    margin-top: 14px;
+  }
+
+  /* ── Footer ── */
+  .nl-footer {
+    border-top: 2px solid #1a1a18;
+    padding-top: 18px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a18;
+    margin-bottom: 2px;
+  }
+
+  .footer-sub {
+    font-size: 10.5px;
+    font-weight: 400;
+    color: #888880;
+    letter-spacing: 0.03em;
+  }
+
+  .footer-right {
+    font-size: 10.5px;
+    font-weight: 400;
+    color: #888880;
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  /* ── Gold accent rule ── */
+  .gold-rule {
+    height: 0.75px;
+    background: #c8a96e;
+    width: 240px;
+    margin: 18px 0 0;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .page { padding: 0 20px 40px; }
+    .mast-title { font-size: 42px; }
+    .story-hed { font-size: 19px; }
+    .meta-bar { flex-direction: column; gap: 4px; }
+    .nl-footer { flex-direction: column; gap: 12px; }
+    .footer-right { text-align: left; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ════════════════════════════
+       MASTHEAD
+  ════════════════════════════ -->
+  <header class="masthead">
+
+    <div class="mast-top-row">
+      <span class="mast-eyebrow">Valley, Alabama &mdash; Weekly Edition</span>
+      <span class="mast-right">📡 Tune in. Stay grounded.</span>
+    </div>
+
+    <h1 class="mast-title">The <em>Fre</em>quency</h1>
+    <p class="mast-sub">Independent signal for East Alabama &mdash; from Valley to Montgomery &amp; beyond</p>
+
+    <!-- Waveform rule -->
+    <div class="wave-rule">
+      <div class="wave-bar" style="width:4px;height:5px;opacity:0.25;"></div>
+      <div class="wave-bar" style="width:4px;height:9px;opacity:0.35;"></div>
+      <div class="wave-bar" style="width:4px;height:15px;opacity:0.55;"></div>
+      <div class="wave-bar" style="width:4px;height:11px;opacity:0.45;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:0.75;"></div>
+      <div class="wave-bar" style="width:4px;height:8px;opacity:0.32;"></div>
+      <div class="wave-bar" style="width:4px;height:14px;opacity:0.52;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:1;"></div>
+      <div class="wave-bar" style="width:4px;height:14px;opacity:0.52;"></div>
+      <div class="wave-bar" style="width:4px;height:8px;opacity:0.32;"></div>
+      <div class="wave-bar" style="width:4px;height:18px;opacity:0.75;"></div>
+      <div class="wave-bar" style="width:4px;height:11px;opacity:0.45;"></div>
+      <div class="wave-bar" style="width:4px;height:15px;opacity:0.55;"></div>
+      <div class="wave-bar" style="width:4px;height:9px;opacity:0.35;"></div>
+      <div class="wave-bar" style="width:4px;height:5px;opacity:0.25;"></div>
+      <div class="wave-spacer"></div>
+      <span class="wave-issue">Issue #7 &nbsp;&middot;&nbsp; May 28, 2026</span>
+    </div>
+
+  </header>
+
+  <!-- Meta bar -->
+  <div class="meta-bar">
+    <span>Vol. 1, No. 7</span>
+    <span>Chambers County &amp; Statewide</span>
+    <span>Free Weekly</span>
+  </div>
+
+  <!-- ════════════════════════════
+       MISSION BRIEF
+  ════════════════════════════ -->
+  <div class="intro-block">
+    May 19 settled some things and started others. The Senate race is down to two names. The PSC appointment clock is running. Hazel Floyd is already looking at November. And the $250 million in career tech funding has to reach the classroom before it helps anyone. Five stories on what comes next. Sourced, grounded. We cut the static so you don&rsquo;t have to.
+  </div>
+
+  <!-- ════════════════════════════
+       STORY 01
+  ════════════════════════════ -->
+  <article class="story">
+    <div class="story-header">
+      <span class="story-num">01</span>
+      <span class="tag tag-election">Elections &amp; Voting</span>
+    </div>
+    <h2 class="story-hed">Two Left Standing.</h2>
+    <p class="story-dek">Steve Marshall is out. Barry Moore and Jared Hudson go to the June 16 runoff for Alabama&rsquo;s open Senate seat.</p>
+    <div class="story-body">
+      <p>Alabama&rsquo;s Republican Senate primary ended on May 19 with a result nobody had fully locked in: Barry Moore finished first, Steve Marshall finished third, and Jared Hudson squeezed into a runoff the party&rsquo;s establishment did not fully anticipate.</p>
+      <p>Moore, a Trump-endorsed three-term congressman from Enterprise, took 40% of the vote. Hudson, a former Navy SEAL and first-time candidate who campaigned on Christian conservative and America First positioning, took 26%. Marshall, Alabama&rsquo;s attorney general and the institutional candidate, finished at 25% and conceded Wednesday.</p>
+      <p>The June 16 runoff is a different race. With Marshall out, both campaigns spend the next four weeks chasing the same pool of voters. Moore&rsquo;s Trump endorsement is his clearest advantage. Hudson ran as an outsider: faith-forward, untested by Washington. It got him here. Whether it carries him through a better-funded race is the question.</p>
+      <p>On the Democratic side, attorney Everett Wess (39%) and business owner Dakarai Larriett (29%) head to a Democratic runoff of their own. The nominee faces a long November climb in a state Donald Trump carried by approximately 30 points in 2024. Tuberville won the Republican gubernatorial primary on May 19; his Senate seat will be decided by whoever advances past June 16 and wins in November.</p>
+      <p><strong>Voter registration deadline for the June 16 runoff:</strong> June 1, 2026.</p>
+    </div>
+    <div class="gold-rule"></div>
+    <p class="story-source">Sources: Alabama Reflector &middot; NBC News &middot; WSFA &middot; The Hill</p>
+  </article>
+
+  <!-- ════════════════════════════
+       STORY 02
+  ════════════════════════════ -->
+  <article class="story">
+    <div class="story-header">
+      <span class="story-num">02</span>
+      <span class="tag tag-energy">Energy &amp; Utilities</span>
+    </div>
+    <h2 class="story-hed">The July 15 Clock.</h2>
+    <p class="story-dek">Governor Ivey has until July 15 to appoint four new Public Service Commissioners. Who she picks will shape Alabama&rsquo;s power bills for years.</p>
+    <div class="story-body">
+      <p>Most Alabamians will never hear about this deadline. They will feel it later.</p>
+      <p>By July 15, Governor Kay Ivey must appoint four new commissioners to the Alabama Public Service Commission, the body that regulates Alabama Power and determines what households pay each month. The requirement comes from a law passed this session that restructures the PSC from three elected commissioners to seven, with four appointed slots filling the expansion.</p>
+      <p>The new appointees serve staggered terms, two for two years and two for four years, with elections phasing in through 2030. Starting in 2027, a new cabinet-level secretary of energy will supervise the expanded agency.</p>
+      <p>None of the four slots are filled yet. Appointments come from shortlists submitted by legislative leaders, which means the people who shape those lists matter as much as the governor herself. Cynthia Almond, a former state representative appointed last year, serves as PSC president.</p>
+      <p>The PSC has historically been a quiet regulator of a very profitable monopoly. The expansion gives it more capacity. Capacity without accountability is a larger body ratifying the same outcomes. The July 15 appointments are the first real signal of which direction the restructured commission intends to go. The Frequency covered power bills in Issue&nbsp;#1. This is where the structural piece either holds or doesn&rsquo;t.</p>
+    </div>
+    <div class="gold-rule"></div>
+    <p class="story-source">Sources: Alabama Reflector &middot; WBRC &middot; Alabama Daily News</p>
+  </article>
+
+  <!-- ════════════════════════════
+       STORY 03
+  ════════════════════════════ -->
+  <article class="story">
+    <div class="story-header">
+      <span class="story-num">03</span>
+      <span class="tag tag-election">Elections &amp; Voting</span>
+      <span class="local-badge">Chambers Co.</span>
+    </div>
+    <h2 class="story-hed">November&rsquo;s On.</h2>
+    <p class="story-dek">Hazel Floyd won the District 38 Democratic primary by nearly 48 points. She faces Kristin Nelson again in November. This is a different race.</p>
+    <div class="story-body">
+      <p>Hazel Floyd won the May 19 Democratic primary for Alabama House District 38 with 73.8% of the vote: 1,522 votes to Christopher Davis&rsquo;s 539, a margin of nearly 48 points.</p>
+      <p>Floyd now faces Republican incumbent Kristin Nelson in the November 3 general election. The two met before: Nelson won the February special election.</p>
+      <p>That result is on the record. It is also a limited predictor. Special elections run on compressed timelines, abbreviated mobilization, and turnout that rarely reflects the full electorate. November general elections are different in structure, funding, party infrastructure, and the number of people who show up.</p>
+      <p>Floyd lost the special election and qualified for the general the next day. She has the Alabama Democratic Caucus behind her, a primary win by 48 points, and five months to do what the special election never gave her time to do. Nelson has incumbency, a convincing recent win, and a district that has leaned Republican in statewide races.</p>
+      <p>The November race is the real test. The Frequency will follow it.</p>
+    </div>
+    <div class="gold-rule"></div>
+    <p class="story-source">Sources: Alabama Reflector &middot; Ballotpedia &middot; WTVM</p>
+  </article>
+
+  <!-- ════════════════════════════
+       STORY 04
+  ════════════════════════════ -->
+  <article class="story">
+    <div class="story-header">
+      <span class="story-num">04</span>
+      <span class="tag tag-school">Education</span>
+      <span class="local-badge">Chambers Co.</span>
+    </div>
+    <h2 class="story-hed">The $250M Question.</h2>
+    <p class="story-dek">Alabama put $250 million into career tech over two years. Now comes the part where it has to reach the classroom. Not every school will be ready.</p>
+    <div class="story-body">
+      <p>The Alabama Legislature approved $150 million in career and technical education grants this session. Combined with $100 million from 2025, the two-year total reaches $250 million &mdash; what legislators are describing as the largest investment in Alabama&rsquo;s CTE infrastructure in the state&rsquo;s history.</p>
+      <p>The money doesn&rsquo;t flow automatically. Schools apply. They compete. The grants favor systems that can demonstrate employer partnerships, workforce alignment, facilities planning, and clear occupational pathways. Last year&rsquo;s $100 million round drew more applications than available dollars. The 2026 round will be no different.</p>
+      <p>For Chambers County, where 48.8% of students are economically disadvantaged, the stakes are direct. Career and technical education is one of the clearest paths from a Chambers County high school to a living wage without leaving the county. Dual enrollment programs have grown. The infrastructure to support them has not always kept pace.</p>
+      <p>The Legislature also passed the TRAIN Act this session: up to $10 million annually in tax credits for employers sending industry professionals into CTE classrooms. Starting in 2027, credits of up to $250,000 per employer go to businesses that loan experienced workers to teach. The instructor shortage is a persistent ceiling on CTE expansion at the local level. The TRAIN Act is the first statutory mechanism to address it directly.</p>
+      <p>The 2026 grant application timeline has not yet been announced. Chambers County K-12 should be watching for it.</p>
+    </div>
+    <div class="gold-rule"></div>
+    <p class="story-source">Sources: AL Reporter &middot; Yellowhammer News &middot; Alabama Gazette &middot; A+ Education Partnership</p>
+  </article>
+
+  <!-- ════════════════════════════
+       STORY 05
+  ════════════════════════════ -->
+  <article class="story">
+    <div class="story-header">
+      <span class="story-num">05</span>
+      <span class="tag tag-election">Elections &amp; Voting</span>
+      <span class="local-badge">Chambers Co.</span>
+    </div>
+    <h2 class="story-hed">Four Weeks.</h2>
+    <p class="story-dek">The June 16 runoff is coming. Here&rsquo;s what Chambers County voters need to know before it does.</p>
+    <div class="story-body">
+      <p>May 19 was not the end of the 2026 primary season. It was the beginning of the next stretch.</p>
+      <p>June 16 is the statewide primary runoff. Two races are on the ballot for Chambers County voters: the Republican U.S. Senate runoff (Barry Moore vs. Jared Hudson) and the Democratic U.S. Senate runoff (Everett Wess vs. Dakarai Larriett). The winner of each advances to the November general for Tommy Tuberville&rsquo;s open Senate seat.</p>
+      <p class="story-subhed">Who Can Vote in Which Runoff</p>
+      <p>Alabama does not allow crossover voting in primary runoffs. If you voted in the Republican primary on May 19, you vote in the Republican runoff on June 16. If you voted in the Democratic primary, you vote in the Democratic runoff. If you did not vote on May 19, you may choose either party&rsquo;s ballot on June 16.</p>
+      <div class="runoff-item">
+        <span class="runoff-label">Voter registration deadline:</span> The last day to register or update a registration for the June 16 runoff is June 1, 2026. If you moved, changed your name, or haven&rsquo;t registered, act before June 1.
+      </div>
+      <p>Confirm your polling location through the Alabama Secretary of State&rsquo;s My Voter Information tool at <strong>alabamavotes.gov</strong> before June 16. Polls open at 7 a.m. and close at 7 p.m.</p>
+      <p>One primary is behind us. One is ahead.</p>
+      <p><em>Tune in. Stay grounded.</em></p>
+    </div>
+    <div class="gold-rule"></div>
+    <p class="story-source">Sources: Alabama Secretary of State &middot; Alabama Reflector &middot; ACLU of Alabama</p>
+  </article>
+
+  <!-- ════════════════════════════
+       FOOTER
+  ════════════════════════════ -->
+  <footer class="nl-footer">
+    <div>
+      <div class="footer-title">The Frequency</div>
+      <div class="footer-sub">Weekly &middot; Valley, Lanett &amp; Chambers County, AL</div>
+    </div>
+    <div class="footer-right">
+      Tuned in to East Alabama<br>every week &mdash; no static.
+    </div>
+  </footer>
+
+</div><!-- /page -->
+
+</body>
+</html>

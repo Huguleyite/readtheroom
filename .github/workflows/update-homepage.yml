@@ -1,21 +1,28 @@
 name: Homepage — Scheduled Issue Updates
 
 # ── Publish schedule ──────────────────────────────────────────────────────────
-# Both jobs run at 8:00 AM Eastern (12:00 UTC) on their respective Tuesdays.
-# GitHub Actions cron runs in UTC; Eastern Daylight Time (EDT) = UTC-4 in May.
+# RTR jobs run at 8:00 AM Eastern (12:00 UTC) on their respective Tuesdays.
+# TF jobs run at 8:00 AM Eastern (12:00 UTC) on their respective Thursdays.
+# GitHub Actions cron runs in UTC; Eastern Daylight Time (EDT) = UTC-4 in May/Jun.
 
 on:
   schedule:
-    # Issue #7 — Tuesday May 19, 2026 at 8:00 AM EDT
+    # RTR Issue #7 — Tuesday May 19, 2026 at 8:00 AM EDT
     - cron: "0 12 19 5 *"
-    # Issue #8 — Tuesday May 26, 2026 at 8:00 AM EDT
+    # RTR Issue #8 — Tuesday May 26, 2026 at 8:00 AM EDT
     - cron: "0 12 26 5 *"
+    # TF Issue #7 — Thursday May 28, 2026 at 8:00 AM EDT
+    - cron: "0 12 28 5 *"
 
   # Allow manual trigger for testing
   workflow_dispatch:
     inputs:
+      newsletter:
+        description: "Newsletter to update (rtr or tf)"
+        required: true
+        default: "rtr"
       issue:
-        description: "Issue number to promote (7 or 8)"
+        description: "Issue number to promote"
         required: true
         default: "7"
 
@@ -25,13 +32,13 @@ permissions:
 
 jobs:
 
-  # ── Issue #7 — May 19, 2026 ─────────────────────────────────────────────────
-  promote-issue-7:
+  # ── RTR Issue #7 — May 19, 2026 ─────────────────────────────────────────────
+  promote-rtr-issue-7:
     name: "Promote RTR Issue #7"
-    # Only run on the May 19 schedule OR on manual trigger with issue=7
+    # Only run on the May 19 schedule OR on manual trigger with newsletter=rtr, issue=7
     if: |
       (github.event_name == 'schedule' && github.event.schedule == '0 12 19 5 *') ||
-      (github.event_name == 'workflow_dispatch' && github.event.inputs.issue == '7')
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.newsletter == 'rtr' && github.event.inputs.issue == '7')
     runs-on: ubuntu-latest
 
     steps:
@@ -56,13 +63,13 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: RTR Issue #7 goes live (May 19, 2026)"
           git push
 
-  # ── Issue #8 — May 26, 2026 ─────────────────────────────────────────────────
-  promote-issue-8:
+  # ── RTR Issue #8 — May 26, 2026 ─────────────────────────────────────────────
+  promote-rtr-issue-8:
     name: "Promote RTR Issue #8"
-    # Only run on the May 26 schedule OR on manual trigger with issue=8
+    # Only run on the May 26 schedule OR on manual trigger with newsletter=rtr, issue=8
     if: |
       (github.event_name == 'schedule' && github.event.schedule == '0 12 26 5 *') ||
-      (github.event_name == 'workflow_dispatch' && github.event.inputs.issue == '8')
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.newsletter == 'rtr' && github.event.inputs.issue == '8')
     runs-on: ubuntu-latest
 
     steps:
@@ -85,4 +92,35 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --staged --quiet || git commit -m "chore: RTR Issue #8 goes live (May 26, 2026)"
+          git push
+
+  # ── TF Issue #7 — May 28, 2026 ──────────────────────────────────────────────
+  promote-tf-issue-7:
+    name: "Promote TF Issue #7"
+    # Only run on the May 28 schedule OR on manual trigger with newsletter=tf, issue=7
+    if: |
+      (github.event_name == 'schedule' && github.event.schedule == '0 12 28 5 *') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.newsletter == 'tf' && github.event.inputs.issue == '7')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run TF homepage update script
+        run: python scripts/update-tf-homepage.py --issue 7
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "chore: TF Issue #7 goes live (May 28, 2026)"
           git push

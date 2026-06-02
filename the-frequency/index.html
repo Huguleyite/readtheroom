@@ -26,6 +26,14 @@
   .nav-sep { width: 1px; height: 14px; background: #2e2e2c; }
   .nav-link { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #888880; text-decoration: none; padding: 0 20px; transition: color 0.2s; }
   .nav-link:hover, .nav-link.active { color: #c8a96e; }
+  /* ── Nav dropdown ── */
+  .nav-item-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #1a1a18; border: 1px solid #252522; border-top: 2px solid #c8a96e; min-width: 160px; z-index: 200; display: none; flex-direction: column; }
+  .nav-item-dropdown:hover .nav-dropdown { display: flex; }
+  .nav-dropdown-link { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #888880; text-decoration: none; padding: 12px 20px; border-bottom: 1px solid #252522; transition: color 0.15s; white-space: nowrap; }
+  .nav-dropdown-link:last-child { border-bottom: none; }
+  .nav-dropdown-link:hover { color: #c8a96e; }
+  .nav-caret { font-size: 8px; margin-left: 4px; color: #555550; }
 
   /* Masthead */
   .archive-masthead { background: #faf9f5; border-top: 3px solid #1a1a18; padding: 40px 56px 0; max-width: 760px; margin: 0 auto; }
@@ -126,7 +134,14 @@
     <div class="nav-links">
       <a class="nav-link" href="/read-the-room/">Read the Room</a>
       <div class="nav-sep"></div>
-      <a class="nav-link active" href="/the-frequency/">The Frequency</a>
+      <div class="nav-item-dropdown">
+        <a class="nav-link active" href="/the-frequency/">The Frequency <span class="nav-caret">▾</span></a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-link active" href="/the-frequency/">Issues</a>
+          <a class="nav-dropdown-link" href="/the-frequency/signals/">Signals</a>
+          <a class="nav-dropdown-link" href="/the-frequency/waves/">Waves</a>
+        </div>
+      </div>
       <div class="nav-sep"></div>
       <a class="nav-link" href="/games/">Games</a>
       <div class="nav-sep"></div>

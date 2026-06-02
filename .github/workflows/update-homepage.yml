@@ -13,6 +13,8 @@ on:
     - cron: "0 12 26 5 *"
     # TF Issue #7 — Thursday May 28, 2026 at 8:00 AM EDT
     - cron: "0 12 28 5 *"
+    # RTR Issue #9 — Tuesday June 2, 2026 at 8:00 AM EDT
+    - cron: "0 12 2 6 *"
 
   # Allow manual trigger for testing
   workflow_dispatch:
@@ -24,7 +26,7 @@ on:
       issue:
         description: "Issue number to promote"
         required: true
-        default: "7"
+        default: "9"
 
 # ── Permissions ───────────────────────────────────────────────────────────────
 permissions:
@@ -92,6 +94,36 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --staged --quiet || git commit -m "chore: RTR Issue #8 goes live (May 26, 2026)"
+          git push
+
+  # ── RTR Issue #9 — June 2, 2026 ─────────────────────────────────────────────
+  promote-rtr-issue-9:
+    name: "Promote RTR Issue #9"
+    if: |
+      (github.event_name == 'schedule' && github.event.schedule == '0 12 2 6 *') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.newsletter == 'rtr' && github.event.inputs.issue == '9')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run homepage update script
+        run: python scripts/update-homepage.py --issue 9
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "chore: RTR Issue #9 goes live (June 2, 2026)"
           git push
 
   # ── TF Issue #7 — May 28, 2026 ──────────────────────────────────────────────

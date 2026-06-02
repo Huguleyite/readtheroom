@@ -46,6 +46,23 @@ ISSUES = {
         "href": "/read-the-room/issue/8/",
         "count": "8 issues published",
     },
+    9: {
+        "num": "09",
+        "pub_label": "Read the Room &nbsp;&middot;&nbsp; Issue #9 &nbsp;&middot;&nbsp; June 2, 2026",
+        "headline": (
+            "The 14th Amendment settled birthright citizenship in 1868. "
+            "A 2025 executive order says it&rsquo;s been misread ever since. "
+            "The Supreme Court is about to rule."
+        ),
+        "teaser": (
+            "Five words &mdash; &ldquo;subject to the jurisdiction thereof&rdquo; &mdash; are at "
+            "the center of a constitutional debate that was last settled in 1898. "
+            "A ruling is expected before the Court&rsquo;s term ends. An estimated 400,000 "
+            "births per year are at stake. This week, both sides."
+        ),
+        "href": "/read-the-room/issue/9/",
+        "count": "9 issues published",
+    },
 }
 
 # ── RTR block template ────────────────────────────────────────────────────────

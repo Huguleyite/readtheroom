@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Five Words — Read the Room Issue #9</title>
+
+<!-- OG / Social Meta -->
+<meta property="og:title" content="Five Words — Read the Room Issue #9">
+<meta property="og:description" content="The Supreme Court is about to rule on birthright citizenship. A 2025 executive order says the 14th Amendment has been misread for 128 years. Both sides, no spin.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://readtheroom.news/read-the-room/issue/9/">
+<meta property="og:site_name" content="Read the Room">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Five Words — Read the Room Issue #9">
+<meta name="twitter:description" content="The Supreme Court is about to rule on birthright citizenship. A 2025 executive order says the 14th Amendment has been misread for 128 years. Both sides, no spin.">
+<meta name="description" content="The Supreme Court is about to rule on birthright citizenship. A 2025 executive order says the 14th Amendment has been misread for 128 years. This week, both sides.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ede6;
+    font-family: 'DM Sans', Arial, sans-serif;
+    padding: 32px 16px;
+  }
+  .rtr-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #faf9f5;
+    border: 1px solid #d6d3c8;
+  }
+
+  /* ── HEADER ── */
+  .rtr-header {
+    background: #1a1a18;
+    padding: 40px 48px 32px;
+    text-align: center;
+  }
+  .rtr-header-rule {
+    width: 48px;
+    height: 2px;
+    background: #c8a96e;
+    margin: 0 auto 20px;
+  }
+  .rtr-masthead {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #faf9f5;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .rtr-tagline {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: #c8a96e;
+    letter-spacing: 0.12em;
+    margin-bottom: 24px;
+  }
+  .rtr-meta-row {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #888880;
+    font-weight: 400;
+  }
+  .rtr-meta-dot {
+    color: #c8a96e;
+    margin: 0 10px;
+  }
+
+  /* ── TOPIC BAND ── */
+  .rtr-band {
+    background: #c8a96e;
+    padding: 10px 48px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #1a1a18;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  /* ── BODY ── */
+  .rtr-body {
+    padding: 44px 48px;
+  }
+  .rtr-lede {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #1a1a18;
+    border-left: 3px solid #c8a96e;
+    padding-left: 20px;
+    margin-bottom: 40px;
+  }
+  .rtr-section {
+    margin-bottom: 36px;
+  }
+  .rtr-section-label {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .rtr-section-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: #1a1a18;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .rtr-body-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15.5px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #3a3a36;
+  }
+  .rtr-divider {
+    border: none;
+    border-top: 1px solid #e2dfd6;
+    margin: 36px 0;
+  }
+
+  /* ── PERSPECTIVES ── */
+  .rtr-perspectives-label {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .rtr-perspectives-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .rtr-perspective-card {
+    background: #f4f2ec;
+    border: 1px solid #e2dfd6;
+    padding: 20px;
+  }
+  .rtr-perspective-side {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .rtr-perspective-side.left { color: #4a6fa5; }
+  .rtr-perspective-side.right { color: #b55a4a; }
+  .rtr-perspective-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #3a3a36;
+  }
+
+  /* ── WATCH LIST ── */
+  .rtr-watch-list {
+    list-style: none;
+    margin-bottom: 36px;
+  }
+  .rtr-watch-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+  .rtr-watch-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #e2dfd6;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 28px;
+    text-align: center;
+  }
+  .rtr-watch-content {}
+  .rtr-watch-heading {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a18;
+    margin-bottom: 5px;
+  }
+  .rtr-watch-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #3a3a36;
+  }
+
+  /* ── CLOSING THOUGHT ── */
+  .rtr-closing {
+    background: #1a1a18;
+    margin: 0 -48px;
+    padding: 32px 48px;
+    margin-bottom: 36px;
+  }
+  .rtr-closing-label {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .rtr-closing-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15.5px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #c8c8c0;
+    font-style: italic;
+  }
+
+  /* ── BOOK REC ── */
+  .rtr-book {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: #f4f2ec;
+    border: 1px solid #e2dfd6;
+    border-left: 3px solid #c8a96e;
+    padding: 20px;
+    margin-bottom: 36px;
+  }
+  .rtr-book-label {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .rtr-book-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a18;
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+  .rtr-book-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #3a3a36;
+    margin-bottom: 10px;
+  }
+  .rtr-book-link {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .rtr-amazon-note {
+    font-size: 10px;
+    color: #aaa9a0;
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  /* ── FOOTER ── */
+  .rtr-footer {
+    background: #1a1a18;
+    padding: 28px 48px;
+    text-align: center;
+  }
+  .rtr-footer-rule {
+    width: 32px;
+    height: 1px;
+    background: #c8a96e;
+    margin: 0 auto 16px;
+  }
+  .rtr-footer-text {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #888880;
+    line-height: 1.8;
+  }
+  .rtr-footer-text a {
+    color: #c8a96e;
+    text-decoration: none;
+  }
+  .rtr-footer-tagline {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 12px;
+    font-style: italic;
+    color: #555550;
+    margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="rtr-wrap">
+
+  <!-- HEADER -->
+  <div class="rtr-header">
+    <div class="rtr-header-rule"></div>
+    <div class="rtr-masthead">Read the Room</div>
+    <div class="rtr-tagline">Politics, explained without the spin.</div>
+    <div class="rtr-meta-row">
+      Issue #9
+      <span class="rtr-meta-dot">◆</span>
+      June 2, 2026
+      <span class="rtr-meta-dot">◆</span>
+      Weekly
+    </div>
+  </div>
+
+  <!-- TOPIC BAND -->
+  <div class="rtr-band">
+    &#9670;&nbsp;&nbsp;This week: The Supreme Court is about to rule on whether being born in the United States makes you a citizen. The answer was settled in 1898. The question is back.&nbsp;&nbsp;&#9670;
+  </div>
+
+  <!-- BODY -->
+  <div class="rtr-body">
+
+    <!-- LEDE -->
+    <p class="rtr-lede">
+      The 14th Amendment has said the same thing since 1868. Everyone born in the United States, and subject to its jurisdiction, is a citizen. A 2025 executive order says that sentence has been misread for over a century. The Supreme Court is about to tell us which interpretation wins.
+    </p>
+
+    <!-- SECTION: WHAT'S HAPPENING -->
+    <div class="rtr-section">
+      <div class="rtr-section-label">What's happening</div>
+      <div class="rtr-section-heading">A 2025 executive order. A 128-year-old precedent. And a ruling that could reshape how roughly 400,000 children born in the United States every year receive their citizenship.</div>
+      <p class="rtr-body-text">
+        On his first day back in office, January 20, 2025, President Trump signed an executive order seeking to redefine who qualifies as an American citizen at birth. Under the order, a child born on U.S. soil would not receive citizenship unless at least one parent is a citizen or lawful permanent resident. Children born to undocumented parents, or to parents on temporary visas — student, work, tourist — would be excluded. Federal courts blocked the order immediately through a series of injunctions. It has not taken effect.
+      </p>
+      <br>
+      <p class="rtr-body-text">
+        The Supreme Court agreed to hear the case, <em>Trump v. Barbara</em>, and oral arguments were held April 1, 2026. A ruling is expected before the Court's term ends in late June or early July. If the justices rule in the administration's favor, citizenship would be denied to an estimated 400,000 children born in the United States each year — roughly 300,000 to children of undocumented parents and 100,000 to children of parents on temporary visas, according to immigration research estimates. An FWD.us analysis estimates that as many as 4.8 million children currently holding U.S. citizenship have at least one parent who is undocumented or holds temporary immigration status.
+      </p>
+      <br>
+      <p class="rtr-body-text">
+        During oral arguments, a majority of justices across both ideological wings appeared skeptical of the government's position. Chief Justice Roberts described some of the administration's historical arguments as "very quirky." Justice Kavanaugh noted that Congress had repeatedly used the same constitutional language knowing how the Court had previously interpreted it. Solicitor General D. John Sauer pressed the administration's core argument: the phrase "subject to the jurisdiction thereof" requires full political allegiance — something undocumented immigrants, Sauer contended, do not possess.
+      </p>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <!-- SECTION: THE DEEPER ISSUE -->
+    <div class="rtr-section">
+      <div class="rtr-section-label">The deeper issue</div>
+      <div class="rtr-section-heading">Five words. One hundred twenty-eight years. The case that settled birthright citizenship — and the argument that says it never did.</div>
+      <p class="rtr-body-text">
+        The constitutional question turns on five words: <em>subject to the jurisdiction thereof.</em> The 14th Amendment, ratified in 1868, reads: "All persons born or naturalized in the United States, and subject to the jurisdiction thereof, are citizens of the United States and of the State wherein they reside." The Citizenship Clause was written to reverse the Supreme Court's 1857 <em>Dred Scott</em> decision, which held that Black Americans — enslaved and free alike — could not be U.S. citizens.
+      </p>
+      <br>
+      <p class="rtr-body-text">
+        That language was tested thirty years later. Wong Kim Ark was born in San Francisco in 1873 to Chinese immigrant parents. When he returned from a trip to China in 1895, the government denied him entry, arguing his U.S. birth did not confer citizenship. In 1898, the Supreme Court ruled 6-2 in his favor: birthright citizenship applies to anyone born on U.S. soil to parents with permanent domicile in the United States, regardless of national origin or the immigration laws in force at the time. That ruling has not been overturned. It had not been seriously challenged at the Supreme Court level in the 128 years since. Until now.
+      </p>
+      <br>
+      <p class="rtr-body-text">
+        The current case introduces a possible middle ground. Some justices appeared interested in whether the 1898 ruling extended only to children whose parents had permanent domicile — legal, stable residence in the country — rather than to children of tourists, temporary visa holders, or people who entered without authorization. That reading would produce a narrower ruling than either side is asking for, but it could substantially reduce the number of births covered without dismantling birthright citizenship entirely. According to SCOTUSblog, the outcome may depend on the definition of a single word: <em>domicile.</em>
+      </p>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <!-- BOTH SIDES -->
+    <div class="rtr-section">
+      <div class="rtr-perspectives-label">Both sides</div>
+      <div class="rtr-perspectives-grid">
+        <div class="rtr-perspective-card">
+          <div class="rtr-perspective-side left">The left says</div>
+          <p class="rtr-perspective-text">
+            <em>Wong Kim Ark</em> settled this in 1898. The ruling is 128 years old. Every Congress since has used the same constitutional language without acting to change the Court's interpretation. The 14th Amendment's Citizenship Clause was written to be permanent — to prevent future legislators, executives, or courts from reclassifying who counts as an American. The ACLU argued before the Court this past April that the amendment's framers "deliberately chose to confer automatic citizenship on the child, not the parent." The principle is foundational: this country does not punish children for the circumstances of their birth. An executive order cannot rewrite a constitutional guarantee.
+          </p>
+        </div>
+        <div class="rtr-perspective-card">
+          <div class="rtr-perspective-side right">The right says</div>
+          <p class="rtr-perspective-text">
+            The phrase "subject to the jurisdiction thereof" was precise and intentional. It did not mean merely being present in the United States. It meant complete political allegiance — the same standard that has always excluded children of foreign diplomats from birthright citizenship. The framers were responding to a specific historical injustice: the exclusion of freed slaves. They were not writing a rule for global migration. Most countries do not use <em>jus soli</em> as their primary standard. There is nothing radical about the executive branch interpreting constitutional text to reflect modern immigration realities. The question of who owes political allegiance to the United States is exactly the kind of judgment the executive is positioned to make.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <!-- THREE THINGS TO WATCH -->
+    <div class="rtr-section">
+      <div class="rtr-section-label">Three things to watch</div>
+      <ul class="rtr-watch-list">
+        <li class="rtr-watch-item">
+          <span class="rtr-watch-num">1</span>
+          <div class="rtr-watch-content">
+            <div class="rtr-watch-heading">The ruling itself</div>
+            <p class="rtr-watch-text">Expected any day before the term ends in late June or early July. The majority appeared skeptical of the administration's position during oral arguments, but the scope of the ruling will matter as much as the outcome. A narrow ruling tied to the meaning of "domicile" would leave significant questions unresolved and invite future litigation over which parents qualify.</p>
+          </div>
+        </li>
+        <li class="rtr-watch-item">
+          <span class="rtr-watch-num">2</span>
+          <div class="rtr-watch-content">
+            <div class="rtr-watch-heading">The domicile distinction</div>
+            <p class="rtr-watch-text">If the Court uses that word to separate permanent residents from temporary visa holders, the children of H-1B workers, international students, and visa overstays could face different outcomes than children of undocumented parents — even in a ruling that nominally reaffirms birthright citizenship. That distinction would affect hundreds of thousands of births annually and set up years of follow-on litigation over what "domicile" requires.</p>
+          </div>
+        </li>
+        <li class="rtr-watch-item">
+          <span class="rtr-watch-num">3</span>
+          <div class="rtr-watch-content">
+            <div class="rtr-watch-heading">Congressional response</div>
+            <p class="rtr-watch-text">The administration has signaled that if the executive order is struck down, it will press Congress to address citizenship through legislation. A statutory restriction would face its own immediate constitutional challenge — but the political push would begin the same day. Whether that effort gains traction in the current Congress will shape the longer arc of this debate regardless of what the Court decides.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CLOSING THOUGHT -->
+    <div class="rtr-closing">
+      <div class="rtr-closing-label">The bottom line</div>
+      <p class="rtr-closing-text">
+        The Fourteenth Amendment was written after a war. The Citizenship Clause was a specific answer to a specific question: can the government decide, after you are born here, that you do not belong here? In 1868, the answer was no. In 1898, the answer was no. The question is before the Court again. The ruling is coming.
+      </p>
+    </div>
+
+    <!-- BOOK RECOMMENDATION -->
+    <div class="rtr-section">
+      <div class="rtr-section-label">Recommended read</div>
+      <div class="rtr-book">
+        <div>
+          <div class="rtr-book-label">If you want to go deeper</div>
+          <div class="rtr-book-title">The Birthright Lottery: Citizenship and Global Inequality — Ayelet Shachar</div>
+          <p class="rtr-book-text">
+            Most of the birthright citizenship debate focuses on the constitutional question. Ayelet Shachar, a legal scholar at the University of Toronto, asks a different one: is automatic citizenship by birth the right rule at all? <em>The Birthright Lottery</em> argues that birthright citizenship — wherever it's granted — functions as an inherited privilege, distributing life opportunities at birth based on where a child happens to land. It's a rigorous, accessible challenge to assumptions held by both sides of the current debate, and it reframes what the policy question actually is.
+          </p>
+          <a href="https://amzn.to/4x7QiQ0" class="rtr-book-link">Find it on Amazon →</a>
+          <p class="rtr-amazon-note">As an Amazon Associate I earn from qualifying purchases.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .rtr-body -->
+
+  <!-- FOOTER -->
+  <div class="rtr-footer">
+    <div class="rtr-footer-rule"></div>
+    <p class="rtr-footer-text">
+      <a href="https://readtheroom.news">readtheroom.news</a> &nbsp;·&nbsp;
+      <a href="https://readtheroom.news/read-the-room/">Archive</a> &nbsp;·&nbsp;
+      <a href="https://readtheroom.beehiiv.com/subscribe">Subscribe</a>
+    </p>
+    <p class="rtr-footer-tagline">Every Tuesday morning. One topic. Both sides. No bull.</p>
+  </div>
+
+</div><!-- end .rtr-wrap -->
+</body>
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerrymander — Visual Mockup · Read the Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:   #f5f2eb;
+  --white:   #ffffff;
+  --dark:    #1a1a18;
+  --gold:    #c8a96e;
+  --red:     #c0392b;
+  --blue:    #1a5276;
+  --swing:   #7d3c98;
+  --mid:     #555550;
+  --subtle:  #888880;
+  --rule:    #dedad2;
+}
+
+/* ── Base ── */
+body {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-weight: 400;
+  background-color: var(--cream);
+  color: var(--dark);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+
+  /* Halftone dot texture — newsprint feel */
+  background-image: radial-gradient(circle, rgba(0,0,0,0.07) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* ── Nav ── */
+.site-nav {
+  background: var(--dark);
+  border-bottom: 2.5px solid var(--gold);
+  padding: 13px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+}
+
+.nav-section {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+}
+
+/* ── Page wrapper ── */
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 28px 80px;
+}
+
+/* ── Game header ── */
+.game-header {
+  text-align: center;
+  padding: 52px 0 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ghost diagonal district lines in header background */
+.game-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(18deg,  transparent, transparent 60px, rgba(0,0,0,0.035) 60px, rgba(0,0,0,0.035) 61px),
+    repeating-linear-gradient(-24deg, transparent, transparent 90px, rgba(0,0,0,0.025) 90px, rgba(0,0,0,0.025) 91px),
+    repeating-linear-gradient(72deg,  transparent, transparent 45px, rgba(0,0,0,0.02)  45px, rgba(0,0,0,0.02)  46px);
+  pointer-events: none;
+}
+
+.game-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.game-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.game-tagline {
+  font-size: 19px;
+  font-weight: 300;
+  color: var(--mid);
+  position: relative;
+}
+
+/* ── Gold rule divider ── */
+.gold-rule {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 32px 0;
+}
+.gold-rule::before,
+.gold-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+.gold-rule-diamond {
+  color: var(--gold);
+  font-size: 14px;
+}
+
+/* ── State selector ── */
+.state-selector {
+  margin-bottom: 28px;
+}
+
+.selector-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.state-tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.state-tab {
+  padding: 9px 20px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.state-tab .tab-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.state-tab.gop {
+  background: rgba(192,57,43,0.09);
+  border-color: rgba(192,57,43,0.28);
+  color: var(--red);
+}
+.state-tab.gop .tab-dot { background: var(--red); }
+
+.state-tab.dem {
+  background: rgba(26,82,118,0.09);
+  border-color: rgba(26,82,118,0.28);
+  color: var(--blue);
+}
+.state-tab.dem .tab-dot { background: var(--blue); }
+
+.state-tab.gop.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+}
+
+.state-tab.dem.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+
+/* ── Context card ── */
+.context-card {
+  background: var(--white);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  padding: 20px 26px;
+  margin: 0 auto 30px;
+  max-width: 800px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+.context-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 9px;
+}
+
+.context-text {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: #333330;
+}
+
+/* ── Game area ── */
+.game-area {
+  display: grid;
+  grid-template-columns: 1fr 310px;
+  gap: 22px;
+  align-items: start;
+}
+
+/* ── Map panel ── */
+.map-panel {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 28px 28px 22px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+}
+
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 22px;
+}
+
+.map-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.map-progress {
+  font-size: 12px;
+  color: var(--subtle);
+}
+.map-progress strong { color: var(--dark); }
+
+/* Instruction strip */
+.map-instruction {
+  background: #f7f5f0;
+  border-radius: 5px;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--mid);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.map-instruction strong { color: var(--dark); }
+
+/* SVG container */
+.map-svg-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+/* Map legend */
+.map-legend {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--mid);
+}
+
+.legend-swatch {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+}
+
+/* ── Right column ── */
+.control-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Shared panel card */
+.panel-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+}
+
+.panel-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-bottom: 14px;
+}
+
+/* District buttons */
+.district-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.district-btn {
+  padding: 11px 4px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+
+/* District color system — distinct, readable */
+.d1  { background: #eaf4fb; color: #1a5276; border-color: rgba(26,82,118,0.3); }
+.d2  { background: #fdf2f0; color: #c0392b; border-color: rgba(192,57,43,0.25); }
+.d3  { background: #fefae7; color: #9a7d0a; border-color: rgba(154,125,10,0.3); }
+.d4  { background: #eafaf1; color: #1a7a46; border-color: rgba(26,122,70,0.25); }
+.d5  { background: #f5eefb; color: #6c3483; border-color: rgba(108,52,131,0.25); }
+.d6  { background: #fef5e7; color: #a04000; border-color: rgba(160,64,0,0.25); }
+.d7  { background: #f0f4ff; color: #1f3a8a; border-color: rgba(31,58,138,0.25); }
+
+.district-btn.active-district { box-shadow: 0 0 0 3px var(--dark); }
+
+/* Tally rows */
+.tally-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+}
+.tally-row:last-child { border-bottom: none; }
+
+.tally-name { font-weight: 500; color: var(--dark); }
+
+.tally-pill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+.tally-pill.dem  { background: rgba(26,82,118,0.12); color: var(--blue); }
+.tally-pill.rep  { background: rgba(192,57,43,0.12); color: var(--red); }
+.tally-pill.empty { background: #f0ede6; color: var(--subtle); }
+
+/* Submit button */
+.submit-btn {
+  background: var(--dark);
+  color: var(--gold);
+  border: none;
+  padding: 18px 20px;
+  border-radius: 7px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  letter-spacing: 0.02em;
+  opacity: 0.38;
+  transition: opacity 0.2s;
+}
+
+.submit-note {
+  font-size: 11px;
+  color: var(--subtle);
+  text-align: center;
+  margin-top: 7px;
+}
+
+/* ── Score preview (blurred/locked) ── */
+.score-section {
+  position: relative;
+  margin-top: 30px;
+}
+
+.score-preview {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 28px 32px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+  filter: blur(3px);
+  opacity: 0.3;
+  pointer-events: none;
+  user-select: none;
+}
+
+.score-locked-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--dark);
+  color: white;
+  padding: 11px 28px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.score-header {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.score-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.score-col-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-bottom: 14px;
+}
+
+.score-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.score-bar-label { width: 58px; color: var(--mid); }
+
+.score-bar-track {
+  flex: 1;
+  height: 8px;
+  background: #f0ede6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.score-value { width: 30px; text-align: right; color: var(--dark); font-weight: 500; }
+
+/* ── Responsive ── */
+@media (max-width: 800px) {
+  .game-area { grid-template-columns: 1fr; }
+  .game-title { font-size: 46px; }
+  .site-nav { padding: 12px 20px; }
+  .page { padding: 0 16px 60px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="site-nav">
+  <a href="/index.html" class="nav-brand">Read the Room</a>
+  <span class="nav-section">Games</span>
+</nav>
+
+<div class="page">
+
+  <!-- ── Game Header ── -->
+  <div class="game-header">
+    <div class="game-eyebrow">◆ Read the Room · Games ◆</div>
+    <h1 class="game-title">Gerrymander</h1>
+    <p class="game-tagline">Draw the lines. Try to be fair. Good luck.</p>
+  </div>
+
+  <div class="gold-rule"><span class="gold-rule-diamond">◆</span></div>
+
+  <!-- ── State Selector ── -->
+  <div class="state-selector">
+    <div class="selector-label">Pick a state &mdash; then pick your poison</div>
+    <div class="state-tabs">
+      <div class="state-tab gop active"><div class="tab-dot"></div> Alabama</div>
+      <div class="state-tab gop"><div class="tab-dot"></div> North Carolina</div>
+      <div class="state-tab gop"><div class="tab-dot"></div> Ohio</div>
+      <div class="state-tab dem"><div class="tab-dot"></div> Maryland</div>
+      <div class="state-tab dem"><div class="tab-dot"></div> Illinois</div>
+      <div class="state-tab dem"><div class="tab-dot"></div> New York</div>
+    </div>
+  </div>
+
+  <!-- ── Context Card ── -->
+  <div class="context-card">
+    <div class="context-eyebrow">What happened here</div>
+    <p class="context-text">Alabama's congressional map was thrown out by the Supreme Court &mdash; twice. The state kept drawing one majority-Black district out of seven, even though Black voters make up 27% of the population. The Court said that math didn't add up. Now it's your turn. Draw the lines. See if you can do better. Or worse. We're not judging.</p>
+  </div>
+
+  <!-- ── Game Area ── -->
+  <div class="game-area">
+
+    <!-- ── Map Panel ── -->
+    <div class="map-panel">
+
+      <div class="map-header">
+        <div class="map-title">Alabama &nbsp;·&nbsp; 7 Districts</div>
+        <div class="map-progress"><strong>14</strong> of 23 precincts assigned</div>
+      </div>
+
+      <div class="map-instruction">
+        <strong>You're drawing District 1.</strong>&nbsp; Click any gray precinct to add it. Click a colored precinct to move it.
+      </div>
+
+      <!-- Alabama SVG — simplified, stylized -->
+      <div class="map-svg-wrap">
+        <svg viewBox="0 0 420 540" width="390" height="502" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Ghost grid lines — gives the map a drafting-room feel -->
+          <line x1="0"   y1="135" x2="420" y2="135" stroke="#e0ddd6" stroke-width="0.8"/>
+          <line x1="0"   y1="270" x2="420" y2="270" stroke="#e0ddd6" stroke-width="0.8"/>
+          <line x1="0"   y1="405" x2="420" y2="405" stroke="#e0ddd6" stroke-width="0.8"/>
+          <line x1="140" y1="0"   x2="140" y2="540" stroke="#e0ddd6" stroke-width="0.8"/>
+          <line x1="280" y1="0"   x2="280" y2="540" stroke="#e0ddd6" stroke-width="0.8"/>
+
+          <!-- ── Alabama outer border ── -->
+          <path d="M65,12 L345,12 L352,55 L358,180 L354,310 L344,398 L318,442 L300,490 L275,522 L248,522 L236,492 L208,478 L185,490 L160,512 L138,492 L134,448 L65,448 L58,385 L52,275 L58,155 L65,12 Z"
+            fill="#ede9e0" stroke="#c8c4bc" stroke-width="1.5" stroke-linejoin="round"/>
+
+          <!-- ═══════════════════════════════════ -->
+          <!-- PRECINCT REGIONS — color = district -->
+          <!-- ═══════════════════════════════════ -->
+
+          <!-- District 1 (blue) — North left -->
+          <path d="M65,12 L210,12 L215,80 L155,92 L85,82 L65,68 Z"
+            fill="rgba(26,82,118,0.22)" stroke="rgba(26,82,118,0.55)" stroke-width="1.5" style="cursor:pointer;"/>
+          <text x="138" y="53" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#1a5276" font-weight="700">D1</text>
+
+          <!-- District 1 (blue) — North right -->
+          <path d="M210,12 L345,12 L352,55 L345,88 L222,96 L215,80 Z"
+            fill="rgba(26,82,118,0.22)" stroke="rgba(26,82,118,0.55)" stroke-width="1.5" style="cursor:pointer;"/>
+          <text x="278" y="53" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#1a5276" font-weight="700">D1</text>
+
+          <!-- District 2 (red) — Upper-mid left -->
+          <path d="M65,68 L85,82 L155,92 L162,158 L95,170 L58,158 Z"
+            fill="rgba(192,57,43,0.2)" stroke="rgba(192,57,43,0.5)" stroke-width="1.5" style="cursor:pointer;"/>
+          <text x="108" y="126" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#c0392b" font-weight="700">D2</text>
+
+          <!-- District 2 (red) — Upper-mid right -->
+          <path d="M345,88 L358,180 L308,192 L248,180 L228,138 L268,108 L310,90 Z"
+            fill="rgba(192,57,43,0.2)" stroke="rgba(192,57,43,0.5)" stroke-width="1.5" style="cursor:pointer;"/>
+          <text x="300" y="145" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#c0392b" font-weight="700">D2</text>
+
+          <!-- District 3 (amber) — Central band -->
+          <path d="M155,92 L215,80 L222,96 L228,138 L200,170 L162,158 Z"
+            fill="rgba(154,125,10,0.2)" stroke="rgba(154,125,10,0.5)" stroke-width="1.5" style="cursor:pointer;"/>
+          <text x="190" y="128" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#9a7d0a" font-weight="700">D3</text>
+
+          <!-- Swing — Unassigned (purple outline, gray fill) central left -->
+          <path d="M58,158 L95,170 L162,158 L200,170 L198,235 L130,248 L62,238 L52,198 Z"
+            fill="rgba(125,60,152,0.14)" stroke="rgba(125,60,152,0.4)" stroke-width="1.5" style="cursor:pointer;"/>
+          <text x="126" y="204" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7d3c98" font-weight="600">—</text>
+
+          <!-- Swing — Unassigned central right -->
+          <path d="M248,180 L308,192 L298,258 L238,252 L198,235 L200,170 Z"
+            fill="rgba(125,60,152,0.14)" stroke="rgba(125,60,152,0.4)" stroke-width="1.5" style="cursor:pointer;"/>
+          <text x="252" y="220" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#7d3c98" font-weight="600">—</text>
+
+          <!-- Unassigned — gray regions (lower half) -->
+          <!-- Lower central large -->
+          <path d="M62,238 L130,248 L198,235 L238,252 L298,258 L308,320 L245,332 L172,322 L92,308 L52,275 Z"
+            fill="#e4e0d8" stroke="#c0bdb6" stroke-width="1.5" style="cursor:pointer;"/>
+          <text x="180" y="287" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#888880" font-weight="500">Click to assign</text>
+
+          <!-- Lower right -->
+          <path d="M308,320 L354,310 L344,398 L318,442 L278,432 L245,332 Z"
+            fill="#e4e0d8" stroke="#c0bdb6" stroke-width="1.5" style="cursor:pointer;"/>
+          <text x="310" y="378" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#888880" font-weight="500">Click</text>
+
+          <!-- Lower left + south -->
+          <path d="M52,275 L92,308 L172,322 L245,332 L278,432 L248,522 L236,492 L208,478 L185,490 L160,512 L138,492 L134,448 L65,448 L58,385 Z"
+            fill="#e4e0d8" stroke="#c0bdb6" stroke-width="1.5" style="cursor:pointer;"/>
+          <text x="162" y="408" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#888880" font-weight="500">Click to assign</text>
+
+          <!-- Gulf notch / toe -->
+          <path d="M275,522 L300,490 L318,442 L278,432 L248,522 Z"
+            fill="#e4e0d8" stroke="#c0bdb6" stroke-width="1.5" style="cursor:pointer;"/>
+
+          <!-- Hover-state example (gold dashed = region being considered) -->
+          <path d="M308,192 L358,180 L354,310 L308,320 L298,258 Z"
+            fill="rgba(200,169,110,0.28)" stroke="#c8a96e" stroke-width="2.5" stroke-dasharray="5,3" style="cursor:pointer;"/>
+          <text x="334" y="252" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#9a7213" font-weight="700">+ Assign</text>
+
+        </svg>
+      </div>
+
+      <!-- Legend -->
+      <div class="map-legend">
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:rgba(26,82,118,0.35);border:1.5px solid rgba(26,82,118,0.6);"></div>
+          Democrat lean
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:rgba(192,57,43,0.3);border:1.5px solid rgba(192,57,43,0.55);"></div>
+          Republican lean
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:rgba(125,60,152,0.2);border:1.5px solid rgba(125,60,152,0.45);"></div>
+          Swing
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#e4e0d8;border:1.5px solid #c0bdb6;"></div>
+          Unassigned &mdash; click to add
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:rgba(200,169,110,0.3);border:2px dashed #c8a96e;"></div>
+          Hover
+        </div>
+      </div>
+
+    </div><!-- /map-panel -->
+
+    <!-- ── Right Control Column ── -->
+    <div class="control-col">
+
+      <!-- District selector -->
+      <div class="panel-card">
+        <div class="panel-eyebrow">Active district &mdash; click to switch</div>
+        <div class="district-grid">
+          <div class="district-btn d1 active-district">D1</div>
+          <div class="district-btn d2">D2</div>
+          <div class="district-btn d3">D3</div>
+          <div class="district-btn d4">D4</div>
+          <div class="district-btn d5">D5</div>
+          <div class="district-btn d6">D6</div>
+          <div class="district-btn d7">D7</div>
+        </div>
+      </div>
+
+      <!-- Live tally -->
+      <div class="panel-card">
+        <div class="panel-eyebrow">Your map so far</div>
+
+        <div class="tally-row">
+          <span class="tally-name">District 1</span>
+          <span class="tally-pill dem">Leans Dem</span>
+        </div>
+        <div class="tally-row">
+          <span class="tally-name">District 2</span>
+          <span class="tally-pill rep">Leans Rep</span>
+        </div>
+        <div class="tally-row">
+          <span class="tally-name">District 3</span>
+          <span class="tally-pill rep">Leans Rep</span>
+        </div>
+        <div class="tally-row">
+          <span class="tally-name">District 4</span>
+          <span class="tally-pill empty">Not started</span>
+        </div>
+        <div class="tally-row">
+          <span class="tally-name">District 5</span>
+          <span class="tally-pill empty">Not started</span>
+        </div>
+        <div class="tally-row">
+          <span class="tally-name">District 6</span>
+          <span class="tally-pill empty">Not started</span>
+        </div>
+        <div class="tally-row">
+          <span class="tally-name">District 7</span>
+          <span class="tally-pill empty">Not started</span>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button class="submit-btn">Lock In My Map &nbsp;&rarr;</button>
+      <div class="submit-note">Assign all 23 precincts to unlock</div>
+
+    </div><!-- /control-col -->
+
+  </div><!-- /game-area -->
+
+  <!-- ── Score Preview (locked until submission) ── -->
+  <div class="score-section">
+    <div class="score-preview">
+      <div class="score-header">How fair were you?</div>
+      <div class="score-cols">
+        <div>
+          <div class="score-col-label">Proportional Score</div>
+          <div class="score-bar-row">
+            <span class="score-bar-label">Democrat</span>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:43%;background:var(--blue);"></div></div>
+            <span class="score-value">3/7</span>
+          </div>
+          <div class="score-bar-row">
+            <span class="score-bar-label">Republican</span>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:57%;background:var(--red);"></div></div>
+            <span class="score-value">4/7</span>
+          </div>
+          <div style="font-size:12px;color:var(--mid);margin-top:10px;line-height:1.6;">
+            Alabama's voters are roughly 40% Democrat and 60% Republican. How close did your map get?
+          </div>
+        </div>
+        <div>
+          <div class="score-col-label">Equal Rep Score</div>
+          <div class="score-bar-row">
+            <span class="score-bar-label">Balance</span>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:78%;background:var(--gold);"></div></div>
+            <span class="score-value">78%</span>
+          </div>
+          <div class="score-bar-row">
+            <span class="score-bar-label">Pop. Even</span>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:65%;background:#5a8a9a;"></div></div>
+            <span class="score-value">65%</span>
+          </div>
+          <div style="font-size:12px;color:var(--mid);margin-top:10px;line-height:1.6;">
+            Are your districts roughly equal in population? Does each party have a fair shot?
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="score-locked-badge">Finish your map to see results</div>
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>

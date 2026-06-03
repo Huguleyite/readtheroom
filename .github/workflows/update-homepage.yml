@@ -15,6 +15,8 @@ on:
     - cron: "0 12 28 5 *"
     # RTR Issue #9 — Tuesday June 2, 2026 at 8:00 AM EDT
     - cron: "0 12 2 6 *"
+    # TF Issue #8 — Thursday June 4, 2026 at 8:00 AM EDT
+    - cron: "0 12 4 6 *"
 
   # Allow manual trigger for testing
   workflow_dispatch:
@@ -124,6 +126,36 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --staged --quiet || git commit -m "chore: RTR Issue #9 goes live (June 2, 2026)"
+          git push
+
+  # ── TF Issue #8 — June 4, 2026 ─────────────────────────────────────────────
+  promote-tf-issue-8:
+    name: "Promote TF Issue #8"
+    if: |
+      (github.event_name == 'schedule' && github.event.schedule == '0 12 4 6 *') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.newsletter == 'tf' && github.event.inputs.issue == '8')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run TF homepage update script
+        run: python scripts/update-tf-homepage.py --issue 8
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "chore: TF Issue #8 goes live (June 4, 2026)"
           git push
 
   # ── TF Issue #7 — May 28, 2026 ──────────────────────────────────────────────

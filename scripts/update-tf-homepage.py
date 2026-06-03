@@ -57,15 +57,40 @@ ISSUES = {
         "href": "/the-frequency/issue/7/",
         "count": "7 issues published",
     },
-    # ── Add future issues here, e.g.: ────────────────────────────────────────
-    # 8: {
-    #     "num": "08",
-    #     "pub_label": "The Frequency &nbsp;&middot;&nbsp; Issue #8 &nbsp;&middot;&nbsp; June 5, 2026",
-    #     "headline": "...",
-    #     "stories": [...],
-    #     "href": "/the-frequency/issue/8/",
-    #     "count": "8 issues published",
-    # },
+    8: {
+        "num": "08",
+        "pub_label": "The Frequency &nbsp;&middot;&nbsp; Issue #8 &nbsp;&middot;&nbsp; June 4, 2026",
+        "headline": "Eleven Days.",
+        "stories": [
+            {
+                "tag_bg": "#FAECE7", "tag_color": "#993C1D",
+                "tag_label": "Elections",
+                "text": "Eleven Days.",
+            },
+            {
+                "tag_bg": "#FAEEDA", "tag_color": "#854F0B",
+                "tag_label": "Energy",
+                "text": "Filed.",
+            },
+            {
+                "tag_bg": "#E6F1FB", "tag_color": "#185FA5",
+                "tag_label": "Education",
+                "text": "Read by Third.",
+            },
+            {
+                "tag_bg": "#FAECE7", "tag_color": "#993C1D",
+                "tag_label": "Elections",
+                "text": "The Other Race.",
+            },
+            {
+                "tag_bg": "#EEEDFE", "tag_color": "#534AB7",
+                "tag_label": "Local Gov.",
+                "text": "Building Season.",
+            },
+        ],
+        "href": "/the-frequency/issue/8/",
+        "count": "8 issues published",
+    },
 }
 
 # ── TF block template ─────────────────────────────────────────────────────────

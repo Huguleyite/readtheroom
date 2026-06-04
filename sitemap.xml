@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml for readtheroom.news
+  Generated: 2026-06-03
+
+  SUBMISSION INSTRUCTIONS
+  =======================
+
+  1. GOOGLE SEARCH CONSOLE
+     a. Go to https://search.google.com/search-console
+     b. Add property → Domain → enter "readtheroom.news" → verify ownership
+        (Verification options: DNS TXT record via your domain registrar, or HTML file/tag)
+     c. Once verified, click "Sitemaps" in the left sidebar
+     d. Enter: sitemap.xml → click "Submit"
+     e. Status should show "Success" within a few minutes to a few hours
+
+  2. BING WEBMASTER TOOLS
+     a. Go to https://www.bing.com/webmasters
+     b. Add site → enter "https://readtheroom.news" → verify ownership
+        (Easiest: import from Google Search Console with one click)
+     c. Once verified, click "Sitemaps" in the left sidebar
+     d. Submit sitemap URL: https://readtheroom.news/sitemap.xml
+     e. Click "Submit"
+
+  MAINTENANCE
+  ===========
+  - Update this file whenever you add new pages or issue URLs
+  - Re-submit to GSC after major additions (Bing re-crawls automatically)
+  - Priority: 1.0 = highest (homepage), 0.8 = section hubs, 0.6 = issues/articles, 0.4 = games
+  - changefreq: how often search engines should re-check each URL
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core Pages -->
+  <url>
+    <loc>https://readtheroom.news/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/about/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Read the Room Newsletter -->
+  <url>
+    <loc>https://readtheroom.news/read-the-room/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/read-the-room/issue/2/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/read-the-room/issue/3/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/read-the-room/issue/4/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/read-the-room/issue/5/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/read-the-room/issue/6/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/read-the-room/issue/7/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/read-the-room/issue/8/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/read-the-room/issue/9/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- The Frequency Newsletter -->
+  <url>
+    <loc>https://readtheroom.news/the-frequency/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/the-frequency/issue/1/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/the-frequency/issue/2/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/the-frequency/issue/3/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/the-frequency/issue/4/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/the-frequency/issue/5/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/the-frequency/issue/6/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/the-frequency/issue/7/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/the-frequency/issue/8/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/the-frequency/signals/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/the-frequency/waves/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Signal & Wave Articles -->
+  <url>
+    <loc>https://readtheroom.news/signal/hantavirus-2026-what-you-need-to-know.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/wave/hazel-floyd-she-came-home-to-fight-for-it.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Games -->
+  <url>
+    <loc>https://readtheroom.news/games/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/games/gerrymander/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/games/approval-machine/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/games/pundit/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/games/the-wire/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>

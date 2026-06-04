@@ -1,0 +1,115 @@
+name: Generate OG Header Image
+
+# Triggers whenever a thumbnail.html is pushed to any issue folder
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/thumbnail.html'
+
+  # Allow manual trigger (e.g. to backfill an issue)
+  workflow_dispatch:
+    inputs:
+      thumbnail_path:
+        description: "Relative path to thumbnail.html (e.g. the-frequency/issue/8/thumbnail.html)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    name: Screenshot thumbnail → header.png
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
+      - name: Install Chromium dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libgbm-dev \
+            libasound2 \
+            libatk1.0-0 \
+            libatk-bridge2.0-0 \
+            libcups2 \
+            libdrm2 \
+            libxkbcommon0 \
+            libxcomposite1 \
+            libxdamage1 \
+            libxfixes3 \
+            libxrandr2 \
+            libpango-1.0-0 \
+            libcairo2 \
+            libnss3
+
+      - name: Find changed thumbnail files
+        id: find_thumbnails
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "thumbnails=${{ github.event.inputs.thumbnail_path }}" >> $GITHUB_OUTPUT
+          else
+            # Get list of changed thumbnail.html files from the push
+            THUMBNAILS=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'thumbnail\.html' | tr '\n' ' ')
+            echo "thumbnails=$THUMBNAILS" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Screenshot each thumbnail
+        run: |
+          node - <<'EOF'
+          const puppeteer = require('puppeteer');
+          const path = require('path');
+          const fs = require('fs');
+
+          const thumbnails = process.env.THUMBNAILS.trim().split(/\s+/).filter(Boolean);
+
+          (async () => {
+            const browser = await puppeteer.launch({
+              args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+            });
+
+            for (const thumbPath of thumbnails) {
+              const absPath = path.resolve(process.cwd(), thumbPath);
+              if (!fs.existsSync(absPath)) {
+                console.log(`Skipping (not found): ${thumbPath}`);
+                continue;
+              }
+              const dir = path.dirname(absPath);
+              const outPath = path.join(dir, 'header.png');
+
+              const page = await browser.newPage();
+              await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 2 });
+              await page.goto(`file://${absPath}`, { waitUntil: 'networkidle0', timeout: 30000 });
+              // Wait for web fonts
+              await new Promise(r => setTimeout(r, 2500));
+              await page.screenshot({ path: outPath, clip: { x: 0, y: 0, width: 1200, height: 630 } });
+              console.log(`Generated: ${outPath}`);
+              await page.close();
+            }
+
+            await browser.close();
+          })();
+          EOF
+        env:
+          THUMBNAILS: ${{ steps.find_thumbnails.outputs.thumbnails }}
+
+      - name: Commit header.png files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add '**/header.png'
+          git diff --staged --quiet || git commit -m "chore: auto-generate OG header images"
+          git push

@@ -6,7 +6,7 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 01 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2026 12:00:00 +0000</lastBuildDate>
 
     <!-- ============================================================
          HOW TO ADD A NEW ISSUE:
@@ -15,6 +15,14 @@
          Date format: Tue, 09 Jun 2026 09:00:00 +0000
          URL format:  https://readtheroom.news/read-the-room/issue/10/
          ============================================================ -->
+
+    <item>
+      <title>Signal: What to Know About the Alabama PSC Before June 16</title>
+      <link>https://readtheroom.news/signal/alabama-psc-election-june-2026.html</link>
+      <guid isPermaLink="true">https://readtheroom.news/signal/alabama-psc-election-june-2026.html</guid>
+      <pubDate>Thu, 04 Jun 2026 12:00:00 +0000</pubDate>
+      <description>The Alabama PSC Place 2 runoff on June 16 decides who regulates your power bill. Beeker vs. Zeigler — what you need to know before you vote.</description>
+    </item>
 
     <item>
       <title>Read the Room — Issue #9 | Five Words</title>

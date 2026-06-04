@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Read the Room</title>
+    <link>https://readtheroom.news</link>
+    <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
+    <language>en-us</language>
+    <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Mon, 01 Jun 2026 09:00:00 +0000</lastBuildDate>
+
+    <!-- ============================================================
+         HOW TO ADD A NEW ISSUE:
+         Copy the <item> block below, paste it at the TOP of the list
+         (just after this comment), and fill in the fields.
+         Date format: Tue, 09 Jun 2026 09:00:00 +0000
+         URL format:  https://readtheroom.news/read-the-room/issue/10/
+         ============================================================ -->
+
+    <item>
+      <title>Read the Room — Issue #9 | Five Words</title>
+      <link>https://readtheroom.news/read-the-room/issue/9/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/9/</guid>
+      <pubDate>Mon, 01 Jun 2026 09:00:00 +0000</pubDate>
+      <description>The 14th Amendment has said the same thing since 1868. A 2025 executive order says it's been misread for over a century. The Supreme Court is about to tell us which interpretation wins.</description>
+    </item>
+
+    <item>
+      <title>Read the Room — Issue #8 | The Medicaid Argument</title>
+      <link>https://readtheroom.news/read-the-room/issue/8/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/8/</guid>
+      <pubDate>Mon, 25 May 2026 09:00:00 +0000</pubDate>
+      <description>The One Big Beautiful Bill Act restructured Medicaid in ways projected to reduce federal spending by $1 trillion over a decade. The CBO estimates 10.5 million people will lose coverage by 2034.</description>
+    </item>
+
+    <item>
+      <title>Read the Room — Issue #7 | The Warrant Question</title>
+      <link>https://readtheroom.news/read-the-room/issue/7/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/7/</guid>
+      <pubDate>Mon, 18 May 2026 09:00:00 +0000</pubDate>
+      <description>Issue #7 — May 19, 2026.</description>
+    </item>
+
+    <item>
+      <title>Read the Room — Issue #6 | The Map Fight</title>
+      <link>https://readtheroom.news/read-the-room/issue/6/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/6/</guid>
+      <pubDate>Mon, 11 May 2026 09:00:00 +0000</pubDate>
+      <description>Every election has rules. In 2026, both parties are working to write those rules before anyone votes. States are redrawing congressional maps mid-decade at a scale with few modern precedents.</description>
+    </item>
+
+    <item>
+      <title>Read the Room — Issue #5 | The Supreme Court struck down Louisiana's map.</title>
+      <link>https://readtheroom.news/read-the-room/issue/5/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/5/</guid>
+      <pubDate>Mon, 04 May 2026 09:00:00 +0000</pubDate>
+      <description>On April 29, the Supreme Court decided Louisiana v. Callais 6–3. States across the South are already redrawing maps — and analysts say Republicans could gain up to 12 House seats.</description>
+    </item>
+
+    <item>
+      <title>Read the Room — Issue #4 | The courts vs. the White House.</title>
+      <link>https://readtheroom.news/read-the-room/issue/4/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/4/</guid>
+      <pubDate>Mon, 27 Apr 2026 09:00:00 +0000</pubDate>
+      <description>Hundreds of lawsuits. Dozens of nationwide injunctions. The Trump administration has raced to the Supreme Court's emergency docket at an unprecedented pace — and won roughly 20 of 24 requests.</description>
+    </item>
+
+    <item>
+      <title>Read the Room — Issue #3 | DOGE's cuts are real — but so is the legal resistance.</title>
+      <link>https://readtheroom.news/read-the-room/issue/3/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/3/</guid>
+      <pubDate>Mon, 20 Apr 2026 09:00:00 +0000</pubDate>
+      <description>DOGE has overseen the departure of an estimated 200,000+ federal workers. Courts have granted relief in roughly 68% of cases where asked. Both sides are digging in.</description>
+    </item>
+
+    <item>
+      <title>Read the Room — Issue #2 | The biggest Medicaid overhaul in decades is underway.</title>
+      <link>https://readtheroom.news/read-the-room/issue/2/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/2/</guid>
+      <pubDate>Mon, 13 Apr 2026 09:00:00 +0000</pubDate>
+      <description>The One Big Beautiful Bill Act made historic cuts to federal Medicaid financing — projected to reduce federal spending by nearly $1 trillion over ten years. Those cuts are now becoming real.</description>
+    </item>
+
+  </channel>
+</rss>

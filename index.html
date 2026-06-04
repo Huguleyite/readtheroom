@@ -12,9 +12,11 @@
 <meta property="og:url" content="https://readtheroom.news/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Read the Room">
+<link rel="dns-prefetch" href="https://subscribe-forms.beehiiv.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
 <style>
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -427,7 +429,20 @@
     margin-bottom: 28px;
   }
 
-  /* ── Responsive ── */
+  /* ── Hamburger ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; gap: 5px;
+    background: none; border: none; cursor: pointer;
+    padding: 8px; width: 36px; height: 36px;
+  }
+  .nav-hamburger span {
+    display: block; height: 1.5px; width: 22px; background: #888880;
+    transition: background 0.2s;
+  }
+  .nav-hamburger:hover span { background: #c8a96e; }
+
+  /* ── Responsive 768px ── */
   @media (max-width: 768px) {
     .split-panel { grid-template-columns: 1fr; }
     .split-tf { border-left: none; border-top: 3px solid #c8a96e; }
@@ -436,8 +451,43 @@
     .games-inner { grid-template-columns: 1fr; }
     .games-visual { display: none; }
     .hero-title { font-size: 44px; }
-    .nav-links { display: none; }
     .footer-top { grid-template-columns: 1fr; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute; top: 64px; left: 0; right: 0;
+      background: #1a1a18; border-top: 1px solid #252522;
+      flex-direction: column; padding: 8px 0; z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-sep { display: none; }
+    .nav-link { padding: 12px 24px; font-size: 11px; }
+    .nav-item-dropdown { flex-direction: column; align-items: flex-start; }
+    .nav-dropdown {
+      position: static; transform: none;
+      border-top: none; border: none; min-width: unset;
+      padding-left: 16px;
+    }
+    .nav-item-dropdown:hover .nav-dropdown,
+    .nav-item-dropdown.open .nav-dropdown { display: flex; }
+    .nav-dropdown-link { padding: 10px 24px; }
+  }
+
+  /* ── Responsive 480px ── */
+  @media (max-width: 480px) {
+    .hero { padding: 48px 20px 56px; }
+    .hero-title { font-size: 34px; }
+    .hero-tagline { font-size: 15px; }
+    .gold-band { padding: 10px 20px; }
+    .split-rtr, .split-tf { padding: 36px 20px; }
+    .sub-card { padding: 28px 20px; }
+    .games-inner { padding: 48px 20px; }
+    .site-footer { padding: 40px 20px 24px; }
+    .footer-cols { flex-direction: column; gap: 28px; }
+    .modal-box { padding: 28px 20px 24px; }
+    .nav-inner { padding: 0 20px; }
+    .sub-title { font-size: 20px; }
+    .games-hed { font-size: 26px; }
   }
 
   @keyframes pulse {
@@ -462,7 +512,10 @@
         <span class="nav-brand-tag">Politics, explained without the spin.</span>
       </div>
     </a>
-    <div class="nav-links">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a class="nav-link" href="/read-the-room/">Read the Room</a>
       <div class="nav-sep"></div>
       <div class="nav-item-dropdown">
@@ -484,7 +537,7 @@
 <!-- ══════════════ HERO ══════════════ -->
 <section class="hero">
   <div class="hero-inner">
-    <img src="assets/img/logo.png" alt="Read the Room" class="hero-logo">
+    <img src="assets/img/logo.png" alt="Read the Room" class="hero-logo" fetchpriority="high">
     <h1 class="hero-title">Read the Room</h1>
     <p class="hero-tagline">Politics, explained without the spin.</p>
     <p class="hero-descriptor">
@@ -678,7 +731,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="assets/img/logo.png" alt="Read the Room" class="footer-logo">
+        <img src="assets/img/logo.png" alt="Read the Room" class="footer-logo" loading="lazy">
         <div class="footer-brand-text">
           <div class="footer-brand-name">Read the Room</div>
           <div class="footer-brand-rule"></div>
@@ -721,7 +774,7 @@
     <p class="modal-eyebrow">National &nbsp;·&nbsp; Every Tuesday</p>
     <div class="modal-rule"></div>
     <h3 class="modal-title">Read the Room</h3>
-    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="90bbd6cf-790a-44b1-b314-90d4af45c18b"></script>
+    <div id="beehiiv-form-rtr"></div>
   </div>
 </div>
 
@@ -732,19 +785,46 @@
     <p class="modal-eyebrow">East Alabama &nbsp;·&nbsp; Every Thursday</p>
     <div class="modal-rule"></div>
     <h3 class="modal-title">The Frequency</h3>
-    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="06c61880-f78a-444a-bb2a-2a28166e84cd"></script>
+    <div id="beehiiv-form-tf"></div>
   </div>
 </div>
 
 <script>
+  var beehiivLoaded = {};
+  var beehiivForms = {
+    'modal-rtr': { container: 'beehiiv-form-rtr', id: '90bbd6cf-790a-44b1-b314-90d4af45c18b' },
+    'modal-tf':  { container: 'beehiiv-form-tf',  id: '06c61880-f78a-444a-bb2a-2a28166e84cd' }
+  };
   function openModal(id) {
     document.getElementById(id).classList.add('active');
     document.body.style.overflow = 'hidden';
+    if (!beehiivLoaded[id] && beehiivForms[id]) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
+      s.setAttribute('data-beehiiv-form', beehiivForms[id].id);
+      document.getElementById(beehiivForms[id].container).appendChild(s);
+      beehiivLoaded[id] = true;
+    }
   }
   function closeModal(id) {
     document.getElementById(id).classList.remove('active');
     document.body.style.overflow = '';
   }
+  // Hamburger nav toggle
+  function toggleNav() {
+    var links = document.getElementById('nav-links');
+    links.classList.toggle('open');
+  }
+  // Close nav when a link is clicked
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('#nav-links .nav-link, #nav-links .nav-dropdown-link').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('nav-links').classList.remove('open');
+      });
+    });
+  });
+
   // Click outside modal box to close
   document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
     overlay.addEventListener('click', function(e) {

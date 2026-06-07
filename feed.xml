@@ -6,7 +6,7 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 04 Jun 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2026 12:00:00 +0000</lastBuildDate>
 
     <!-- ============================================================
          HOW TO ADD A NEW ISSUE:
@@ -15,6 +15,14 @@
          Date format: Tue, 09 Jun 2026 09:00:00 +0000
          URL format:  https://readtheroom.news/read-the-room/issue/10/
          ============================================================ -->
+
+    <item>
+      <title>Signal: What Is The Frequency? Alabama's Local Politics Newsletter, Explained</title>
+      <link>https://readtheroom.news/signal/alabama-politics-newsletter-the-frequency.html</link>
+      <guid isPermaLink="true">https://readtheroom.news/signal/alabama-politics-newsletter-the-frequency.html</guid>
+      <pubDate>Sun, 07 Jun 2026 12:00:00 +0000</pubDate>
+      <description>Five stories. Every Thursday. No static. The Frequency covers Alabama local government news in Chambers County and East Alabama — and this is what it's about.</description>
+    </item>
 
     <item>
       <title>The Frequency — Issue #8 | Eleven Days.</title>

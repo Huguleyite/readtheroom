@@ -6,7 +6,7 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 09 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Jun 2026 09:00:00 +0000</lastBuildDate>
 
     <!-- ============================================================
          HOW TO ADD A NEW ISSUE:
@@ -15,6 +15,14 @@
          Date format: Tue, 09 Jun 2026 09:00:00 +0000
          URL format:  https://readtheroom.news/read-the-room/issue/11/
          ============================================================ -->
+
+    <item>
+      <title>Signal: The Fund That Wouldn't Die</title>
+      <link>https://readtheroom.news/signal/the-fund-that-wouldnt-die.html</link>
+      <guid isPermaLink="true">https://readtheroom.news/signal/the-fund-that-wouldnt-die.html</guid>
+      <pubDate>Mon, 09 Jun 2026 09:00:00 +0000</pubDate>
+      <description>The Senate declared Trump's Anti-Weaponization Fund dead. The attorney general said so under oath. Then a $70 billion border bill passed with the fund still inside it.</description>
+    </item>
 
     <item>
       <title>Read the Room — Issue #10 | Face Value</title>

@@ -169,6 +169,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://readtheroom.news/signal/the-fund-that-wouldnt-die.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://readtheroom.news/signal/hantavirus-2026-what-you-need-to-know.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

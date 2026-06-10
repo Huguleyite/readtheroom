@@ -147,6 +147,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://readtheroom.news/the-frequency/issue/9/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://readtheroom.news/the-frequency/signals/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

@@ -665,21 +665,42 @@
 
 </div>
 
-<!-- ══════════════ SIGNAL/WAVE STRIP ══════════════ -->
-<!-- Remove this strip when the article is no longer new. Replace with next Signal or Wave when published. -->
-<div style="background:#c8a96e; border-top: 1px solid #b8954e; border-bottom: 1px solid #b8954e;">
-  <div style="max-width:1200px; margin:0 auto; padding: 16px 40px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-    <div style="display:flex; align-items:center; gap:14px;">
-      <span style="display:flex; align-items:center; gap:7px;">
-        <span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#1a1a18; animation:pulse 2s infinite;"></span>
-        <span style="font-family:'DM Sans',Arial,sans-serif; font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:#1a1a18;">Signal</span>
-      </span>
-      <span style="width:1px; height:16px; background:#b8954e; display:inline-block;"></span>
-      <span style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; font-weight:400; color:#1a1a18; animation:pulse 2s infinite;">The Fund That Wouldn&rsquo;t Die</span>
+<!-- ══════════════ ELECTION HQ CARD ══════════════ -->
+<!-- Election 2026 feature. Lives here through November 3, 2026. Update runoff date row after June 16. -->
+<!-- To retire after the election: restore the standard Signal/Wave strip in this slot. -->
+<div style="background:#15140f; border-top:1px solid #b8954e; border-bottom:1px solid #b8954e;">
+  <div style="max-width:1200px; margin:0 auto; padding:34px 40px;">
+    <div style="max-width:760px; margin:0 auto; background:#1a1a18; border:1px solid #c8a96e; padding:6px;">
+      <div style="border:1px solid rgba(200,169,110,0.35); padding:26px 28px 30px; text-align:center;">
+        <div style="font-family:'DM Sans',Arial,sans-serif; font-size:10px; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:#c8a96e; margin-bottom:12px;"><span style="font-size:8px; vertical-align:1px;">&#9670;</span>&nbsp;&nbsp;Election 2026&nbsp;&nbsp;<span style="font-size:8px; vertical-align:1px;">&#9670;</span></div>
+        <div id="election-countdown" style="font-family:'Playfair Display',Georgia,serif; font-size:30px; font-weight:700; color:#faf9f5; line-height:1.2; margin-bottom:8px;">Alabama votes November 3</div>
+        <div style="font-family:'Source Serif 4',Georgia,serif; font-size:15px; font-style:italic; color:#b4b2a9; margin-bottom:20px;">Governor. An open Senate seat. Your ballot in Chambers County. One guide.</div>
+        <div style="display:flex; justify-content:center; align-items:stretch; gap:22px; flex-wrap:wrap; margin-bottom:22px;">
+          <div style="min-width:90px;"><div style="font-family:'Playfair Display',Georgia,serif; font-size:19px; color:#c8a96e;">Jun 16</div><div style="font-family:'DM Sans',Arial,sans-serif; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#888780;">Runoff</div></div>
+          <div style="width:1px; background:rgba(200,169,110,0.4);"></div>
+          <div style="min-width:90px;"><div style="font-family:'Playfair Display',Georgia,serif; font-size:19px; color:#c8a96e;">Oct 19</div><div style="font-family:'DM Sans',Arial,sans-serif; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#888780;">Reg. deadline</div></div>
+          <div style="width:1px; background:rgba(200,169,110,0.4);"></div>
+          <div style="min-width:90px;"><div style="font-family:'Playfair Display',Georgia,serif; font-size:19px; color:#c8a96e;">Nov 3</div><div style="font-family:'DM Sans',Arial,sans-serif; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#888780;">General</div></div>
+        </div>
+        <a href="/signal/alabama-2026-election-guide.html" style="display:inline-block; font-family:'DM Sans',Arial,sans-serif; font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#1a1a18; background:#c8a96e; padding:9px 20px; border-radius:2px; text-decoration:none;">Read the election guide &rarr;</a>
+        <div style="margin-top:14px;"><span style="display:inline-flex; align-items:center; gap:6px;"><span style="display:inline-block; width:5px; height:5px; border-radius:50%; background:#c8a96e; animation:pulse 2s infinite;"></span><span style="font-family:'DM Sans',Arial,sans-serif; font-size:9px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#888780;">A Frequency Signal</span></span></div>
+      </div>
     </div>
-    <a href="/signal/the-fund-that-wouldnt-die.html" style="font-family:'DM Sans',Arial,sans-serif; font-size:12px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:#1a1a18; text-decoration:none; border:1px solid #1a1a18; padding:6px 14px; border-radius:2px; white-space:nowrap;">Read the Signal &rarr;</a>
   </div>
 </div>
+<script>
+(function () {
+  var el = document.getElementById('election-countdown');
+  if (!el) return;
+  var now = new Date();
+  var electionDay = new Date(2026, 10, 3);
+  var days = Math.ceil((electionDay - now) / 86400000);
+  if (days > 1) { el.textContent = days + ' days until Alabama votes'; }
+  else if (days === 1) { el.textContent = 'Alabama votes tomorrow'; }
+  else if (days === 0) { el.textContent = 'Alabama votes today'; }
+  else { el.textContent = 'Alabama has voted. Results are in.'; }
+})();
+</script>
 
 <!-- ══════════════ GAMES SECTION ══════════════ -->
 <section class="games-section">

@@ -6,7 +6,7 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 11 Jun 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2026 18:00:00 +0000</lastBuildDate>
 
     <!-- ============================================================
          HOW TO ADD A NEW ISSUE:
@@ -15,6 +15,14 @@
          Date format: Tue, 09 Jun 2026 09:00:00 +0000
          URL format:  https://readtheroom.news/read-the-room/issue/11/
          ============================================================ -->
+
+    <item>
+      <title>Signal: Alabama 2026 Election Guide — Every Race, Every Date, What's on Your Ballot</title>
+      <link>https://readtheroom.news/signal/alabama-2026-election-guide.html</link>
+      <guid isPermaLink="true">https://readtheroom.news/signal/alabama-2026-election-guide.html</guid>
+      <pubDate>Thu, 11 Jun 2026 18:00:00 +0000</pubDate>
+      <description>Tuberville vs. Jones for governor. An open U.S. Senate seat. A June 16 runoff. Every race and key date on Alabama's 2026 ballot, statewide and in Chambers County.</description>
+    </item>
 
     <item>
       <title>The Frequency — Issue #9 | Four Days.</title>

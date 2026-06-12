@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Do not index thumbnail files
+Disallow: /read-the-room/issue/10/thumbnail.html
+Disallow: /the-frequency/issue/9/thumbnail.html
+
+Sitemap: https://readtheroom.news/sitemap.xml

@@ -579,59 +579,100 @@
   <div style="position:absolute; inset:0; background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200,169,110,0.04) 39px, rgba(200,169,110,0.04) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(200,169,110,0.04) 39px, rgba(200,169,110,0.04) 40px); pointer-events:none;"></div>
   <div style="position:relative; z-index:1; max-width:960px; margin:0 auto; padding:64px 40px 60px; text-align:center;">
 
-    <!-- Eyebrow with flanking rules -->
+    <!-- Eyebrow with animated flanking rules -->
     <div style="display:flex; align-items:center; justify-content:center; gap:20px; margin-bottom:30px;">
-      <div style="flex:1; max-width:100px; height:1px; background:linear-gradient(to right, transparent, rgba(200,169,110,0.5));"></div>
-      <span style="font-family:'DM Sans',Arial,sans-serif; font-size:9px; font-weight:500; letter-spacing:0.34em; text-transform:uppercase; color:#c8a96e;">Election 2026</span>
-      <div style="flex:1; max-width:100px; height:1px; background:linear-gradient(to left, transparent, rgba(200,169,110,0.5));"></div>
+      <div id="elec-rule-l" style="height:1px; background:rgba(200,169,110,0.5); width:0; transition:width 1s ease;"></div>
+      <span id="elec-eyebrow" style="font-family:'DM Sans',Arial,sans-serif; font-size:9px; font-weight:500; letter-spacing:0.34em; text-transform:uppercase; color:#c8a96e; opacity:0; transition:opacity 0.6s ease;">Election 2026</span>
+      <div id="elec-rule-r" style="height:1px; background:rgba(200,169,110,0.5); width:0; transition:width 1s ease;"></div>
     </div>
 
     <!-- Countdown headline -->
-    <div id="election-countdown" style="font-family:'Playfair Display',Georgia,serif; font-size:52px; font-weight:900; color:#faf9f5; line-height:1.05; letter-spacing:0.03em; margin-bottom:18px; -webkit-text-stroke:1px rgba(200,169,110,0.5); text-shadow:0 0 48px rgba(200,169,110,0.15);">Alabama votes November 3</div>
+    <div id="elec-hed" style="margin-bottom:18px; opacity:0; transform:translateY(14px); transition:opacity 0.7s ease, transform 0.7s ease;">
+      <span id="elec-num" style="font-family:'Playfair Display',Georgia,serif; font-size:52px; font-weight:900; color:#faf9f5; line-height:1.05; letter-spacing:0.03em; -webkit-text-stroke:1px rgba(200,169,110,0.5); text-shadow:0 0 48px rgba(200,169,110,0.15);"></span><span id="elec-label" style="font-family:'Playfair Display',Georgia,serif; font-size:52px; font-weight:900; color:#faf9f5; line-height:1.05; letter-spacing:0.03em; -webkit-text-stroke:1px rgba(200,169,110,0.5); text-shadow:0 0 48px rgba(200,169,110,0.15);"></span>
+    </div>
 
     <!-- Subhead -->
-    <p style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; font-style:italic; font-weight:300; color:#666660; line-height:1.75; max-width:520px; margin:0 auto 48px;">Governor. An open Senate seat. Your ballot in Chambers County. One guide.</p>
+    <p id="elec-sub" style="font-family:'Source Serif 4',Georgia,serif; font-size:17px; font-style:italic; font-weight:300; color:#666660; line-height:1.75; max-width:520px; margin:0 auto 48px; opacity:0; transform:translateY(8px); transition:opacity 0.6s ease, transform 0.6s ease;">Governor. An open Senate seat. Your ballot in Chambers County. One guide.</p>
 
     <!-- Date milestone strip -->
     <div style="display:flex; justify-content:center; align-items:stretch; max-width:440px; margin:0 auto 44px; border:1px solid rgba(200,169,110,0.3);">
-      <div style="flex:1; padding:22px 12px; border-right:1px solid rgba(200,169,110,0.3);">
+      <div id="elec-m1" style="flex:1; padding:22px 12px; border-right:1px solid rgba(200,169,110,0.3); opacity:0; transform:translateY(10px); transition:opacity 0.5s ease, transform 0.5s ease;">
         <div style="font-family:'Playfair Display',Georgia,serif; font-size:28px; font-weight:700; color:#c8a96e; line-height:1; margin-bottom:8px;">Jun 16</div>
         <div style="font-family:'DM Sans',Arial,sans-serif; font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:#444440;">Runoff</div>
       </div>
-      <div style="flex:1; padding:22px 12px; border-right:1px solid rgba(200,169,110,0.3);">
+      <div id="elec-m2" style="flex:1; padding:22px 12px; border-right:1px solid rgba(200,169,110,0.3); opacity:0; transform:translateY(10px); transition:opacity 0.5s ease, transform 0.5s ease;">
         <div style="font-family:'Playfair Display',Georgia,serif; font-size:28px; font-weight:700; color:#c8a96e; line-height:1; margin-bottom:8px;">Oct 19</div>
         <div style="font-family:'DM Sans',Arial,sans-serif; font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:#444440;">Reg. Deadline</div>
       </div>
-      <div style="flex:1; padding:22px 12px;">
+      <div id="elec-m3" style="flex:1; padding:22px 12px; opacity:0; transform:translateY(10px); transition:opacity 0.5s ease, transform 0.5s ease;">
         <div style="font-family:'Playfair Display',Georgia,serif; font-size:28px; font-weight:700; color:#c8a96e; line-height:1; margin-bottom:8px;">Nov 3</div>
         <div style="font-family:'DM Sans',Arial,sans-serif; font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:#444440;">General</div>
       </div>
     </div>
 
     <!-- CTA -->
-    <a href="/signal/alabama-2026-election-guide.html" style="display:inline-block; font-family:'DM Sans',Arial,sans-serif; font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:#1a1a18; background:#c8a96e; padding:14px 34px; text-decoration:none;">Read the election guide &rarr;</a>
-
-    <!-- Live pulse -->
-    <div style="margin-top:22px;">
-      <span style="display:inline-flex; align-items:center; gap:8px;">
-        <span style="display:inline-block; width:5px; height:5px; border-radius:50%; background:#c8a96e; animation:pulse 2s infinite;"></span>
-        <span style="font-family:'DM Sans',Arial,sans-serif; font-size:9px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:#333330;">A Frequency Signal</span>
-      </span>
+    <div id="elec-cta" style="opacity:0; transition:opacity 0.6s ease;">
+      <a href="/signal/alabama-2026-election-guide.html" style="display:inline-block; font-family:'DM Sans',Arial,sans-serif; font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:#1a1a18; background:#c8a96e; padding:14px 34px; text-decoration:none;">Read the election guide &rarr;</a>
+      <div style="margin-top:22px;">
+        <span style="display:inline-flex; align-items:center; gap:8px;">
+          <span style="display:inline-block; width:5px; height:5px; border-radius:50%; background:#c8a96e; animation:pulse 2s infinite;"></span>
+          <span style="font-family:'DM Sans',Arial,sans-serif; font-size:9px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:#333330;">A Frequency Signal</span>
+        </span>
+      </div>
     </div>
 
   </div>
 </div>
 <script>
 (function () {
-  var el = document.getElementById('election-countdown');
-  if (!el) return;
   var now = new Date();
   var electionDay = new Date(2026, 10, 3);
-  var days = Math.ceil((electionDay - now) / 86400000);
-  if (days > 1) { el.textContent = days + ' days until Alabama votes'; }
-  else if (days === 1) { el.textContent = 'Alabama votes tomorrow'; }
-  else if (days === 0) { el.textContent = 'Alabama votes today'; }
-  else { el.textContent = 'Alabama has voted. Results are in.'; }
+  var actualDays = Math.ceil((electionDay - now) / 86400000);
+
+  function reveal(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.style.opacity = '1';
+    el.style.transform = 'translateY(0)';
+  }
+
+  requestAnimationFrame(function () {
+    // Rules draw out + eyebrow fades in
+    document.getElementById('elec-eyebrow').style.opacity = '1';
+    document.getElementById('elec-rule-l').style.width = '100px';
+    document.getElementById('elec-rule-r').style.width = '100px';
+
+    // Headline fades up, then number ticks down
+    setTimeout(function () {
+      reveal('elec-hed');
+      var numEl   = document.getElementById('elec-num');
+      var labelEl = document.getElementById('elec-label');
+      if (actualDays <= 0) {
+        numEl.textContent   = '';
+        labelEl.textContent = actualDays === 0 ? 'Alabama votes today' : 'Alabama has voted. Results are in.';
+        return;
+      }
+      labelEl.textContent = ' days until Alabama votes';
+      var current = actualDays + 40;
+      numEl.textContent = Math.round(current);
+      var ticker = setInterval(function () {
+        current -= 40 / 30;
+        if (current <= actualDays) { numEl.textContent = actualDays; clearInterval(ticker); }
+        else { numEl.textContent = Math.round(current); }
+      }, 30);
+    }, 300);
+
+    // Subhead
+    setTimeout(function () { reveal('elec-sub'); }, 1000);
+
+    // Milestones stagger
+    setTimeout(function () { reveal('elec-m1'); }, 1300);
+    setTimeout(function () { reveal('elec-m2'); }, 1500);
+    setTimeout(function () { reveal('elec-m3'); }, 1700);
+
+    // CTA
+    setTimeout(function () { reveal('elec-cta'); }, 2000);
+  });
 })();
 </script>
 

@@ -286,12 +286,194 @@
 
   .back-link:hover { color: #7a4e1a; }
 
+  /* ── Tomorrow banner ── */
+  .tomorrow-banner {
+    background: #1a1a18;
+    color: #c8a96e;
+    padding: 10px 18px;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  /* ── Runoff section ── */
+  .runoff-section {
+    border: 1.5px solid #1a1a18;
+    margin-bottom: 36px;
+  }
+
+  .runoff-section-header {
+    background: #1a1a18;
+    color: #faf9f5;
+    padding: 14px 20px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .runoff-section-header span {
+    color: #c8a96e;
+  }
+
+  /* ── Race cards ── */
+  .race-card {
+    border-bottom: 1px solid #d0cfc8;
+    padding: 20px 20px 16px;
+  }
+
+  .race-card:last-child { border-bottom: none; }
+
+  .race-label {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888880;
+    margin-bottom: 12px;
+  }
+
+  .race-parties {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .party-column {
+    padding: 14px 16px;
+    border-radius: 3px;
+  }
+
+  .party-column.republican {
+    background: #fff5f5;
+    border: 1px solid #e8caca;
+  }
+
+  .party-column.democratic {
+    background: #f0f4ff;
+    border: 1px solid #c0cce8;
+  }
+
+  .party-name {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .party-column.republican .party-name { color: #b03030; }
+  .party-column.democratic .party-name { color: #2a50a8; }
+
+  .candidate {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a18;
+    line-height: 1.35;
+    padding: 5px 0;
+    border-bottom: 0.5px solid rgba(0,0,0,0.08);
+  }
+
+  .candidate:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .candidate-note {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: #666662;
+    margin-top: 1px;
+  }
+
+  .vs-label {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #aaa89f;
+    padding: 3px 0;
+    text-align: center;
+  }
+
+  /* ── Eligibility box ── */
+  .eligibility-box {
+    background: #fffcf4;
+    border: 1.5px solid #c8a96e;
+    padding: 20px 22px;
+    margin-bottom: 32px;
+    border-radius: 3px;
+  }
+
+  .eligibility-box-label {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #b8782a;
+    margin-bottom: 14px;
+  }
+
+  .eligibility-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 14px;
+    align-items: start;
+    margin-bottom: 10px;
+  }
+
+  .eligibility-row:last-of-type { margin-bottom: 0; }
+
+  .eligibility-tag {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #faf9f5;
+    background: #555550;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .eligibility-tag.rep { background: #b03030; }
+  .eligibility-tag.dem { background: #2a50a8; }
+  .eligibility-tag.choose { background: #3a7a4a; }
+
+  .eligibility-text {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 13.5px;
+    font-weight: 300;
+    color: #333330;
+    line-height: 1.55;
+  }
+
+  .eligibility-note {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #666662;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 0.5px solid #d0cfc8;
+    line-height: 1.6;
+  }
+
   /* ── Responsive ── */
   @media (max-width: 600px) {
     .page { padding: 0 24px 48px; }
     .article-hed { font-size: 26px; }
     .article-dek { font-size: 15px; }
     .article-body { font-size: 16px; }
+    .race-parties { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -325,6 +507,131 @@
       <li><strong>October 19</strong> &mdash; Last day to register for the general election</li>
       <li><strong>November 3</strong> &mdash; General election. Polls open 7 a.m. to 7 p.m.</li>
     </ul>
+  </div>
+
+  <!-- June 16 Runoff Spotlight -->
+  <div class="tomorrow-banner">Tuesday, June 16 &mdash; Primary Runoff Day</div>
+  <div class="runoff-section">
+    <div class="runoff-section-header">Tomorrow&rsquo;s Ballot &mdash; <span>Who You&rsquo;re Voting For</span></div>
+
+    <!-- U.S. Senate -->
+    <div class="race-card">
+      <div class="race-label">U.S. Senate &mdash; Statewide</div>
+      <div class="race-parties">
+        <div class="party-column republican">
+          <div class="party-name">Republican Primary</div>
+          <div class="candidate">Jared Hudson
+            <div class="candidate-note">Businessman</div>
+          </div>
+          <div class="vs-label">vs.</div>
+          <div class="candidate">Barry Moore
+            <div class="candidate-note">U.S. Congressman</div>
+          </div>
+        </div>
+        <div class="party-column democratic">
+          <div class="party-name">Democratic Primary</div>
+          <div class="candidate">Dakarai Larriett
+            <div class="candidate-note">Businessman</div>
+          </div>
+          <div class="vs-label">vs.</div>
+          <div class="candidate">Everett Wess
+            <div class="candidate-note">Attorney</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lt. Governor -->
+    <div class="race-card">
+      <div class="race-label">Lieutenant Governor &mdash; Statewide</div>
+      <div class="race-parties">
+        <div class="party-column republican">
+          <div class="party-name">Republican Primary</div>
+          <div class="candidate">Wes Allen
+            <div class="candidate-note">Secretary of State</div>
+          </div>
+          <div class="vs-label">vs.</div>
+          <div class="candidate">John Wahl
+            <div class="candidate-note">State Party Chairman</div>
+          </div>
+        </div>
+        <div class="party-column democratic">
+          <div class="party-name">Democratic Primary</div>
+          <div class="candidate" style="padding-top:0;">No runoff.
+            <div class="candidate-note">Phillip Ensler advances to November.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Attorney General -->
+    <div class="race-card">
+      <div class="race-label">Attorney General &mdash; Statewide</div>
+      <div class="race-parties">
+        <div class="party-column republican">
+          <div class="party-name">Republican Primary</div>
+          <div class="candidate">Katherine Robertson
+            <div class="candidate-note">Attorney</div>
+          </div>
+          <div class="vs-label">vs.</div>
+          <div class="candidate">Jay Mitchell
+            <div class="candidate-note">Attorney</div>
+          </div>
+        </div>
+        <div class="party-column democratic">
+          <div class="party-name">Democratic Primary</div>
+          <div class="candidate" style="padding-top:0;">No runoff.
+            <div class="candidate-note">Jeff McLaughlin advances to November.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PSC Place 2 -->
+    <div class="race-card">
+      <div class="race-label">Public Service Commission &mdash; Place 2 &mdash; Statewide</div>
+      <div class="race-parties">
+        <div class="party-column republican">
+          <div class="party-name">Republican Primary</div>
+          <div class="candidate">Chip Beeker
+            <div class="candidate-note">Incumbent Commissioner</div>
+          </div>
+          <div class="vs-label">vs.</div>
+          <div class="candidate">Jim Zeigler
+            <div class="candidate-note">Former State Auditor</div>
+          </div>
+        </div>
+        <div class="party-column democratic">
+          <div class="party-name">Democratic Primary</div>
+          <div class="candidate" style="padding-top:0;">No runoff.
+            <div class="candidate-note">Sheila McNeil advances to November.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /runoff-section -->
+
+  <!-- Eligibility Explainer -->
+  <div class="eligibility-box">
+    <div class="eligibility-box-label">Who Can Vote in Which Primary?</div>
+
+    <div class="eligibility-row">
+      <div class="eligibility-tag rep">Voted Republican<br>on May 19</div>
+      <div class="eligibility-text">You must vote in the <strong>Republican runoff</strong> on June 16. You cannot switch parties for the runoff. Poll workers will have your record on file.</div>
+    </div>
+
+    <div class="eligibility-row">
+      <div class="eligibility-tag dem">Voted Democratic<br>on May 19</div>
+      <div class="eligibility-text">You must vote in the <strong>Democratic runoff</strong> on June 16. Same principle — your May primary choice locks your runoff party.</div>
+    </div>
+
+    <div class="eligibility-row">
+      <div class="eligibility-tag choose">Didn&rsquo;t Vote<br>on May 19</div>
+      <div class="eligibility-text">You can walk in tomorrow and <strong>choose either party&rsquo;s runoff</strong>. Alabama has open primaries &mdash; no party registration &mdash; so your first vote this cycle is your choice.</div>
+    </div>
+
+    <div class="eligibility-note">Alabama does not require party registration. You declare your party at the polls by which ballot you request. The rule is simple: one party per election cycle. If you voted a primary in May, your runoff party is already set. If you sat May out, tomorrow is your call.</div>
   </div>
 
   <!-- Body -->

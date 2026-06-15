@@ -6,15 +6,23 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 11 Jun 2026 18:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 09:00:00 +0000</lastBuildDate>
 
     <!-- ============================================================
          HOW TO ADD A NEW ISSUE:
          Copy the <item> block below, paste it at the TOP of the list
          (just after this comment), and fill in the fields.
          Date format: Tue, 09 Jun 2026 09:00:00 +0000
-         URL format:  https://readtheroom.news/read-the-room/issue/11/
+         URL format:  https://readtheroom.news/read-the-room/issue/12/
          ============================================================ -->
+
+    <item>
+      <title>Read the Room — Issue #11 | Prove It</title>
+      <link>https://readtheroom.news/read-the-room/issue/11/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/11/</guid>
+      <pubDate>Tue, 16 Jun 2026 09:00:00 +0000</pubDate>
+      <description>The SAVE America Act would require a passport or birth certificate to register to vote. The Senate has blocked it twice. 21 million Americans may not have the document. Both sides, no spin.</description>
+    </item>
 
     <item>
       <title>Signal: Alabama 2026 Election Guide — Every Race, Every Date, What's on Your Ballot</title>

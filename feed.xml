@@ -6,7 +6,7 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 16 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jun 2026 12:00:00 +0000</lastBuildDate>
 
     <!-- ============================================================
          HOW TO ADD A NEW ISSUE:
@@ -15,6 +15,14 @@
          Date format: Tue, 09 Jun 2026 09:00:00 +0000
          URL format:  https://readtheroom.news/read-the-room/issue/12/
          ============================================================ -->
+
+    <item>
+      <title>The Frequency — Issue #10 | The Verdict.</title>
+      <link>https://readtheroom.news/the-frequency/issue/10/</link>
+      <guid isPermaLink="true">https://readtheroom.news/the-frequency/issue/10/</guid>
+      <pubDate>Wed, 18 Jun 2026 12:00:00 +0000</pubDate>
+      <description>The runoffs are settled. Barry Moore and Jim Ziegler have their nominations. The PSC lawsuit has 28 days. Alabama&#8217;s reading law is three weeks old. Chambers County&#8217;s next shot at economic development. And the full November ballot.</description>
+    </item>
 
     <item>
       <title>Read the Room — Issue #11 | Prove It</title>

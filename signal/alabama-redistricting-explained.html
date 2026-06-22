@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alabama Redistricting, Explained | The Frequency Signal</title>
+<meta name="description" content="Every decade, Alabama's political lines get redrawn. Here's who does it, how it works, and what has been fought over for decades.">
+<meta property="og:title" content="Alabama Redistricting, Explained">
+<meta property="og:description" content="Every decade, Alabama's political lines get redrawn. Here's who does it, how it works, and what has been fought over for decades.">
+<meta property="og:url" content="https://readtheroom.news/signal/alabama-redistricting-explained.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Read the Room">
+<link rel="canonical" href="https://readtheroom.news/signal/alabama-redistricting-explained.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; }
+  body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 300;
+    background: #f0ede6;
+    color: #1a1a18;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #faf9f5;
+    padding: 0 56px 72px;
+  }
+
+  /* ── Site bar ── */
+  .site-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 0.5px solid #d0cfc8;
+    margin-bottom: 40px;
+  }
+
+  .site-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a18;
+    text-decoration: none;
+  }
+
+  .site-name:hover { color: #b8782a; }
+
+  .content-type {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888880;
+  }
+
+  /* ── Signal badge ── */
+  .signal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1a1a18;
+    color: #c8a96e;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  .signal-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #c8a96e;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ── Article header ── */
+  .article-hed {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #1a1a18;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .article-dek {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    color: #555550;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .article-meta {
+    font-size: 11px;
+    font-weight: 400;
+    color: #888880;
+    letter-spacing: 0.06em;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid #d0cfc8;
+    margin-bottom: 32px;
+  }
+
+  /* ── Body ── */
+  .article-body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.82;
+    color: #1a1a18;
+  }
+
+  .article-body p + p {
+    margin-top: 20px;
+  }
+
+  .article-body h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a18;
+    margin: 36px 0 12px;
+    padding-top: 28px;
+    border-top: 0.5px solid #d0cfc8;
+  }
+
+  /* ── Key facts box ── */
+  .facts-box {
+    background: #f0efe8;
+    border-left: 3px solid #b8782a;
+    padding: 16px 20px;
+    margin: 28px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .facts-box-label {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #b8782a;
+    margin-bottom: 10px;
+  }
+
+  .facts-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .facts-box li {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #1a1a18;
+    line-height: 1.6;
+    padding: 5px 0;
+    border-bottom: 0.5px solid #d0cfc8;
+  }
+
+  .facts-box li:last-child { border-bottom: none; }
+
+  .facts-box li strong {
+    font-weight: 500;
+  }
+
+  /* ── Pull quote ── */
+  .pull-quote {
+    border-left: 3px solid #b8782a;
+    padding: 12px 20px;
+    margin: 32px 0;
+  }
+
+  .pull-quote p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    color: #1a1a18;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .pull-quote cite {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888880;
+    font-style: normal;
+    display: block;
+    margin-top: 10px;
+  }
+
+  /* ── Sources ── */
+  .article-sources {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 2px solid #1a1a18;
+  }
+
+  .sources-label {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888880;
+    margin-bottom: 10px;
+  }
+
+  .sources-list {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: #888880;
+    line-height: 1.9;
+  }
+
+  .sources-list a {
+    color: #888880;
+    text-decoration: none;
+    border-bottom: 0.5px solid #d0cfc8;
+  }
+
+  .sources-list a:hover {
+    color: #1a1a18;
+    border-bottom-color: #1a1a18;
+  }
+
+  /* ── Back link ── */
+  .back-link {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #b8782a;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 0.5px solid #d0cfc8;
+    width: 100%;
+  }
+
+  .back-link:hover { color: #7a4e1a; }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .page { padding: 0 24px 48px; }
+    .article-hed { font-size: 26px; }
+    .article-dek { font-size: 15px; }
+    .article-body { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Site bar -->
+  <div class="site-bar">
+    <a href="/" class="site-name">Read the Room</a>
+    <span class="content-type">Signal &mdash; The Frequency</span>
+  </div>
+
+  <!-- Signal badge -->
+  <div class="signal-badge">
+    <div class="signal-dot"></div>
+    Signal
+  </div>
+
+  <!-- Article header -->
+  <h1 class="article-hed">Alabama Redistricting, Explained</h1>
+  <p class="article-dek">Every decade, Alabama&rsquo;s political lines get redrawn. Here&rsquo;s who does it, how it works, and what has been fought over for decades.</p>
+  <p class="article-meta">June 22, 2026 &nbsp;&middot;&nbsp; The Frequency Signal &nbsp;&middot;&nbsp; Alabama Politics</p>
+
+  <!-- Key facts box -->
+  <div class="facts-box">
+    <div class="facts-box-label">By the Numbers</div>
+    <ul>
+      <li><strong>Alabama&rsquo;s Black population:</strong> More than 26 percent</li>
+      <li><strong>Congressional districts:</strong> 7 total</li>
+      <li><strong>State legislature seats:</strong> 140 &mdash; 105 House, 35 Senate</li>
+      <li><strong>Preclearance ended:</strong> <em>Shelby County v. Holder</em>, June 2013</li>
+      <li><strong>VRA Section 2 upheld:</strong> <em>Allen v. Milligan</em>, June 2023 (5&ndash;4)</li>
+      <li><strong>Section 2 intent standard raised:</strong> <em>Louisiana v. Callais</em>, April 2026</li>
+      <li><strong>2023 Alabama map restored:</strong> SCOTUS stay, June 2, 2026</li>
+    </ul>
+  </div>
+
+  <!-- Body -->
+  <div class="article-body">
+
+    <h2>What Redistricting Is</h2>
+
+    <p>Every ten years, after the federal Census counts the population, states redraw the boundaries of their legislative and congressional districts. The practice ensures that representation stays roughly proportional to population &mdash; a constitutional requirement known as one person, one vote.</p>
+
+    <p>Districts shift as people move. Cities grow. Rural areas shrink. Redistricting is the mechanism that recalibrates representation to match those changes. It also determines, in practical terms, how competitive elections are and which communities share a representative.</p>
+
+    <p>Alabama has seven seats in the U.S. House of Representatives and 140 seats in the state legislature &mdash; 105 in the House, 35 in the Senate. Every one of those districts gets redrawn after the Census.</p>
+
+    <h2>Who Draws the Lines</h2>
+
+    <p>In Alabama, the state legislature draws the maps. Both chambers &mdash; the House and the Senate &mdash; must pass a single redistricting plan, which the governor can sign or veto. If vetoed, the legislature can override with a majority vote in each chamber.</p>
+
+    <p>There is no independent redistricting commission in Alabama. No citizen panel. No third-party review. The politicians whose careers depend on electoral outcomes draw the boundaries of their own districts. Both parties do this when in power. Republicans have controlled Alabama&rsquo;s legislature since 2010 and have drawn every map since.</p>
+
+    <h2>The Rules That Govern Maps</h2>
+
+    <p>Map-drawers do not have unlimited authority. Several legal frameworks constrain what they can do.</p>
+
+    <p>The U.S. Constitution requires population equality across districts &mdash; each district must contain roughly the same number of residents. Significant deviations invite legal challenge.</p>
+
+    <p>The Alabama Constitution adds its own requirements: state legislative districts must be contiguous, and state Senate districts must follow county lines where possible. You cannot draw a district that skips over towns or stitches together disconnected geographic islands.</p>
+
+    <p>The most significant constraint for Alabama has been federal: Section 2 of the Voting Rights Act of 1965 prohibits any voting practice or procedure &mdash; including district maps &mdash; that results in the denial or abridgement of the right to vote on account of race. Under Section 2, a state cannot draw maps that dilute the voting power of a racial minority group if that group is sufficiently large and geographically compact to form a majority in one or more districts.</p>
+
+    <h2>The Ten-Year Cycle</h2>
+
+    <p>Redistricting is tied to the federal Census, which takes place at the start of each decade &mdash; 2000, 2010, 2020. Alabama law requires that state legislative lines be drawn in the first legislative session after Census data is released. Congressional lines have no specific deadline in state law, though they typically move on a similar timeline.</p>
+
+    <p>After the 2020 Census, Alabama received its population data in 2021. The legislature drew and passed new maps that same year. Those maps became the subject of years of litigation.</p>
+
+    <h2>Section 5 and Alabama&rsquo;s History Under the VRA</h2>
+
+    <p>For decades after the Voting Rights Act was passed in 1965, Alabama operated under one of its most powerful provisions: Section 5 preclearance.</p>
+
+    <p>Under Section 5, certain states with documented histories of voting discrimination &mdash; Alabama among them &mdash; were required to submit any change to voting laws or district maps to the federal government for approval before those changes could take effect. The government had to certify that the change did not make minority voters worse off. States could not act first and defend later. They had to get permission.</p>
+
+    <p>Alabama had numerous redistricting plans blocked through preclearance, along with changes to voter registration procedures, methods of election, and candidate qualifying rules. Preclearance functioned as a standing checkpoint between Alabama&rsquo;s legislature and its voters.</p>
+
+    <h2>Shelby County v. Holder (2013)</h2>
+
+    <p>In June 2013, the Supreme Court gutted preclearance in <em>Shelby County v. Holder</em>. The Court ruled 5&ndash;4 that the formula used to determine which states were subject to Section 5 was unconstitutional &mdash; it was based on voting conditions from the 1960s and 1970s and no longer reflected current circumstances. Without a valid coverage formula, Section 5 became unenforceable.</p>
+
+    <p>Shelby County, Alabama &mdash; an affluent suburb of Birmingham &mdash; was the plaintiff. The ruling ended federal preclearance nationwide.</p>
+
+    <p>Alabama&rsquo;s legislature was no longer required to ask for permission before changing its election laws. Redistricting scrutiny shifted from preventive review to after-the-fact litigation.</p>
+
+    <h2>Allen v. Milligan (2023)</h2>
+
+    <p>The 2020 cycle produced the next major clash. After the Census, Alabama&rsquo;s legislature passed a congressional map with seven districts. Six were drawn to favor Republicans. One &mdash; the 7th Congressional District &mdash; was majority-Black. Alabama is more than 26 percent Black.</p>
+
+    <p>Civil rights groups sued under Section 2 of the Voting Rights Act, arguing that Alabama&rsquo;s map diluted Black voting power and that the state&rsquo;s Black population was large enough, concentrated enough, and politically cohesive enough to support a second district where Black voters could elect their preferred candidate.</p>
+
+    <p>The case reached the Supreme Court as <em>Allen v. Milligan</em>. In June 2023, the Court ruled 5&ndash;4 that Alabama&rsquo;s map likely violated Section 2. Writing for the majority, Chief Justice John Roberts held that the lower court was correct: Alabama needed to draw a second district that gave Black voters a meaningful opportunity to elect a representative of their choice.</p>
+
+    <p>Alabama&rsquo;s legislature passed a new map in 2023, but it still had only one majority-Black district while adding slightly more Black voters to an adjacent district. Federal courts rejected it. A three-judge panel selected a court-ordered remedial map, known as Remedial Plan 3, which created a second near-majority Black district &mdash; the 2nd Congressional District &mdash; with a Black voting-age population of 48.7%. The Supreme Court allowed the court-ordered map to stand.</p>
+
+    <p>Democrat Shomari Figures won the newly redrawn 2nd District in 2024, the first Democrat to represent that district in nearly three decades.</p>
+
+    <h2>Callais and the Shift in 2026</h2>
+
+    <p>In April 2026, the legal landscape changed again. The Supreme Court issued its ruling in <em>Louisiana v. Callais</em>, which substantially raised the bar for Section 2 claims in the redistricting context. The Court&rsquo;s majority held that plaintiffs challenging maps under Section 2 must now demonstrate discriminatory intent by lawmakers, not merely discriminatory effect. A map that produces racially unequal outcomes is no longer sufficient on its own to establish a violation.</p>
+
+    <p>The ruling made it significantly harder for minority voters to challenge maps in federal court.</p>
+
+    <h2>Where Things Stand</h2>
+
+    <p>In the immediate aftermath of <em>Callais</em>, Alabama moved quickly. Gov. Kay Ivey announced the state would not redraw its maps. In May 2026, state officials asked the Supreme Court to lift the injunctions blocking Alabama&rsquo;s original 2023 map, which federal courts had previously struck down.</p>
+
+    <p>On June 2, 2026, the Supreme Court granted the stay. Alabama will use its 2023 congressional map &mdash; six Republican-leaning districts, one Democratic-leaning district &mdash; for the 2026 elections. The court-ordered Remedial Plan 3 has been set aside.</p>
+
+    <p>Congressman Shomari Figures, who won the redrawn 2nd District in 2024, faces a significantly more difficult reelection path under the restored map.</p>
+
+    <p>The next scheduled redistricting cycle begins after the 2030 Census.</p>
+
+  </div>
+
+  <!-- Sources -->
+  <div class="article-sources">
+    <div class="sources-label">Sources</div>
+    <div class="sources-list">
+      <a href="https://redistricting.lls.edu/state/alabama/" target="_blank" rel="noopener">Loyola Law School &mdash; All About Redistricting: Alabama</a> &nbsp;&middot;&nbsp;
+      <a href="https://ballotpedia.org/Redistricting_in_Alabama" target="_blank" rel="noopener">Ballotpedia &mdash; Redistricting in Alabama</a> &nbsp;&middot;&nbsp;
+      <a href="https://www.brennancenter.org/our-work/research-reports/preclearance-under-voting-rights-act" target="_blank" rel="noopener">Brennan Center &mdash; Preclearance Under the VRA</a> &nbsp;&middot;&nbsp;
+      <a href="https://www.naacpldf.org/case-issue/merrill-v-milligan-faq/" target="_blank" rel="noopener">NAACP LDF &mdash; Allen v. Milligan FAQ</a> &nbsp;&middot;&nbsp;
+      <a href="https://www.npr.org/2023/10/05/1203309716/alabama-2024-congressional-map" target="_blank" rel="noopener">NPR &mdash; Alabama Gets New 2024 Congressional Map</a> &nbsp;&middot;&nbsp;
+      <a href="https://www.democracydocket.com/news-alerts/scotus-greenlights-11th-hour-alabama-redistricting-plan-for-2026-election/" target="_blank" rel="noopener">Democracy Docket &mdash; SCOTUS Greenlights Alabama 2026 Map</a> &nbsp;&middot;&nbsp;
+      <a href="https://www.npr.org/2026/06/02/nx-s1-5844744/supreme-court-alabama-congressional-districts" target="_blank" rel="noopener">NPR &mdash; Supreme Court Reinstates Alabama Districts (June 2026)</a> &nbsp;&middot;&nbsp;
+      <a href="https://alabamareflector.com/2026/04/29/callais-fallout-in-alabama-no-redistricting-now-says-ivey-partisan-divides-over-scotus-ruling/" target="_blank" rel="noopener">Alabama Reflector &mdash; Callais Fallout in Alabama</a>
+    </div>
+  </div>
+
+  <a href="/the-frequency/signals/" class="back-link">&larr; All Signals</a>
+
+</div><!-- /page -->
+
+</body>
+</html>

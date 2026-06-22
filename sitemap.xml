@@ -104,6 +104,11 @@
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://readtheroom.news/read-the-room/issue/12/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
 
   <!-- The Frequency Newsletter -->
   <url>
@@ -173,6 +178,11 @@
   </url>
 
   <!-- Signal & Wave Articles -->
+  <url>
+    <loc>https://readtheroom.news/signal/alabama-redistricting-explained.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://readtheroom.news/signal/alabama-2026-election-guide.html</loc>
     <changefreq>weekly</changefreq>

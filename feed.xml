@@ -6,7 +6,23 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 18 Jun 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Jun 2026 12:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Signal: Alabama Redistricting, Explained</title>
+      <link>https://readtheroom.news/signal/alabama-redistricting-explained.html</link>
+      <guid isPermaLink="true">https://readtheroom.news/signal/alabama-redistricting-explained.html</guid>
+      <pubDate>Sun, 22 Jun 2026 12:00:00 +0000</pubDate>
+      <description>Every decade, Alabama's political lines get redrawn. Here's who draws the maps, the rules that govern them, and the legal battles — from Section 5 preclearance to Shelby County to Allen v. Milligan to Callais — that have defined redistricting in Alabama for decades.</description>
+    </item>
+
+    <item>
+      <title>Read the Room — Issue #12 | The New Deal</title>
+      <link>https://readtheroom.news/read-the-room/issue/12/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/12/</guid>
+      <pubDate>Tue, 24 Jun 2026 09:00:00 +0000</pubDate>
+      <description>Trump called the JCPOA the worst deal ever and withdrew in 2018. In June 2026, he signed a 14-point MOU with Iran. The JCPOA took 20 months and 8 parties. The MOU gives 60 days. A side-by-side comparison of both deals.</description>
+    </item>
 
     <!-- ============================================================
          HOW TO ADD A NEW ISSUE:

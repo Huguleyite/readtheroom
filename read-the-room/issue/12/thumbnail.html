@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>Read the Room — Issue #12 Thumbnail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  .thumb {
+    width: 1200px;
+    height: 630px;
+    background: #111110;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 88px;
+    overflow: hidden;
+  }
+
+  /* Top gold rule */
+  .top-rule {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: #c8a96e;
+  }
+
+  /* Grid overlay */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,169,110,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,169,110,0.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Ghost issue number */
+  .ghost-num {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 360px;
+    font-weight: 900;
+    color: #faf9f5;
+    opacity: 0.045;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* Waveform bars */
+  .waveform {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    padding: 0 88px;
+    opacity: 0.12;
+  }
+  .waveform-bar {
+    flex: 1;
+    background: #c8a96e;
+    border-radius: 2px 2px 0 0;
+  }
+
+  /* Content */
+  .eyebrow {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 20px;
+  }
+
+  .main-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 112px;
+    font-weight: 900;
+    color: #faf9f5;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .subtitle {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #c8c8c0;
+    letter-spacing: 0.02em;
+    max-width: 640px;
+    line-height: 1.5;
+    margin-bottom: 36px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #555550;
+  }
+  .meta-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #c8a96e;
+  }
+</style>
+</head>
+<body>
+<div class="thumb">
+  <div class="top-rule"></div>
+  <div class="grid-overlay"></div>
+  <div class="ghost-num">12</div>
+
+  <div class="eyebrow">Read the Room &nbsp;&middot;&nbsp; Issue #12</div>
+  <div class="main-title">The New Deal</div>
+  <div class="subtitle">Trump called the JCPOA the worst deal ever. In 2026, he signed one. The numbers, side by side.</div>
+  <div class="meta-row">
+    <span>June 24, 2026</span>
+    <div class="meta-dot"></div>
+    <span>Iran Nuclear Deal Comparison</span>
+    <div class="meta-dot"></div>
+    <span>readtheroom.news</span>
+  </div>
+
+  <!-- Waveform bars -->
+  <div class="waveform">
+    <div class="waveform-bar" style="height:40%"></div>
+    <div class="waveform-bar" style="height:60%"></div>
+    <div class="waveform-bar" style="height:75%"></div>
+    <div class="waveform-bar" style="height:50%"></div>
+    <div class="waveform-bar" style="height:85%"></div>
+    <div class="waveform-bar" style="height:65%"></div>
+    <div class="waveform-bar" style="height:95%"></div>
+    <div class="waveform-bar" style="height:70%"></div>
+    <div class="waveform-bar" style="height:80%"></div>
+    <div class="waveform-bar" style="height:55%"></div>
+    <div class="waveform-bar" style="height:90%"></div>
+    <div class="waveform-bar" style="height:45%"></div>
+    <div class="waveform-bar" style="height:100%"></div>
+    <div class="waveform-bar" style="height:60%"></div>
+    <div class="waveform-bar" style="height:75%"></div>
+    <div class="waveform-bar" style="height:35%"></div>
+    <div class="waveform-bar" style="height:65%"></div>
+    <div class="waveform-bar" style="height:85%"></div>
+    <div class="waveform-bar" style="height:50%"></div>
+    <div class="waveform-bar" style="height:70%"></div>
+    <div class="waveform-bar" style="height:40%"></div>
+    <div class="waveform-bar" style="height:80%"></div>
+    <div class="waveform-bar" style="height:55%"></div>
+    <div class="waveform-bar" style="height:92%"></div>
+    <div class="waveform-bar" style="height:67%"></div>
+    <div class="waveform-bar" style="height:45%"></div>
+    <div class="waveform-bar" style="height:77%"></div>
+    <div class="waveform-bar" style="height:60%"></div>
+    <div class="waveform-bar" style="height:88%"></div>
+    <div class="waveform-bar" style="height:52%"></div>
+  </div>
+</div>
+</body>
+</html>

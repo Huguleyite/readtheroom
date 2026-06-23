@@ -107,9 +107,10 @@ jobs:
           THUMBNAILS: ${{ steps.find_thumbnails.outputs.thumbnails }}
 
       - name: Commit header.png files
+        if: steps.find_thumbnails.outputs.thumbnails != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add '**/header.png'
+          git add '**/header.png' || true
           git diff --staged --quiet || git commit -m "chore: auto-generate OG header images"
           git push

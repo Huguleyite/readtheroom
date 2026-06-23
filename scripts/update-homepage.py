@@ -63,6 +63,57 @@ ISSUES = {
         "href": "/read-the-room/issue/9/",
         "count": "9 issues published",
     },
+    10: {
+        "num": "10",
+        "pub_label": "Read the Room &nbsp;&middot;&nbsp; Issue #10 &nbsp;&middot;&nbsp; June 9, 2026",
+        "headline": (
+            "A Treasury prototype with Trump&rsquo;s face on a $250 bill. "
+            "A 160-year-old law that says no. "
+            "The debate about what currency is for."
+        ),
+        "teaser": (
+            "The Bureau of Engraving and Printing has prepared prototypes of a $250 bill "
+            "bearing President Trump&rsquo;s portrait. A law passed in 1866 prohibits "
+            "the likeness of any living person on U.S. currency. "
+            "Both sides, no spin."
+        ),
+        "href": "/read-the-room/issue/10/",
+        "count": "10 issues published",
+    },
+    11: {
+        "num": "11",
+        "pub_label": "Read the Room &nbsp;&middot;&nbsp; Issue #11 &nbsp;&middot;&nbsp; June 16, 2026",
+        "headline": (
+            "A law requiring proof of citizenship to register to vote. "
+            "21 million Americans may not have the document. "
+            "A Senate vote that has failed twice."
+        ),
+        "teaser": (
+            "The SAVE America Act passed the House in February. It accepts only three documents: "
+            "a passport, a birth certificate, or a naturalization certificate. "
+            "Driver&rsquo;s licenses don&rsquo;t qualify. "
+            "The Senate has rejected it twice. Both sides, no spin."
+        ),
+        "href": "/read-the-room/issue/11/",
+        "count": "11 issues published",
+    },
+    12: {
+        "num": "12",
+        "pub_label": "Read the Room &nbsp;&middot;&nbsp; Issue #12 &nbsp;&middot;&nbsp; June 24, 2026",
+        "headline": (
+            "Trump called the JCPOA the worst deal ever. "
+            "In June 2026, he signed a 14-point memorandum to end the Iran war. "
+            "Here is how the two compare."
+        ),
+        "teaser": (
+            "On June 15, 2026, the United States and Iran signed a memorandum of understanding. "
+            "The active war ended. The Strait of Hormuz reopened. "
+            "A 60-day negotiating window began. "
+            "Both sides, no spin."
+        ),
+        "href": "/read-the-room/issue/12/",
+        "count": "12 issues published",
+    },
 }
 
 # ── RTR block template ────────────────────────────────────────────────────────

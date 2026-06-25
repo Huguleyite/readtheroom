@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Frequency — Issue #11 Thumbnail</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #111110;
+  }
+  svg {
+    display: block;
+    width: 1200px;
+    height: 630px;
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- ── Base background ── -->
+  <rect width="680" height="400" fill="#111110"/>
+
+  <!-- ── Geographic background — Alabama/Southeast ── -->
+  <polygon points="0,0 680,0 680,180 600,160 520,145 460,152 400,170 330,195 240,222 130,248 0,262"
+           fill="#1a1a18"/>
+  <!-- Water -->
+  <polygon points="0,262 130,248 240,222 330,195 400,170 388,280 310,400 0,400"
+           fill="#17232e"/>
+  <!-- Secondary landmass -->
+  <polygon points="310,400 388,280 400,170 460,152 520,145 600,160 680,180 680,400"
+           fill="#1c1c1a"/>
+
+  <!-- Alabama hotspot — Chambers County area -->
+  <circle cx="430" cy="212" r="24" fill="#c8a96e" opacity="0.06"/>
+  <circle cx="430" cy="212" r="13" fill="#c8a96e" opacity="0.12"/>
+  <circle cx="430" cy="212" r="5.5" fill="#c8a96e"/>
+
+  <!-- Faint state boundary hint -->
+  <polyline points="408,175 418,185 428,190 436,202 440,215 436,226 428,232"
+            fill="none" stroke="#c8a96e" stroke-width="0.5" opacity="0.25"/>
+
+  <!-- Secondary dot — Montgomery/state capital -->
+  <circle cx="408" cy="245" r="2.5" fill="#c8a96e" opacity="0.45"/>
+
+  <!-- ── Corner gold flag ── -->
+  <polygon points="640,0 680,0 680,52 640,36" fill="#c8a96e"/>
+
+  <!-- ── Gold vertical rule ── -->
+  <rect x="48" y="48" width="3" height="52" fill="#c8a96e"/>
+
+  <!-- ── Issue label ── -->
+  <text x="62" y="64"
+        font-family="'DM Sans', Arial, sans-serif"
+        font-size="10" font-weight="500"
+        fill="#c8a96e" letter-spacing="0.18em">
+    THE FREQUENCY · ISSUE #11
+  </text>
+
+  <!-- ── Headline ── -->
+  <text x="62" y="108"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="54" font-weight="700"
+        fill="#faf9f5">Three</text>
+
+  <text x="62" y="163"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="54" font-weight="700" font-style="italic"
+        fill="#faf9f5">Weeks.</text>
+
+  <!-- ── Subhead ── -->
+  <text x="62" y="196"
+        font-family="'DM Sans', Arial, sans-serif"
+        font-size="13" font-weight="400"
+        fill="#888880">PSC deadline · Housing split · School vote · November preview</text>
+
+  <!-- ── Gold divider ── -->
+  <rect x="48" y="216" width="228" height="0.75" fill="#c8a96e"/>
+
+  <!-- ── Status pill ── -->
+  <rect x="48" y="230" width="148" height="26" rx="2"
+        fill="none" stroke="#c8a96e" stroke-width="0.75"/>
+  <rect x="48" y="230" width="148" height="26" rx="2"
+        fill="#c8a96e" opacity="0.10"/>
+  <text x="122" y="247"
+        font-family="'DM Sans', Arial, sans-serif"
+        font-size="9.5" font-weight="500"
+        fill="#c8a96e" letter-spacing="0.16em"
+        text-anchor="middle">JULY 15 APPROACHING</text>
+
+  <!-- ── Story bullets ── -->
+  <text x="48" y="286"
+        font-family="'DM Sans', Arial, sans-serif"
+        font-size="10.5" font-weight="400"
+        fill="#666660" letter-spacing="0.02em">
+    PSC · Housing · Aug 11 Primary · High School · Ballot
+  </text>
+
+  <!-- ── Bottom footer ── -->
+  <text x="48" y="370"
+        font-family="'DM Sans', Arial, sans-serif"
+        font-size="10" font-weight="400"
+        fill="#444440">June 25, 2026</text>
+
+  <text x="632" y="370"
+        font-family="'DM Sans', Arial, sans-serif"
+        font-size="10" font-weight="400"
+        fill="#444440" text-anchor="end">Tune in. Stay grounded.</text>
+
+</svg>
+
+</body>
+</html>

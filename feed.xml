@@ -6,7 +6,7 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sun, 22 Jun 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 09:00:00 +0000</lastBuildDate>
 
     <item>
       <title>Signal: Alabama Redistricting, Explained</title>
@@ -31,6 +31,14 @@
          Date format: Tue, 09 Jun 2026 09:00:00 +0000
          URL format:  https://readtheroom.news/read-the-room/issue/12/
          ============================================================ -->
+
+    <item>
+      <title>The Frequency — Issue #11 | Three Weeks.</title>
+      <link>https://readtheroom.news/the-frequency/issue/11/</link>
+      <guid isPermaLink="true">https://readtheroom.news/the-frequency/issue/11/</guid>
+      <pubDate>Thu, 25 Jun 2026 09:00:00 +0000</pubDate>
+      <description>July 15 is three weeks out. The PSC clock is running and no court has stopped it. Alabama&#8217;s senators split on housing. Four congressional districts vote again on August 11. Valley commits $1.5M for the new Chambers County High School. And the fall ballot is complete.</description>
+    </item>
 
     <item>
       <title>The Frequency — Issue #10 | The Verdict.</title>

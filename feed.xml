@@ -6,7 +6,15 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 25 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The Frequency — Issue #12 | Two Percent.</title>
+      <link>https://readtheroom.news/the-frequency/issue/12/</link>
+      <guid isPermaLink="true">https://readtheroom.news/the-frequency/issue/12/</guid>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 +0000</pubDate>
+      <description>Alabama&#8217;s grocery tax is back at 2% after a two-month holiday. Gov. Ivey&#8217;s four PSC appointments, named — with a correction. A three-month drug operation in Chambers County produces 64 arrests. The coroner&#8217;s race is set. And the August 11 special primary fields are final.</description>
+    </item>
 
     <item>
       <title>Signal: Alabama Redistricting, Explained</title>
@@ -167,6 +175,7 @@
       <pubDate>Mon, 27 Apr 2026 09:00:00 +0000</pubDate>
       <description>Hundreds of lawsuits. Dozens of nationwide injunctions. The Trump administration has raced to the Supreme Court's emergency docket at an unprecedented pace — and won roughly 20 of 24 requests.</description>
     </item>
+
 
     <item>
       <title>Read the Room — Issue #3 | DOGE's cuts are real — but so is the legal resistance.</title>

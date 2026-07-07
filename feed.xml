@@ -6,7 +6,15 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 02 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #14 | Sixty</title>
+      <link>https://readtheroom.news/read-the-room/issue/14/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/14/</guid>
+      <pubDate>Tue, 07 Jul 2026 09:00:00 +0000</pubDate>
+      <description>The president wants the filibuster dead. The Senate Majority Leader says the votes aren&#8217;t close. One Senate rule is holding up the SAVE America Act, a bipartisan housing bill, and the defense bill. What the 60-vote rule is, how it got here, and the strongest case on each side.</description>
+    </item>
 
     <item>
       <title>The Frequency — Issue #12 | Two Percent.</title>

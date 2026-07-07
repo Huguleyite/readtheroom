@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sixty — Read the Room Issue #14</title>
+
+<!-- OG / Social Meta -->
+<meta property="og:title" content="Sixty — Read the Room Issue #14">
+<meta property="og:description" content="The president wants the filibuster dead. The Senate Majority Leader says the votes aren't close. What the 60-vote rule is, and what both sides are saying.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://readtheroom.news/read-the-room/issue/14/">
+<meta property="og:image" content="https://readtheroom.news/read-the-room/issue/14/header.png">
+<meta name="twitter:image" content="https://readtheroom.news/read-the-room/issue/14/header.png">
+<meta property="og:site_name" content="Read the Room">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sixty — Read the Room Issue #14">
+<meta name="twitter:description" content="The president wants the filibuster dead. The Senate Majority Leader says the votes aren't close. What the 60-vote rule is, and what both sides are saying.">
+<meta name="description" content="The Senate filibuster is holding up the SAVE America Act, a housing bill, and the defense bill. What the 60-vote rule is, how it got here, and both sides' case.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ede6;
+    font-family: 'DM Sans', Arial, sans-serif;
+    padding: 32px 16px;
+  }
+  .rtr-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #faf9f5;
+    border: 1px solid #d6d3c8;
+  }
+
+  /* ── HEADER ── */
+  .rtr-header {
+    background: #1a1a18;
+    padding: 40px 48px 32px;
+    text-align: center;
+  }
+  .rtr-header-rule {
+    width: 48px;
+    height: 2px;
+    background: #c8a96e;
+    margin: 0 auto 20px;
+  }
+  .rtr-masthead {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #faf9f5;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .rtr-tagline {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: #c8a96e;
+    letter-spacing: 0.12em;
+    margin-bottom: 24px;
+  }
+  .rtr-meta-row {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #888880;
+    font-weight: 400;
+  }
+  .rtr-meta-dot {
+    color: #c8a96e;
+    margin: 0 10px;
+  }
+
+  /* ── TOPIC BAND ── */
+  .rtr-band {
+    background: #c8a96e;
+    padding: 10px 48px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #1a1a18;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  /* ── BODY ── */
+  .rtr-body {
+    padding: 44px 48px;
+  }
+  .rtr-lede {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #1a1a18;
+    border-left: 3px solid #c8a96e;
+    padding-left: 20px;
+    margin-bottom: 40px;
+  }
+  .rtr-section {
+    margin-bottom: 36px;
+  }
+  .rtr-section-label {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .rtr-section-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: #1a1a18;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .rtr-body-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15.5px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #3a3a36;
+  }
+  .rtr-body-text + .rtr-body-text {
+    margin-top: 16px;
+  }
+  .rtr-divider {
+    border: none;
+    border-top: 1px solid #e2dfd6;
+    margin: 36px 0;
+  }
+  .rtr-spacer {
+    height: 16px;
+  }
+
+  /* ── VOTE BADGE ── */
+  .rtr-vote-badge {
+    display: inline-block;
+    background: #1a1a18;
+    color: #c8a96e;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 4px 10px;
+    margin-bottom: 14px;
+  }
+
+  /* ── CLOSING THOUGHT ── */
+  .rtr-closing {
+    background: #1a1a18;
+    margin: 0 -48px;
+    padding: 32px 48px;
+    margin-bottom: 36px;
+  }
+  .rtr-closing-label {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .rtr-closing-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15.5px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #c8c8c0;
+    font-style: italic;
+  }
+
+  /* ── BOOK REC ── */
+  .rtr-book {
+    background: #f4f2ec;
+    border: 1px solid #e2dfd6;
+    border-left: 3px solid #c8a96e;
+    padding: 20px;
+    margin-bottom: 36px;
+  }
+  .rtr-book-label {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .rtr-book-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a18;
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+  .rtr-book-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #3a3a36;
+    margin-bottom: 10px;
+  }
+  .rtr-book-link {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .rtr-amazon-note {
+    font-size: 10px;
+    color: #aaa9a0;
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  /* ── FOOTER ── */
+  .rtr-footer {
+    background: #1a1a18;
+    padding: 28px 48px;
+    text-align: center;
+  }
+  .rtr-footer-rule {
+    width: 32px;
+    height: 1px;
+    background: #c8a96e;
+    margin: 0 auto 16px;
+  }
+  .rtr-footer-text {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #888880;
+    line-height: 1.8;
+  }
+  .rtr-footer-text a {
+    color: #c8a96e;
+    text-decoration: none;
+  }
+  .rtr-footer-tagline {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 12px;
+    font-style: italic;
+    color: #555550;
+    margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="rtr-wrap">
+
+  <!-- HEADER -->
+  <div class="rtr-header">
+    <div class="rtr-header-rule"></div>
+    <div class="rtr-masthead">Read the Room</div>
+    <div class="rtr-tagline">Politics, explained without the spin.</div>
+    <div class="rtr-meta-row">
+      Issue #14
+      <span class="rtr-meta-dot">◆</span>
+      July 7, 2026
+      <span class="rtr-meta-dot">◆</span>
+      Weekly
+    </div>
+  </div>
+
+  <!-- TOPIC BAND -->
+  <div class="rtr-band">
+    &#9670;&nbsp;&nbsp;This week: The filibuster. The president wants it gone. The Senate Majority Leader says the votes aren&rsquo;t close. What the 60-vote rule is, how it got here, and what both sides are saying.&nbsp;&nbsp;&#9670;
+  </div>
+
+  <!-- BODY -->
+  <div class="rtr-body">
+
+    <!-- LEDE -->
+    <p class="rtr-lede">
+      The Senate filibuster is the reason almost nothing passes Congress with fewer than 60 votes. This week, it is also the reason the House went home early, a bipartisan housing bill sits unsigned on the president&rsquo;s desk, and the annual defense bill is frozen. One Senate rule is holding up most of the federal agenda. That is either the system working exactly as designed or the clearest evidence it&rsquo;s broken, depending on whom you ask.
+    </p>
+
+    <!-- SECTION: THE STANDOFF -->
+    <div class="rtr-section">
+      <div class="rtr-section-label">The standoff</div>
+      <div class="rtr-section-heading">One rule is holding up the housing bill, the defense bill, and the president&rsquo;s signature.</div>
+      <div class="rtr-vote-badge">Cloture vote: 53 of 60 needed</div>
+      <p class="rtr-body-text">
+        President Trump wants the SAVE America Act, the elections overhaul requiring photo ID at the polls and documentary proof of citizenship to register, passed now. (We covered the bill itself in <a href="https://readtheroom.news/read-the-room/issue/11/" style="color:#c8a96e;">Issue #11</a>.) The Senate said no in early June: with all 53 Republicans aboard, the bill still fell seven votes short of the 60 needed to end debate. It has been stalled ever since.
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        Trump&rsquo;s response has escalated. On June 24, he canceled the signing of the 21st Century Road to Housing Act, a bipartisan bill that passed both chambers overwhelmingly and would limit large investors from buying single-family homes. The event, he announced on Truth Social, was &ldquo;hereby cancelled until such time as we pass the desperately needed SAVE AMERICA ACT, which I consider to be a National Emergency.&rdquo; He has said he won&rsquo;t sign further legislation until it passes.
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        In the House, Speaker Mike Johnson tried to attach the SAVE America Act to the National Defense Authorization Act, the must-pass defense bill that funds the Pentagon and includes a troop pay raise. The procedural rule failed, with fourteen Republicans, including Majority Leader Steve Scalise, voting with Democrats to reject it. Rep. Anna Paulina Luna, who wanted the bill attached by amendment instead, called Johnson&rsquo;s approach a &ldquo;procedural head fake,&rdquo; arguing the Senate could simply strip the provision out. House leaders sent members home early for the July Fourth recess. They return in mid-July, with the NDAA and State Department appropriations still waiting.
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        That leaves the path Trump has demanded repeatedly: eliminate the filibuster and pass the bill with 51 votes. He has argued that doing so would keep Republicans winning elections for &ldquo;100 years.&rdquo; Senate Majority Leader John Thune&rsquo;s answer has not moved: there &ldquo;aren&rsquo;t anywhere close to the votes, not even close, to nuking the filibuster.&rdquo; Sens. John Cornyn, Bernie Moreno, and Tommy Tuberville have endorsed the idea. Sens. Susan Collins, Thom Tillis, Lisa Murkowski, and Mitch McConnell are dug in against it. Thune has also rejected calls for a &ldquo;talking filibuster&rdquo; that would force Democrats to hold the floor around the clock, calling the tactic &ldquo;much more complicated and risky than people are assuming.&rdquo;
+      </p>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <!-- SECTION: THE RULE ITSELF -->
+    <div class="rtr-section">
+      <div class="rtr-section-label">The rule itself</div>
+      <div class="rtr-section-heading">Not in the Constitution. Not always like this.</div>
+      <p class="rtr-body-text">
+        The filibuster is not in the Constitution. It&rsquo;s a byproduct of Senate rules that, for most of the chamber&rsquo;s history, set no limit on debate. If senators kept talking, a bill never came to a vote.
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        The first brake arrived in 1917, after a small group of senators talked to death a proposal to arm American merchant ships on the eve of World War I. President Woodrow Wilson called them &ldquo;a little group of willful men&rdquo; who had &ldquo;rendered the great Government of the United States helpless and contemptible.&rdquo; The Senate adopted Rule 22, the cloture rule, letting two-thirds of senators present vote to end debate. In 1975, the threshold dropped to three-fifths of the full Senate: 60 votes.
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        What changed since then is not the rule but the practice. Senators no longer have to hold the floor and talk. Signaling an objection is enough, and the 60-vote requirement applies silently to nearly everything. The filibuster went from a rare act of physical endurance to the Senate&rsquo;s default setting.
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        The workaround has a name: the nuclear option. A simple majority votes to reinterpret the rules, and the precedent changes permanently. Democrats used it in 2013 to confirm executive appointees and lower-court judges by majority vote. Republicans extended it to Supreme Court nominations in 2017. And in January 2022, Democrats tried to carve out an exception for their own voting-rights legislation. That effort failed 52&ndash;48, when Sens. Joe Manchin and Kyrsten Sinema joined all fifty Republicans to keep the rule. Manchin warned the change would pour fuel on &ldquo;the fire of political whiplash and dysfunction that is tearing our nation apart.&rdquo;
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        Four years later, the parties have swapped scripts almost word for word.
+      </p>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <!-- SECTION: CASE FOR ENDING IT -->
+    <div class="rtr-section">
+      <div class="rtr-section-label">One side</div>
+      <div class="rtr-section-heading">The case for ending it.</div>
+      <p class="rtr-body-text">
+        Supporters of eliminating the filibuster make a majoritarian argument. The Constitution specifies supermajorities where the framers wanted them: treaties, impeachment convictions, constitutional amendments, veto overrides. Ordinary legislation is not on the list. In Federalist No. 22, Alexander Hamilton wrote that supermajority requirements serve &ldquo;to embarrass the administration&rdquo; and &ldquo;destroy the energy of the government.&rdquo; A rule requiring 60 votes for routine lawmaking, supporters argue, is a modern invention wearing historical costume.
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        The practical argument is about accountability. Voters give a party the House, the Senate, and the White House, and its agenda still dies at 60. Neither party can govern; both can blame the other; nothing is anyone&rsquo;s fault. Ending the filibuster would let majorities enact their programs and let voters judge the results, which is how the House and most of the world&rsquo;s legislatures already work.
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        Supporters also note the rule&rsquo;s defenders have a habit of abandoning it. Both parties have already nuked it for nominations. The question, they argue, isn&rsquo;t whether the filibuster dies. It&rsquo;s which party is holding the switch when it does.
+      </p>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <!-- SECTION: CASE FOR KEEPING IT -->
+    <div class="rtr-section">
+      <div class="rtr-section-label">The other side</div>
+      <div class="rtr-section-heading">The case for keeping it.</div>
+      <p class="rtr-body-text">
+        Defenders make a stability argument. Without the filibuster, federal law swings with every change of majority: health care, taxes, abortion, guns, elections, rewritten every two to four years. The 60-vote threshold forces broad coalitions, and laws that clear it tend to stay settled. Manchin&rsquo;s 2022 warning about &ldquo;political whiplash&rdquo; is the case in miniature.
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        The second argument is protection, aimed at whichever party is currently tempted. The majority that eliminates the filibuster hands the same power to the next majority, and there is always a next majority. Republicans who resisted Trump&rsquo;s demand in his first term watched Democrats come within two votes of gutting the rule in 2022. Democrats filibustering the SAVE America Act today are protected by the same rule they tried to carve open four years ago. Some Republicans now argue for ending it precisely because they expect Democrats will do it first. Defenders say that proves the point: the rule survives only as long as someone declines the short-term win.
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        The third argument is constitutional temperament rather than constitutional text. The Senate was designed to cool and slow: equal state representation, staggered six-year terms, advice and consent. The filibuster isn&rsquo;t in the Constitution, defenders concede, but it serves the chamber&rsquo;s designed purpose of making national majorities negotiate rather than merely win.
+      </p>
+    </div>
+
+    <hr class="rtr-divider">
+
+    <!-- SECTION: WHAT HAPPENS NEXT -->
+    <div class="rtr-section">
+      <div class="rtr-section-label">What happens next</div>
+      <div class="rtr-section-heading">The math is stable until something breaks it.</div>
+      <p class="rtr-body-text">
+        Democrats will keep filibustering the SAVE America Act. Republicans lack 60 votes to pass it and, per Thune, lack 51 to change the rules. Trump&rsquo;s signing freeze puts pressure on his own party&rsquo;s legislation first: the housing bill, the NDAA, appropriations. The House returns in mid-July to the same arithmetic it left behind.
+      </p>
+      <div class="rtr-spacer"></div>
+      <p class="rtr-body-text">
+        The longer game is November. If either party wins unified control in the midterms with a Senate majority that no longer contains enough institutionalists, the rule faces its real test. Both parties have now promised, at different moments, to be the one that finally pulls the trigger. So far, each has been saved by its own dissenters.
+      </p>
+    </div>
+
+    <!-- CLOSING THOUGHT -->
+    <div class="rtr-closing">
+      <div class="rtr-closing-label">The bottom line</div>
+      <p class="rtr-closing-text">
+        The filibuster survives the way it always has: not because either party loves it, but because neither trusts the other with its absence.
+      </p>
+    </div>
+
+    <!-- BOOK RECOMMENDATION -->
+    <div class="rtr-book">
+      <div>
+        <div class="rtr-book-label">If you want to go deeper</div>
+        <div class="rtr-book-title">Kill Switch: The Rise of the Modern Senate and the Crippling of American Democracy &mdash; Adam Jentleson</div>
+        <p class="rtr-book-text">
+          A former Senate staffer&rsquo;s history of how the filibuster became the chamber&rsquo;s default setting. Jentleson argues for ending it, so read it as the strongest version of one side&rsquo;s case.
+        </p>
+        <a href="https://amzn.to/3QXaKTe" class="rtr-book-link">Find it on Amazon &rarr;</a>
+        <p class="rtr-amazon-note">As an Amazon Associate I earn from qualifying purchases.</p>
+      </div>
+    </div>
+
+  </div><!-- end .rtr-body -->
+
+  <!-- FOOTER -->
+  <div class="rtr-footer">
+    <div class="rtr-footer-rule"></div>
+    <p class="rtr-footer-text">
+      You&rsquo;re receiving this because you subscribed to Read the Room.<br>
+      <a href="#">Unsubscribe</a> &nbsp;&middot;&nbsp; <a href="#">View in browser</a> &nbsp;&middot;&nbsp; <a href="#">Share this issue</a>
+    </p>
+    <p class="rtr-footer-tagline">Every Tuesday morning. One topic. Both sides. No bull.</p>
+  </div>
+
+</div><!-- end .rtr-wrap -->
+</body>
+</html>

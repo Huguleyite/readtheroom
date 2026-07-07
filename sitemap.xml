@@ -114,6 +114,11 @@
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://readtheroom.news/read-the-room/issue/14/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
 
   <!-- The Frequency Newsletter -->
   <url>

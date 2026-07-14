@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 09 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #15 | The Alternative Checking Account</title>
+      <link>https://readtheroom.news/read-the-room/issue/15/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/15/</guid>
+      <pubDate>Tue, 14 Jul 2026 09:00:00 +0000</pubDate>
+      <description>The Supreme Court struck down limits on how much a political party can spend coordinating directly with its own candidate, 6-3. Fifty years of campaign finance law, and the strongest case on each side.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/15/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency — Issue #13 | The Rematch.</title>
@@ -62,6 +71,12 @@
          (just after this comment), and fill in the fields.
          Date format: Tue, 09 Jun 2026 09:00:00 +0000
          URL format:  https://readtheroom.news/read-the-room/issue/12/
+         Always include the <enclosure> tag pointing at that issue's
+         header.png — this is what the Facebook Zap's Photo field maps
+         to. Without it, Facebook falls back to its own link-preview
+         scraper and crops the image unpredictably (diagnosed July 12,
+         2026). Template:
+         <enclosure url="https://readtheroom.news/read-the-room/issue/N/header.png" length="0" type="image/png"/>
          ============================================================ -->
 
     <item>

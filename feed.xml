@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 16 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #16 | At Will</title>
+      <link>https://readtheroom.news/read-the-room/issue/16/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/16/</guid>
+      <pubDate>Tue, 21 Jul 2026 09:00:00 +0000</pubDate>
+      <description>The Supreme Court ended 91 years of for-cause protection for independent agency commissioners, 6-3. A decade of legal erosion, and the strongest case on each side.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/16/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency — Issue #14 | 110% Qualified.</title>

@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 23 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #17 | Two Votes Short</title>
+      <link>https://readtheroom.news/read-the-room/issue/17/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/17/</guid>
+      <pubDate>Tue, 28 Jul 2026 09:00:00 +0000</pubDate>
+      <description>Congress voted twice on July 23 to end the Iran war — the House passed 214-208, the Senate came two votes short, 47-49. Five months of war, the 1973 law meant to govern it, and the strongest case on each side.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/17/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency — Issue #15 | Too Fast, Not Fast Enough.</title>

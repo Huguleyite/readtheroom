@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 30 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #18 | On Paper</title>
+      <link>https://readtheroom.news/read-the-room/issue/18/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/18/</guid>
+      <pubDate>Tue, 04 Aug 2026 09:00:00 +0000</pubDate>
+      <description>Trump's Board of Peace unveiled a 15-point roadmap to disarm Hamas and withdraw Israel from Gaza. Both sides accepted it — neither agrees on who moves first. What's in the roadmap, what's happening on the ground, and both sides' case.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/18/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency — Issue #16 | Groundbreaking.</title>

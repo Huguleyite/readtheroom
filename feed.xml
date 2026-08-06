@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 04 Aug 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The Frequency — Issue #17 | Someone Else's Bill.</title>
+      <link>https://readtheroom.news/the-frequency/issue/17/</link>
+      <guid isPermaLink="true">https://readtheroom.news/the-frequency/issue/17/</guid>
+      <pubDate>Thu, 06 Aug 2026 09:00:00 +0000</pubDate>
+      <description>Alabama&#8217;s PSC clears a Meta-funded solar and battery plant for Macon and Bullock counties, data centers become a flashpoint in the governor&#8217;s race, and Chambers County gets a new road plan, a sewer promise dispute, and more ER capacity.</description>
+      <enclosure url="https://readtheroom.news/the-frequency/issue/17/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>Read the Room — Issue #18 | On Paper</title>

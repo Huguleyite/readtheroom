@@ -293,6 +293,35 @@
   }
   .games-btn:hover { background: #c8a96e; color: #1a1a18; }
 
+  /* Wave hero — homepage feature strip for a live Wave */
+  .wave-hero { background: #5a8a9a; border-top: 3px solid #ddedf2; }
+  .wave-hero-inner {
+    max-width: 640px; margin: 0 auto;
+    padding: 64px 40px; text-align: center;
+  }
+  .wave-hero-eyebrow {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.24em;
+    text-transform: uppercase; color: #ddedf2; margin-bottom: 18px;
+  }
+  .wave-hero-hed {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32px; font-weight: 700; color: #faf9f5;
+    line-height: 1.15; margin-bottom: 16px;
+  }
+  .wave-hero-dek {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic; font-weight: 300; font-size: 16px;
+    color: #ddedf2; line-height: 1.7; max-width: 480px;
+    margin: 0 auto 30px;
+  }
+  .wave-hero-btn {
+    display: inline-block; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 13px 30px; background: #faf9f5; color: #1a1a18;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .wave-hero-btn:hover { opacity: 0.85; }
+
   /* Games placeholder visual */
   .games-visual {
     display: flex; align-items: center; justify-content: center;
@@ -502,6 +531,9 @@
     .split-rtr, .split-tf { padding: 36px 20px; }
     .sub-card { padding: 28px 20px; }
     .games-inner { padding: 48px 20px; }
+    .wave-hero-inner { padding: 48px 20px; }
+    .wave-hero-hed { font-size: 26px; }
+    .wave-hero-dek { font-size: 14px; }
     .site-footer { padding: 40px 20px 24px; }
     .footer-cols { flex-direction: column; gap: 28px; }
     .modal-box { padding: 28px 20px 24px; }
@@ -685,14 +717,14 @@
   <!-- RTR side -->
         <!-- RTR-LATEST-START -->
   <div class="split-rtr">
-    <div class="deco-num deco-num-rtr">18</div>
-    <p class="split-pub-label split-pub-label-rtr">Read the Room &nbsp;&middot;&nbsp; Issue #18 &nbsp;&middot;&nbsp; August 4, 2026</p>
+    <div class="deco-num deco-num-rtr">19</div>
+    <p class="split-pub-label split-pub-label-rtr">Read the Room &nbsp;&middot;&nbsp; Issue #19 &nbsp;&middot;&nbsp; August 11, 2026</p>
     <div class="split-rule split-rule-rtr"></div>
-    <h2 class="split-hed split-hed-rtr">A roadmap to disarm Hamas and withdraw Israel from Gaza. Neither side agrees on who moves first.</h2>
+    <h2 class="split-hed split-hed-rtr">New York just froze new data center construction. Republicans and Democrats in three other states want the same thing.</h2>
     <p class="split-teaser">
-      Trump's Board of Peace unveiled a 15-point plan on July 31. Both sides accepted it. What's in it, what's happening on the ground, and both sides' case.
+      A one-year moratorium, a bipartisan backlash, and a federal government pushing the other way. What's driving it, and both sides' case.
     </p>
-    <a href="/read-the-room/issue/18/" class="split-btn split-btn-rtr">Read the full issue &rarr;</a>
+    <a href="/read-the-room/issue/19/" class="split-btn split-btn-rtr">Read the full issue &rarr;</a>
   </div>
   <!-- RTR-LATEST-END -->
 
@@ -736,6 +768,17 @@
 
 </div>
 
+<!-- ══════════════ WAVE HERO ══════════════ -->
+<!-- Homepage spotlight for a live Wave. Swap content or remove when the next Wave replaces this one. -->
+<section class="wave-hero">
+  <div class="wave-hero-inner">
+    <p class="wave-hero-eyebrow">The Wave &middot; East Alabama</p>
+    <h2 class="wave-hero-hed">Cutting the Static</h2>
+    <p class="wave-hero-dek">Bobby Singleton took 72.7 percent of the vote Saturday and ended Randy Kelley&rsquo;s four-year run atop the Alabama Democratic Party. Chambers County&rsquo;s own SDEC member told us how she voted.</p>
+    <a href="/wave/bobby-singleton-cutting-the-static.html" class="wave-hero-btn">Read the Wave &rarr;</a>
+  </div>
+</section>
+
 <!-- ══════════════ SUBSCRIBE STRIP ══════════════ -->
 <div class="subscribe-strip">
 
@@ -747,7 +790,7 @@
       One topic. Both sides. No spin. A weekly deep dive into the federal story that matters most.
     </p>
     <a href="#" class="sub-btn sub-btn-rtr" onclick="openModal('modal-rtr'); return false;">Subscribe &rarr;</a>
-    <div class="sub-meta sub-meta-rtr"><!-- RTR-COUNT -->18 issues published<!-- /RTR-COUNT --></div>
+    <div class="sub-meta sub-meta-rtr"><!-- RTR-COUNT -->19 issues published<!-- /RTR-COUNT --></div>
   </div>
 
   <!-- TF subscribe -->

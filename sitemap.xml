@@ -139,6 +139,11 @@
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://readtheroom.news/read-the-room/issue/19/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
 
   <!-- The Frequency Newsletter -->
   <url>
@@ -275,6 +280,11 @@
   </url>
   <url>
     <loc>https://readtheroom.news/wave/hazel-floyd-she-came-home-to-fight-for-it.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://readtheroom.news/wave/bobby-singleton-cutting-the-static.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 11 Aug 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The Frequency — Issue #18 | Making the Cut.</title>
+      <link>https://readtheroom.news/the-frequency/issue/18/</link>
+      <guid isPermaLink="true">https://readtheroom.news/the-frequency/issue/18/</guid>
+      <pubDate>Thu, 13 Aug 2026 09:00:00 +0000</pubDate>
+      <description>Phenix City Little League heads to Williamsport, Alabama picks new congressional nominees, Bobby Singleton leads Alabama Democrats, and Auburn OKs new schools.</description>
+      <enclosure url="https://readtheroom.news/the-frequency/issue/18/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>Read the Room — Issue #19 | Power Play</title>

@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 13 Aug 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #20 | Cliff Notes</title>
+      <link>https://readtheroom.news/read-the-room/issue/20/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/20/</guid>
+      <pubDate>Tue, 18 Aug 2026 09:00:00 +0000</pubDate>
+      <description>The enhanced ACA premium tax credits expired December 31, 2025. Premiums are up 58%, deductibles up 37%, and 4.8 million people lost marketplace coverage. Congress had a compromise that addressed both sides' concerns — and let it die over an unrelated fight. What happened, and both sides' case.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/20/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency — Issue #18 | Making the Cut.</title>

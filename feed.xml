@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 18 Aug 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The Frequency — Issue #19 | Profits, Proficiency &amp; the Price of Power.</title>
+      <link>https://readtheroom.news/the-frequency/issue/19/</link>
+      <guid isPermaLink="true">https://readtheroom.news/the-frequency/issue/19/</guid>
+      <pubDate>Thu, 20 Aug 2026 09:00:00 +0000</pubDate>
+      <description>Alabama Power's profits jump 14%, Southern Union's broadband upgrade, Lanett's lowest-in-state scores, and the Jones-Tuberville money race.</description>
+      <enclosure url="https://readtheroom.news/the-frequency/issue/19/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>Read the Room — Issue #20 | Cliff Notes</title>

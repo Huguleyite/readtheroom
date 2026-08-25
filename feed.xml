@@ -6,7 +6,15 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 25 Aug 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 12:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Signal: Alabama's New Privacy Law, Explained</title>
+      <link>https://readtheroom.news/signal/alabama-privacy-law-explained.html</link>
+      <guid isPermaLink="true">https://readtheroom.news/signal/alabama-privacy-law-explained.html</guid>
+      <pubDate>Tue, 25 Aug 2026 12:00:00 +0000</pubDate>
+      <description>Alabama just became the 21st state with a comprehensive privacy law. It also set the lowest bar in the country to trigger one — and left out most of what protects kids.</description>
+    </item>
 
     <item>
       <title>Read the Room — Issue #21 | Extended Stay</title>

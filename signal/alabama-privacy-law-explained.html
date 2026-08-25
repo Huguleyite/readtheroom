@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alabama's New Privacy Law, Explained | Read the Room</title>
+<meta name="description" content="Alabama just became the 21st state with a comprehensive privacy law. It also set the lowest bar in the country to trigger one — and left out most of what protects kids.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; }
+  body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 300;
+    background: #f0ede6;
+    color: #1a1a18;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #faf9f5;
+    padding: 0 56px 72px;
+  }
+
+  /* ── Site bar ── */
+  .site-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 0.5px solid #d0cfc8;
+    margin-bottom: 40px;
+  }
+
+  .site-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a18;
+    text-decoration: none;
+  }
+
+  .content-type {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888880;
+  }
+
+  /* ── Signal badge ── */
+  .signal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1a1a18;
+    color: #c8a96e;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  .signal-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #c8a96e;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ── Article header ── */
+  .article-hed {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #1a1a18;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .article-dek {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    color: #555550;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .article-meta {
+    font-size: 11px;
+    font-weight: 400;
+    color: #888880;
+    letter-spacing: 0.06em;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid #d0cfc8;
+    margin-bottom: 32px;
+  }
+
+  /* ── Body ── */
+  .article-body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.82;
+    color: #1a1a18;
+  }
+
+  .article-body p + p {
+    margin-top: 20px;
+  }
+
+  .article-body h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a18;
+    margin: 36px 0 12px;
+    padding-top: 28px;
+    border-top: 0.5px solid #d0cfc8;
+  }
+
+  /* ── Key facts box ── */
+  .facts-box {
+    background: #f0efe8;
+    border-left: 3px solid #c8a96e;
+    padding: 16px 20px;
+    margin: 28px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .facts-box-label {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 10px;
+  }
+
+  .facts-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .facts-box li {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #1a1a18;
+    line-height: 1.6;
+    padding: 5px 0;
+    border-bottom: 0.5px solid #d0cfc8;
+  }
+
+  .facts-box li:last-child { border-bottom: none; }
+
+  .facts-box li strong {
+    font-weight: 500;
+  }
+
+  /* ── Sources ── */
+  .article-sources {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 2px solid #1a1a18;
+  }
+
+  .sources-label {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888880;
+    margin-bottom: 10px;
+  }
+
+  .sources-list {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: #888880;
+    line-height: 1.9;
+  }
+
+  .sources-list a {
+    color: #888880;
+    text-decoration: none;
+    border-bottom: 0.5px solid #d0cfc8;
+  }
+
+  .sources-list a:hover {
+    color: #1a1a18;
+    border-bottom-color: #1a1a18;
+  }
+
+  /* ── Back link ── */
+  .back-link {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #b8782a;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 0.5px solid #d0cfc8;
+    width: 100%;
+  }
+
+  .back-link:hover { color: #7a4e1a; }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .page { padding: 0 24px 48px; }
+    .article-hed { font-size: 26px; }
+    .article-dek { font-size: 15px; }
+    .article-body { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Site bar -->
+  <div class="site-bar">
+    <a href="/" class="site-name">Read the Room</a>
+    <span class="content-type">Signal &mdash; The Frequency</span>
+  </div>
+
+  <!-- Signal badge -->
+  <div class="signal-badge">
+    <div class="signal-dot"></div>
+    Signal
+  </div>
+
+  <!-- Article header -->
+  <h1 class="article-hed">Alabama's New Privacy Law, Explained</h1>
+  <p class="article-dek">Alabama just became the 21st state with a comprehensive privacy law. It also set the lowest bar in the country to trigger one &mdash; and left out most of what protects kids.</p>
+  <p class="article-meta">April 2026 &nbsp;&middot;&nbsp; The Frequency Signal &nbsp;&middot;&nbsp; Alabama Politics</p>
+
+  <!-- Key facts box -->
+  <div class="facts-box">
+    <div class="facts-box-label">By the Numbers</div>
+    <ul>
+      <li><strong>Bill:</strong> HB 351, the Alabama Personal Data Protection Act (APDPA)</li>
+      <li><strong>Signed:</strong> April 17, 2026, by Gov. Kay Ivey</li>
+      <li><strong>Vote:</strong> Passed unanimously</li>
+      <li><strong>Effective date:</strong> May 1, 2027</li>
+      <li><strong>Who it covers:</strong> Businesses processing data on 25,000+ Alabama residents, or earning 25% or more of revenue from selling personal data</li>
+      <li><strong>Enforcement:</strong> Alabama Attorney General only &mdash; no private right of action</li>
+      <li><strong>Cure period:</strong> 45 days, does not expire</li>
+      <li><strong>Max penalty:</strong> $15,000 per violation</li>
+    </ul>
+  </div>
+
+  <!-- Body -->
+  <div class="article-body">
+
+    <h2>What Just Happened</h2>
+
+    <p>On April 17, 2026, Governor Kay Ivey signed House Bill 351 into law, making Alabama the 21st state to pass a comprehensive consumer privacy law. The bill passed both chambers of the Alabama Legislature without a single "no" vote.</p>
+
+    <p>The Alabama Personal Data Protection Act gives residents new rights over the personal data companies collect on them: the right to see what's collected, correct it, delete it, take a copy of it, and opt out of having it sold or used to target them with ads. It also sets rules for how companies have to handle that data, and puts the Alabama Attorney General in charge of enforcing it.</p>
+
+    <p>None of it takes effect until May 1, 2027. Businesses have just over a year to get ready. Alabamians don't get any new rights until then.</p>
+
+    <h2>Who Actually Has to Follow It</h2>
+
+    <p>The law applies to companies doing business in Alabama, or targeting Alabama residents, that meet one of two thresholds: they process personal data belonging to more than 25,000 Alabama residents (not counting basic payment-transaction data), or they get 25% or more of their gross revenue from selling personal data &mdash; regardless of how many people's data that involves.</p>
+
+    <p>That first number is doing a lot of work. Twenty-five thousand is the lowest consumer threshold of any comprehensive state privacy law on the books, tying Montana for the smallest floor in the country. In Alabama, a mid-sized regional business could clear it without much effort.</p>
+
+    <p>The revenue threshold cuts the other way: Alabama is the first state to apply a 25%-of-revenue trigger with no minimum number of people it has to involve. In theory, a small data broker doing high-value business with very few customers could be on the hook.</p>
+
+    <p>The law carves out real exceptions, too. Companies regulated under HIPAA or the Gramm-Leach-Bliley Act are exempt entirely. So is data collected in employment and typical commercial contexts. Smaller operations get a pass as well &mdash; the law's exemptions are aimed at genuinely small businesses and nonprofits, not the companies the 25,000-resident threshold is built to catch.</p>
+
+    <h2>What Alabamians Actually Get</h2>
+
+    <p>Once the law takes effect, Alabama residents can ask a covered company to confirm what personal data it has on them, correct inaccurate data, delete it, or hand over a portable copy. They can opt out of having their data sold, used for targeted advertising, or run through "solely automated" decisions that affect things like credit, housing, insurance, education, employment, health care, or other basic necessities.</p>
+
+    <p>Those are the standard rights most state privacy laws grant by now. Alabama's version has some real gaps next to them.</p>
+
+    <h2>What's Missing</h2>
+
+    <p>Start with the definition of "sale." Alabama's law only counts a data transfer as a "sale" if the company gets a "material benefit" from it and the third party receiving the data is left free to use it however it wants. Disclosures to analytics providers or marketing services working on the company's own behalf don't count as a sale at all under this law.</p>
+
+    <p>There's no requirement that companies honor "universal opt-out" tools like Global Privacy Control, the browser-level signal that lets a user tell every website at once not to sell their data. Some other states require it. Alabama doesn't.</p>
+
+    <p>Data protection impact assessments aren't required either, something California and Colorado both mandate before high-risk processing goes live. And unlike most of its peers, Alabama gives consumers no right to appeal if a company denies their request to access, correct, or delete their own data &mdash; the decision is final.</p>
+
+    <p>The law also gave the Attorney General no rulemaking authority, meaning there's no built-in path to update the rules as data practices change without going back to the Legislature.</p>
+
+    <p>The starkest gap is around kids. Alabama's law only requires parental consent for children under 13, the same floor set by the federal COPPA law, on the books since 1998. States like Colorado, Connecticut, and Virginia have moved beyond that baseline in recent years, requiring opt-in consent before targeting older teenagers with ads or selling their data. Alabama's law doesn't.</p>
+
+    <p>Bill sponsor Rep. Mike Shaw, a Republican with a background in tech, has acknowledged the gap directly. "The definition of minors wasn't discussed at length," he told the International Association of Privacy Professionals, adding that "there needs to be further conversation and coordination moving forward about aligning laws to a common age group."</p>
+
+    <p>It's a strange inconsistency next to Alabama's own App Store Accountability Act, a separate state law that requires parental consent for app downloads by anyone under 18. Under one Alabama law, a 16-year-old needs a parent's permission to download an app, and under the new privacy law, that same 16-year-old's data can be sold without anyone's consent at all.</p>
+
+    <h2>Why It Looks Like This</h2>
+
+    <p>Shaw has been working on the bill for two years. He's framed it from the start as a deliberate trade-off, not an oversight. "This bill was all about balance," he said. "Balancing Alabamians' rights with the burden of regulation."</p>
+
+    <p>That framing shows up throughout the law: no data protection assessments to slow down rollout of new products, no universal opt-out signal to build for, a narrow sale definition that leaves common marketing arrangements untouched, and enforcement limited to a single state office that has to give companies 45 days to fix a violation before it can bring a case. There is no path for a private citizen to sue over a violation.</p>
+
+    <p>Freshfields, a law firm tracking state privacy legislation, has called Alabama's approach "notably business-friendly" compared with the laws California and Colorado wrote first. Alabama joins Oklahoma as one of two states to enact comprehensive privacy legislation so far in 2026.</p>
+
+    <h2>The Bottom Line</h2>
+
+    <p>Alabama now has a privacy law. It gives residents real, enforceable rights they didn't have before: to see their data, fix it, delete it, and opt out of having it sold. That's not nothing.</p>
+
+    <p>It's also a law built with a light touch by design, from a threshold low enough to catch mid-sized local businesses, to a definition of "sale" narrow enough to let a lot of routine data-sharing through untouched, to child protections that stop at age 13 while a different Alabama law protects the same kids' app downloads until they turn 18.</p>
+
+    <p>None of it matters yet. The clock starts May 1, 2027. What happens between now and then &mdash; whether the Legislature revisits the minors' gap Shaw himself flagged, whether the AG's office builds out enforcement capacity, whether Alabama businesses actually prepare &mdash; is the part still being written.</p>
+
+  </div>
+
+  <!-- Sources -->
+  <div class="article-sources">
+    <div class="sources-label">Sources</div>
+    <div class="sources-list">
+      <a href="https://privacymatters.dlapiper.com/2026/04/u-s-alabama-becomes-21st-state-to-enact-comprehensive-privacy-law/" target="_blank" rel="noopener">DLA Piper &mdash; Privacy Matters</a> &nbsp;&middot;&nbsp;
+      <a href="https://www.wilmerhale.com/en/insights/blogs/wilmerhale-privacy-and-cybersecurity-law/20260422-alabama-enacts-nations-twenty-first-state-comprehensive-privacy-law" target="_blank" rel="noopener">WilmerHale</a> &nbsp;&middot;&nbsp;
+      <a href="https://www.hunton.com/privacy-and-cybersecurity-law-blog/alabama-becomes-21st-state-with-comprehensive-consumer-privacy-law" target="_blank" rel="noopener">Hunton Andrews Kurth</a> &nbsp;&middot;&nbsp;
+      <a href="https://www.freshfields.com/en/our-thinking/blogs/a-fresh-take/sweet-home-data-alabamas-privacy-law-takes-center-stage-102mqns" target="_blank" rel="noopener">Freshfields</a> &nbsp;&middot;&nbsp;
+      <a href="https://iapp.org/news/a/alabama-set-to-add-variation-to-us-state-privacy-patchwork" target="_blank" rel="noopener">IAPP</a> &nbsp;&middot;&nbsp;
+      <a href="https://www.billtrack50.com/billdetail/1957511" target="_blank" rel="noopener">BillTrack50 &mdash; AL HB351</a> &nbsp;&middot;&nbsp;
+      <a href="https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf" target="_blank" rel="noopener">Alabama Legislature &mdash; HB351 Enrolled Text</a>
+    </div>
+  </div>
+
+  <a href="/the-frequency/signals/" class="back-link">&larr; All Signals</a>
+
+</div><!-- /page -->
+
+</body>
+</html>

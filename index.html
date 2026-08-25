@@ -322,6 +322,41 @@
   }
   .wave-hero-btn:hover { opacity: 0.85; }
 
+  /* Signal hero — homepage feature strip for a live Signal */
+  .signal-hero { background: #1a1a18; border-top: 3px solid #c8a96e; }
+  .signal-hero-inner {
+    max-width: 640px; margin: 0 auto;
+    padding: 64px 40px; text-align: center;
+  }
+  .signal-hero-eyebrow {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: 9px; font-weight: 500; letter-spacing: 0.24em;
+    text-transform: uppercase; color: #c8a96e; margin-bottom: 18px;
+  }
+  .signal-hero-eyebrow-dot {
+    width: 5px; height: 5px; border-radius: 50%; background: #c8a96e;
+    animation: signalPulse 2s ease-in-out infinite;
+  }
+  @keyframes signalPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .signal-hero-hed {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32px; font-weight: 700; color: #faf9f5;
+    line-height: 1.15; margin-bottom: 16px;
+  }
+  .signal-hero-dek {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic; font-weight: 300; font-size: 16px;
+    color: #d8d3c8; line-height: 1.7; max-width: 480px;
+    margin: 0 auto 30px;
+  }
+  .signal-hero-btn {
+    display: inline-block; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 13px 30px; background: #c8a96e; color: #1a1a18;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .signal-hero-btn:hover { opacity: 0.85; }
+
   /* Games placeholder visual */
   .games-visual {
     display: flex; align-items: center; justify-content: center;
@@ -534,6 +569,9 @@
     .wave-hero-inner { padding: 48px 20px; }
     .wave-hero-hed { font-size: 26px; }
     .wave-hero-dek { font-size: 14px; }
+    .signal-hero-inner { padding: 48px 20px; }
+    .signal-hero-hed { font-size: 26px; }
+    .signal-hero-dek { font-size: 14px; }
     .site-footer { padding: 40px 20px 24px; }
     .footer-cols { flex-direction: column; gap: 28px; }
     .modal-box { padding: 28px 20px 24px; }
@@ -768,14 +806,14 @@
 
 </div>
 
-<!-- ══════════════ WAVE HERO ══════════════ -->
-<!-- Homepage spotlight for a live Wave. Swap content or remove when the next Wave replaces this one. -->
-<section class="wave-hero">
-  <div class="wave-hero-inner">
-    <p class="wave-hero-eyebrow">The Wave &middot; East Alabama</p>
-    <h2 class="wave-hero-hed">Cutting the Static</h2>
-    <p class="wave-hero-dek">Bobby Singleton took 72.7 percent of the vote Saturday and ended Randy Kelley&rsquo;s four-year run atop the Alabama Democratic Party. Chambers County&rsquo;s own SDEC member told us how she voted.</p>
-    <a href="/wave/bobby-singleton-cutting-the-static.html" class="wave-hero-btn">Read the Wave &rarr;</a>
+<!-- ══════════════ SIGNAL HERO ══════════════ -->
+<!-- Homepage spotlight for a live Signal. Swap content or remove when the next Signal/Wave replaces this one. -->
+<section class="signal-hero">
+  <div class="signal-hero-inner">
+    <p class="signal-hero-eyebrow"><span class="signal-hero-eyebrow-dot"></span>The Frequency &middot; Signal</p>
+    <h2 class="signal-hero-hed">21 States In, Alabama Writes Its Own Rules</h2>
+    <p class="signal-hero-dek">Alabama just became the 21st state with a comprehensive privacy law &mdash; and set the lowest bar in the country to trigger it. Here&rsquo;s what residents actually get, and what got left out.</p>
+    <a href="/signal/alabama-privacy-law-explained.html" class="signal-hero-btn">Read the Signal &rarr;</a>
   </div>
 </section>
 

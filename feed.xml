@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 27 Aug 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #22 | Return to Sender</title>
+      <link>https://readtheroom.news/read-the-room/issue/22/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/22/</guid>
+      <pubDate>Tue, 01 Sep 2026 09:00:00 +0000</pubDate>
+      <description>Trump's mail-voting order was blocked, cleared by the Supreme Court, then blocked again -- twice in one week. The order, the court fight, and both sides' case, with Election Day six weeks out.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/22/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>Signal: Alabama's New Privacy Law, Explained</title>

@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 01 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The Frequency — Issue #21 | Paper Trails.</title>
+      <link>https://readtheroom.news/the-frequency/issue/21/</link>
+      <guid isPermaLink="true">https://readtheroom.news/the-frequency/issue/21/</guid>
+      <pubDate>Thu, 03 Sep 2026 09:00:00 +0000</pubDate>
+      <description>Tuberville reverses on data centers, Wahl faces a residency suit, a Lee County deputy is fired over Flock cameras, and PEEHIP asks for $222M more.</description>
+      <enclosure url="https://readtheroom.news/the-frequency/issue/21/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>Read the Room — Issue #22 | Return to Sender</title>

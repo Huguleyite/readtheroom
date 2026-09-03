@@ -242,6 +242,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://readtheroom.news/the-frequency/issue/21/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://readtheroom.news/the-frequency/issue/19/</loc>
     <changefreq>never</changefreq>
     <priority>0.6</priority>

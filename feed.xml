@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 03 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #23 | Signature Required</title>
+      <link>https://readtheroom.news/read-the-room/issue/23/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/23/</guid>
+      <pubDate>Tue, 08 Sep 2026 09:00:00 +0000</pubDate>
+      <description>A federal judge has blocked Trump's mail-voting order four times since June. The fight is back before the Supreme Court, with a ruling expected this week. Both sides' case.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/23/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency — Issue #21 | Paper Trails.</title>

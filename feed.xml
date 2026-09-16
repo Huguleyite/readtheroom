@@ -6,7 +6,15 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 15 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The Supreme Court Just Kept Your Absentee Ballot Running on Alabama's Rules, Not the Postal Service's | The Frequency Signal</title>
+      <link>https://readtheroom.news/signal/alabama-mail-ballot-supreme-court-ruling.html</link>
+      <guid isPermaLink="true">https://readtheroom.news/signal/alabama-mail-ballot-supreme-court-ruling.html</guid>
+      <pubDate>Thu, 17 Sep 2026 09:00:00 +0000</pubDate>
+      <description>The Supreme Court blocked new USPS mail ballot rules for 2026. Alabama wasn't in the lawsuit, but every absentee ballot still travels through the Postal Service the rule targeted.</description>
+    </item>
 
     <item>
       <title>Read the Room — Issue #24 | Off the Record</title>

@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read the Returns — Alabama Election Night Results | Read the Room</title>
+<meta name="description" content="Read the Returns: Alabama's Nov. 3 election night results, county by county, starting with Chambers County. Unofficial numbers, plain-English explainers, no race calls. No refunds, just returns.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://readtheroom.news/returns/">
+<meta property="og:title" content="Read the Returns — No refunds, just returns.">
+<meta property="og:description" content="Alabama's Nov. 3 election night results, county by county, starting with Chambers County. Unofficial numbers with plain-English explainers.">
+<meta property="og:url" content="https://readtheroom.news/returns/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Read the Room">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-weight: 300;
+  color: #1a1a18;
+  -webkit-font-smoothing: antialiased;
+  background: #faf9f5;
+}
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ── Top bar ── */
+.top-bar { height: 3px; background: #c8a96e; }
+
+/* ── Navigation (matches the rest of the site) ── */
+.site-nav { background: #1a1a18; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #252522; }
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.nav-logo-img { height: 38px; width: 38px; object-fit: cover; border: 1px solid #2e2e2c; }
+.nav-brand-text { display: flex; flex-direction: column; gap: 3px; }
+.nav-brand-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14px; font-weight: 700;
+  color: #faf9f5; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1;
+}
+.nav-brand-rule { height: 1px; background: #c8a96e; width: 100%; }
+.nav-brand-tag { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; }
+.nav-links { display: flex; align-items: center; }
+.nav-sep { width: 1px; height: 14px; background: #2e2e2c; }
+.nav-link {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #888880; text-decoration: none; padding: 0 20px;
+  transition: color 0.2s;
+}
+.nav-link:hover { color: #c8a96e; }
+.nav-link.active { color: #c8a96e; display: inline-flex; align-items: center; gap: 7px; }
+.pulse-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #c8a96e; display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+.nav-item-dropdown { position: relative; display: flex; align-items: center; }
+.nav-dropdown {
+  position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a18; border: 1px solid #252522;
+  border-top: 2px solid #c8a96e;
+  min-width: 160px; z-index: 200;
+  display: none; flex-direction: column;
+}
+.nav-item-dropdown:hover .nav-dropdown { display: flex; }
+.nav-dropdown-link {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #888880; text-decoration: none; padding: 12px 20px;
+  border-bottom: 1px solid #252522; transition: color 0.15s;
+  white-space: nowrap;
+}
+.nav-dropdown-link:last-child { border-bottom: none; }
+.nav-dropdown-link:hover { color: #c8a96e; }
+.nav-caret { font-size: 8px; margin-left: 4px; color: #555550; }
+.nav-mobile-sub { display: none; }
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  background: none; border: none; cursor: pointer;
+  padding: 8px; width: 36px; height: 36px;
+}
+.nav-hamburger span { display: block; height: 1.5px; width: 22px; background: #888880; transition: background 0.2s; }
+.nav-hamburger:hover span { background: #c8a96e; }
+
+/* ── Hero ── */
+.hero {
+  background: #0B1124;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200,169,110,0.05) 39px, rgba(200,169,110,0.05) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(200,169,110,0.05) 39px, rgba(200,169,110,0.05) 40px);
+  padding: 64px 40px 60px;
+  text-align: center;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e; font-weight: 400;
+}
+.hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 64px; font-weight: 700;
+  color: #faf9f5; letter-spacing: 0.04em; text-transform: uppercase;
+  line-height: 1; margin: 20px 0 14px;
+}
+.hero-tagline {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic; font-weight: 300;
+  font-size: 20px; color: #c8a96e; letter-spacing: 0.04em;
+}
+.hero-descriptor { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #8a897f; margin-top: 20px; }
+.status-pill {
+  display: inline-block; margin-top: 22px;
+  border: 1px solid rgba(200,169,110,0.5); color: #faf9f5;
+  font-size: 13px; font-weight: 400; padding: 8px 18px; border-radius: 999px;
+}
+.notice {
+  max-width: 640px; margin: 16px auto 0;
+  font-size: 13px; line-height: 1.5; color: #e9d9b4; font-weight: 400;
+  border: 1px solid rgba(200,169,110,0.45); background: rgba(200,169,110,0.1);
+  padding: 10px 16px; border-radius: 4px;
+}
+.notice a { color: #faf9f5; }
+.notice[hidden] { display: none; }
+.sample-ribbon {
+  background: #c8a96e; color: #1a1a18; text-align: center;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 9px 20px;
+}
+.sample-ribbon[hidden] { display: none; }
+
+/* ── Body ── */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 40px 40px 0; }
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px 20px; flex-wrap: wrap; margin-bottom: 12px; }
+.sec-head h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 26px; color: #1a1a18; }
+.sec-head span { font-size: 13px; color: #6b675f; font-weight: 400; }
+
+/* Chambers card */
+.card {
+  background: #fff; border: 1px solid #d9d3c3; border-top: 3px solid #c8a96e;
+  border-radius: 4px; padding: 6px 22px 16px; margin-bottom: 44px;
+}
+.contest { padding: 16px 0; border-bottom: 1px solid #ebe6d8; }
+.contest-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+.contest-top h3 { font-size: 16px; font-weight: 500; color: #1a1a18; }
+.know { font-size: 12px; color: #7a5b1c; text-decoration: none; border-bottom: 1px solid #c8a96e; white-space: nowrap; font-weight: 400; }
+.know:hover { color: #1a1a18; }
+.cand { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14px; font-weight: 400; padding: 2px 0; }
+.cand .name i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 8px; vertical-align: baseline; }
+.cand .party { color: #6b675f; margin-left: 6px; font-size: 12px; }
+.cand .num { text-align: right; white-space: nowrap; }
+.cand .num em { font-style: normal; color: #6b675f; margin-left: 8px; font-size: 12.5px; }
+.cand .num.none em { margin-left: 0; }
+.cand.lead .name, .cand.lead .num > b { font-weight: 500; }
+.cand .num > b { font-weight: 400; }
+.bar { display: flex; height: 9px; border-radius: 5px; overflow: hidden; background: #e7e1d2; margin: 8px 0 6px; gap: 2px; }
+.bar > div { height: 100%; }
+.lead-line { font-size: 12.5px; color: #33322d; font-weight: 400; }
+.fine { font-size: 12px; color: #6b675f; margin-top: 4px; font-weight: 400; }
+.dis { font-size: 12.5px; color: #4a483f; background: #f4f0e4; border-left: 3px solid #c8a96e; padding: 8px 12px; margin-top: 10px; font-weight: 400; line-height: 1.5; }
+.more { font-size: 13px; color: #6b675f; padding-top: 16px; line-height: 1.55; font-weight: 400; }
+.muted { color: #6b675f; font-weight: 400; }
+
+/* Map */
+.map-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; margin-bottom: 44px; align-items: start; }
+.map-panel { background: #efeadf; border-radius: 4px; padding: 14px 14px 10px; }
+#alMap { display: block; width: 100%; max-width: 460px; height: auto; margin: 0 auto; }
+.county { fill: #e6e0d0; stroke: #faf9f5; stroke-width: 0.8; cursor: pointer; transition: fill 0.3s; outline: none; }
+.county:hover { stroke: #1a1a18; stroke-width: 1.2; }
+.county:focus-visible { stroke: #1a1a18; stroke-width: 2; }
+#selOutline { fill: none; stroke: #b8893a; stroke-width: 2.6; pointer-events: none; stroke-linejoin: round; }
+#chMark { fill: #b8893a; stroke: #faf9f5; stroke-width: 1.2; pointer-events: none; }
+.map-hint { font-size: 12.5px; color: #5f5c52; min-height: 20px; padding: 8px 4px 0; text-align: center; font-weight: 400; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: center; font-size: 11.5px; color: #5f5c52; padding: 4px 4px 4px; font-weight: 400; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.side h3 { font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+.side .block { margin-bottom: 26px; }
+.side .lede { font-size: 14px; color: #33322d; line-height: 1.6; font-weight: 400; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.chip {
+  background: transparent; border: 1px solid #b9b19c; color: #1a1a18; border-radius: 999px;
+  padding: 5px 13px; font-size: 12.5px; font-family: inherit; font-weight: 400; cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: #1a1a18; color: #faf9f5; border-color: #1a1a18; }
+.chip:focus-visible { outline: 2px solid #b8893a; outline-offset: 2px; }
+
+/* Explainers */
+.ex { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-bottom: 44px; }
+.xc { background: #fff; border: 1px solid #d9d3c3; border-radius: 4px; padding: 20px 22px; }
+.xc h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 19px; margin-bottom: 8px; }
+.xc p { font-size: 15px; line-height: 1.65; color: #33322d; font-weight: 300; }
+.xc.wide { grid-column: 1 / -1; }
+
+/* Guide strip */
+.guide-strip { background: #c8a96e; color: #1a1a18; }
+.guide-inner { max-width: 1080px; margin: 0 auto; padding: 22px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.guide-inner span { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 19px; }
+.guide-inner a {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+  background: #1a1a18; color: #faf9f5; padding: 11px 22px; text-decoration: none;
+}
+.guide-inner a:hover { background: #33322d; }
+
+/* Footer */
+.site-footer { background: #111110; border-top: 1px solid #1a1a18; padding: 52px 40px 32px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 48px; align-items: start; margin-bottom: 40px;
+  padding-bottom: 40px; border-bottom: 1px solid #1e1e1c;
+}
+.footer-brand { display: flex; align-items: center; gap: 14px; }
+.footer-logo { height: 44px; width: 44px; object-fit: cover; border: 1px solid #2a2a28; }
+.footer-brand-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 16px; font-weight: 700; color: #faf9f5;
+  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;
+}
+.footer-brand-rule { width: 28px; height: 1px; background: #c8a96e; margin-bottom: 4px; }
+.footer-brand-tag { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; font-weight: 300; color: #3a3a38; }
+.footer-cols { display: flex; gap: 56px; }
+.footer-col-head { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; font-weight: 500; margin-bottom: 14px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #444440; text-decoration: none; transition: color 0.15s; }
+.footer-links a:hover { color: #c8a96e; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: 10px; letter-spacing: 0.06em; color: #2a2a28; }
+.footer-tagline { font-family: 'Source Serif 4', Georgia, serif; font-size: 11px; font-style: italic; color: #2a2a28; }
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@media (prefers-reduced-motion: reduce) { .pulse-dot { animation: none; } .county { transition: none; } }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero-title { font-size: 44px; }
+  .wrap { padding: 32px 24px 0; }
+  .map-grid, .ex { grid-template-columns: minmax(0, 1fr); }
+  .guide-inner { padding: 22px 24px; }
+  .footer-top { grid-template-columns: 1fr; }
+  .nav-hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: #1a1a18; border-top: 1px solid #252522;
+    flex-direction: column; align-items: stretch; padding: 8px 0; z-index: 99;
+  }
+  .nav-links.open { display: flex; }
+  .nav-sep { display: none; }
+  .nav-link { padding: 12px 24px; font-size: 11px; }
+  .nav-mobile-sub { display: flex; gap: 8px; padding: 4px 24px 14px 40px; }
+  .nav-mobile-sub-link {
+    font-family: 'DM Sans', Arial, sans-serif; font-size: 9px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase; color: #c8a96e; text-decoration: none;
+    border: 1px solid rgba(200,169,110,0.35); padding: 5px 12px; border-radius: 2px;
+  }
+  .nav-item-dropdown { flex-direction: column; align-items: flex-start; }
+  .nav-dropdown { position: static; transform: none; border-top: none; border: none; min-width: unset; padding-left: 16px; }
+  .nav-item-dropdown:hover .nav-dropdown { display: flex; }
+  .nav-dropdown-link { padding: 10px 24px; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 44px 20px 44px; }
+  .hero-title { font-size: 32px; }
+  .hero-tagline { font-size: 16px; }
+  .hero-descriptor { letter-spacing: 0.14em; }
+  .wrap { padding: 28px 16px 0; }
+  .card { padding: 4px 16px 14px; }
+  .sec-head h2 { font-size: 22px; }
+  .nav-inner { padding: 0 20px; }
+  .site-footer { padding: 40px 20px 24px; }
+  .footer-cols { flex-direction: column; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
+  .guide-inner { padding: 20px; }
+  .cand { font-size: 13.5px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <img src="/assets/img/logo.png" alt="Read the Room" class="nav-logo-img">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Read the Room</span>
+        <div class="nav-brand-rule"></div>
+        <span class="nav-brand-tag">Politics, explained without the spin.</span>
+      </div>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a class="nav-link" href="/read-the-room/">Read the Room</a>
+      <div class="nav-sep"></div>
+      <div class="nav-item-dropdown">
+        <a class="nav-link" href="/the-frequency/">The Frequency <span class="nav-caret">▾</span></a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-link" href="/the-frequency/">Issues</a>
+          <a class="nav-dropdown-link" href="/the-frequency/signals/">Signals</a>
+          <a class="nav-dropdown-link" href="/the-frequency/waves/">Waves</a>
+        </div>
+      </div>
+      <div class="nav-mobile-sub">
+        <a href="/the-frequency/signals/" class="nav-mobile-sub-link">Signals</a>
+        <a href="/the-frequency/waves/" class="nav-mobile-sub-link">Waves</a>
+      </div>
+      <div class="nav-sep"></div>
+      <a class="nav-link active" href="/returns/" aria-current="page"><i class="pulse-dot"></i>Returns</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/games/">Games</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="/about/">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<header class="hero">
+  <div class="hero-eyebrow"><i class="pulse-dot"></i>Election night &middot; Tuesday, Nov. 3</div>
+  <h1 class="hero-title">Read the Returns</h1>
+  <p class="hero-tagline">No refunds, just returns.</p>
+  <p class="hero-descriptor">Alabama &middot; County by county &middot; Chambers first</p>
+  <div class="status-pill" id="statusPill" role="status" aria-live="polite">Polls close 7:00 PM Central &middot; Results appear here as counties report</div>
+  <div class="notice" id="notice" hidden></div>
+</header>
+<div class="sample-ribbon" id="sampleRibbon" hidden>Sample data &middot; Not real results &middot; Candidate names are placeholders</div>
+
+<main class="wrap">
+
+  <noscript><p class="notice" style="color:#33322d;background:#f4f0e4;border-color:#d9d3c3;margin:0 0 24px">Results load with JavaScript. Turn it on to see the latest numbers, or check the state's own site.</p></noscript>
+
+  <!-- ══════════════ CHAMBERS COUNTY ══════════════ -->
+  <div class="sec-head"><h2>Chambers County</h2><span id="chMeta">Boxes reported: not yet &middot; Polls close 7:00 PM Central</span></div>
+  <section class="card" id="chCard" aria-label="Chambers County contests">
+    <!-- Filled by script. Static fallback below shows the ballot if the script is blocked. -->
+    <div class="contest"><div class="contest-top"><h3>Governor</h3></div><div class="cand"><span class="name">Doug Jones <span class="party">(D)</span></span><span class="num muted">no votes yet</span></div><div class="cand"><span class="name">Tommy Tuberville <span class="party">(R)</span></span><span class="num muted">no votes yet</span></div></div>
+    <div class="contest"><div class="contest-top"><h3>U.S. Senate</h3></div><div class="cand"><span class="name">Everett Wess <span class="party">(D)</span></span><span class="num muted">no votes yet</span></div><div class="cand"><span class="name">Barry Moore <span class="party">(R)</span></span><span class="num muted">no votes yet</span></div></div>
+    <div class="contest"><div class="contest-top"><h3>U.S. House, 3rd District</h3></div><div class="cand"><span class="name">Lee McInnis <span class="party">(D)</span></span><span class="num muted">no votes yet</span></div><div class="cand"><span class="name">Mike Rogers <span class="party">(R)</span></span><span class="num muted">no votes yet</span></div></div>
+    <div class="contest"><div class="contest-top"><h3>State Senate, District 13</h3></div><div class="cand"><span class="name">Randy Price <span class="party">(R)</span></span><span class="num muted">no votes yet</span></div><p class="fine">Opponents, if any, appear when the state posts the ballot.</p></div>
+    <div class="contest"><div class="contest-top"><h3>State House, District 38</h3></div><div class="cand"><span class="name">Hazel Floyd <span class="party">(D)</span></span><span class="num muted">no votes yet</span></div><div class="cand"><span class="name">Kristin Nelson <span class="party">(R)</span></span><span class="num muted">no votes yet</span></div><div class="dis">Disclosure: Hazel Floyd, a candidate in this race, is the daughter of Sim Floyd, Jr., who publishes Read the Room.</div><p class="fine">District 38 spans Chambers and Lee counties. This card shows the Chambers County portion of the vote.</p></div>
+  </section>
+
+  <!-- ══════════════ ALABAMA MAP ══════════════ -->
+  <div class="sec-head"><h2>Alabama, county by county</h2><span>Click a county to see it</span></div>
+  <div class="map-grid">
+    <div>
+      <div class="map-panel">
+        <svg id="alMap" viewBox="0 0 520 700" role="img" aria-label="Map of Alabama's 67 counties. Chambers County is outlined in gold.">
+<path class="county" id="c01001" data-fips="01001" data-name="Autauga" d="M232.124,344.183L256.884,344.557L256.445,338.136L292.915,337.808L293.507,380.659L287.845,381.173L287.423,385.249L283.079,390.079L278.721,390.955L277.405,387.377L268.685,385.79L268.242,381.345L263.887,382.463L260.408,388.889L256.92,387.781L256.044,381.73L249.074,382.969L249.511,390.625L246.46,395.319L244.28,390.626L244.281,386.303L240.796,382.103L243.411,378.523L239.057,374.816L233.409,362.462L234.283,358.017Z"><title>Autauga County</title></path>
+<path class="county" id="c01003" data-fips="01003" data-name="Baldwin" d="M96.824,627.939L94.719,618.028L99.694,609.682L105.038,607.516L100.66,602.525L100.257,598.937L107.421,591.972L102.602,587.224L102.666,581.417L105.824,575.768L101.468,569.789L105.977,561.56L102.026,559.293L106.002,559.213L105.166,554.88L109.131,555.787L114.912,551.77L119.852,543.17L125.155,542.232L122.1,538.744L127.821,540.157L133.562,539.343L138.363,545.314L145.845,547.845L145.57,583.426L147.783,583.442L149.075,588.147L143.208,602.312L144.072,605.161L154.198,614.999L155.494,620.075L171.412,630.062L172.696,638.596L165.954,651.163L167.247,657.969L176.114,664.323L168.074,668.603L164.447,678.717L160.424,680.546L163.526,683.532L156.815,686.702L139.832,690.902L121.958,693.713L96.963,693.947L105.05,688.968L110.37,692.238L126.017,689.053L127.394,684.862L120.761,678.867L117.693,673.522L108.843,667.622L105.844,656.466L109.944,647.363L108.709,637.957L105.662,631.992Z"><title>Baldwin County</title></path>
+<path class="county" id="c01005" data-fips="01005" data-name="Barbour" d="M385.807,456.07L386.635,451.614L392.248,444.388L393.508,439.68L403.125,438.702L403.101,436.726L413.598,436.347L413.368,418.564L415.537,417.424L433.884,417.046L442.809,429.265L459.423,428.877L458.282,439.272L456.213,446.594L450.223,455.584L448.996,461.162L450.884,469.655L450.923,472.125L448.268,470.685L441.316,475.239L440.085,480.94L415.491,480.667L415.656,493.265L375.228,493.854L379.121,487.762L378.626,482.332L381.186,475.141L385.081,470.036L383.215,459.556Z"><title>Barbour County</title></path>
+<path class="county" id="c01007" data-fips="01007" data-name="Bibb" d="M171.164,295.189L183.715,294.886L184.642,282.171L188.126,276.63L198.062,277.042L198.098,267.532L203.729,262.366L209.767,263.99L214.524,260.298L218.839,260.431L219.246,272.041L225.723,273.164L225.709,281.686L230.026,286.632L236.511,288.738L236.921,319.365L219.579,319.341L183.592,319.956L183.623,313.658L171.055,313.713Z"><title>Bibb County</title></path>
+<path class="county" id="c01009" data-fips="01009" data-name="Blount" d="M226.743,172.509L231.888,170.293L231.466,165.105L236.178,163.998L243.888,158.196L247.312,158.937L258.003,146.456L257.57,140.404L261.844,139.905L261.844,139.905L263.549,136.691L269.956,134.952L279.733,115.782L287.409,114.771L292.556,122.536L305.434,137.676L302.052,146.215L302.087,153.997L297.407,160.687L302.972,160.539L300.865,168.33L293.181,175.649L273.044,180.525L272.626,185.836L264.475,185.727L251.171,174.994L236.169,174.62L228.02,178.687Z"><title>Blount County</title></path>
+<path class="county" id="c01011" data-fips="01011" data-name="Bullock" d="M353.347,399.689L358.126,397.302L360.819,405.8L412.317,404.868L413.353,417.453L415.537,417.424L413.368,418.564L413.598,436.347L403.101,436.726L403.125,438.702L393.508,439.68L392.248,444.388L386.635,451.614L385.807,456.07L369.594,456.235L369.475,443.761L358.093,443.865L356.682,432.391L343.993,431.875L343.776,403.224L345.061,400.126Z"><title>Bullock County</title></path>
+<path class="county" id="c01013" data-fips="01013" data-name="Butler" d="M239.456,445.089L289.364,444.648L289.491,482.567L289.073,489.114L282.923,489.133L282.976,507.785L258.34,508.079L241.622,507.96L238.104,504.87L233.279,492.514L233.296,475.098L233.307,463.981L232.888,445.084Z"><title>Butler County</title></path>
+<path class="county" id="c01015" data-fips="01015" data-name="Calhoun" d="M333.896,174.444L342.444,171.17L345.387,163.983L353.535,165.152L353.49,159.84L359.894,157.808L372.766,160.774L372.718,155.957L397.992,157.531L397.589,159.635L397.679,167.17L389.11,167.146L385.278,169.289L385.323,173.364L391.325,173.42L391.397,179.719L385.011,183.991L385.208,201.899L383.093,205.01L372.82,208.945L372.884,215.367L366.433,215.307L366.823,211.104L342.749,211.186L339.295,209.113L338.817,202.57L336.212,198.76L324.612,197.972L324.585,193.65L336.55,185.912Z"><title>Calhoun County</title></path>
+<path class="county chambers" id="c01017" data-fips="01017" data-name="Chambers" d="M391.68,279.637L434.897,278.947L441.037,313.066L444.998,316.958L443.333,321.43L449.058,326.898L448.239,329.999L429.593,331.145L428.322,333.262L392.302,334.095Z"><title>Chambers County</title></path>
+<path class="county" id="c01019" data-fips="01019" data-name="Cherokee" d="M398.71,75.86L405.095,109.881L410.599,139.46L413.386,156.224L401.843,157.36L397.589,159.635L397.992,157.531L372.718,155.957L373.116,152.988L365.691,137.125L366.511,133.535L360.549,135.69L360.006,122.848L359.948,116.424L364.221,117.126L379.849,102.021L384.5,98.635L391.195,88.058L391.123,81.757Z"><title>Cherokee County</title></path>
+<path class="county" id="c01021" data-fips="01021" data-name="Chilton" d="M219.579,319.341L236.921,319.365L236.511,288.738L236.513,285.527L243.431,286.024L268.943,285.758L275.878,293.153L280.204,292.895L280.672,305.985L285.027,313.876L288.499,315.347L287.655,322.512L297.664,331.244L292.892,331.633L292.915,337.808L256.445,338.136L256.884,344.557L232.124,344.183L219.961,344.287L219.981,334.778Z"><title>Chilton County</title></path>
+<path class="county" id="c01023" data-fips="01023" data-name="Choctaw" d="M41.859,453.23L47.855,405.397L49.342,393.81L109.089,394.216L98.145,397.8L99.29,412.14L95.728,417.904L94.748,426.909L91.653,429.836L85.515,430.996L85.888,436.189L91.092,440.081L91.475,444.656L84.892,445.811L89.221,449.94L83.934,452.345L82.547,458.133L77.645,464.246L81.904,474.183L86.746,473.008L88.832,481.928L42.73,481.408Z"><title>Choctaw County</title></path>
+<path class="county" id="c01025" data-fips="01025" data-name="Clarke" d="M91.092,440.081L140.547,440.458L140.413,456.761L146.101,457.918L146.053,464.093L160.524,463.95L158.317,466.035L158.642,482.836L152.495,482.793L152.345,503.544L145.705,509.053L152.706,514.417L150.897,520.951L145.148,523.996L143.403,521.882L135.005,525.272L132.73,533.529L129.228,530.78L125.217,535.562L127.821,540.157L122.1,538.744L125.155,542.232L119.852,543.17L114.912,551.77L109.131,555.787L105.166,554.88L105.686,547.596L100.416,545.314L104.4,544.123L103.594,537.195L110.218,536.278L111.628,527.892L105.891,528.696L109.931,521.697L110.472,512.067L106.999,507.583L96.931,503.147L90.407,497.017L88.322,487.727L88.832,481.928L86.746,473.008L81.904,474.183L77.645,464.246L82.547,458.133L83.934,452.345L89.221,449.94L84.892,445.811L91.475,444.656Z"><title>Clarke County</title></path>
+<path class="county" id="c01027" data-fips="01027" data-name="Clay" d="M360.057,223.641L357.933,226.871L368.273,227.764L370.384,223.544L385.019,223.886L384.425,248.471L384.334,279.842L345.437,280.328L341.564,282.581L341.548,280.481L321.666,280.615L321.588,267.524L328.066,267.608L328.403,253.032L344.794,253.163L345.127,240.563L351.574,238.535L351.504,230.137L353.657,230.119L353.602,223.697Z"><title>Clay County</title></path>
+<path class="county" id="c01029" data-fips="01029" data-name="Cleburne" d="M360.057,223.641L366.433,215.307L372.884,215.367L372.82,208.945L383.093,205.01L385.208,201.899L385.011,183.991L391.397,179.719L391.325,173.42L385.323,173.364L385.278,169.289L389.11,167.146L397.679,167.17L397.589,159.635L401.843,157.36L413.386,156.224L414.789,165.1L421.281,200.834L425.492,225.231L419.879,223.951L385.019,223.886L370.384,223.544L368.273,227.764L357.933,226.871Z"><title>Cleburne County</title></path>
+<path class="county" id="c01031" data-fips="01031" data-name="Coffee" d="M320.441,519.978L320.367,507.008L326.519,505.859L326.447,494.372L369.955,494.029L370.534,554.557L321.086,555.553Z"><title>Coffee County</title></path>
+<path class="county" id="c01033" data-fips="01033" data-name="Colbert" d="M93.149,22.839L99.949,20.82L110.472,26.623L113.765,35.68L123.85,44.928L127.231,46.319L136.158,44.424L139.161,40.496L150.216,36.879L153.629,33.939L160.847,32.136L172.263,36.782L173.507,41.485L172.185,49.879L169.203,51.715L170.021,56.786L163.618,61.811L159.736,70.311L87.5,67.503Z"><title>Colbert County</title></path>
+<path class="county" id="c01035" data-fips="01035" data-name="Conecuh" d="M233.296,475.098L233.279,492.514L238.104,504.87L241.622,507.96L258.34,508.079L258.352,520.678L261.434,520.675L262.768,530.309L258.364,533.773L258.384,555.763L250.437,557.25L250.433,545.885L169.247,545.781L173.251,539.997L177.674,537.551L185.226,525.605L193.628,517.983L196.272,517.376L201.145,508.623L205.16,491.096L214.839,485.936L215.731,480.132L223.194,480.148Z"><title>Conecuh County</title></path>
+<path class="county" id="c01037" data-fips="01037" data-name="Coosa" d="M280.204,292.895L281.043,283.137L283.631,281.03L321.666,280.615L341.548,280.481L341.564,282.581L341.924,330.743L297.664,331.244L287.655,322.512L288.499,315.347L285.027,313.876L280.672,305.985Z"><title>Coosa County</title></path>
+<path class="county" id="c01039" data-fips="01039" data-name="Covington" d="M258.34,508.079L282.976,507.785L295.293,507.497L295.775,518.49L299.716,513.286L302.797,513.273L309.81,507.311L310.302,517.808L312.073,519.776L320.441,519.978L321.086,555.553L321.693,584.09L296.911,584.21L260.181,584.178L258.41,583.315L258.384,555.763L258.364,533.773L262.768,530.309L261.434,520.675L258.352,520.678Z"><title>Covington County</title></path>
+<path class="county" id="c01041" data-fips="01041" data-name="Crenshaw" d="M289.364,444.648L294.618,444.753L294.134,432.281L306.818,432.227L306.876,444.578L320.446,444.26L322.665,449.434L321.433,463.522L319.714,469.584L325.854,469.424L325.968,487.828L322.053,494.522L326.447,494.372L326.519,505.859L320.367,507.008L320.441,519.978L312.073,519.776L310.302,517.808L309.81,507.311L302.797,513.273L299.716,513.286L295.775,518.49L295.293,507.497L282.976,507.785L282.923,489.133L289.073,489.114L289.491,482.567Z"><title>Crenshaw County</title></path>
+<path class="county" id="c01043" data-fips="01043" data-name="Cullman" d="M204.522,153.063L209.229,153.201L209.359,108.978L209.365,106.878L272.038,108.264L284.403,108.48L287.409,114.771L279.733,115.782L269.956,134.952L263.549,136.691L261.844,139.905L261.844,139.905L257.57,140.404L258.003,146.456L247.312,158.937L243.888,158.196L236.178,163.998L231.466,165.105L231.888,170.293L226.743,172.509L221.602,171.389L221.609,168.054L211.328,167.906L212.619,165.563L209.215,157.895Z"><title>Cullman County</title></path>
+<path class="county" id="c01045" data-fips="01045" data-name="Dale" d="M369.955,494.029L375.228,493.854L415.656,493.265L416.228,536.99L416.283,541.19L407.901,541.174L407.973,546.98L393.37,543.447L385.875,544.024L380.25,554.708L370.534,554.557Z"><title>Dale County</title></path>
+<path class="county" id="c01047" data-fips="01047" data-name="Dallas" d="M164.469,395.182L170.576,395.096L170.723,370.026L208.159,369.328L212.094,362.423L212.107,357.606L216.9,353.419L216.038,350.33L219.981,334.778L219.961,344.287L232.124,344.183L234.283,358.017L233.409,362.462L239.057,374.816L243.411,378.523L240.796,382.103L244.281,386.303L244.28,390.626L240.355,392.353L242.971,395.689L239.044,398.775L239.478,402.727L245.15,407.298L232.928,407.291L233.339,432.734L200.097,432.781L198.805,427.218L193.568,424.975L190.099,418.415L187.913,418.775L182.273,410.844L177.468,411.066L174.446,404.998L167.924,400.761L164.431,401.233Z"><title>Dallas County</title></path>
+<path class="county" id="c01049" data-fips="01049" data-name="DeKalb" d="M334.116,83.398L340.494,82.734L366.251,61.756L377.114,44.348L380.916,42.825L384.61,31.662L390.072,27.522L395.987,61.559L396.896,66.491L398.71,75.86L391.123,81.757L391.195,88.058L384.5,98.635L379.849,102.021L364.221,117.126L359.948,116.424L360.006,122.848L328.843,122.967L328.203,90.357Z"><title>DeKalb County</title></path>
+<path class="county" id="c01051" data-fips="01051" data-name="Elmore" d="M297.664,331.244L341.924,330.743L357.546,330.74L353.733,341.764L356.811,346.06L355.997,352.489L357.003,368.288L358.767,370.99L356.188,374.841L346.602,374.055L340.542,378.918L337.943,380.913L327.898,377.028L320.057,376.705L317.414,371.163L311.3,367.367L303.94,375.8L305.703,380.361L301.333,377.293L294.804,378.184L293.507,380.659L292.915,337.808L292.892,331.633Z"><title>Elmore County</title></path>
+<path class="county" id="c01053" data-fips="01053" data-name="Escambia" d="M145.845,547.845L152.888,550.368L161.746,545.734L169.247,545.781L250.433,545.885L250.437,557.25L258.384,555.763L258.41,583.315L260.181,584.178L248.233,583.814L201.327,583.49L147.783,583.442L145.57,583.426Z"><title>Escambia County</title></path>
+<path class="county" id="c01055" data-fips="01055" data-name="Etowah" d="M305.434,137.676L319.04,125.622L328.857,125.067L328.843,122.967L360.006,122.848L360.549,135.69L366.511,133.535L365.691,137.125L373.116,152.988L372.718,155.957L372.766,160.774L359.894,157.808L353.49,159.84L353.535,165.152L345.387,163.983L342.444,171.17L333.896,174.444L330.449,171.75L328.267,165.712L324.844,166.351L321.822,162.417L321.789,156.859L317.918,153.546L311.516,156.916L308.503,153.472L302.972,160.539L297.407,160.687L302.087,153.997L302.052,146.215Z"><title>Etowah County</title></path>
+<path class="county" id="c01057" data-fips="01057" data-name="Fayette" d="M108.99,162.884L146.669,163.856L146.62,170.155L159.041,170.864L159.296,196.063L171.745,196.637L171.671,209.111L146.752,207.828L146.719,212.027L142.419,212.116L142.35,220.514L121.706,219.834L108.8,219.824Z"><title>Fayette County</title></path>
+<path class="county" id="c01059" data-fips="01059" data-name="Franklin" d="M85.581,84.53L87.5,67.503L159.736,70.311L159.476,107.991L147.114,107.529L114.72,106.49L83.189,104.885Z"><title>Franklin County</title></path>
+<path class="county" id="c01061" data-fips="01061" data-name="Geneva" d="M321.086,555.553L370.534,554.557L380.25,554.708L408.056,553.65L407.976,582.811L406.651,582.951L340.722,584.09L321.693,584.09Z"><title>Geneva County</title></path>
+<path class="county" id="c01063" data-fips="01063" data-name="Greene" d="M80.714,295.447L83.822,289.312L96.355,290.33L98.569,285.91L105.511,283.889L109.889,278.873L121.182,273.184L121.854,292.827L136.565,292.839L135.686,294.437L133.001,304.417L128.658,305.736L130.364,308.716L125.153,310.026L121.607,318.143L122.843,324.824L116.725,329.333L124.521,330.891L121.428,336.543L125.772,336.214L126.559,344.99L132.203,345.412L130.876,347.993L123.489,347.925L125.196,351.275L131.283,351.084L132.991,354.558L126.462,355.363L123.339,363.608L118.565,362.45L113.434,353.752L117.779,354.044L118.257,349.726L112.598,350.533L109.583,348.031L103.9,351.056L94.307,353.54L91.311,349.675L93.959,346.249L94.485,338.598L91.423,340.414L87.111,337.891L90.599,336.698L88.105,327.776L92.015,327.329L92.501,323.013L88.587,323.829L85.18,318.847L79.97,319.397L82.615,315.973L79.617,313.218L76.252,305.516L80.163,304.579Z"><title>Greene County</title></path>
+<path class="county" id="c01065" data-fips="01065" data-name="Hale" d="M135.686,294.437L171.164,295.189L171.055,313.713L171.018,320.011L164.948,319.974L164.789,345.043L158.706,345.126L158.535,370.072L133.725,370.002L133.78,363.704L123.339,363.608L126.462,355.363L132.991,354.558L131.283,351.084L125.196,351.275L123.489,347.925L130.876,347.993L132.203,345.412L126.559,344.99L125.772,336.214L121.428,336.543L124.521,330.891L116.725,329.333L122.843,324.824L121.607,318.143L125.153,310.026L130.364,308.716L128.658,305.736L133.001,304.417Z"><title>Hale County</title></path>
+<path class="county" id="c01067" data-fips="01067" data-name="Henry" d="M415.656,493.265L415.491,480.667L440.085,480.94L441.316,475.239L448.268,470.685L450.923,472.125L451.078,481.882L459.597,492.492L461.161,507.291L458.197,514.382L459.164,519.678L455.801,529.617L456.367,537.392L445.346,537.689L416.228,536.99Z"><title>Henry County</title></path>
+<path class="county" id="c01069" data-fips="01069" data-name="Houston" d="M416.228,536.99L445.346,537.689L456.367,537.392L453.354,542.012L455.661,548.276L454.443,554.968L463.462,566.065L464.866,570.737L467.701,581.439L407.976,582.811L408.056,553.65L380.25,554.708L385.875,544.024L393.37,543.447L407.973,546.98L407.901,541.174L416.283,541.19Z"><title>Houston County</title></path>
+<path class="county" id="c01071" data-fips="01071" data-name="Jackson" d="M303.985,9.433L356.442,9.45L386.906,9.762L390.072,27.522L384.61,31.662L380.916,42.825L377.114,44.348L366.251,61.756L340.494,82.734L334.116,83.398L330.72,84.781L329.39,76.759L323.437,76.92L323.368,65.677L302.121,65.79L298.277,60.988L298.64,46.282L300.744,42.319L300.286,34.536L301.972,32.428L299.404,26.384L305.709,16.098L309.941,15.954Z"><title>Jackson County</title></path>
+<path class="county" id="c01073" data-fips="01073" data-name="Jefferson" d="M190.096,222.051L200.014,215.916L197.876,212.573L200.904,207.52L211.223,205.577L211.235,201.378L215.53,201.512L217.688,197.071L219.431,184.724L225.869,182.76L228.02,178.687L236.169,174.62L251.171,174.994L264.475,185.727L272.626,185.836L276.916,185.827L279.077,192.12L279.102,201.507L276.107,206.702L276.127,215.224L280.003,217.314L280.011,220.525L274.851,221.402L269.702,228.699L261.954,228.835L255.933,236.004L252.057,236.13L249.043,243.17L242.579,244.035L242.577,248.11L236.542,248.107L225.749,257.357L224.449,260.442L218.839,260.431L214.524,260.298L214.534,256.222L202.902,251.742L198.617,244.316L194.312,243.188L194.329,238.989L188.327,232.417L181.88,230.163L182.767,224.98L187.927,225.87Z"><title>Jefferson County</title></path>
+<path class="county" id="c01075" data-fips="01075" data-name="Lamar" d="M73.102,187.642L78.423,142.626L104.921,143.816L104.874,148.016L109.15,148.186L108.99,162.884L108.8,219.824L69.677,217.857Z"><title>Lamar County</title></path>
+<path class="county" id="c01077" data-fips="01077" data-name="Lauderdale" d="M106.46,6.681L151.289,7.351L196.119,8.23L197.811,8.36L197.284,34.68L189.627,40.703L191.738,42.937L187.491,44.03L182.01,37.453L172.263,36.782L160.847,32.136L153.629,33.939L150.216,36.879L139.161,40.496L136.158,44.424L127.231,46.319L123.85,44.928L113.765,35.68L110.472,26.623L99.949,20.82L93.149,22.839L86.429,18.429L81.065,7.854L81.089,6Z"><title>Lauderdale County</title></path>
+<path class="county" id="c01079" data-fips="01079" data-name="Lawrence" d="M159.736,70.311L163.618,61.811L170.021,56.786L169.203,51.715L172.185,49.879L173.507,41.485L172.263,36.782L182.01,37.453L187.491,44.03L191.738,42.937L196.407,42.215L206.143,47.934L210.371,53.384L209.365,106.878L209.359,108.978L159.476,107.991Z"><title>Lawrence County</title></path>
+<path class="county" id="c01081" data-fips="01081" data-name="Lee" d="M392.302,334.095L428.322,333.262L429.593,331.145L448.239,329.999L451.522,345.262L454.215,350.53L461.761,359.792L464.015,364.447L457.06,364.934L457.576,369.866L424.07,370.992L424.622,379.383L411.991,379.676L411.394,367.086L405.301,367.163L384.304,357.279L379.913,353.25L379.761,338.678L381.909,336.432L390.156,336.219Z"><title>Lee County</title></path>
+<path class="county" id="c01083" data-fips="01083" data-name="Limestone" d="M197.811,8.36L241.801,9.442L248.146,9.443L248.15,36.754L247.305,72.957L233.704,68.75L210.371,53.384L206.143,47.934L196.407,42.215L191.738,42.937L189.627,40.703L197.284,34.68Z"><title>Limestone County</title></path>
+<path class="county" id="c01085" data-fips="01085" data-name="Lowndes" d="M244.28,390.626L246.46,395.319L249.511,390.625L249.074,382.969L256.044,381.73L256.92,387.781L260.408,388.889L263.887,382.463L268.242,381.345L268.685,385.79L277.405,387.377L278.721,390.955L283.079,390.079L285.7,391.924L284.412,398.72L294.03,404.369L294.134,432.281L294.618,444.753L289.364,444.648L239.456,445.089L239.462,432.738L233.339,432.734L232.928,407.291L245.15,407.298L239.478,402.727L239.044,398.775L242.971,395.689L240.355,392.353Z"><title>Lowndes County</title></path>
+<path class="county" id="c01087" data-fips="01087" data-name="Macon" d="M340.542,378.918L346.602,374.055L356.188,374.841L358.767,370.99L357.003,368.288L367.882,368.066L367.762,355.47L377.762,355.372L379.913,353.25L384.304,357.279L405.301,367.163L411.394,367.086L411.991,379.676L412.317,404.868L360.819,405.8L358.126,397.302L353.347,399.689L344.555,390.991Z"><title>Macon County</title></path>
+<path class="county" id="c01089" data-fips="01089" data-name="Madison" d="M248.146,9.443L303.139,9.437L303.985,9.433L309.941,15.954L305.709,16.098L299.404,26.384L301.972,32.428L300.286,34.536L300.744,42.319L298.64,46.282L298.277,60.988L302.121,65.79L305.109,68.618L300.902,78.645L294.517,77.436L290.709,83.009L285.605,83.644L277.936,79.96L275.793,73.54L273.658,69.344L268.132,69.108L262.186,72.7L260.906,68.995L255.38,68.259L251.982,72.215L247.305,72.957L248.15,36.754Z"><title>Madison County</title></path>
+<path class="county" id="c01091" data-fips="01091" data-name="Marengo" d="M109.089,394.216L103.91,389.343L94.811,384.546L96.649,376.416L106.292,370.843L111.147,364.473L118.54,364.919L118.565,362.45L123.339,363.608L133.78,363.704L133.725,370.002L158.535,370.072L158.364,395.142L164.469,395.182L164.431,401.233L158.312,402.675L158.192,420.212L145.957,420.246L145.815,438.401L140.547,440.458L91.092,440.081L85.888,436.189L85.515,430.996L91.653,429.836L94.748,426.909L95.728,417.904L99.29,412.14L98.145,397.8Z"><title>Marengo County</title></path>
+<path class="county" id="c01093" data-fips="01093" data-name="Marion" d="M78.904,138.556L83.189,104.885L114.72,106.49L147.114,107.529L146.768,151.381L146.669,163.856L108.99,162.884L109.15,148.186L104.874,148.016L104.921,143.816L78.423,142.626Z"><title>Marion County</title></path>
+<path class="county" id="c01095" data-fips="01095" data-name="Marshall" d="M275.793,73.54L277.936,79.96L285.605,83.644L290.709,83.009L294.517,77.436L300.902,78.645L305.109,68.618L302.121,65.79L323.368,65.677L323.437,76.92L329.39,76.759L330.72,84.781L334.116,83.398L328.203,90.357L328.843,122.967L328.857,125.067L319.04,125.622L305.434,137.676L292.556,122.536L287.409,114.771L284.403,108.48L272.038,108.264L272.018,98.752Z"><title>Marshall County</title></path>
+<path class="county" id="c01097" data-fips="01097" data-name="Mobile" d="M55.928,692.057L80.963,688.563L81.448,685.479L87.632,690.5L83.574,693.912L79.137,691.878L71.102,692.021L62.149,694ZM45.385,565.462L57.758,565.647L57.819,561.446L95.371,561.812L99.836,557.663L102.026,559.293L105.977,561.56L101.468,569.789L105.824,575.768L102.666,581.417L102.602,587.224L107.421,591.972L100.257,598.937L100.66,602.525L105.038,607.516L99.694,609.682L94.719,618.028L96.824,627.939L90.096,633.546L90.929,638.252L86.844,645.248L87.227,650.32L84.51,654.242L83.845,672.034L80.177,680.147L73.484,680.555L73.988,676.111L65.144,671.048L58.433,672.931L56.247,670.056L48.188,672.657L46.763,619.98L46.013,582.153Z"><title>Mobile County</title></path>
+<path class="county" id="c01099" data-fips="01099" data-name="Monroe" d="M160.524,463.95L192.094,463.751L195.599,464.259L233.307,463.981L233.296,475.098L223.194,480.148L215.731,480.132L214.839,485.936L205.16,491.096L201.145,508.623L196.272,517.376L193.628,517.983L185.226,525.605L177.674,537.551L173.251,539.997L169.247,545.781L161.746,545.734L152.888,550.368L145.845,547.845L138.363,545.314L133.562,539.343L127.821,540.157L125.217,535.562L129.228,530.78L132.73,533.529L135.005,525.272L143.403,521.882L145.148,523.996L150.897,520.951L152.706,514.417L145.705,509.053L152.345,503.544L152.495,482.793L158.642,482.836L158.317,466.035Z"><title>Monroe County</title></path>
+<path class="county" id="c01101" data-fips="01101" data-name="Montgomery" d="M293.507,380.659L294.804,378.184L301.333,377.293L305.703,380.361L303.94,375.8L311.3,367.367L317.414,371.163L320.057,376.705L327.898,377.028L337.943,380.913L340.542,378.918L344.555,390.991L353.347,399.689L345.061,400.126L343.776,403.224L343.993,431.875L344.523,443.975L320.446,444.26L306.876,444.578L306.818,432.227L294.134,432.281L294.03,404.369L284.412,398.72L285.7,391.924L283.079,390.079L287.423,385.249L287.845,381.173Z"><title>Montgomery County</title></path>
+<path class="county" id="c01103" data-fips="01103" data-name="Morgan" d="M210.371,53.384L233.704,68.75L247.305,72.957L251.982,72.215L255.38,68.259L260.906,68.995L262.186,72.7L268.132,69.108L273.658,69.344L275.793,73.54L272.018,98.752L272.038,108.264L209.365,106.878Z"><title>Morgan County</title></path>
+<path class="county" id="c01105" data-fips="01105" data-name="Perry" d="M171.055,313.713L183.623,313.658L183.592,319.956L219.579,319.341L219.981,334.778L216.038,350.33L216.9,353.419L212.107,357.606L212.094,362.423L208.159,369.328L170.723,370.026L170.576,395.096L164.469,395.182L158.364,395.142L158.535,370.072L158.706,345.126L164.789,345.043L164.948,319.974L171.018,320.011Z"><title>Perry County</title></path>
+<path class="county" id="c01107" data-fips="01107" data-name="Pickens" d="M65.303,253.121L69.677,217.857L108.8,219.824L121.706,219.834L121.182,273.184L109.889,278.873L105.511,283.889L98.569,285.91L96.355,290.33L83.822,289.312L80.714,295.447L60.367,295.784Z"><title>Pickens County</title></path>
+<path class="county" id="c01109" data-fips="01109" data-name="Pike" d="M320.446,444.26L344.523,443.975L343.993,431.875L356.682,432.391L358.093,443.865L369.475,443.761L369.594,456.235L385.807,456.07L383.215,459.556L385.081,470.036L381.186,475.141L378.626,482.332L379.121,487.762L375.228,493.854L369.955,494.029L326.447,494.372L322.053,494.522L325.968,487.828L325.854,469.424L319.714,469.584L321.433,463.522L322.665,449.434Z"><title>Pike County</title></path>
+<path class="county" id="c01111" data-fips="01111" data-name="Randolph" d="M385.019,223.886L419.879,223.951L425.492,225.231L426.896,233.116L434.419,275.866L434.897,278.947L391.68,279.637L384.334,279.842L384.425,248.471Z"><title>Randolph County</title></path>
+<path class="county" id="c01113" data-fips="01113" data-name="Russell" d="M411.991,379.676L424.622,379.383L424.07,370.992L457.576,369.866L457.06,364.934L464.015,364.447L465.024,372.582L469.019,376.96L466.952,383.418L464.91,391.482L472.819,394.804L478.141,399.649L474.734,404.404L469.091,406.232L470.015,409.181L463.947,411.879L458.376,418.395L459.423,428.877L442.809,429.265L433.884,417.046L415.537,417.424L413.353,417.453L412.317,404.868Z"><title>Russell County</title></path>
+<path class="county" id="c01115" data-fips="01115" data-name="St. Clair" d="M302.972,160.539L308.503,153.472L311.516,156.916L317.918,153.546L321.789,156.859L321.822,162.417L324.844,166.351L328.267,165.712L330.449,171.75L333.896,174.444L336.55,185.912L324.585,193.65L324.612,197.972L317.303,196.533L321.193,200.834L319.96,210.351L315.666,211.117L319.142,217.52L314.018,224.588L308.413,222.27L305.01,230.685L296.865,239.612L296.801,223.557L284.323,223.6L284.304,217.302L280.003,217.314L276.127,215.224L276.107,206.702L279.102,201.507L279.077,192.12L276.916,185.827L272.626,185.836L273.044,180.525L293.181,175.649L300.865,168.33Z"><title>St. Clair County</title></path>
+<path class="county" id="c01117" data-fips="01117" data-name="Shelby" d="M218.839,260.431L224.449,260.442L225.749,257.357L236.542,248.107L242.577,248.11L242.579,244.035L249.043,243.17L252.057,236.13L255.933,236.004L261.954,228.835L269.702,228.699L274.851,221.402L280.011,220.525L280.003,217.314L284.304,217.302L284.323,223.6L296.801,223.557L296.865,239.612L301.197,245.028L298.19,247.511L299.507,253.31L295.205,256.168L290.457,255.197L290.904,259.888L286.169,263.486L287.043,266.694L281.871,270.044L287.078,277.808L283.631,281.03L281.043,283.137L280.204,292.895L275.878,293.153L268.943,285.758L243.431,286.024L236.513,285.527L236.511,288.738L230.026,286.632L225.709,281.686L225.723,273.164L219.246,272.041Z"><title>Shelby County</title></path>
+<path class="county" id="c01119" data-fips="01119" data-name="Sumter" d="M53.85,355.095L56.819,330.808L59.372,304.662L60.367,295.784L80.714,295.447L80.163,304.579L76.252,305.516L79.617,313.218L82.615,315.973L79.97,319.397L85.18,318.847L88.587,323.829L92.501,323.013L92.015,327.329L88.105,327.776L90.599,336.698L87.111,337.891L91.423,340.414L94.485,338.598L93.959,346.249L91.311,349.675L94.307,353.54L103.9,351.056L109.583,348.031L112.598,350.533L118.257,349.726L117.779,354.044L113.434,353.752L118.565,362.45L118.54,364.919L111.147,364.473L106.292,370.843L96.649,376.416L94.811,384.546L103.91,389.343L109.089,394.216L49.342,393.81Z"><title>Sumter County</title></path>
+<path class="county" id="c01121" data-fips="01121" data-name="Talladega" d="M296.865,239.612L305.01,230.685L308.413,222.27L314.018,224.588L319.142,217.52L315.666,211.117L319.96,210.351L321.193,200.834L317.303,196.533L324.612,197.972L336.212,198.76L338.817,202.57L339.295,209.113L342.749,211.186L366.823,211.104L366.433,215.307L360.057,223.641L353.602,223.697L353.657,230.119L351.504,230.137L351.574,238.535L345.127,240.563L344.794,253.163L328.403,253.032L328.066,267.608L321.588,267.524L321.666,280.615L283.631,281.03L287.078,277.808L281.871,270.044L287.043,266.694L286.169,263.486L290.904,259.888L290.457,255.197L295.205,256.168L299.507,253.31L298.19,247.511L301.197,245.028Z"><title>Talladega County</title></path>
+<path class="county" id="c01123" data-fips="01123" data-name="Tallapoosa" d="M341.564,282.581L345.437,280.328L384.334,279.842L391.68,279.637L392.302,334.095L390.156,336.219L381.909,336.432L379.761,338.678L379.913,353.25L377.762,355.372L367.762,355.47L367.882,368.066L357.003,368.288L355.997,352.489L356.811,346.06L353.733,341.764L357.546,330.74L341.924,330.743Z"><title>Tallapoosa County</title></path>
+<path class="county" id="c01125" data-fips="01125" data-name="Tuscaloosa" d="M121.706,219.834L142.35,220.514L142.419,212.116L146.719,212.027L146.752,207.828L171.671,209.111L184.125,211.278L184.074,221.776L190.096,222.051L187.927,225.87L182.767,224.98L181.88,230.163L188.327,232.417L194.329,238.989L194.312,243.188L198.617,244.316L202.902,251.742L214.534,256.222L214.524,260.298L209.767,263.99L203.729,262.366L198.098,267.532L198.062,277.042L188.126,276.63L184.642,282.171L183.715,294.886L171.164,295.189L135.686,294.437L136.565,292.839L121.854,292.827L121.182,273.184Z"><title>Tuscaloosa County</title></path>
+<path class="county" id="c01127" data-fips="01127" data-name="Walker" d="M146.768,151.381L163.02,152.363L204.522,153.063L209.215,157.895L212.619,165.563L211.328,167.906L221.609,168.054L221.602,171.389L226.743,172.509L228.02,178.687L225.869,182.76L219.431,184.724L217.688,197.071L215.53,201.512L211.235,201.378L211.223,205.577L200.904,207.52L197.876,212.573L200.014,215.916L190.096,222.051L184.074,221.776L184.125,211.278L171.671,209.111L171.745,196.637L159.296,196.063L159.041,170.864L146.62,170.155L146.669,163.856Z"><title>Walker County</title></path>
+<path class="county" id="c01129" data-fips="01129" data-name="Washington" d="M42.73,481.408L88.832,481.928L88.322,487.727L90.407,497.017L96.931,503.147L106.999,507.583L110.472,512.067L109.931,521.697L105.891,528.696L111.628,527.892L110.218,536.278L103.594,537.195L104.4,544.123L100.416,545.314L105.686,547.596L105.166,554.88L106.002,559.213L102.026,559.293L99.836,557.663L95.371,561.812L57.819,561.446L57.758,565.647L45.385,565.462L43.897,519.229Z"><title>Washington County</title></path>
+<path class="county" id="c01131" data-fips="01131" data-name="Wilcox" d="M140.547,440.458L145.815,438.401L145.957,420.246L158.192,420.212L158.312,402.675L164.431,401.233L167.924,400.761L174.446,404.998L177.468,411.066L182.273,410.844L187.913,418.775L190.099,418.415L193.568,424.975L198.805,427.218L200.097,432.781L233.339,432.734L239.462,432.738L239.456,445.089L232.888,445.084L233.307,463.981L195.599,464.259L192.094,463.751L160.524,463.95L146.053,464.093L146.101,457.918L140.413,456.761Z"><title>Wilcox County</title></path>
+<path class="county" id="c01133" data-fips="01133" data-name="Winston" d="M147.114,107.529L159.476,107.991L209.359,108.978L209.229,153.201L204.522,153.063L163.02,152.363L146.768,151.381Z"><title>Winston County</title></path>
+</svg>
+        <div class="map-hint" id="mapHint">Results appear after 7 PM Central.</div>
+        <div class="legend" id="legend" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="side" id="side">
+      <p class="lede">Statewide totals appear here once the polls close. Until then, the map stays neutral and the Chambers County card shows the names on the ballot. Alabama polls are open 7 a.m. to 7 p.m. Central.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════ EXPLAINERS ══════════════ -->
+  <div class="sec-head"><h2>Reading the returns</h2><span>What the numbers mean</span></div>
+  <div class="ex">
+    <div class="xc"><h3>Boxes, not ballots</h3><p>The state&rsquo;s results page tracks &ldquo;boxes reported,&rdquo; the share of a county&rsquo;s voting boxes that have turned in totals. It does not measure how many ballots are counted. A county can show most of its boxes and still have votes to add.</p></div>
+    <div class="xc"><h3>Why the numbers jump</h3><p>Counties send results in batches, so totals rise in steps rather than along a smooth line. Alabama counts absentee ballots after the polls close at 7 p.m. Central. In a small county, one large box can move a percentage noticeably. An early lead is a snapshot, not a trend.</p></div>
+    <div class="xc"><h3>Leading is not winning</h3><p>This page does not call races. It shows the votes counted and who is ahead. A lead with boxes outstanding can change. Results stay unofficial until certified.</p></div>
+    <div class="xc"><h3>Unofficial, then official</h3><p>Every number here is unofficial. Each county&rsquo;s canvassing board meets at noon on the second Friday after the election, November 13, to tally the returns. The state canvassing board, made up of the governor, the secretary of state, and the attorney general, certifies state and federal races within 22 days, by November 25. In a general election, a race decided by 0.5 percent or less triggers an automatic recount.</p></div>
+    <div class="xc wide"><h3>About these numbers</h3><p>Results come from the Alabama Secretary of State&rsquo;s unofficial election night reporting, which relays what each county submits. Each county&rsquo;s probate judge is responsible for the accuracy of what the county reports. This page refreshes about every 10 minutes and can trail the state&rsquo;s own site. Every figure shows the time of its last update.</p></div>
+  </div>
+</main>
+
+<div class="guide-strip">
+  <div class="guide-inner">
+    <span>Before you vote: the Alabama 2026 Election Guide</span>
+    <a href="/signal/alabama-2026-election-guide.html">Read the guide</a>
+  </div>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/assets/img/logo.png" alt="Read the Room" class="footer-logo" loading="lazy">
+        <div class="footer-brand-text">
+          <div class="footer-brand-name">Read the Room</div>
+          <div class="footer-brand-rule"></div>
+          <div class="footer-brand-tag">Politics, explained without the spin.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <div class="footer-col-head">Newsletters</div>
+          <ul class="footer-links">
+            <li><a href="/read-the-room/">Read the Room</a></li>
+            <li><a href="/the-frequency/">The Frequency</a></li>
+            <li><a href="/the-frequency/signals/">Signals</a></li>
+            <li><a href="/the-frequency/waves/">Waves</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-head">Site</div>
+          <ul class="footer-links">
+            <li><a href="/returns/">Returns</a></li>
+            <li><a href="/games/">Games</a></li>
+            <li><a href="/about/">About RTR</a></li>
+            <li><a href="/about/">About The Frequency</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Read the Room. All rights reserved.</span>
+      <span class="footer-tagline">Every Tuesday and Thursday. No static.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+/* ══════════════ READ THE RETURNS ══════════════
+   Data contract: /returns/data-spec.md
+   - DATA_URL is the JSON feed published by the separate data repo (custom Actions workflow).
+     Leave it empty until that feed exists; the page then shows the pre-election ballot.
+   - ?sample=1 renders built-in placeholder data through the same code path (for testing).
+   - Nothing here calls races. The page shows votes counted and who is ahead. */
+var DATA_URL = '';
+var POLL_MS = 180000;      // re-fetch every 3 minutes (the feed itself updates about every 10)
+var STALE_MIN = 30;        // warn if the feed is older than this while results are live
+var CHAMBERS = '01017';
+var GUIDE_URL = '/signal/alabama-2026-election-guide.html';
+/* Nov. 3, 2026 falls after daylight time ends (Nov. 1), so Central is UTC-6 and 7:00 PM CT = 01:00 UTC on Nov. 4. */
+var POLLS_CLOSE = Date.parse('2026-11-04T01:00:00Z');
+
+/* Ballot as certified for Chambers County. Names are shown before any data arrives. */
+var ROSTER = [
+  { id: 'gov',          title: 'Governor',                 cands: [['Doug Jones', 'D'], ['Tommy Tuberville', 'R']] },
+  { id: 'us-sen',       title: 'U.S. Senate',              cands: [['Everett Wess', 'D'], ['Barry Moore', 'R']] },
+  { id: 'us-house-3',   title: 'U.S. House, 3rd District', cands: [['Lee McInnis', 'D'], ['Mike Rogers', 'R']] },
+  { id: 'al-senate-13', title: 'State Senate, District 13', cands: [['Randy Price', 'R']], note: 'Opponents, if any, appear when the state posts the ballot.' },
+  { id: 'al-house-38',  title: 'State House, District 38', cands: [['Hazel Floyd', 'D'], ['Kristin Nelson', 'R']],
+    disclosure: 'Disclosure: Hazel Floyd, a candidate in this race, is the daughter of Sim Floyd, Jr., who publishes Read the Room.',
+    note: 'District 38 spans Chambers and Lee counties. This card shows the Chambers County portion of the vote.' }
+];
+var MORE_TEXT = 'More contests appear here as the state posts them: Lieutenant Governor, Attorney General, Secretary of State, Public Service Commission, the constitutional amendment, and county offices.';
+
+var COLORS = { D: '#2a78d6', R: '#e34948' };
+var FALLBACK = ['#b8893a', '#5d6b7a', '#8b6bb0', '#3f8f6b'];
+var NEUTRAL = '#e6e0d0';
+
+var isSample = /[?&]sample=1(&|$)/.test(location.search);
+var state = { data: null, mapContest: null, sel: CHAMBERS, fetchFailed: false };
+
+/* ── helpers ── */
+function el(tag, attrs, kids) {
+  var n = document.createElement(tag);
+  if (attrs) for (var k in attrs) {
+    if (k === 'text') n.textContent = attrs[k];
+    else if (k === 'class') n.className = attrs[k];
+    else n.setAttribute(k, attrs[k]);
+  }
+  (kids || []).forEach(function (c) { if (c != null) n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+  return n;
+}
+function num(x) { return typeof x === 'number' && isFinite(x) ? x : 0; }
+function fmtN(x) { return num(x).toLocaleString('en-US'); }
+function pct(x, t) { return t > 0 ? (100 * x / t) : 0; }
+function f1(x) { return x.toFixed(1) + '%'; }
+function ctParts(d) {
+  var f = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Chicago', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+  var o = {}; f.formatToParts(d).forEach(function (p) { o[p.type] = p.value; });
+  return o;
+}
+function fmtTime(iso) {
+  var d = new Date(iso); if (isNaN(d)) return '';
+  var p = ctParts(d), n = ctParts(new Date());
+  var t = p.hour + ':' + p.minute + ' ' + p.dayPeriod + ' CT';
+  return (p.day !== n.day || p.month !== n.month) ? (p.month + ' ' + p.day + ', ' + t) : t;
+}
+function candColor(c, i) { return COLORS[c.party] || FALLBACK[i % FALLBACK.length]; }
+function total(votes, cands) { var t = 0; cands.forEach(function (c) { t += num(votes && votes[c.id]); }); return t; }
+function leader(votes, cands) {
+  var best = -1, bv = -1, tie = false;
+  cands.forEach(function (c, i) {
+    var v = num(votes && votes[c.id]);
+    if (v > bv) { bv = v; best = i; tie = false; } else if (v === bv) { tie = true; }
+  });
+  return { idx: best, tie: tie, votes: bv };
+}
+function boxesText(cd) {
+  if (!cd) return '';
+  if (cd.boxes_total > 0 && cd.boxes_reported != null) return cd.boxes_reported + ' of ' + cd.boxes_total + ' boxes reported';
+  if (cd.boxes_pct != null) return Math.round(cd.boxes_pct) + '% of boxes reported';
+  return '';
+}
+function boxesShort(cd) {
+  if (!cd) return '';
+  if (cd.boxes_total > 0 && cd.boxes_reported != null) return cd.boxes_reported + ' of ' + cd.boxes_total;
+  if (cd.boxes_pct != null) return Math.round(cd.boxes_pct) + '%';
+  return '';
+}
+function fullyReporting(cd) {
+  if (!cd) return false;
+  if (cd.boxes_total > 0 && cd.boxes_reported != null) return cd.boxes_reported >= cd.boxes_total;
+  return cd.boxes_pct != null && cd.boxes_pct >= 100;
+}
+function contestById(d, id) {
+  if (!d || !d.contests) return null;
+  for (var i = 0; i < d.contests.length; i++) if (d.contests[i].id === id) return d.contests[i];
+  return null;
+}
+
+/* ── one contest's results: candidate lines, bar, lead line ── */
+function resultBlock(cands, votes, opts) {
+  opts = opts || {};
+  var t = total(votes, cands), frag = document.createDocumentFragment();
+  var ld = t > 0 ? leader(votes, cands) : { idx: -1, tie: false };
+  cands.forEach(function (c, i) {
+    var v = num(votes && votes[c.id]);
+    var row = el('div', { class: 'cand' + (i === ld.idx && !ld.tie ? ' lead' : '') });
+    var name = el('span', { class: 'name' }, [el('i', { style: 'background:' + candColor(c, i) }), c.name]);
+    if (c.party) name.appendChild(el('span', { class: 'party', text: '(' + c.party + ')' }));
+    var n = el('span', { class: 'num' + (t > 0 ? '' : ' muted none') });
+    if (t > 0) { n.appendChild(el('b', { text: fmtN(v) })); n.appendChild(el('em', { text: f1(pct(v, t)) })); }
+    else n.appendChild(el('em', { text: 'no votes yet' }));
+    row.appendChild(name); row.appendChild(n); frag.appendChild(row);
+  });
+  var bar = el('div', { class: 'bar' });
+  if (t > 0) cands.forEach(function (c, i) {
+    var w = pct(num(votes[c.id]), t);
+    if (w > 0) bar.appendChild(el('div', { style: 'width:' + w + '%;background:' + candColor(c, i) }));
+  });
+  frag.appendChild(bar);
+  if (t > 0 && cands.length > 1 && !opts.noLead) {
+    var s = cands.map(function (c, i) { return { c: c, v: num(votes[c.id]) }; }).sort(function (a, b) { return b.v - a.v; });
+    var m = s[0].v - s[1].v;
+    var line = ld.tie ? 'Tied at ' + fmtN(s[0].v) + ' votes' :
+      s[0].c.name + ' ahead by ' + fmtN(m) + ' votes (' + (100 * m / t).toFixed(1) + ' points)';
+    frag.appendChild(el('div', { class: 'lead-line', text: line }));
+  }
+  return frag;
+}
+
+/* ── Chambers card ── */
+function renderChambers() {
+  var d = state.data, card = document.getElementById('chCard'), meta = document.getElementById('chMeta');
+  card.textContent = '';
+  var live = d && d.status && d.status !== 'pre';
+  var used = {}, metaBoxes = '', metaTime = '';
+
+  ROSTER.forEach(function (r) {
+    var c = live ? contestById(d, r.id) : null;
+    var cands = (c && c.candidates && c.candidates.length) ? c.candidates : r.cands.map(function (x, i) { return { id: 'r' + i, name: x[0], party: x[1] }; });
+    var cd = c && c.counties ? c.counties[CHAMBERS] : null;
+    used[r.id] = true;
+    card.appendChild(contestRow(r.title, cands, cd, { know: true, disclosure: r.disclosure, note: r.note, sample: isSample }));
+    if (cd && !metaBoxes) metaBoxes = boxesShort(cd);
+    if (cd && cd.updated_at && !metaTime) metaTime = cd.updated_at;
+  });
+
+  /* Any other contest the state has posted that has Chambers County numbers */
+  var extras = 0;
+  if (live && d.contests) d.contests.forEach(function (c) {
+    if (used[c.id] || !c.counties || !c.counties[CHAMBERS]) return;
+    extras++;
+    card.appendChild(contestRow(c.title, c.candidates || [], c.counties[CHAMBERS], {}));
+  });
+  card.appendChild(el('div', { class: 'more', text: extras ? 'More contests appear here as the state posts them.' : MORE_TEXT }));
+
+  if (live) {
+    var parts = [];
+    parts.push('Boxes reported: ' + (metaBoxes || 'not yet'));
+    if (metaTime) parts.push('Updated ' + fmtTime(metaTime));
+    meta.textContent = parts.join(' · ') + (isSample ? ' (sample)' : '');
+  } else {
+    meta.textContent = 'Boxes reported: not yet · Polls close 7:00 PM Central';
+  }
+}
+function contestRow(title, cands, cd, o) {
+  var wrap = el('div', { class: 'contest' });
+  var top = el('div', { class: 'contest-top' }, [el('h3', { text: title })]);
+  if (o.know) top.appendChild(el('a', { class: 'know', href: GUIDE_URL, text: 'What to know' }));
+  wrap.appendChild(top);
+  wrap.appendChild(resultBlock(cands, cd ? cd.votes : null));
+  if (cd) {
+    var bits = [boxesText(cd)];
+    if (cd.updated_at) bits.push('Updated ' + fmtTime(cd.updated_at));
+    bits = bits.filter(Boolean);
+    if (bits.length) wrap.appendChild(el('div', { class: 'fine', text: bits.join(' · ') + (o.sample ? ' (sample)' : '') }));
+  }
+  if (o.disclosure) wrap.appendChild(el('div', { class: 'dis', text: o.sample ? 'A disclosure line appears here for the real race.' : o.disclosure }));
+  if (o.note && !(o.sample)) wrap.appendChild(el('p', { class: 'fine', text: o.note }));
+  return wrap;
+}
+
+/* ── Map ── */
+var svg = document.getElementById('alMap');
+var paths = Array.prototype.slice.call(svg.querySelectorAll('.county'));
+var selOutline = document.createElementNS('http://www.w3.org/2000/svg', 'path'); selOutline.setAttribute('id', 'selOutline');
+var chMark = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); chMark.setAttribute('id', 'chMark'); chMark.setAttribute('r', '3');
+svg.appendChild(selOutline); svg.appendChild(chMark);
+chMark.setAttribute('cx', '416.2'); chMark.setAttribute('cy', '307.2'); /* Chambers County centroid in the map's coordinates */
+
+function mix(a, b, t) {
+  var pa = parseInt(a.slice(1), 16), pb = parseInt(b.slice(1), 16), out = 0;
+  for (var s = 16; s >= 0; s -= 8) { var x = (pa >> s) & 255, y = (pb >> s) & 255; out = (out << 8) | Math.round(x + (y - x) * t); }
+  return '#' + ('000000' + out.toString(16)).slice(-6);
+}
+function mapContests() {
+  var d = state.data; if (!d || !d.contests) return [];
+  return d.contests.filter(function (c) { return c.counties && Object.keys(c.counties).length > 3; });
+}
+function paintMap() {
+  var c = state.data && state.mapContest ? contestById(state.data, state.mapContest) : null;
+  paths.forEach(function (p) {
+    var fill = NEUTRAL, cd = c && c.counties ? c.counties[p.getAttribute('data-fips')] : null;
+    if (cd && c.candidates) {
+      var t = total(cd.votes, c.candidates);
+      if (t > 0) {
+        var ld = leader(cd.votes, c.candidates);
+        if (!ld.tie) {
+          var sorted = c.candidates.map(function (x) { return num(cd.votes[x.id]); }).sort(function (a, b) { return b - a; });
+          var m = (sorted[0] - (sorted[1] || 0)) / t;
+          var s = Math.min(1, Math.pow(m / 0.5, 0.8));
+          fill = mix(NEUTRAL, candColor(c.candidates[ld.idx], ld.idx), 0.15 + 0.85 * s);
+        }
+      }
+    }
+    p.style.fill = fill;
+  });
+}
+function selectCounty(id) {
+  state.sel = id;
+  var p = document.getElementById('c' + id); if (!p) return;
+  selOutline.setAttribute('d', p.getAttribute('d'));
+  renderSide();
+  renderHint(p);
+}
+function renderHint(p) {
+  var h = document.getElementById('mapHint'), live = state.data && state.data.status && state.data.status !== 'pre';
+  var name = p ? p.getAttribute('data-name') + ' County' : '';
+  h.textContent = live ? (name ? name + ' selected' : 'Click a county to see its numbers.') : (name ? name + ': polls close 7 PM Central' : 'Results appear after 7 PM Central.');
+}
+paths.forEach(function (p) {
+  var name = p.getAttribute('data-name') + ' County';
+  p.setAttribute('tabindex', '0'); p.setAttribute('role', 'button'); p.setAttribute('aria-label', name);
+  p.addEventListener('click', function () { selectCounty(p.getAttribute('data-fips')); });
+  p.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectCounty(p.getAttribute('data-fips')); } });
+  p.addEventListener('mouseenter', function () { var h = document.getElementById('mapHint'); if (h) h.textContent = name; });
+  p.addEventListener('mouseleave', function () { renderHint(document.getElementById('c' + state.sel)); });
+});
+
+/* ── Side panel: contest chips, statewide totals, selected county ── */
+function renderSide() {
+  var side = document.getElementById('side'); side.textContent = '';
+  var d = state.data, live = d && d.status && d.status !== 'pre', list = live ? mapContests() : [];
+  if (!list.length) {
+    side.appendChild(el('p', { class: 'lede', text: 'Statewide totals appear here once the polls close. Until then, the map stays neutral and the Chambers County card shows the names on the ballot. Alabama polls are open 7 a.m. to 7 p.m. Central.' }));
+    document.getElementById('legend').textContent = '';
+    return;
+  }
+  if (!state.mapContest || !contestById(d, state.mapContest)) state.mapContest = list[0].id;
+  var c = contestById(d, state.mapContest);
+
+  var chips = el('div', { class: 'chips', role: 'group', 'aria-label': 'Choose a statewide contest' });
+  list.forEach(function (x) {
+    var b = el('button', { class: 'chip', type: 'button', 'aria-pressed': x.id === state.mapContest ? 'true' : 'false', text: x.title });
+    b.addEventListener('click', function () { state.mapContest = x.id; paintMap(); renderSide(); });
+    chips.appendChild(b);
+  });
+  side.appendChild(chips);
+
+  /* statewide totals */
+  var full = 0, n = 0;
+  var sumV = {}; c.candidates.forEach(function (x) { sumV[x.id] = 0; });
+  Object.keys(c.counties).forEach(function (fips) {
+    var cd = c.counties[fips]; n++;
+    c.candidates.forEach(function (x) { sumV[x.id] += num(cd.votes && cd.votes[x.id]); });
+    if (fullyReporting(cd)) full++;
+  });
+  var useV = (c.statewide && c.statewide.votes) ? c.statewide.votes : sumV;
+  var blk = el('div', { class: 'block' });
+  blk.appendChild(el('h3', { text: 'Statewide, ' + c.title }));
+  blk.appendChild(resultBlock(c.candidates, useV));
+  var tot = total(useV, c.candidates);
+  blk.appendChild(el('div', { class: 'fine', text: fmtN(tot) + ' votes counted · ' + full + ' of ' + n + ' counties fully reporting' + (c.statewide && c.statewide.updated_at ? ' · Updated ' + fmtTime(c.statewide.updated_at) : '') + (isSample ? ' (sample)' : '') }));
+  side.appendChild(blk);
+
+  /* selected county */
+  var p = document.getElementById('c' + state.sel), cd = c.counties[state.sel];
+  var cblk = el('div', { class: 'block' });
+  cblk.appendChild(el('h3', { text: (p ? p.getAttribute('data-name') : 'County') + ' County, ' + c.title }));
+  if (cd) {
+    cblk.appendChild(resultBlock(c.candidates, cd.votes));
+    var bits = [boxesText(cd)]; if (cd.updated_at) bits.push('Updated ' + fmtTime(cd.updated_at));
+    bits = bits.filter(Boolean);
+    if (bits.length) cblk.appendChild(el('div', { class: 'fine', text: bits.join(' · ') + (isSample ? ' (sample)' : '') }));
+  } else {
+    cblk.appendChild(el('p', { class: 'fine', text: 'The state has not posted this county for this contest yet.' }));
+  }
+  side.appendChild(cblk);
+
+  /* legend */
+  var lg = document.getElementById('legend'); lg.textContent = '';
+  var seen = {};
+  c.candidates.forEach(function (x, i) {
+    var col = candColor(x, i); if (seen[col]) return; seen[col] = 1;
+    lg.appendChild(el('span', null, [el('i', { style: 'background:' + col }), (x.party ? x.party + ' ahead' : x.name + ' ahead')]));
+  });
+  lg.appendChild(el('span', null, [el('i', { style: 'background:' + NEUTRAL }), 'No votes yet']));
+  lg.appendChild(el('span', { text: 'Darker = wider margin' }));
+}
+
+/* ── Status pill and notices ── */
+function renderStatus() {
+  var d = state.data, pill = document.getElementById('statusPill'), note = document.getElementById('notice');
+  var live = d && d.status && d.status !== 'pre';
+  note.hidden = true;
+  if (isSample) { pill.textContent = 'Sample results · Updated ' + fmtTime(d.generated_at); document.getElementById('sampleRibbon').hidden = false; return; }
+  if (live) {
+    pill.textContent = (d.status === 'final' ? 'Unofficial final tally' : 'Live results') + ' · Updated ' + fmtTime(d.generated_at);
+    var age = (Date.now() - Date.parse(d.generated_at)) / 60000;
+    if (d.status === 'live' && age > STALE_MIN) {
+      note.textContent = 'Heads up: the numbers here have not refreshed in about ' + Math.round(age) + ' minutes and may be behind. ';
+      if (d.source && /^https:\/\//.test(d.source.url || '')) { note.appendChild(el('a', { href: d.source.url, rel: 'noopener', text: 'Check the state’s site' })); note.appendChild(document.createTextNode(' for the latest.')); }
+      else note.appendChild(document.createTextNode('Check the state’s site for the latest.'));
+      note.hidden = false;
+    } else if (state.fetchFailed) {
+      note.textContent = 'The latest update could not be loaded just now. The numbers shown are from ' + fmtTime(d.generated_at) + '. This page will try again shortly.';
+      note.hidden = false;
+    }
+    return;
+  }
+  if (Date.now() >= POLLS_CLOSE && Date.now() < POLLS_CLOSE + 36 * 3600 * 1000) {
+    pill.textContent = 'Polls have closed · Waiting for the first county reports';
+  } else {
+    pill.textContent = 'Polls close 7:00 PM Central · Results appear here as counties report';
+  }
+  if (state.fetchFailed) {
+    note.textContent = 'The latest results could not be loaded just now. This page will try again shortly.';
+    note.hidden = false;
+  }
+}
+
+function render() { renderStatus(); renderChambers(); selectCounty(state.sel); paintMap(); }
+
+/* ── Data ── */
+function validData(d) {
+  return d && typeof d === 'object' && d.schema === 1 && typeof d.status === 'string' && Array.isArray(d.contests) && typeof d.generated_at === 'string' && !isNaN(Date.parse(d.generated_at));
+}
+function load() {
+  if (isSample) { state.data = sampleData(); render(); return; }
+  if (!DATA_URL) { render(); return; }
+  fetch(DATA_URL + (DATA_URL.indexOf('?') > -1 ? '&' : '?') + 't=' + Date.now(), { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function (d) { if (!validData(d)) throw new Error('bad data'); state.data = d; state.fetchFailed = false; render(); })
+    .catch(function () { state.fetchFailed = true; render(); });
+}
+
+/* ── Sample data (same shape as the feed; placeholder names) ── */
+function hs(s) { var x = 2166136261; for (var i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 16777619); } return ((x >>> 0) % 10000) / 10000; }
+function sampleData() {
+  var now = new Date(Date.now() - 60000).toISOString();
+  function mk(id, title, names, base, span, all) {
+    var cands = names.map(function (n, i) { return { id: 'k' + i, name: n, party: i === 0 ? 'D' : 'R' }; });
+    var counties = {};
+    paths.forEach(function (p) {
+      var f = p.getAttribute('data-fips');
+      if (!all && f !== CHAMBERS) return;
+      var full = Math.round(2500 + Math.pow(hs(f + 'v'), 2) * 70000); if (f === CHAMBERS) full = 13480;
+      var r3 = hs(f + 'r'), rep = r3 > 0.86 ? Math.round(60 + (r3 - 0.86) / 0.14 * 35) : 100;
+      var n = Math.round(full * rep / 100), a = Math.round(n * (base + span * hs(f + id)));
+      var bt = 20, br = Math.round(bt * rep / 100);
+      counties[f] = { votes: { k0: a, k1: n - a }, boxes_reported: br, boxes_total: bt, updated_at: now };
+    });
+    return { id: id, title: title, candidates: cands, counties: counties };
+  }
+  return { schema: 1, status: 'live', generated_at: now, contests: [
+    mk('gov', 'Governor', ['Candidate A', 'Candidate B'], 0.22, 0.5, true),
+    mk('us-sen', 'U.S. Senate', ['Candidate C', 'Candidate D'], 0.25, 0.5, true),
+    mk('us-house-3', 'U.S. House, 3rd District', ['Candidate E', 'Candidate F'], 0.3, 0.4, false),
+    mk('al-senate-13', 'State Senate, District 13', ['Candidate G', 'Candidate H'], 0.3, 0.4, false),
+    mk('al-house-38', 'State House, District 38', ['Candidate I', 'Candidate J'], 0.3, 0.4, false),
+    mk('lt-gov', 'Lieutenant Governor', ['Candidate K', 'Candidate L'], 0.25, 0.5, true)
+  ] };
+}
+
+/* ── Site chrome (hamburger, same as the rest of the site) ── */
+window.toggleNav = function () { document.getElementById('nav-links').classList.toggle('open'); };
+document.querySelectorAll('#nav-links .nav-link, #nav-links .nav-dropdown-link').forEach(function (link) {
+  link.addEventListener('click', function () { document.getElementById('nav-links').classList.remove('open'); });
+});
+
+if (isSample) { var rm = document.querySelector('meta[name=robots]'); if (rm) rm.setAttribute('content', 'noindex, nofollow'); }
+load();
+if (!isSample && DATA_URL) setInterval(function () { if (!document.hidden) load(); }, POLL_MS);
+})();
+</script>
+
+</body>
+</html>

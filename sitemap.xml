@@ -359,6 +359,13 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Returns (election night) -->
+  <url>
+    <loc>https://readtheroom.news/returns/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Games -->
   <url>
     <loc>https://readtheroom.news/games/</loc>

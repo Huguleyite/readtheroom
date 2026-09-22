@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 17 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #25 | Diplomatic Immunity</title>
+      <link>https://readtheroom.news/read-the-room/issue/25/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/25/</guid>
+      <pubDate>Tue, 22 Sep 2026 09:00:00 +0000</pubDate>
+      <description>Nicol&#225;s Maduro's lawyers say his drug-trafficking case should be dismissed &#8212; because by their account, he's still Venezuela's president.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/25/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Supreme Court Just Kept Your Absentee Ballot Running on Alabama's Rules, Not the Postal Service's | The Frequency Signal</title>

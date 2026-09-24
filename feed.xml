@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 22 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The Frequency &#8212; Issue #24 | Shelf Life.</title>
+      <link>https://readtheroom.news/the-frequency/issue/24/</link>
+      <guid isPermaLink="true">https://readtheroom.news/the-frequency/issue/24/</guid>
+      <pubDate>Thu, 24 Sep 2026 09:00:00 +0000</pubDate>
+      <description>ALDI files plans for a Valley storefront, four constitutional amendments land on Alabama's November ballot, the state splits on the CHOOSE Act, CVCC lands two workforce grants, and Opelika pulls a clinic contract.</description>
+      <enclosure url="https://readtheroom.news/the-frequency/issue/24/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>Read the Room — Issue #25 | Diplomatic Immunity</title>

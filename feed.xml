@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 24 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #26 | SAVE As</title>
+      <link>https://readtheroom.news/read-the-room/issue/26/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/26/</guid>
+      <pubDate>Tue, 29 Sep 2026 09:00:00 +0000</pubDate>
+      <description>The Supreme Court let DHS resume its expanded SAVE database for voter citizenship checks. What changed, what the order allows, and both sides&#8217; case.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/26/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency &#8212; Issue #24 | Shelf Life.</title>

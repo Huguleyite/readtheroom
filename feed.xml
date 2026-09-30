@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 29 Sep 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The Frequency &#8212; Issue #25 | Posted Limits.</title>
+      <link>https://readtheroom.news/the-frequency/issue/25/</link>
+      <guid isPermaLink="true">https://readtheroom.news/the-frequency/issue/25/</guid>
+      <pubDate>Thu, 01 Oct 2026 09:00:00 +0000</pubDate>
+      <description>Phenix City schools buy Troy&#8217;s riverfront campus, Lee County adopts an $80 million budget, TikTok settles with Alabama, SB 24 starts Thursday, and Trump rallies in Mobile.</description>
+      <enclosure url="https://readtheroom.news/the-frequency/issue/25/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>Read the Room — Issue #26 | SAVE As</title>

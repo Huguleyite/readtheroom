@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 01 Oct 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #27 | Strait Talk</title>
+      <link>https://readtheroom.news/read-the-room/issue/27/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/27/</guid>
+      <pubDate>Tue, 06 Oct 2026 09:00:00 +0000</pubDate>
+      <description>Seven months into the Iran war, Trump rejected Iran&#8217;s offer to reopen the Strait of Hormuz. Costs, polls, and both sides&#8217; case for what comes next.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/27/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency &#8212; Issue #25 | Posted Limits.</title>

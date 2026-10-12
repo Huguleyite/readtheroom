@@ -322,40 +322,55 @@
   }
   .wave-hero-btn:hover { opacity: 0.85; }
 
-  /* Signal hero — homepage feature strip for a live Signal */
-  .signal-hero { background: #1a1a18; border-top: 3px solid #c8a96e; }
-  .signal-hero-inner {
-    max-width: 640px; margin: 0 auto;
-    padding: 64px 40px; text-align: center;
+  /* Signal feature — homepage spotlight directly under the nav */
+  .sig-feature {
+    background-color: #111110;
+    background-image: repeating-radial-gradient(circle at 92% -10%, rgba(200,169,110,0) 0 26px, rgba(200,169,110,.13) 26px 27px);
+    border-top: 3px solid #c8a96e; border-bottom: 1px solid #2a2a26;
   }
-  .signal-hero-eyebrow {
-    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-    font-size: 9px; font-weight: 500; letter-spacing: 0.24em;
-    text-transform: uppercase; color: #c8a96e; margin-bottom: 18px;
+  .sig-feature-inner {
+    max-width: 1040px; margin: 0 auto; padding: 48px 40px;
+    display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center;
   }
-  .signal-hero-eyebrow-dot {
-    width: 5px; height: 5px; border-radius: 50%; background: #c8a96e;
-    animation: signalPulse 2s ease-in-out infinite;
+  .sig-feature-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.24em;
+    text-transform: uppercase; color: #c8a96e; margin-bottom: 16px;
   }
+  .sig-feature-dot { width: 5px; height: 5px; border-radius: 50%; background: #c8a96e; animation: signalPulse 2s ease-in-out infinite; }
   @keyframes signalPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-  .signal-hero-hed {
+  @media (prefers-reduced-motion: reduce) { .sig-feature-dot { animation: none; } }
+  .sig-feature-hed {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 32px; font-weight: 700; color: #faf9f5;
-    line-height: 1.15; margin-bottom: 16px;
+    font-size: 36px; font-weight: 700; color: #faf9f5; line-height: 1.12; margin-bottom: 16px;
   }
-  .signal-hero-dek {
+  .sig-feature-hed a { color: inherit; text-decoration: none; }
+  .sig-feature-dek {
     font-family: 'Source Serif 4', Georgia, serif;
-    font-style: italic; font-weight: 300; font-size: 16px;
-    color: #d8d3c8; line-height: 1.7; max-width: 480px;
-    margin: 0 auto 30px;
+    font-style: italic; font-weight: 300; font-size: 17px;
+    color: #d8d3c8; line-height: 1.6; margin-bottom: 26px; max-width: 520px;
   }
-  .signal-hero-btn {
-    display: inline-block; font-size: 10px; font-weight: 500;
+  .sig-feature-btn {
+    display: inline-block; font-size: 10.5px; font-weight: 500;
     letter-spacing: 0.16em; text-transform: uppercase;
-    padding: 13px 30px; background: #c8a96e; color: #1a1a18;
+    padding: 14px 32px; background: #c8a96e; color: #1a1a18;
     text-decoration: none; transition: opacity 0.2s;
   }
-  .signal-hero-btn:hover { opacity: 0.85; }
+  .sig-feature-btn:hover { opacity: 0.85; }
+  .sig-feature-faces { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; text-decoration: none; }
+  .sig-face img {
+    display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover;
+    border-radius: 2px; border-bottom: 3px solid #c8a96e; background: #222;
+  }
+  .sig-face-party {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #c8a96e; margin-top: 10px;
+  }
+  .sig-face-name {
+    font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700;
+    color: #faf9f5; line-height: 1.25;
+  }
+  .nav-link-signal { color: #c8a96e !important; font-weight: 500; }
 
   /* Games placeholder visual */
   .games-visual {
@@ -557,6 +572,13 @@
     .nav-dropdown-link { padding: 10px 24px; }
   }
 
+  @media (max-width: 760px) {
+    .sig-feature-inner { grid-template-columns: 1fr; gap: 28px; padding: 40px 24px; }
+    .sig-feature-hed { font-size: 28px; }
+    .sig-feature-dek { font-size: 15.5px; }
+    .sig-feature-btn { display: block; text-align: center; }
+  }
+
   /* ── Responsive 480px ── */
   @media (max-width: 480px) {
     .hero { padding: 48px 20px 56px; }
@@ -569,9 +591,8 @@
     .wave-hero-inner { padding: 48px 20px; }
     .wave-hero-hed { font-size: 26px; }
     .wave-hero-dek { font-size: 14px; }
-    .signal-hero-inner { padding: 48px 20px; }
-    .signal-hero-hed { font-size: 26px; }
-    .signal-hero-dek { font-size: 14px; }
+    .sig-feature-inner { padding: 36px 20px; }
+    .sig-feature-hed { font-size: 25px; }
     .site-footer { padding: 40px 20px 24px; }
     .footer-cols { flex-direction: column; gap: 28px; }
     .modal-box { padding: 28px 20px 24px; }
@@ -626,9 +647,36 @@
       <a class="nav-link" href="/games/">Games</a>
       <div class="nav-sep"></div>
       <a class="nav-link" href="/about/">About</a>
+      <div class="nav-sep"></div>
+      <a class="nav-link nav-link-signal" href="/signal/chambers-county-commission-district-5.html">District 5 &rarr;</a>
     </div>
   </div>
 </nav>
+
+<!-- ══════════════ SIGNAL FEATURE ══════════════ -->
+<!-- Homepage spotlight for the live Signal. Swap content when the next Signal replaces this one. -->
+<section class="sig-feature">
+  <div class="sig-feature-inner">
+    <div>
+      <p class="sig-feature-eyebrow"><span class="sig-feature-dot"></span>The Frequency &middot; Signal 09 &middot; Chambers County</p>
+      <h2 class="sig-feature-hed"><a href="/signal/chambers-county-commission-district-5.html">Chambers County Commission District 5: Two Candidates, Two Starting Points</a></h2>
+      <p class="sig-feature-dek">Sandra Calloway-Crim and Sara Crutchfield answered the same questions. One begins with roads and run-down property. The other begins with growth.</p>
+      <a href="/signal/chambers-county-commission-district-5.html" class="sig-feature-btn">Read the Signal &rarr;</a>
+    </div>
+    <a class="sig-feature-faces" href="/signal/chambers-county-commission-district-5.html" aria-label="Read the District 5 Signal">
+      <div class="sig-face">
+        <img src="/assets/img/signal/d5-crim.jpg" alt="Sandra Calloway-Crim" width="640" height="640" fetchpriority="high">
+        <div class="sig-face-party">Democratic nominee</div>
+        <div class="sig-face-name">Sandra Calloway-Crim</div>
+      </div>
+      <div class="sig-face">
+        <img src="/assets/img/signal/d5-crutchfield.jpg" alt="Sara Crutchfield" width="640" height="640" fetchpriority="high">
+        <div class="sig-face-party">Republican nominee</div>
+        <div class="sig-face-name">Sara Crutchfield</div>
+      </div>
+    </a>
+  </div>
+</section>
 
 <!-- ══════════════ HERO ══════════════ -->
 <section class="hero">
@@ -757,14 +805,14 @@
   <!-- RTR side -->
         <!-- RTR-LATEST-START -->
   <div class="split-rtr">
-    <div class="deco-num deco-num-rtr">27</div>
-    <p class="split-pub-label split-pub-label-rtr">Read the Room &nbsp;&middot;&nbsp; Issue #27 &nbsp;&middot;&nbsp; October 6, 2026</p>
+    <div class="deco-num deco-num-rtr">28</div>
+    <p class="split-pub-label split-pub-label-rtr">Read the Room &nbsp;&middot;&nbsp; Issue #28 &nbsp;&middot;&nbsp; October 13, 2026</p>
     <div class="split-rule split-rule-rtr"></div>
-    <h2 class="split-hed split-hed-rtr">Seven months into the Iran war, the strait is still shut, the blockade is still on, and Trump has turned down Iran&rsquo;s latest offer.</h2>
+    <h2 class="split-hed split-hed-rtr">The Pentagon says it will livestream a firing squad execution, and the president says he will decide.</h2>
     <p class="split-teaser">
-      Where the war stands, what Iran offered and why Trump said no, what it has cost, and each side&rsquo;s case for what comes next.
+      What was announced, what is still open, and each side&rsquo;s case on whether an execution should be public.
     </p>
-    <a href="/read-the-room/issue/27/" class="split-btn split-btn-rtr">Read the full issue &rarr;</a>
+    <a href="/read-the-room/issue/28/" class="split-btn split-btn-rtr">Read the full issue &rarr;</a>
   </div>
   <!-- RTR-LATEST-END -->
 
@@ -808,17 +856,6 @@
 
 </div>
 
-<!-- ══════════════ SIGNAL HERO ══════════════ -->
-<!-- Homepage spotlight for a live Signal. Swap content or remove when the next Signal/Wave replaces this one. -->
-<section class="signal-hero">
-  <div class="signal-hero-inner">
-    <p class="signal-hero-eyebrow"><span class="signal-hero-eyebrow-dot"></span>The Frequency &middot; Signal</p>
-    <h2 class="signal-hero-hed">The Supreme Court Just Kept Your Absentee Ballot Running on Alabama&rsquo;s Rules, Not the Postal Service&rsquo;s</h2>
-    <p class="signal-hero-dek">Chambers and Lee County voters have had absentee ballots in hand since September 9. The Supreme Court just made sure the rules for delivering them didn&rsquo;t change five weeks before Election Day.</p>
-    <a href="/signal/alabama-mail-ballot-supreme-court-ruling.html" class="signal-hero-btn">Read the Signal &rarr;</a>
-  </div>
-</section>
-
 <!-- ══════════════ SUBSCRIBE STRIP ══════════════ -->
 <div class="subscribe-strip">
 
@@ -830,7 +867,7 @@
       One topic. Both sides. No spin. A weekly deep dive into the federal story that matters most.
     </p>
     <a href="#" class="sub-btn sub-btn-rtr" onclick="openModal('modal-rtr'); return false;">Subscribe &rarr;</a>
-    <div class="sub-meta sub-meta-rtr"><!-- RTR-COUNT -->27 issues published<!-- /RTR-COUNT --></div>
+    <div class="sub-meta sub-meta-rtr"><!-- RTR-COUNT -->28 issues published<!-- /RTR-COUNT --></div>
   </div>
 
   <!-- TF subscribe -->

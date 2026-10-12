@@ -6,7 +6,25 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 08 Oct 2026 14:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #28 | Firing Line</title>
+      <link>https://readtheroom.news/read-the-room/issue/28/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/28/</guid>
+      <pubDate>Tue, 13 Oct 2026 09:00:00 +0000</pubDate>
+      <description>The Pentagon says it will livestream Nidal Hasan&#8217;s firing squad execution. Trump hasn&#8217;t decided. Both sides on whether an execution should be public.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/28/header.png" length="0" type="image/png"/>
+    </item>
+
+    <item>
+      <title>Chambers County Commission District 5: Two Candidates, Two Starting Points | The Frequency Signal</title>
+      <link>https://readtheroom.news/signal/chambers-county-commission-district-5.html</link>
+      <guid isPermaLink="true">https://readtheroom.news/signal/chambers-county-commission-district-5.html</guid>
+      <pubDate>Mon, 12 Oct 2026 18:30:00 +0000</pubDate>
+      <description>Sandra Calloway-Crim and Sara Crutchfield answered the same 14 questions on roads, growth, the budget and the job. One begins with roads and run-down property. The other begins with growth.</description>
+      <enclosure url="https://readtheroom.news/assets/img/signal/d5-share.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency &#8212; Issue #26 | Public Notice.</title>

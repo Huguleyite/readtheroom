@@ -192,6 +192,16 @@ body {
 }
 .chip[aria-pressed="true"] { background: #1a1a18; color: #faf9f5; border-color: #1a1a18; }
 .chip:focus-visible { outline: 2px solid #b8893a; outline-offset: 2px; }
+.dist-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 10px; }
+.dist-row .dlab { font-size: 12.5px; color: #6b675f; margin-right: 4px; }
+.dbtn {
+  position: relative; background: transparent; border: 1px solid #b9b19c; color: #1a1a18; border-radius: 4px;
+  min-width: 34px; padding: 5px 10px; font-size: 13px; font-family: inherit; font-weight: 400; cursor: pointer;
+}
+.dbtn[aria-pressed="true"] { background: #1a1a18; color: #faf9f5; border-color: #1a1a18; }
+.dbtn.has::after { content: ''; position: absolute; top: -3px; right: -3px; width: 8px; height: 8px; border-radius: 50%; background: #b8893a; border: 1.5px solid #faf9f5; }
+.dbtn:focus-visible { outline: 2px solid #b8893a; outline-offset: 2px; }
+.dnote { background: #f3ecd9; border-left: 3px solid #b8893a; padding: 9px 12px; font-size: 13.5px; line-height: 1.5; color: #33322d; margin-bottom: 18px; border-radius: 0 3px 3px 0; }
 
 /* Explainers */
 .ex { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-bottom: 44px; }
@@ -528,7 +538,21 @@ var FALLBACK = ['#b8893a', '#5d6b7a', '#8b6bb0', '#3f8f6b'];
 var NEUTRAL = '#e6e0d0';
 
 var isSample = /[?&]sample=1(&|$)/.test(location.search);
-var state = { data: null, mapContest: null, sel: CHAMBERS, fetchFailed: false };
+var state = { data: null, mapContest: null, sel: CHAMBERS, fetchFailed: false, districts: [3] };
+
+/* Congressional districts by county, under the map in force for 2026 (districts 1, 2, 6 and 7 redrawn).
+   Split counties appear in more than one list. The feed also tells us which districts a county has votes in,
+   and the page merges the two, so a missing entry here cannot hide a district. */
+var DISTRICTS = {
+  1: ['Baldwin', 'Covington', 'Escambia', 'Mobile'],
+  2: ['Barbour', 'Bullock', 'Butler', 'Coffee', 'Covington', 'Crenshaw', 'Dale', 'Elmore', 'Geneva', 'Henry', 'Houston', 'Lowndes', 'Macon', 'Montgomery', 'Pike', 'Russell'],
+  3: ['Calhoun', 'Chambers', 'Cherokee', 'Clay', 'Cleburne', 'Etowah', 'Lee', 'Randolph', 'St. Clair', 'Talladega', 'Tallapoosa'],
+  4: ['Blount', 'Colbert', 'Cullman', 'DeKalb', 'Fayette', 'Franklin', 'Lamar', 'Lauderdale', 'Marion', 'Marshall', 'Tuscaloosa', 'Walker', 'Winston'],
+  5: ['Jackson', 'Lauderdale', 'Lawrence', 'Limestone', 'Madison', 'Morgan'],
+  6: ['Autauga', 'Bibb', 'Chilton', 'Coosa', 'Elmore', 'Jefferson', 'Shelby', 'Talladega'],
+  7: ['Choctaw', 'Clarke', 'Conecuh', 'Dallas', 'Greene', 'Hale', 'Jefferson', 'Marengo', 'Monroe', 'Perry', 'Pickens', 'Sumter', 'Tuscaloosa', 'Washington', 'Wilcox']
+};
+var ORD = ['', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th'];
 
 /* ── helpers ── */
 function el(tag, attrs, kids) {
@@ -687,27 +711,61 @@ function mix(a, b, t) {
 }
 function mapContests() {
   var d = state.data; if (!d || !d.contests) return [];
-  var withMap = d.contests.filter(function (c) { return c.counties && Object.keys(c.counties).length > 3; });
+  var withMap = d.contests.filter(function (c) { return !/^us-house-\d+$/.test(c.id) && c.counties && Object.keys(c.counties).length > 3; });
   /* Map chips are for statewide contests. If the feed has none (a rehearsal on district-only races), fall back to all. */
   var statewide = withMap.filter(function (c) { return c.scope === 'statewide'; });
-  return statewide.length ? statewide : withMap;
+  var out = statewide.length ? statewide : withMap;
+  if (Object.keys(houseMap()).length) out = out.concat([{ id: 'house', title: 'U.S. Representative' }]);
+  return out;
+}
+/* U.S. House: district number -> that district's contest, from the feed. */
+function houseMap() {
+  var m = {}, d = state.data; if (!d || !d.contests) return m;
+  d.contests.forEach(function (c) {
+    var r = /^us-house-(\d+)$/.exec(c.id);
+    if (r && c.counties && Object.keys(c.counties).length) m[+r[1]] = c;
+  });
+  return m;
+}
+function countyDists(fips) {
+  var p = document.getElementById('c' + fips), name = p ? p.getAttribute('data-name') : '', out = [];
+  for (var n = 1; n <= 7; n++) if (DISTRICTS[n].indexOf(name) > -1) out.push(n);
+  var hm = houseMap();
+  Object.keys(hm).forEach(function (k) { if (hm[k].counties[fips] && out.indexOf(+k) < 0) out.push(+k); });
+  return out.sort(function (a, b) { return a - b; });
+}
+function houseFromCounty() {
+  var ds = countyDists(state.sel);
+  state.districts = ds.length ? ds : [3];
+}
+function activeContests() {
+  var d = state.data; if (!d) return [];
+  if (state.mapContest === 'house') {
+    var hm = houseMap();
+    return state.districts.map(function (n) { return hm[n]; }).filter(Boolean);
+  }
+  var c = state.mapContest ? contestById(d, state.mapContest) : null;
+  return c ? [c] : [];
+}
+function shadeFor(c, cd) {
+  if (!cd || !c.candidates) return null;
+  var t = total(cd.votes, c.candidates); if (t <= 0) return null;
+  var ld = leader(cd.votes, c.candidates); if (ld.tie) return null;
+  var sorted = c.candidates.map(function (x) { return num(cd.votes[x.id]); }).sort(function (a, b) { return b - a; });
+  var m = (sorted[0] - (sorted[1] || 0)) / t;
+  var sh = Math.min(1, Math.pow(m / 0.5, 0.8));
+  return mix(NEUTRAL, candColor(c.candidates[ld.idx], ld.idx), 0.15 + 0.85 * sh);
 }
 function paintMap() {
-  var c = state.data && state.mapContest ? contestById(state.data, state.mapContest) : null;
+  var act = activeContests();
   paths.forEach(function (p) {
-    var fill = NEUTRAL, cd = c && c.counties ? c.counties[p.getAttribute('data-fips')] : null;
-    if (cd && c.candidates) {
-      var t = total(cd.votes, c.candidates);
-      if (t > 0) {
-        var ld = leader(cd.votes, c.candidates);
-        if (!ld.tie) {
-          var sorted = c.candidates.map(function (x) { return num(cd.votes[x.id]); }).sort(function (a, b) { return b - a; });
-          var m = (sorted[0] - (sorted[1] || 0)) / t;
-          var s = Math.min(1, Math.pow(m / 0.5, 0.8));
-          fill = mix(NEUTRAL, candColor(c.candidates[ld.idx], ld.idx), 0.15 + 0.85 * s);
-        }
-      }
-    }
+    var f = p.getAttribute('data-fips'), fill = NEUTRAL, best = -1;
+    act.forEach(function (c) {
+      var cd = c.counties ? c.counties[f] : null; if (!cd) return;
+      /* A split county sits in two selected districts: shade it by the district where it cast more votes. */
+      var t = total(cd.votes, c.candidates), sh = shadeFor(c, cd);
+      if (sh && t > best) { best = t; fill = sh; }
+    });
     p.style.fill = fill;
   });
 }
@@ -715,6 +773,7 @@ function selectCounty(id) {
   state.sel = id;
   var p = document.getElementById('c' + id); if (!p) return;
   selOutline.setAttribute('d', p.getAttribute('d'));
+  if (state.mapContest === 'house') { houseFromCounty(); paintMap(); }
   renderSide();
   renderHint(p);
 }
@@ -741,16 +800,19 @@ function renderSide() {
     document.getElementById('legend').textContent = '';
     return;
   }
-  if (!state.mapContest || !contestById(d, state.mapContest)) state.mapContest = list[0].id;
-  var c = contestById(d, state.mapContest);
+  var ids = list.map(function (x) { return x.id; });
+  if (!state.mapContest || ids.indexOf(state.mapContest) < 0) state.mapContest = list[0].id;
+  var isHouse = state.mapContest === 'house';
+  var c = isHouse ? null : contestById(d, state.mapContest);
 
   var chips = el('div', { class: 'chips', role: 'group', 'aria-label': 'Choose a statewide contest' });
   list.forEach(function (x) {
     var b = el('button', { class: 'chip', type: 'button', 'aria-pressed': x.id === state.mapContest ? 'true' : 'false', text: x.title });
-    b.addEventListener('click', function () { state.mapContest = x.id; paintMap(); renderSide(); });
+    b.addEventListener('click', function () { state.mapContest = x.id; if (x.id === 'house') houseFromCounty(); paintMap(); renderSide(); });
     chips.appendChild(b);
   });
   side.appendChild(chips);
+  if (isHouse) { renderHouse(side); return; }
 
   /* statewide totals */
   var full = 0, n = 0;
@@ -782,8 +844,12 @@ function renderSide() {
   }
   side.appendChild(cblk);
 
-  /* legend */
+  renderLegend(c);
+}
+
+function renderLegend(c) {
   var lg = document.getElementById('legend'); lg.textContent = '';
+  if (!c) return;
   var seen = {};
   c.candidates.forEach(function (x, i) {
     var col = candColor(x, i); if (seen[col]) return; seen[col] = 1;
@@ -791,6 +857,72 @@ function renderSide() {
   });
   lg.appendChild(el('span', null, [el('i', { style: 'background:' + NEUTRAL }), 'No votes yet, or not on the ballot']));
   lg.appendChild(el('span', { text: 'Darker = wider margin' }));
+}
+
+function houseBlocks(c, n, fips, cdists) {
+  var frag = document.createDocumentFragment(), p = document.getElementById('c' + fips);
+  var full = 0, cnt = 0, sumV = {}; c.candidates.forEach(function (x) { sumV[x.id] = 0; });
+  Object.keys(c.counties).forEach(function (f) {
+    var cd = c.counties[f]; cnt++;
+    c.candidates.forEach(function (x) { sumV[x.id] += num(cd.votes && cd.votes[x.id]); });
+    if (fullyReporting(cd)) full++;
+  });
+  var useV = (c.statewide && c.statewide.votes) ? c.statewide.votes : sumV;
+  var blk = el('div', { class: 'block' });
+  blk.appendChild(el('h3', { text: 'District ' + n + ' total, U.S. Representative' }));
+  blk.appendChild(resultBlock(c.candidates, useV));
+  blk.appendChild(el('div', { class: 'fine', text: fmtN(total(useV, c.candidates)) + ' votes counted · ' + full + ' of ' + cnt + ' counties fully reporting' + (c.statewide && c.statewide.updated_at ? ' · Updated ' + fmtTime(c.statewide.updated_at) : '') + (isSample ? ' (sample)' : '') }));
+  frag.appendChild(blk);
+  var cd = c.counties[fips];
+  if (cd || cdists.indexOf(n) > -1) {
+    var cb = el('div', { class: 'block' });
+    cb.appendChild(el('h3', { text: (p ? p.getAttribute('data-name') : 'County') + ' County, District ' + n + (cdists.length > 1 ? ' portion' : '') }));
+    if (cd) {
+      cb.appendChild(resultBlock(c.candidates, cd.votes));
+      var bits = [boxesText(cd)]; if (cd.updated_at) bits.push('Updated ' + fmtTime(cd.updated_at));
+      bits = bits.filter(Boolean);
+      if (bits.length) cb.appendChild(el('div', { class: 'fine', text: bits.join(' · ') + (isSample ? ' (sample)' : '') }));
+    } else {
+      cb.appendChild(el('p', { class: 'fine', text: 'The state has not posted this county for this district yet.' }));
+    }
+    frag.appendChild(cb);
+  }
+  return frag;
+}
+function renderHouse(side) {
+  var fips = state.sel, p = document.getElementById('c' + fips), name = p ? p.getAttribute('data-name') : 'This';
+  var cds = countyDists(fips), hm = houseMap();
+
+  var row = el('div', { class: 'dist-row', role: 'group', 'aria-label': 'Choose congressional districts' });
+  row.appendChild(el('span', { class: 'dlab', text: 'District' }));
+  for (var n = 1; n <= 7; n++) (function (n) {
+    var has = cds.indexOf(n) > -1, on = state.districts.indexOf(n) > -1;
+    var b = el('button', { class: 'dbtn' + (has ? ' has' : ''), type: 'button', 'aria-pressed': on ? 'true' : 'false', 'aria-label': 'District ' + n + (has ? ', ' + name + ' County is in this district' : ''), text: String(n) });
+    b.addEventListener('click', function () {
+      var i = state.districts.indexOf(n);
+      if (i > -1) { if (state.districts.length > 1) state.districts.splice(i, 1); } else { state.districts.push(n); }
+      state.districts.sort(function (a, b) { return a - b; });
+      paintMap(); renderSide();
+    });
+    row.appendChild(b);
+  })(n);
+  side.appendChild(row);
+
+  var msg = '';
+  if (cds.length === 1) msg = name + ' County is in District ' + cds[0] + '.';
+  else if (cds.length > 1) msg = name + ' County is split between Districts ' + cds.slice(0, -1).join(', ') + (cds.length > 2 ? ',' : '') + ' and ' + cds[cds.length - 1] + '. Select one or both. '.replace('one or both', cds.length > 2 ? 'any or all' : 'one or both');
+  if (state.districts.length > 1) msg += (msg && !/ $/.test(msg) ? ' ' : '') + 'Each district is a separate race, so results are shown side by side, not added together.';
+  if (msg) side.appendChild(el('div', { class: 'dnote', text: msg.trim() }));
+
+  state.districts.forEach(function (n) {
+    var c = hm[n];
+    if (c) { side.appendChild(houseBlocks(c, n, fips, cds)); return; }
+    var blk = el('div', { class: 'block' });
+    blk.appendChild(el('h3', { text: 'District ' + n + ' total, U.S. Representative' }));
+    blk.appendChild(el('p', { class: 'fine', text: 'The state has not posted this district yet.' }));
+    side.appendChild(blk);
+  });
+  renderLegend(activeContests()[0] || null);
 }
 
 /* ── Status pill and notices ── */
@@ -856,7 +988,7 @@ function sampleData() {
     var counties = {};
     paths.forEach(function (p) {
       var f = p.getAttribute('data-fips');
-      if (!all && f !== CHAMBERS) return;
+      if (Array.isArray(all) ? all.indexOf(p.getAttribute('data-name')) < 0 : (!all && f !== CHAMBERS)) return;
       var full = Math.round(2500 + Math.pow(hs(f + 'v'), 2) * 70000); if (f === CHAMBERS) full = 13480;
       var r3 = hs(f + 'r'), rep = r3 > 0.86 ? Math.round(60 + (r3 - 0.86) / 0.14 * 35) : 100;
       var n = Math.round(full * rep / 100), a = Math.round(n * (base + span * hs(f + id)));
@@ -868,11 +1000,12 @@ function sampleData() {
   return { schema: 1, status: 'live', generated_at: now, contests: [
     mk('gov', 'Governor', ['Candidate A', 'Candidate B'], 0.22, 0.5, true),
     mk('us-sen', 'U.S. Senate', ['Candidate C', 'Candidate D'], 0.25, 0.5, true),
-    mk('us-house-3', 'U.S. House, 3rd District', ['Candidate E', 'Candidate F'], 0.3, 0.4, false),
     mk('al-senate-13', 'State Senate, District 13', ['Candidate G', 'Candidate H'], 0.3, 0.4, false),
     mk('al-house-38', 'State House, District 38', ['Candidate I', 'Candidate J'], 0.3, 0.4, false),
     mk('lt-gov', 'Lieutenant Governor', ['Candidate K', 'Candidate L'], 0.25, 0.5, true)
-  ] };
+  ].concat([1, 2, 3, 4, 5, 6, 7].map(function (n) {
+    return mk('us-house-' + n, 'U.S. House, ' + ORD[n] + ' District', ['Candidate H' + n + 'a', 'Candidate H' + n + 'b'], 0.28 + 0.03 * n, 0.4, DISTRICTS[n]);
+  })) };
 }
 
 /* ── Site chrome (hamburger, same as the rest of the site) ── */

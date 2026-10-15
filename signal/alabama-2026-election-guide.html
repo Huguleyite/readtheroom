@@ -208,6 +208,18 @@
   .facts-box a { color: #b8782a; text-decoration: none; border-bottom: 0.5px solid #c8a96e; }
   .facts-box a:hover { color: #7a4e1a; border-bottom-color: #7a4e1a; }
 
+  /* ── Sample ballots ── */
+  .ballot-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0 8px; }
+  .article-body .ballot-card { display: block; border: 1px solid #d0cfc8; border-radius: 3px; background: #fff; text-decoration: none; color: #1a1a18; overflow: hidden; }
+  .article-body .ballot-card:hover { border-color: #b8782a; color: #1a1a18; }
+  .ballot-card img { display: block; width: 100%; height: auto; border-bottom: 1px solid #d0cfc8; }
+  .ballot-card-body { padding: 12px 14px 14px; font-family: 'DM Sans', Arial, sans-serif; line-height: 1.4; }
+  .ballot-card-title { font-size: 15px; font-weight: 500; }
+  .ballot-card-note { font-size: 12px; color: #888880; margin-top: 2px; }
+  .ballot-card-cta { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #b8782a; margin-top: 8px; }
+  .ballot-hint { font-family: 'DM Sans', Arial, sans-serif; font-size: 13px; color: #888880; }
+  @media (max-width: 600px) { .ballot-cards { grid-template-columns: 1fr; } }
+
   /* ── Subscribe CTA ── */
   .subscribe-cta {
     background: #1a1a18;
@@ -575,7 +587,7 @@
     <h3>Amendment 4: National Anthem</h3>
     <p>Local school boards would have to adopt policies to broadcast or sanction the first stanza of the &ldquo;Star-Spangled Banner&rdquo; at least once a week. Sponsor: Sen. Gerald Allen, a Republican. Votes: 23-5 in the Senate and 75-27 in the House, mostly along party lines.</p>
 
-    <p>The numbering follows the state&rsquo;s explanations. Check it against your sample ballot at <a href="https://www.alabamavotes.gov" target="_blank" rel="noopener">alabamavotes.gov</a>.</p>
+    <p>On the ballot, these appear as Statewide Amendments 1 through 4.</p>
 
     <h2 id="undercard">The Undercard</h2>
 
@@ -586,10 +598,13 @@
     <p>Katherine Robertson won the Republican nomination, defeating Jay Mitchell 55 to 45 percent. Robertson faces Democrat Jeff McLaughlin in November.</p>
 
     <h3 id="secretary-of-state">Secretary of State</h3>
-    <p>Caroleene Dobson won the Republican primary outright with 66 percent of the vote.</p>
+    <p>Caroleene Dobson won the Republican primary outright with 66 percent of the vote. She faces Democrat Wayne Rogers in November.</p>
 
     <h3 id="psc">Public Service Commission</h3>
     <p>Place 1 is set: Cullman County Sheriff Matt Gentry, who unseated Commissioner Jeremy Oden in the primary, faces Democrat James Gordon. Place 2 went to former state auditor Jim Zeigler, who defeated Commissioner Chip Beeker 51.34 to 48.66 percent. Democrat Sheila McNeil faces Zeigler in November. We covered why the PSC decides what you pay for power in <a href="/signal/alabama-psc-election-june-2026.html">an earlier Signal</a>.</p>
+
+    <h3 id="other-statewide">Other Statewide Offices</h3>
+    <p>Also on your ballot: State Treasurer, Democrat Rosilyn Houston vs. Republican Young Boozer. State Auditor, Democrat Violet Edwards vs. Republican Andrew Sorrell. Commissioner of Agriculture and Industries, Democrat Ron Sparks vs. Republican Corey Hill. State Board of Education District 2, Democrat Jamie McCurry vs. Republican Tracie West. Associate Justice of the Supreme Court, Place 8, Democrat Ashleigh Meyer Dunham vs. Republican Greg Shaw. Place 7 (Brad Mendheim), Court of Civil Appeals Places 4 (Benjamin M. Bowden) and 5 (Matt Fridy), and Court of Criminal Appeals Places 4 (Mary Windom) and 5 (Riggs Walker) are Republicans with no opponent on the ballot.</p>
 
     <h2 id="chambers-ballot">Your Ballot in Chambers County</h2>
 
@@ -602,8 +617,36 @@
     <h3 id="state-house-38">State House, District 38</h3>
     <p>Hazel Floyd is back on the ballot. The 22-year-old Valley native lost February&rsquo;s special election to Republican Kristin Nelson while being outspent $58,135 to $1,527.64 &mdash; every dollar of hers from individual donors. She re-qualified anyway, won May&rsquo;s Democratic primary with 73.85 percent, and faces Nelson again November 3 in a district Republicans have held since 2014. Her full story is <a href="/wave/hazel-floyd-she-came-home-to-fight-for-it.html">here</a>.</p>
 
+    <p>Part of Chambers County votes in House District 37, where Democrat Michelle French faces Republican Jeff Monroe.</p>
+
     <h3 id="county-offices">County Offices</h3>
-    <p>Partisan county offices appear on the November 3 ballot. For coroner, Republican Levi Richardson, a Lanett paramedic and five-year deputy coroner who won the June 16 runoff, faces Democrat Maurice Ward. Municipal officers were elected August 25 in nonpartisan races. Check your sample ballot at <a href="https://www.alabamavotes.gov" target="_blank" rel="noopener">alabamavotes.gov</a>.</p>
+    <p>Partisan county offices appear on the November 3 ballot. Sheriff Jeff Nelson and Revenue Commissioner Beth Abney, both Republicans, are unopposed. For coroner, Republican Levi Richardson, a Lanett paramedic and five-year deputy coroner who won the June 16 runoff, faces Democrat Maurice Ward. Depending on where you live, your ballot also lists County Commission District 3 (John Benefield, R, unopposed) or District 5 (Sandra Calloway Crim, D, vs. Sara Crutchfield, R), and County Board of Education District 2 (Candace Lyons, D, unopposed) or District 4 (Jody Jennings, R, unopposed). Municipal officers were elected August 25 in nonpartisan races. Check the sample ballots below or at <a href="https://www.alabamavotes.gov" target="_blank" rel="noopener">alabamavotes.gov</a>.</p>
+
+    <h2 id="sample-ballots">See Your Sample Ballot</h2>
+
+    <p>Every voter in a county gets the same statewide and countywide races. State House, county commission and school board seats depend on where you live, so the ballot you receive will show only your districts. Here are the full sample ballots for Chambers and Lee counties. In the middle of each, a separate panel lists the offices that run by district.</p>
+
+    <div class="ballot-cards">
+      <a class="ballot-card" href="/ballots/chambers-county-sample-ballot-2026.pdf" target="_blank" rel="noopener">
+        <img src="/ballots/chambers-county-sample-ballot-2026-preview.jpg" width="1400" height="906" loading="lazy" alt="Preview of the Chambers County, Alabama sample ballot for the November 3, 2026 general election and constitutional amendment election">
+        <div class="ballot-card-body">
+          <div class="ballot-card-title">Chambers County</div>
+          <div class="ballot-card-note">Sample ballot, November 3, 2026 &middot; PDF</div>
+          <div class="ballot-card-cta">Open the full PDF &rarr;</div>
+        </div>
+      </a>
+      <a class="ballot-card" href="/ballots/lee-county-sample-ballot-2026.pdf" target="_blank" rel="noopener">
+        <img src="/ballots/lee-county-sample-ballot-2026-preview.jpg" width="1400" height="906" loading="lazy" alt="Preview of the Lee County, Alabama sample ballot for the November 3, 2026 general election and constitutional amendment election">
+        <div class="ballot-card-body">
+          <div class="ballot-card-title">Lee County</div>
+          <div class="ballot-card-note">Sample ballot, November 3, 2026 &middot; PDF</div>
+          <div class="ballot-card-cta">Open the full PDF &rarr;</div>
+        </div>
+      </a>
+    </div>
+    <p class="ballot-hint">The PDFs are tabloid size. On a phone, pinch to zoom.</p>
+
+    <p>Not sure which districts you live in? Look yours up with the state&rsquo;s VoterView tool at <a href="https://www.alabamavotes.gov" target="_blank" rel="noopener">alabamavotes.gov</a>. If anything on a sample differs from the ballot you receive, the official ballot controls.</p>
 
     <h2 id="register">How to Register and Vote</h2>
 

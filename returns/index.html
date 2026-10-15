@@ -500,10 +500,10 @@ body {
 /* ══════════════ READ THE RETURNS ══════════════
    Data contract: /returns/data-spec.md
    - DATA_URL is the JSON feed published by the separate data repo (custom Actions workflow).
-     Leave it empty until that feed exists; the page then shows the pre-election ballot.
+     While the feed says status "pre" (or returns 404), the page shows the pre-election ballot.
    - ?sample=1 renders built-in placeholder data through the same code path (for testing).
    - Nothing here calls races. The page shows votes counted and who is ahead. */
-var DATA_URL = '';
+var DATA_URL = 'https://huguleyite.github.io/rtr-returns-data/returns.json';
 var POLL_MS = 180000;      // re-fetch every 3 minutes (the feed itself updates about every 10)
 var STALE_MIN = 30;        // warn if the feed is older than this while results are live
 var CHAMBERS = '01017';
@@ -687,7 +687,10 @@ function mix(a, b, t) {
 }
 function mapContests() {
   var d = state.data; if (!d || !d.contests) return [];
-  return d.contests.filter(function (c) { return c.counties && Object.keys(c.counties).length > 3; });
+  var withMap = d.contests.filter(function (c) { return c.counties && Object.keys(c.counties).length > 3; });
+  /* Map chips are for statewide contests. If the feed has none (a rehearsal on district-only races), fall back to all. */
+  var statewide = withMap.filter(function (c) { return c.scope === 'statewide'; });
+  return statewide.length ? statewide : withMap;
 }
 function paintMap() {
   var c = state.data && state.mapContest ? contestById(state.data, state.mapContest) : null;
@@ -759,7 +762,7 @@ function renderSide() {
   });
   var useV = (c.statewide && c.statewide.votes) ? c.statewide.votes : sumV;
   var blk = el('div', { class: 'block' });
-  blk.appendChild(el('h3', { text: 'Statewide, ' + c.title }));
+  blk.appendChild(el('h3', { text: (c.scope === 'district' ? 'District total, ' : c.scope === 'county' ? 'County total, ' : 'Statewide, ') + c.title }));
   blk.appendChild(resultBlock(c.candidates, useV));
   var tot = total(useV, c.candidates);
   blk.appendChild(el('div', { class: 'fine', text: fmtN(tot) + ' votes counted · ' + full + ' of ' + n + ' counties fully reporting' + (c.statewide && c.statewide.updated_at ? ' · Updated ' + fmtTime(c.statewide.updated_at) : '') + (isSample ? ' (sample)' : '') }));
@@ -786,7 +789,7 @@ function renderSide() {
     var col = candColor(x, i); if (seen[col]) return; seen[col] = 1;
     lg.appendChild(el('span', null, [el('i', { style: 'background:' + col }), (x.party ? x.party + ' ahead' : x.name + ' ahead')]));
   });
-  lg.appendChild(el('span', null, [el('i', { style: 'background:' + NEUTRAL }), 'No votes yet']));
+  lg.appendChild(el('span', null, [el('i', { style: 'background:' + NEUTRAL }), 'No votes yet, or not on the ballot']));
   lg.appendChild(el('span', { text: 'Darker = wider margin' }));
 }
 
@@ -831,8 +834,16 @@ function load() {
   if (isSample) { state.data = sampleData(); render(); return; }
   if (!DATA_URL) { render(); return; }
   fetch(DATA_URL + (DATA_URL.indexOf('?') > -1 ? '&' : '?') + 't=' + Date.now(), { cache: 'no-store' })
-    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-    .then(function (d) { if (!validData(d)) throw new Error('bad data'); state.data = d; state.fetchFailed = false; render(); })
+    .then(function (r) {
+      if (r.status === 404) return null;          // feed not published yet: same as before polls close
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (d) {
+      if (d === null) { state.data = null; state.fetchFailed = false; render(); return; }
+      if (!validData(d)) throw new Error('bad data');
+      state.data = d; state.fetchFailed = false; render();
+    })
     .catch(function () { state.fetchFailed = true; render(); });
 }
 

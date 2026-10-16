@@ -514,6 +514,18 @@
     .article-body { font-size: 16px; }
     .race-parties { grid-template-columns: 1fr; }
   }
+.amd { border: 1px solid #d0cfc8; border-radius: 3px; background: #fff; padding: 4px 18px 16px; margin: 16px 0; }
+.amd h3 { margin-top: 12px; }
+.amd ol { margin: 0 0 12px 22px; padding: 0; }
+.amd-meta { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 10px; margin-top: 12px; }
+.vbox { background: #f6f5ef; border-radius: 3px; padding: 8px 10px; }
+.vl { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #6b6a62; }
+.vn { display: block; font-size: 17px; font-weight: 700; margin: 2px 0 6px; }
+.sp .vn { margin-bottom: 0; font-size: 15px; }
+.vbar { display: block; height: 6px; border-radius: 3px; background: #b23a2e; overflow: hidden; }
+.vbar i { display: block; height: 100%; background: #3a7d44; }
+.amd-note { font-size: 14px; color: #6b6a62; margin: 8px 0 0; }
+@media (max-width: 560px) { .amd-meta { grid-template-columns: 1fr 1fr; } .amd-meta .sp { grid-column: 1 / -1; } }
 </style>
 </head>
 <body>
@@ -575,17 +587,31 @@
 
     <p>Alabama voters will also decide four statewide constitutional amendments. Each passed the Legislature with the required three-fifths vote in both chambers.</p>
 
-    <h3>Amendment 1: Lieutenant Governor Vacancies</h3>
-    <p>Today, a vacancy in only the lieutenant governor&rsquo;s office stays empty for the rest of the term. This amendment would require a statewide election to fill a vacancy that occurs more than 60 days before the next general election. It would also let the Legislature set the pay of the lieutenant governor and legislators. Sponsor: Sen. Sam Givhan, a Republican. Votes: 29-0 in the Senate, 101-0 in the House.</p>
+    <div class="amd">
+      <h3>Amendment 1: Lieutenant Governor Vacancies</h3>
+      <p>Requires a statewide election to fill a lieutenant governor vacancy that occurs more than 60 days before a general election. Today the seat stays empty for the rest of the term. Also lets the Legislature set the pay of the lieutenant governor and legislators.</p>
+      <div class="amd-meta"><div class="vbox sp"><span class="vl">Sponsor</span><span class="vn">Sen. Sam Givhan (R)</span></div><div class="vbox"><span class="vl">Senate</span><span class="vn">29&ndash;0</span><span class="vbar"><i style="width:100.0%"></i></span></div><div class="vbox"><span class="vl">House</span><span class="vn">101&ndash;0</span><span class="vbar"><i style="width:100.0%"></i></span></div></div>
+    </div>
 
-    <h3>Amendment 2: School System Mergers</h3>
-    <p>This amendment creates a process for neighboring county school boards to merge. The State Board of Education must first complete an impact study. Residents then get 30 days to file an initiative with signatures from 25 percent of voters in the affected systems, and a merger needs a majority vote in each county. Sponsor: Rep. Terri Collins, a Republican. Votes: 30-0 in the Senate, 96-2 in the House.</p>
+    <div class="amd">
+      <h3>Amendment 2: School System Mergers</h3>
+      <p>Creates a process for neighboring county school boards to merge:</p>
+      <ol><li>The State Board of Education completes an impact study.</li><li>Residents have 30 days to file an initiative, signed by 25 percent of voters in the affected systems.</li><li>A merger needs a majority vote in each county.</li></ol>
+      <div class="amd-meta"><div class="vbox sp"><span class="vl">Sponsor</span><span class="vn">Rep. Terri Collins (R)</span></div><div class="vbox"><span class="vl">Senate</span><span class="vn">30&ndash;0</span><span class="vbar"><i style="width:100.0%"></i></span></div><div class="vbox"><span class="vl">House</span><span class="vn">96&ndash;2</span><span class="vbar"><i style="width:98.0%"></i></span></div></div>
+    </div>
 
-    <h3>Amendment 3: Pledge of Allegiance and Student Prayer</h3>
-    <p>Local school boards would have to adopt a policy for a daily Pledge of Allegiance in every public school and allow student-initiated, student-led prayer. Students could opt out of either. Sponsor: Rep. Reed Ingram, a Republican. Votes: 30-0 in the Senate, 94-3 in the House.</p>
+    <div class="amd">
+      <h3>Amendment 3: Pledge of Allegiance and Student Prayer</h3>
+      <p>Local school boards must adopt a policy for a daily Pledge of Allegiance in every public school and allow student-initiated, student-led prayer. Students can opt out of either.</p>
+      <div class="amd-meta"><div class="vbox sp"><span class="vl">Sponsor</span><span class="vn">Rep. Reed Ingram (R)</span></div><div class="vbox"><span class="vl">Senate</span><span class="vn">30&ndash;0</span><span class="vbar"><i style="width:100.0%"></i></span></div><div class="vbox"><span class="vl">House</span><span class="vn">94&ndash;3</span><span class="vbar"><i style="width:96.9%"></i></span></div></div>
+    </div>
 
-    <h3>Amendment 4: National Anthem</h3>
-    <p>Local school boards would have to adopt policies to broadcast or sanction the first stanza of the &ldquo;Star-Spangled Banner&rdquo; at least once a week. Sponsor: Sen. Gerald Allen, a Republican. Votes: 23-5 in the Senate and 75-27 in the House, mostly along party lines.</p>
+    <div class="amd">
+      <h3>Amendment 4: National Anthem</h3>
+      <p>Local school boards must adopt policies to broadcast or sanction the first stanza of the &ldquo;Star-Spangled Banner&rdquo; at least once a week.</p>
+      <div class="amd-meta"><div class="vbox sp"><span class="vl">Sponsor</span><span class="vn">Sen. Gerald Allen (R)</span></div><div class="vbox"><span class="vl">Senate</span><span class="vn">23&ndash;5</span><span class="vbar"><i style="width:82.1%"></i></span></div><div class="vbox"><span class="vl">House</span><span class="vn">75&ndash;27</span><span class="vbar"><i style="width:73.5%"></i></span></div></div>
+      <p class="amd-note">Mostly along party lines.</p>
+    </div>
 
     <p>On the ballot, these appear as Statewide Amendments 1 through 4.</p>
 

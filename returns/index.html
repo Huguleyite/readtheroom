@@ -343,7 +343,7 @@ body {
   <h1 class="hero-title">Read the Returns</h1>
   <p class="hero-tagline">No refunds, just returns.</p>
   <p class="hero-descriptor">Alabama &middot; County by county &middot; Chambers first</p>
-  <div class="status-pill" id="statusPill" role="status" aria-live="polite">Polls close 7:00 PM Central &middot; Results appear here as counties report</div>
+  <div class="status-pill" id="statusPill" role="status" aria-live="polite">Polls close 7:00 p.m. local time (Eastern or Central) &middot; Results appear here as counties report</div>
   <div class="notice" id="notice" hidden></div>
 </header>
 <div class="sample-ribbon" id="sampleRibbon" hidden>Sample data &middot; Not real results &middot; Candidate names are placeholders</div>
@@ -353,7 +353,7 @@ body {
   <noscript><p class="notice" style="color:#33322d;background:#f4f0e4;border-color:#d9d3c3;margin:0 0 24px">Results load with JavaScript. Turn it on to see the latest numbers, or check the state's own site.</p></noscript>
 
   <!-- ══════════════ CHAMBERS COUNTY ══════════════ -->
-  <div class="sec-head"><h2>Chambers County</h2><span id="chMeta">Boxes reported: not yet &middot; Polls close 7:00 PM Central</span></div>
+  <div class="sec-head"><h2>Chambers County</h2><span id="chMeta">Boxes reported: not yet &middot; Polls close at 7:00 p.m. local time: 7 p.m. Eastern in parts of Chambers County, 7 p.m. Central in the rest. Results are expected after the last polls close, around 8 p.m. Eastern.</span></div>
   <section class="card" id="chCard" aria-label="Chambers County contests">
     <!-- Filled by script. Static fallback below shows the ballot if the script is blocked. -->
     <div class="contest"><div class="contest-top"><h3>Governor</h3></div><div class="cand"><span class="name">Doug Jones <span class="party">(D)</span></span><span class="num muted">no votes yet</span></div><div class="cand"><span class="name">Tommy Tuberville <span class="party">(R)</span></span><span class="num muted">no votes yet</span></div></div>
@@ -676,7 +676,7 @@ function renderChambers() {
     if (metaTime) parts.push('Updated ' + fmtTime(metaTime));
     meta.textContent = parts.join(' · ') + (isSample ? ' (sample)' : '');
   } else {
-    meta.textContent = 'Boxes reported: not yet · Polls close 7:00 PM Central';
+    meta.textContent = 'Boxes reported: not yet · Polls close at 7:00 p.m. local time: 7 p.m. Eastern in parts of Chambers County, 7 p.m. Central in the rest. Results are expected after the last polls close, around 8 p.m. Eastern.';
   }
 }
 function contestRow(title, cands, cd, o) {
@@ -948,7 +948,7 @@ function renderStatus() {
   if (Date.now() >= POLLS_CLOSE && Date.now() < POLLS_CLOSE + 36 * 3600 * 1000) {
     pill.textContent = 'Polls have closed · Waiting for the first county reports';
   } else {
-    pill.textContent = 'Polls close 7:00 PM Central · Results appear here as counties report';
+    pill.textContent = 'Polls close 7:00 p.m. local time (Eastern or Central) · Results appear here as counties report';
   }
   if (state.fetchFailed) {
     note.textContent = 'The latest results could not be loaded just now. This page will try again shortly.';

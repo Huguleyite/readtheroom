@@ -935,9 +935,12 @@ function renderStatus() {
     pill.textContent = (d.status === 'final' ? 'Unofficial final tally' : 'Live results') + ' · Updated ' + fmtTime(d.generated_at);
     var age = (Date.now() - Date.parse(d.generated_at)) / 60000;
     if (d.status === 'live' && age > STALE_MIN) {
-      note.textContent = 'Heads up: the numbers here have not refreshed in about ' + Math.round(age) + ' minutes and may be behind. ';
-      if (d.source && /^https:\/\//.test(d.source.url || '')) { note.appendChild(el('a', { href: d.source.url, rel: 'noopener', text: 'Check the state’s site' })); note.appendChild(document.createTextNode(' for the latest.')); }
-      else note.appendChild(document.createTextNode('Check the state’s site for the latest.'));
+      var stateUrl = (d.source && /^https:\/\//.test(d.source.url || '')) ? d.source.url : 'https://www2.alabamavotes.gov/electionNight/';
+      note.textContent = '';
+      note.appendChild(el('strong', { text: 'Our live feed is paused.' }));
+      note.appendChild(document.createTextNode(' We’re having trouble reading the state’s results, so the numbers below may be behind. Official unofficial results are posted at '));
+      note.appendChild(el('a', { href: stateUrl, rel: 'noopener', text: 'AlabamaVotes.gov' }));
+      note.appendChild(document.createTextNode('. We’ll update this page as soon as we’re back.'));
       note.hidden = false;
     } else if (state.fetchFailed) {
       note.textContent = 'The latest update could not be loaded just now. The numbers shown are from ' + fmtTime(d.generated_at) + '. This page will try again shortly.';

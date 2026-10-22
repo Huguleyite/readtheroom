@@ -101,7 +101,7 @@ A county counts as "fully reporting" when `boxes_reported >= boxes_total`, or `b
 |---|---|
 | `DATA_URL` empty, feed 404, or `status: "pre"` | Ballot names, "no votes yet", neutral map, "Polls close 7:00 p.m. local time" (7 p.m. Eastern in parts of Chambers County, 7 p.m. Central elsewhere; results expected after about 8 p.m. Eastern). After 7 PM CT Nov. 3 with no results: "Polls have closed · Waiting for the first county reports". |
 | `live` or `final` | Votes, percentages, who is ahead, boxes reported, per-row update times, colored map. |
-| `live` and older than 30 minutes | Same, plus a "may be behind" notice linking to `source.url`. |
+| `live` and older than 30 minutes | Same, plus the "Our live feed is paused" banner (numbers may be behind) linking to `source.url`, or to AlabamaVotes.gov if none. |
 | Fetch fails, no earlier data | Ballot view plus "could not be loaded" notice. |
 | Fetch fails, earlier data | Last good numbers plus a notice showing their time. |
 | `?sample=1` | Built-in placeholder data through the same renderer, "Sample data" ribbon, `noindex`. |

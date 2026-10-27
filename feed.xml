@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 22 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room — Issue #30 | Party Line</title>
+      <link>https://readtheroom.news/read-the-room/issue/30/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/30/</guid>
+      <pubDate>Tue, 27 Oct 2026 09:00:00 +0000</pubDate>
+      <description>The Supreme Court lifted the cap on party spending with candidates. How both parties have used it, the TV ad-rate fight, and both sides.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/30/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>Read the Room — Issue #29 | Age Limit</title>

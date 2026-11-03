@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 29 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room &#8212; Issue #31 | Polls Apart</title>
+      <link>https://readtheroom.news/read-the-room/issue/31/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/31/</guid>
+      <pubDate>Tue, 03 Nov 2026 09:00:00 +0000</pubDate>
+      <description>Election Day 2026: what is on the ballot, each party&#8217;s case, seven steps for the polls, when to expect results, and the fights over voting rules.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/31/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency &#8212; Issue #29 | Name Recognition.</title>

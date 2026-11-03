@@ -370,7 +370,6 @@
     font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 700;
     color: #faf9f5; line-height: 1.25;
   }
-  .nav-link-signal { color: #c8a96e !important; font-weight: 500; }
 
   /* Games placeholder visual */
   .games-visual {
@@ -606,6 +605,68 @@
     50% { opacity: 0.3; }
   }
 
+
+  /* Read the Returns feature — replaces the Signal spotlight under the nav */
+  .ret-feature {
+    background-color: #0B1124;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(200,169,110,0.05) 39px, rgba(200,169,110,0.05) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(200,169,110,0.05) 39px, rgba(200,169,110,0.05) 40px);
+    border-top: 3px solid #c8a96e; border-bottom: 1px solid #2a2a26;
+  }
+  .ret-feature-inner {
+    max-width: 1040px; margin: 0 auto; padding: 52px 40px;
+    display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center;
+  }
+  .ret-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.24em;
+    text-transform: uppercase; color: #c8a96e; margin-bottom: 16px;
+  }
+  .ret-dot { width: 5px; height: 5px; border-radius: 50%; background: #c8a96e; animation: signalPulse 2s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .ret-dot { animation: none; } }
+  .ret-hed {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 52px; font-weight: 700; color: #faf9f5; line-height: 1.02;
+    letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .ret-hed a { color: inherit; text-decoration: none; }
+  .ret-tag {
+    font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-weight: 300;
+    font-size: 20px; color: #c8a96e; letter-spacing: 0.04em; margin-bottom: 18px;
+  }
+  .ret-dek {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300; font-size: 17px; color: #d8d3c8; line-height: 1.6; margin-bottom: 26px; max-width: 520px;
+  }
+  .ret-btn {
+    display: inline-block; font-size: 10.5px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 14px 32px; background: #c8a96e; color: #1a1a18;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .ret-btn:hover { opacity: 0.85; }
+  .ret-card {
+    display: block; text-decoration: none; text-align: center;
+    border: 1px solid rgba(200,169,110,0.4); padding: 30px 24px 26px;
+    background: rgba(11,17,36,0.6);
+  }
+  .ret-card-label { font-size: 9px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: #8a897f; }
+  .ret-card-big {
+    font-family: 'Playfair Display', Georgia, serif; font-size: 64px; font-weight: 900;
+    color: #faf9f5; line-height: 1; margin: 12px 0 6px;
+    -webkit-text-stroke: 1px rgba(200,169,110,0.5);
+  }
+  .ret-card-sub { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; }
+  .ret-card-rule { height: 1px; background: rgba(200,169,110,0.3); margin: 22px 0 18px; }
+  .ret-card-note { font-size: 12.5px; line-height: 1.6; color: #b9b5aa; }
+  @media (max-width: 760px) {
+    .ret-feature-inner { grid-template-columns: 1fr; gap: 28px; padding: 40px 24px; }
+    .ret-hed { font-size: 38px; }
+    .ret-dek { font-size: 15.5px; }
+    .ret-btn { display: block; text-align: center; }
+  }
+  @media (max-width: 480px) { .ret-feature-inner { padding: 36px 20px; } .ret-hed { font-size: 32px; } .ret-card-big { font-size: 52px; } }
 </style>
 </head>
 <body>
@@ -647,33 +708,27 @@
       <a class="nav-link" href="/games/">Games</a>
       <div class="nav-sep"></div>
       <a class="nav-link" href="/about/">About</a>
-      <div class="nav-sep"></div>
-      <a class="nav-link nav-link-signal" href="/signal/chambers-county-commission-district-5.html">District 5 &rarr;</a>
     </div>
   </div>
 </nav>
 
-<!-- ══════════════ SIGNAL FEATURE ══════════════ -->
-<!-- Homepage spotlight for the live Signal. Swap content when the next Signal replaces this one. -->
-<section class="sig-feature">
-  <div class="sig-feature-inner">
+<!-- ══════════════ READ THE RETURNS FEATURE ══════════════ -->
+<!-- Homepage spotlight for election night. Replaces the Signal spotlight. -->
+<section class="ret-feature">
+  <div class="ret-feature-inner">
     <div>
-      <p class="sig-feature-eyebrow"><span class="sig-feature-dot"></span>The Frequency &middot; Signal 09 &middot; Chambers County</p>
-      <h2 class="sig-feature-hed"><a href="/signal/chambers-county-commission-district-5.html">Chambers County Commission District 5: Two Candidates, Two Starting Points</a></h2>
-      <p class="sig-feature-dek">Sandra Calloway-Crim and Sara Crutchfield answered the same questions. One begins with roads and run-down property. The other begins with growth.</p>
-      <a href="/signal/chambers-county-commission-district-5.html" class="sig-feature-btn">Read the Signal &rarr;</a>
+      <p class="ret-eyebrow"><span class="ret-dot"></span>Election night &middot; Tuesday, Nov. 3 &middot; Alabama</p>
+      <h2 class="ret-hed"><a href="/returns/">Read the Returns</a></h2>
+      <p class="ret-tag">No refunds, just returns.</p>
+      <p class="ret-dek">Alabama&rsquo;s results, county by county, starting with Chambers County. Unofficial numbers, plain-English explainers, no race calls.</p>
+      <a href="/returns/" class="ret-btn">Open the results &rarr;</a>
     </div>
-    <a class="sig-feature-faces" href="/signal/chambers-county-commission-district-5.html" aria-label="Read the District 5 Signal">
-      <div class="sig-face">
-        <img src="/assets/img/signal/d5-crim.jpg" alt="Sandra Calloway-Crim" width="640" height="640" fetchpriority="high">
-        <div class="sig-face-party">Democratic nominee</div>
-        <div class="sig-face-name">Sandra Calloway-Crim</div>
-      </div>
-      <div class="sig-face">
-        <img src="/assets/img/signal/d5-crutchfield.jpg" alt="Sara Crutchfield" width="640" height="640" fetchpriority="high">
-        <div class="sig-face-party">Republican nominee</div>
-        <div class="sig-face-name">Sara Crutchfield</div>
-      </div>
+    <a class="ret-card" href="/returns/" aria-label="Open Read the Returns">
+      <div class="ret-card-label">Polls close</div>
+      <div class="ret-card-big">7 PM</div>
+      <div class="ret-card-sub">Eastern or Central</div>
+      <div class="ret-card-rule"></div>
+      <p class="ret-card-note">Results appear here as counties report.</p>
     </a>
   </div>
 </section>

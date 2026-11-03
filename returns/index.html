@@ -945,6 +945,14 @@ function renderStatus() {
     } else if (state.fetchFailed) {
       note.textContent = 'The latest update could not be loaded just now. The numbers shown are from ' + fmtTime(d.generated_at) + '. This page will try again shortly.';
       note.hidden = false;
+    } else if (d.source && /^Hand-entered/.test(d.source.name || '')) {
+      var handUrl = /^https:\/\//.test(d.source.url || '') ? d.source.url : 'https://www2.alabamavotes.gov/electionNight/';
+      note.textContent = '';
+      note.appendChild(el('strong', { text: 'These numbers are typed in by hand.' }));
+      note.appendChild(document.createTextNode(' Our automatic feed is down, so our desk is copying results from the state’s site as they post. Updates may lag a few minutes. Official unofficial results are at '));
+      note.appendChild(el('a', { href: handUrl, rel: 'noopener', text: 'AlabamaVotes.gov' }));
+      note.appendChild(document.createTextNode('.'));
+      note.hidden = false;
     }
     return;
   }

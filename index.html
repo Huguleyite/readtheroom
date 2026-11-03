@@ -660,6 +660,8 @@
   .ret-card-sub { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e; }
   .ret-card-rule { height: 1px; background: rgba(200,169,110,0.3); margin: 22px 0 18px; }
   .ret-card-note { font-size: 12.5px; line-height: 1.6; color: #b9b5aa; }
+  .ret-card-btn { display: block; text-align: center; margin-top: 22px; }
+  .ret-card-meta { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #8a897f; margin-top: 12px; }
   @media (max-width: 760px) {
     .ret-feature-inner { grid-template-columns: 1fr; gap: 28px; padding: 40px 24px; }
     .ret-hed { font-size: 38px; }
@@ -723,13 +725,15 @@
       <p class="ret-dek">Alabama&rsquo;s results, county by county, starting with Chambers County. Unofficial numbers, plain-English explainers, no race calls.</p>
       <a href="/returns/" class="ret-btn">Open the results &rarr;</a>
     </div>
-    <a class="ret-card" href="/returns/" aria-label="Open Read the Returns">
+    <div class="ret-card">
       <div class="ret-card-label">Polls close</div>
       <div class="ret-card-big">7 PM</div>
       <div class="ret-card-sub">Eastern or Central</div>
       <div class="ret-card-rule"></div>
       <p class="ret-card-note">Results appear here as counties report.</p>
-    </a>
+      <a href="#" class="ret-btn ret-card-btn" onclick="openModal('modal-rtr'); return false;">Subscribe &rarr;</a>
+      <p class="ret-card-meta">Read the Room &nbsp;&middot;&nbsp; Every Tuesday</p>
+    </div>
   </div>
 </section>
 

@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 05 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room &#8212; Issue #32 | Eleventh Hour</title>
+      <link>https://readtheroom.news/read-the-room/issue/32/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/32/</guid>
+      <pubDate>Tue, 10 Nov 2026 09:00:00 +0000</pubDate>
+      <description>Congress faces a Dec. 11 government shutdown deadline, a $1.5 trillion defense fight and a possible Hegseth impeachment vote. Both sides explained.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/32/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency &#8212; Issue #30 | Not a Concession.</title>

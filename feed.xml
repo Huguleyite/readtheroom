@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 19 Nov 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>Read the Room &#8212; Issue #34 | Three of a Kind</title>
+      <link>https://readtheroom.news/read-the-room/issue/34/</link>
+      <guid isPermaLink="true">https://readtheroom.news/read-the-room/issue/34/</guid>
+      <pubDate>Tue, 24 Nov 2026 09:00:00 +0000</pubDate>
+      <description>Trump, Xi and Putin met in Shenzhen for the first three-way nuclear summit. What they agreed to, what they left out, and what each side says it means.</description>
+      <enclosure url="https://readtheroom.news/read-the-room/issue/34/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>The Frequency &#8212; Issue #32 | Who Pays.</title>

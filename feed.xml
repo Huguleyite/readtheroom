@@ -6,7 +6,16 @@
     <description>Every Tuesday morning. One topic. Both sides. No bull.</description>
     <language>en-us</language>
     <atom:link href="https://readtheroom.news/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Tue, 24 Nov 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 12:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The Frequency &#8212; Issue #33 | Passing Grade.</title>
+      <link>https://readtheroom.news/the-frequency/issue/33/</link>
+      <guid isPermaLink="true">https://readtheroom.news/the-frequency/issue/33/</guid>
+      <pubDate>Thu, 26 Nov 2026 12:00:00 +0000</pubDate>
+      <description>Opelika planners advance data center zoning, Chambers County commissioners elect Sam Bradford chairman, LaFayette High climbs to a C, a state senator plans license plate reader limits, and the inaugural parade is off.</description>
+      <enclosure url="https://readtheroom.news/the-frequency/issue/33/header.png" length="0" type="image/png"/>
+    </item>
 
     <item>
       <title>Read the Room &#8212; Issue #34 | Three of a Kind</title>
